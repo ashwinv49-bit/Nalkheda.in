@@ -1,4 +1,4 @@
-name: Deploy Aansh Collection Preview
+name: Deploy Aansh Collection — GitHub Pages
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -33,18 +33,22 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Next.js static export
+      - name: Build static export
         run: npm run build
         env:
           NODE_ENV: production
+          # Set to /aansh-collection for GitHub Pages subdirectory deploy.
+          # Remove this line if you have a custom domain (e.g. aanshcollection.in).
+          NEXT_PUBLIC_BASE_PATH: /aansh-collection
 
-      - name: Add .nojekyll (required for GitHub Pages)
+      - name: Add .nojekyll
         run: touch ./out/.nojekyll
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
           publish_branch: gh-pages
-          commit_message: 'deploy: ${{ github.sha }}'
+          commit_message: "deploy: ${{ github.sha }}"
+          force_orphan: true
