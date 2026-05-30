@@ -35,7 +35,4 @@ jobs:
       - name: Deploy to Netlify
         run: |
           npm install -g netlify-cli
-          netlify deploy --dir=out --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN
-        env:
-          NETLIFY_AUTH_TOKEN: nfp_1emqxLvbTGAZJR96pXtvr5kmA8CjAWt79276
-          NETLIFY_SITE_ID: e9ea0616-1fa6-4346-bf48-5fc2a048dc90
+          netlify deploy --dir=out --prod --site=e9ea0616-1fa6-4346-bf48-5fc2a048dc90 --auth=nfp_1emqxLvbTGAZJR96pXtvr5kmA8CjAWt79276
