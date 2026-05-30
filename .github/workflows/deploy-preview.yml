@@ -1,4 +1,4 @@
-name: Deploy Aansh Collection — GitHub Pages
+name: Deploy Aansh Collection to Netlify
 
 on:
   push:
@@ -7,17 +7,8 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,22 +24,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build static export
+      - name: Build Next.js static export
         run: npm run build
         env:
           NODE_ENV: production
-          # Set to /aansh-collection for GitHub Pages subdirectory deploy.
-          # Remove this line if you have a custom domain (e.g. aanshcollection.in).
-          NEXT_PUBLIC_BASE_PATH: /aansh-collection
+          NEXT_PUBLIC_BASE_PATH: ''
 
-      - name: Add .nojekyll
-        run: touch ./out/.nojekyll
-
-      - name: Deploy to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          publish_branch: gh-pages
-          commit_message: "deploy: ${{ github.sha }}"
-          force_orphan: true
+      - name: Deploy to Netlify
+        run: |
+          npm install -g netlify-cli
+          netlify deploy --dir=out --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN
+        env:
+          NETLIFY_AUTH_TOKEN: nfp_1emqxLvbTGAZJR96pXtvr5kmA8CjAWt79276
+          NETLIFY_SITE_ID: e9ea0616-1fa6-4346-bf48-5fc2a048dc90
