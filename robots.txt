@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mabanglamukhinalkhedadham.netlify.app/sitemap.xml
+Sitemap: https://nalkheda.in/sitemap.xml
