@@ -1,10 +1,82 @@
 [[headers]]
-  for = '/*'
+  for = "/*.html"
   [headers.values]
-    Cache-Control = 'no-cache, no-store, must-revalidate'
-    Pragma = 'no-cache'
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
 
 [[headers]]
-  for = '/*.html'
+  for = "/"
   [headers.values]
-    Cache-Control = 'no-cache, no-store, must-revalidate'
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Clean URLs — serve .html files without extension
+[[redirects]]
+  from = "/travel-guide"
+  to = "/travel-guide.html"
+  status = 200
+
+[[redirects]]
+  from = "/hotels"
+  to = "/hotels.html"
+  status = 200
+
+[[redirects]]
+  from = "/how-to-reach"
+  to = "/how-to-reach.html"
+  status = 200
+
+[[redirects]]
+  from = "/temple-timings"
+  to = "/temple-timings.html"
+  status = 200
+
+[[redirects]]
+  from = "/faq"
+  to = "/faq.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 200
+
+[[redirects]]
+  from = "/disclaimer"
+  to = "/disclaimer.html"
+  status = 200
