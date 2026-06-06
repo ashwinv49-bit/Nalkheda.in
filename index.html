@@ -162,8 +162,9 @@
 <!-- PERFORMANCE: preconnect to Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- PERFORMANCE: preload first gallery image -->
-<link rel="preload" as="image" href="temple1.jpg">
+<!-- PERFORMANCE: preload first gallery image (WebP for modern browsers, JPG fallback) -->
+<link rel="preload" as="image" href="maa-darshan.webp" type="image/webp">
+<link rel="preload" as="image" href="maa-darshan.jpg" imagesrcset="maa-darshan.webp" imagesizes="33vw">
 <!-- Fonts with display=swap for faster render -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
@@ -2054,7 +2055,10 @@
 
           <!-- Slide 0 — Maa Sakshaat Darshan (uploaded by client) -->
           <div class="gallery-slide" onclick="openLightbox(this)">
-            <img src="maa-darshan.jpg" alt="Maa Baglamukhi Sakshaat Darshan — Nalkheda Dham Garbha Griha" loading="eager" fetchpriority="high">
+            <picture>
+              <source srcset="maa-darshan.webp" type="image/webp">
+              <img src="maa-darshan.jpg" alt="Maa Baglamukhi Sakshaat Darshan — Nalkheda Dham Garbha Griha" loading="eager" fetchpriority="high" width="800" height="1067">
+            </picture>
             <div class="gallery-slide-overlay"><span class="gallery-slide-caption">🙏 Maa Baglamukhi — Sakshaat Darshan, Nalkheda</span></div>
           </div>
 
