@@ -6,6 +6,7 @@ on:
     - cron: '30 3 1 * *'
     - cron: '30 3 16 * *'
   workflow_dispatch:
+  push:
 
 # Workflow-level permissions required for GITHUB_TOKEN to create issues
 permissions:
