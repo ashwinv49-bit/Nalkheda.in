@@ -15,11 +15,16 @@ permissions:
 jobs:
   create-review-issue:
     runs-on: ubuntu-latest
-    # Only run on schedule or manual dispatch — skip push-triggered validation runs
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
 
     steps:
+      - name: Exit early on push-triggered validation runs
+        if: github.event_name != 'schedule' && github.event_name != 'workflow_dispatch'
+        run: |
+          echo "Push-triggered validation run — nothing to do."
+          exit 0
+
       - name: Check for existing open review issue (prevent duplicates)
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         id: check
         uses: actions/github-script@v7
         with:
@@ -40,7 +45,7 @@ jobs:
             }
 
       - name: Create SEO Review Issue
-        if: steps.check.outputs.skip != 'true'
+        if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && steps.check.outputs.skip != 'true'
         uses: actions/github-script@v7
         with:
           script: |
