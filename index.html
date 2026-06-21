@@ -1256,6 +1256,58 @@
     gap: 0.35rem;
   }
 
+  a.nearby-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .nearby-card-cta {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-size: 0.78rem;
+    color: var(--bright-gold);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .circuit-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+
+  .circuit-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.75rem 1.5rem;
+    border: 1.5px solid var(--bright-gold);
+    color: var(--bright-gold);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .circuit-cta-btn:hover {
+    background: var(--bright-gold);
+    color: var(--deep-maroon);
+  }
+
+  .circuit-cta-secondary {
+    border-color: rgba(212,160,23,0.5);
+    color: rgba(212,160,23,0.7);
+  }
+
+  .circuit-cta-secondary:hover {
+    background: rgba(212,160,23,0.15);
+    color: var(--bright-gold);
+  }
+
   /* ===== TIPS ===== */
   #tips { background: var(--pale-gold); }
 
@@ -2463,16 +2515,18 @@
     <div class="divider"></div>
     <p class="section-desc">Combine your Nalkheda pilgrimage with these powerful temples on the same circuit.</p>
     <div class="nearby-scroll">
-      <div class="nearby-card" data-emoji="🔱">
+      <a href="/ujjain.html" class="nearby-card" data-emoji="🔱">
         <h3>Mahakaleshwar Jyotirlinga</h3>
         <p>One of the 12 Jyotirlingas. Home to the legendary Bhasma Aarti at dawn. Ujjain's crown jewel.</p>
         <div class="nearby-dist">📍 ~100 km from Nalkheda</div>
-      </div>
-      <div class="nearby-card" data-emoji="🕉️">
+        <span class="nearby-card-cta">→ Full Ujjain Pilgrimage Guide</span>
+      </a>
+      <a href="/omkareshwar.html" class="nearby-card" data-emoji="🕉️">
         <h3>Omkareshwar Jyotirlinga</h3>
         <p>Sacred island temple on the Om-shaped Mandhata island in the Narmada river. Profoundly peaceful.</p>
         <div class="nearby-dist">📍 ~130 km from Nalkheda</div>
-      </div>
+        <span class="nearby-card-cta">→ Full Omkareshwar Guide</span>
+      </a>
       <div class="nearby-card" data-emoji="⚡">
         <h3>Kaal Bhairav Temple</h3>
         <p>Fierce protector of Ujjain city — where devotees offer liquor as prasad. An ancient and unique experience.</p>
@@ -2488,6 +2542,19 @@
         <p>A revered Shiva temple with profound healing energy, located in Agar Malwa district.</p>
         <div class="nearby-dist">📍 ~30 km from Nalkheda</div>
       </div>
+    </div>
+
+    <!-- MP Circuit CTA -->
+    <div class="circuit-cta-row">
+      <a href="/ujjain.html" class="circuit-cta-btn">
+        🔱 Ujjain Complete Guide
+      </a>
+      <a href="/omkareshwar.html" class="circuit-cta-btn">
+        🕉️ Omkareshwar Complete Guide
+      </a>
+      <a href="/blog/nalkheda-to-omkareshwar.html" class="circuit-cta-btn circuit-cta-secondary">
+        📍 Nalkheda → Omkareshwar Route
+      </a>
     </div>
   </div>
 </section>
