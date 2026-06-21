@@ -1308,6 +1308,158 @@
     color: var(--bright-gold);
   }
 
+  /* ===== MP CIRCUIT SECTION ===== */
+  #circuit {
+    background: linear-gradient(180deg, #0d0500 0%, #1a0a00 100%);
+    color: white;
+  }
+  #circuit .section-title { color: var(--bright-gold); }
+  #circuit .section-label { color: var(--saffron); opacity:1; }
+  #circuit .section-desc { color: rgba(255,255,255,0.55); }
+  #circuit .divider { background: var(--saffron); }
+
+  .circuit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .circuit-card {
+    position: relative;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(212,160,23,0.18);
+    padding: 2rem 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .circuit-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(212,160,23,0.5);
+  }
+  .circuit-home {
+    border-color: rgba(212,160,23,0.4);
+    background: rgba(212,160,23,0.05);
+  }
+
+  .circuit-stop {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--saffron);
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+  }
+  .circuit-icon {
+    font-size: 2.4rem;
+    display: block;
+    margin-bottom: 0.8rem;
+  }
+  .circuit-card h3 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.82rem;
+    color: var(--bright-gold);
+    margin-bottom: 0.35rem;
+    letter-spacing: 0.03em;
+    line-height: 1.4;
+  }
+  .circuit-deity {
+    font-size: 0.78rem;
+    color: var(--saffron);
+    margin-bottom: 1rem;
+  }
+  .circuit-highlights {
+    list-style: none;
+    margin-bottom: 1.2rem;
+  }
+  .circuit-highlights li {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    padding: 0.2rem 0 0.2rem 1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .circuit-highlights li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--saffron);
+    font-weight: 700;
+  }
+  .circuit-dist {
+    font-size: 0.76rem;
+    color: rgba(232,98,26,0.8);
+    margin-bottom: 1.2rem;
+  }
+  .circuit-card-link {
+    display: inline-block;
+    font-size: 0.78rem;
+    color: var(--bright-gold);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid rgba(212,160,23,0.35);
+    padding-bottom: 1px;
+    text-decoration: none;
+  }
+
+  .circuit-plan {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(212,160,23,0.15);
+    padding: 1.5rem 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .circuit-plan-item {
+    flex: 1;
+    min-width: 160px;
+    text-align: center;
+  }
+  .circuit-day {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.65rem;
+    color: var(--saffron);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+  }
+  .circuit-plan-text {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+  }
+  .circuit-arrow {
+    color: rgba(232,98,26,0.6);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .circuit-route-link {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 2rem;
+    border: 1.5px solid rgba(212,160,23,0.35);
+    color: var(--bright-gold);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .circuit-route-link:hover {
+    background: rgba(212,160,23,0.08);
+  }
+
+  @media (max-width: 900px) {
+    .circuit-grid { grid-template-columns: 1fr; }
+    .circuit-plan { flex-direction: column; gap: 0.8rem; }
+    .circuit-arrow { transform: rotate(90deg); }
+  }
+
   /* ===== TIPS ===== */
   #tips { background: var(--pale-gold); }
 
@@ -2090,6 +2242,88 @@
   <div class="scroll-indicator">↓</div>
 </section>
 
+<!-- MP PILGRIMAGE CIRCUIT -->
+<section id="circuit">
+  <div class="section-inner">
+    <span class="section-label">Madhya Pradesh Pilgrimage Circuit</span>
+    <h2 class="section-title">The Sacred Triangle</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Shakti Peetha + two Jyotirlingas — all within 235 km. Three divine seats in one unforgettable yatra.</p>
+
+    <div class="circuit-grid">
+
+      <!-- Stop I: Nalkheda -->
+      <div class="circuit-card circuit-home">
+        <div class="circuit-stop">Stop I &mdash; Base Camp</div>
+        <span class="circuit-icon">🌟</span>
+        <h3>Nalkheda — Maa Baglamukhi</h3>
+        <div class="circuit-deity">Shakti Peetha &middot; 8th Mahavidya</div>
+        <ul class="circuit-highlights">
+          <li>3rd Baglamukhi shrine in all of India</li>
+          <li>75 Hawan Kunds open 7 AM – 11 PM</li>
+          <li>Sacred Lakhundar Nadi ghat behind mandir</li>
+        </ul>
+        <div class="circuit-dist">📍 Agar-Malwa, Madhya Pradesh</div>
+        <a href="#about" class="circuit-card-link">Explore the Dham ↓</a>
+      </div>
+
+      <!-- Stop II: Ujjain -->
+      <a href="/ujjain.html" class="circuit-card">
+        <div class="circuit-stop">Stop II &mdash; 100 km &middot; ~2 hrs</div>
+        <span class="circuit-icon">🔱</span>
+        <h3>Ujjain — Mahakaleshwar</h3>
+        <div class="circuit-deity">Jyotirlinga #7 &middot; Lord Shiva</div>
+        <ul class="circuit-highlights">
+          <li>Bhasma Aarti at 4 AM — ash-ritual of Lord Shiva</li>
+          <li>Maa Harsiddhi Shakti Peetha in the same city</li>
+          <li>Kaal Bhairav, Ram Ghat &amp; Sandipani Ashram</li>
+        </ul>
+        <div class="circuit-dist">📍 ~100 km from Nalkheda</div>
+        <span class="circuit-card-link">Full Ujjain Guide →</span>
+      </a>
+
+      <!-- Stop III: Omkareshwar -->
+      <a href="/omkareshwar.html" class="circuit-card">
+        <div class="circuit-stop">Stop III &mdash; 235 km &middot; ~4.5 hrs</div>
+        <span class="circuit-icon">🕉️</span>
+        <h3>Omkareshwar</h3>
+        <div class="circuit-deity">Jyotirlinga #4 &middot; OM Island, Narmada</div>
+        <ul class="circuit-highlights">
+          <li>OM-shaped Mandhata Island in the Narmada river</li>
+          <li>Boat parikrama — ₹50 per person</li>
+          <li>Mammleshwar temple on the south bank</li>
+        </ul>
+        <div class="circuit-dist">📍 ~235 km from Nalkheda (via Indore)</div>
+        <span class="circuit-card-link">Full Omkareshwar Guide →</span>
+      </a>
+
+    </div>
+
+    <!-- 3-day itinerary strip -->
+    <div class="circuit-plan">
+      <div class="circuit-plan-item">
+        <div class="circuit-day">Day 1 — Nalkheda</div>
+        <div class="circuit-plan-text">Arrive &middot; Hawan darshan &middot; Evening Aarti on Lakhundar ghat</div>
+      </div>
+      <div class="circuit-arrow">→</div>
+      <div class="circuit-plan-item">
+        <div class="circuit-day">Day 2 — Ujjain</div>
+        <div class="circuit-plan-text">100 km drive &middot; 4 AM Bhasma Aarti &middot; Harsiddhi &amp; Kaal Bhairav</div>
+      </div>
+      <div class="circuit-arrow">→</div>
+      <div class="circuit-plan-item">
+        <div class="circuit-day">Day 3 — Omkareshwar</div>
+        <div class="circuit-plan-text">130 km drive &middot; Boat parikrama &middot; Narmada sunset aarti</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="/blog/nalkheda-to-omkareshwar.html" class="circuit-route-link">📍 See Full Route &amp; Distance Guide</a>
+    </div>
+
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section id="about">
   <div class="section-inner">
@@ -2510,10 +2744,10 @@
 <!-- NEARBY TEMPLES -->
 <section id="nearby">
   <div class="section-inner">
-    <span class="section-label">Temple Circuit</span>
-    <h2 class="section-title">Nearby Sacred Sites</h2>
+    <span class="section-label">More Nearby Shrines</span>
+    <h2 class="section-title">Other Sacred Sites</h2>
     <div class="divider"></div>
-    <p class="section-desc">Combine your Nalkheda pilgrimage with these powerful temples on the same circuit.</p>
+    <p class="section-desc">Beyond the main circuit — more powerful temples within 100 km of Nalkheda.</p>
     <div class="nearby-scroll">
       <a href="/ujjain.html" class="nearby-card" data-emoji="🔱">
         <h3>Mahakaleshwar Jyotirlinga</h3>
@@ -2544,18 +2778,6 @@
       </div>
     </div>
 
-    <!-- MP Circuit CTA -->
-    <div class="circuit-cta-row">
-      <a href="/ujjain.html" class="circuit-cta-btn">
-        🔱 Ujjain Complete Guide
-      </a>
-      <a href="/omkareshwar.html" class="circuit-cta-btn">
-        🕉️ Omkareshwar Complete Guide
-      </a>
-      <a href="/blog/nalkheda-to-omkareshwar.html" class="circuit-cta-btn circuit-cta-secondary">
-        📍 Nalkheda → Omkareshwar Route
-      </a>
-    </div>
   </div>
 </section>
 
