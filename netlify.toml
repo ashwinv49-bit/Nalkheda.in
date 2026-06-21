@@ -85,3 +85,13 @@
   from = "/privacy-policy"
   to = "/privacy-policy.html"
   status = 200
+
+[[redirects]]
+  from = "/ujjain"
+  to = "/ujjain.html"
+  status = 200
+
+[[redirects]]
+  from = "/omkareshwar"
+  to = "/omkareshwar.html"
+  status = 200

@@ -63,6 +63,20 @@
     <priority>0.3</priority>
   </url>
 
+  <!-- Circuit hub pages -->
+  <url>
+    <loc>https://nalkheda.in/ujjain.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nalkheda.in/omkareshwar.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Blog index -->
   <url>
     <loc>https://nalkheda.in/blog/</loc>
