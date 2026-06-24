@@ -2085,32 +2085,11 @@
     border: 1px solid rgba(212,160,23,0.3);
   }
 
-  /* ===== WHATSAPP FLOAT ===== */
-  .whatsapp-float {
-    position: fixed;
-    bottom: 5rem;
-    right: 1.5rem;
-    background: #25D366;
-    color: white;
-    width: 56px; height: 56px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    text-decoration: none;
-    z-index: 998;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.5);
-    animation: float-bounce 3s ease-in-out infinite;
-    transition: transform 0.2s;
-  }
-
-  .whatsapp-float:hover { transform: scale(1.1); }
-
   @keyframes float-bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-6px) scale(1); }
   }
+  .wa-btn { animation: float-bounce 3s ease-in-out infinite; }
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 1024px) {
@@ -2136,6 +2115,149 @@
     .sticky-cta-text { display: none; }
     .form-row { grid-template-columns: 1fr; }
   }
+
+  /* ===== NAVRATRI COUNTDOWN STRIP ===== */
+  #navratri-strip {
+    background: linear-gradient(90deg, #3D0C02 0%, #6B1A08 50%, #3D0C02 100%);
+    border-top: 1px solid rgba(212,160,23,0.3);
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+    padding: 0.85rem 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.03em;
+  }
+  .countdown-inner { display: inline-flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
+  .countdown-label { color: var(--saffron); font-weight: 600; }
+  .countdown-units { display: inline-flex; gap: 0.6rem; }
+  .cd-unit { display: inline-flex; flex-direction: column; align-items: center; }
+  .cd-num {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.3rem;
+    color: var(--bright-gold);
+    font-weight: 900;
+    line-height: 1;
+    min-width: 2rem;
+    text-align: center;
+  }
+  .cd-lbl { font-size: 0.6rem; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
+  .cd-sep { color: var(--saffron); font-size: 1.3rem; line-height: 1; align-self: flex-start; margin-top: 2px; }
+
+  /* ===== FESTIVAL CALENDAR ===== */
+  #festivals {
+    background: var(--pale-gold);
+    padding: 2.5rem 0;
+  }
+  .festival-header { text-align: center; margin-bottom: 1.5rem; }
+  .festival-header .section-label { font-size: 0.68rem; }
+  .festival-header h2 { font-family: 'Cinzel Decorative', serif; font-size: 1.1rem; color: var(--deep-maroon); }
+  .festival-scroll {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 0.5rem 2rem 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--saffron) transparent;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .festival-card {
+    flex-shrink: 0;
+    width: 160px;
+    background: white;
+    border: 1px solid rgba(212,160,23,0.25);
+    border-top: 3px solid var(--saffron);
+    padding: 1rem;
+    text-align: center;
+  }
+  .festival-date { font-family: 'Cinzel Decorative', serif; font-size: 0.62rem; color: var(--saffron); letter-spacing: 0.06em; margin-bottom: 0.3rem; }
+  .festival-name { font-size: 0.82rem; font-weight: 700; color: var(--deep-maroon); margin-bottom: 0.25rem; line-height: 1.3; }
+  .festival-note { font-size: 0.72rem; color: var(--muted); }
+  .festival-badge { display: inline-block; background: var(--saffron); color: white; font-size: 0.58rem; padding: 2px 6px; letter-spacing: 0.06em; margin-top: 0.4rem; }
+
+  /* ===== TESTIMONIALS ===== */
+  #testimonials { background: linear-gradient(180deg, #1a0a00 0%, #2c1200 100%); color: white; }
+  #testimonials .section-title { color: var(--bright-gold); }
+  #testimonials .section-desc { color: rgba(255,255,255,0.5); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .testimonial-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(212,160,23,0.15);
+    padding: 1.8rem;
+    position: relative;
+  }
+  .testimonial-card::before {
+    content: '"';
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 4rem;
+    color: rgba(212,160,23,0.12);
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    line-height: 1;
+  }
+  .testimonial-stars { color: var(--bright-gold); font-size: 0.85rem; margin-bottom: 0.8rem; letter-spacing: 0.1em; }
+  .testimonial-text { font-size: 0.92rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 1.2rem; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
+  .testimonial-avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--saffron), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .testimonial-name { font-size: 0.85rem; color: var(--bright-gold); font-weight: 600; }
+  .testimonial-city { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+  @media (max-width: 768px) {
+    .testimonials-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ===== WHATSAPP POPOVER ===== */
+  .wa-wrap { position: fixed; bottom: 5rem; right: 1.5rem; z-index: 999; display: flex; flex-direction: column; align-items: flex-end; gap: 0.6rem; }
+  .wa-popover {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    width: 240px;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+  }
+  .wa-popover.open { display: flex; }
+  .wa-popover-head { background: #075e54; color: white; padding: 0.8rem 1rem; font-size: 0.8rem; font-weight: 600; }
+  .wa-popover-head span { font-size: 0.7rem; font-weight: 400; opacity: 0.8; display: block; }
+  .wa-option {
+    padding: 0.75rem 1rem;
+    font-size: 0.82rem;
+    color: #111;
+    border-bottom: 1px solid #f0f0f0;
+    text-decoration: none;
+    display: block;
+    transition: background 0.15s;
+  }
+  .wa-option:hover { background: #f5f5f5; }
+  .wa-option:last-child { border-bottom: none; }
+  .wa-option strong { display: block; color: #222; }
+  .wa-option small { color: #888; font-size: 0.72rem; }
+  .wa-btn {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: #25D366;
+    color: white;
+    font-size: 1.6rem;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+    transition: transform 0.2s;
+    border: none;
+    outline: none;
+    flex-shrink: 0;
+  }
+  .wa-btn:hover { transform: scale(1.1); }
+
+  /* ===== SVG MAP ===== */
+  .circuit-map { margin: 2.5rem auto 0; max-width: 560px; }
+  .circuit-map svg { width: 100%; height: auto; display: block; }
+
 </style>
     <meta name="robots" content="index, follow">
     <meta name="author" content="Nalkheda.in">
@@ -2242,6 +2364,23 @@
   <div class="scroll-indicator">↓</div>
 </section>
 
+<!-- NAVRATRI COUNTDOWN STRIP -->
+<div id="navratri-strip">
+  <div class="countdown-inner">
+    <span class="countdown-label">🕉️ Sharad Navratri 2026</span>
+    <div class="countdown-units">
+      <div class="cd-unit"><span class="cd-num" id="cd-days">--</span><span class="cd-lbl">Days</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-unit"><span class="cd-num" id="cd-hrs">--</span><span class="cd-lbl">Hrs</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-unit"><span class="cd-num" id="cd-min">--</span><span class="cd-lbl">Min</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-unit"><span class="cd-num" id="cd-sec">--</span><span class="cd-lbl">Sec</span></div>
+    </div>
+    <span style="color:rgba(255,255,255,0.5); font-size:0.8rem;">Sept 25 – Oct 3, 2026</span>
+  </div>
+</div>
+
 <!-- MP PILGRIMAGE CIRCUIT -->
 <section id="circuit">
   <div class="section-inner">
@@ -2299,6 +2438,32 @@
 
     </div>
 
+    <!-- Simple route map SVG -->
+    <div class="circuit-map">
+      <svg viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg" aria-label="MP Pilgrimage Circuit route: Nalkheda to Ujjain to Omkareshwar">
+        <!-- Route line -->
+        <path d="M 110 130 Q 200 60 280 100 Q 360 140 450 80" stroke="#E8621A" stroke-width="2.5" fill="none" stroke-dasharray="6 4" opacity="0.7"/>
+        <!-- Nalkheda dot -->
+        <circle cx="110" cy="130" r="10" fill="#F5C518" opacity="0.9"/>
+        <circle cx="110" cy="130" r="5" fill="#E8621A"/>
+        <text x="110" y="160" text-anchor="middle" fill="#F5C518" font-size="11" font-family="serif">Nalkheda</text>
+        <text x="110" y="173" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9" font-family="serif">Maa Baglamukhi</text>
+        <!-- Ujjain dot -->
+        <circle cx="280" cy="100" r="10" fill="#F5C518" opacity="0.9"/>
+        <circle cx="280" cy="100" r="5" fill="#E8621A"/>
+        <text x="280" y="75" text-anchor="middle" fill="#F5C518" font-size="11" font-family="serif">Ujjain</text>
+        <text x="280" y="88" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9" font-family="serif">Mahakaleshwar</text>
+        <!-- Omkareshwar dot -->
+        <circle cx="450" cy="80" r="10" fill="#F5C518" opacity="0.9"/>
+        <circle cx="450" cy="80" r="5" fill="#E8621A"/>
+        <text x="450" y="105" text-anchor="middle" fill="#F5C518" font-size="11" font-family="serif">Omkareshwar</text>
+        <text x="450" y="118" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9" font-family="serif">Jyotirlinga #4</text>
+        <!-- Distance labels -->
+        <text x="195" y="82" text-anchor="middle" fill="rgba(232,98,26,0.75)" font-size="9" font-family="sans-serif">~100 km</text>
+        <text x="370" y="100" text-anchor="middle" fill="rgba(232,98,26,0.75)" font-size="9" font-family="sans-serif">~135 km</text>
+      </svg>
+    </div>
+
     <!-- 3-day itinerary strip -->
     <div class="circuit-plan">
       <div class="circuit-plan-item">
@@ -2322,6 +2487,75 @@
     </div>
 
   </div>
+</section>
+
+<!-- FESTIVAL CALENDAR -->
+<section id="festivals">
+  <div class="festival-header">
+    <span class="section-label">Puja Calendar 2026</span>
+    <h2>Key Festival Dates</h2>
+  </div>
+  <div class="festival-scroll">
+
+    <div class="festival-card">
+      <div class="festival-date">Jul 14, 2026</div>
+      <div class="festival-name">Guru Purnima</div>
+      <div class="festival-note">Auspicious for darshan</div>
+    </div>
+
+    <div class="festival-card">
+      <div class="festival-date">Aug 9, 2026</div>
+      <div class="festival-name">Baglamukhi Jayanti</div>
+      <div class="festival-note">Special hawan & aarti</div>
+      <span class="festival-badge">MAJOR</span>
+    </div>
+
+    <div class="festival-card">
+      <div class="festival-date">Aug 19, 2026</div>
+      <div class="festival-name">Janmashtami</div>
+      <div class="festival-note">Late-night celebrations</div>
+    </div>
+
+    <div class="festival-card">
+      <div class="festival-date">Sep 2, 2026</div>
+      <div class="festival-name">Hartalika Teej</div>
+      <div class="festival-note">Shakti Puja — women's fast</div>
+    </div>
+
+    <div class="festival-card">
+      <div class="festival-date">Sep 25 – Oct 3</div>
+      <div class="festival-name">Sharad Navratri</div>
+      <div class="festival-note">Biggest festival — book early</div>
+      <span class="festival-badge">BOOK EARLY</span>
+    </div>
+
+    <div class="festival-card">
+      <div class="festival-date">Oct 2, 2026</div>
+      <div class="festival-name">Maha Ashtami</div>
+      <div class="festival-note">Most sacred Navratri night</div>
+      <span class="festival-badge">PEAK</span>
+    </div>
+
+    <div class="festival-card">
+      <div class="festival-date">Oct 20, 2026</div>
+      <div class="festival-name">Diwali</div>
+      <div class="festival-note">Lakshmi-Baglamukhi puja</div>
+    </div>
+
+    <div class="festival-card">
+      <div class="festival-date">Nov 1, 2026</div>
+      <div class="festival-name">Kaal Bhairav Ashtami</div>
+      <div class="festival-note">Night ritual at Ujjain</div>
+    </div>
+
+    <div class="festival-card">
+      <div class="festival-date">Mar–Apr 2027</div>
+      <div class="festival-name">Chaitra Navratri</div>
+      <div class="festival-note">Spring Navratri — less crowded</div>
+    </div>
+
+  </div>
+  <p style="text-align:center; font-size:0.78rem; color:var(--muted); padding: 0 1rem 0.5rem; margin-top: 0.5rem;">← Scroll for more dates &nbsp;·&nbsp; <a href="/temple-timings.html" style="color:var(--saffron);">Full timings page →</a></p>
 </section>
 
 <!-- ABOUT -->
@@ -2741,6 +2975,67 @@
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <span class="section-label">Pilgrim Stories</span>
+    <h2 class="section-title">What Devotees Say</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Thousands visit Maa Baglamukhi Mandir every year — here are a few who shared their experience.</p>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Hawan at Nalkheda is unlike anything I've experienced. The energy of 75 kunds burning simultaneously — you can feel Maa's presence physically. Came from Indore for Navratri and stayed 3 days.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">🙏</div>
+          <div>
+            <div class="testimonial-name">Priya Sharma</div>
+            <div class="testimonial-city">Indore, MP &nbsp;·&nbsp; Navratri 2025</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Did the full circuit — Nalkheda → Ujjain → Omkareshwar in 3 days. This website's guide was spot on. Bhasma Aarti booking tip saved us — we booked 10 days in advance as suggested.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">🔱</div>
+          <div>
+            <div class="testimonial-name">Rajesh Tiwari</div>
+            <div class="testimonial-city">Bhopal, MP &nbsp;·&nbsp; March 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Maa Baglamukhi ki kripa se mera court case 3 saalon baad jeet gaya. Mannat poori hone par hawan karwaya. Maa ki shakti par poorn vishwas hai. Jaroor jaaye yahan.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">🌟</div>
+          <div>
+            <div class="testimonial-name">Sunita Verma</div>
+            <div class="testimonial-city">Ujjain, MP &nbsp;·&nbsp; Jan 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Came all the way from Pune. The Lakhundar Nadi evening walk after aarti is magical — pure silence and divinity. The hotel I found through this site was clean and just 800m from the temple.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">🕉️</div>
+          <div>
+            <div class="testimonial-name">Avinash Kulkarni</div>
+            <div class="testimonial-city">Pune, Maharashtra &nbsp;·&nbsp; Feb 2026</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- NEARBY TEMPLES -->
 <section id="nearby">
   <div class="section-inner">
@@ -2919,8 +3214,32 @@
   </div>
 </div>
 
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20need%20help%20planning%20my%20Nalkheda%20trip." target="_blank" class="whatsapp-float" title="Chat on WhatsApp">💬</a>
+<!-- WHATSAPP FLOAT POPOVER -->
+<div class="wa-wrap">
+  <div class="wa-popover" id="wa-popover">
+    <div class="wa-popover-head">
+      Nalkheda Dham Help
+      <span>Typically replies within 1 hour</span>
+    </div>
+    <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20to%20book%20a%20Hawan%20at%20Nalkheda.%20Please%20help." target="_blank" rel="noopener" class="wa-option">
+      <strong>🔥 Book a Hawan</strong>
+      <small>Kund availability &amp; timings</small>
+    </a>
+    <a href="https://wa.me/919754709571?text=Jai%20Maa!%20Can%20you%20suggest%20hotels%20near%20Nalkheda%20temple%3F" target="_blank" rel="noopener" class="wa-option">
+      <strong>🏨 Hotel Recommendations</strong>
+      <small>Near temple, budget options</small>
+    </a>
+    <a href="https://wa.me/919754709571?text=Jai%20Maa!%20I%20want%20to%20plan%20the%20Nalkheda%20%2B%20Ujjain%20%2B%20Omkareshwar%20circuit.%20Please%20help." target="_blank" rel="noopener" class="wa-option">
+      <strong>📍 Plan My Circuit</strong>
+      <small>Nalkheda + Ujjain + Omkareshwar</small>
+    </a>
+    <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20have%20a%20general%20query%20about%20visiting%20Nalkheda." target="_blank" rel="noopener" class="wa-option">
+      <strong>💬 Other Query</strong>
+      <small>Timings, routes, anything</small>
+    </a>
+  </div>
+  <button class="wa-btn" id="wa-toggle" onclick="toggleWaPopover()" aria-label="Chat on WhatsApp">💬</button>
+</div>
 
 <!-- PAYMENT MODAL -->
 <div class="modal-overlay" id="pay-modal" onclick="closeModalOnOverlay(event)">
@@ -3079,6 +3398,42 @@
       setTimeout(() => btn.textContent = '📋 Copy UPI ID', 2000);
     });
   }
+
+  // ===== NAVRATRI COUNTDOWN =====
+  (function() {
+    var target = new Date('2026-09-25T00:00:00+05:30').getTime();
+    function tick() {
+      var now = Date.now();
+      var diff = target - now;
+      if (diff <= 0) {
+        document.getElementById('navratri-strip').innerHTML = '<div class="countdown-inner"><span class="countdown-label">🕉️ Sharad Navratri 2026 is here!</span> <span style="color:rgba(255,255,255,0.6);font-size:0.85rem;">Sept 25 – Oct 3</span></div>';
+        return;
+      }
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      var pad = function(n) { return n < 10 ? '0' + n : '' + n; };
+      document.getElementById('cd-days').textContent = d;
+      document.getElementById('cd-hrs').textContent = pad(h);
+      document.getElementById('cd-min').textContent = pad(m);
+      document.getElementById('cd-sec').textContent = pad(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // ===== WHATSAPP POPOVER =====
+  function toggleWaPopover() {
+    var pop = document.getElementById('wa-popover');
+    pop.classList.toggle('open');
+  }
+  document.addEventListener('click', function(e) {
+    var wrap = document.querySelector('.wa-wrap');
+    if (wrap && !wrap.contains(e.target)) {
+      document.getElementById('wa-popover').classList.remove('open');
+    }
+  });
 
   // ===== HAMBURGER =====
   function toggleMenu() {
