@@ -100,16 +100,36 @@ nav{position:sticky;top:0;background:rgba(26,10,0,0.97);backdrop-filter:blur(12p
 .testi-city{font-size:0.82rem;color:var(--muted)}
 
 /* CTA section */
-.cta-section{background:linear-gradient(135deg,var(--deep-maroon),#1A0A00);padding:6rem 2rem;text-align:center;position:relative;overflow:hidden}
+.cta-section{background:linear-gradient(135deg,var(--deep-maroon),#1A0A00);padding:5rem 2rem;position:relative;overflow:hidden}
 .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(212,160,23,0.1),transparent 60%)}
-.cta-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
-.cta-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--bright-gold);margin-bottom:1rem;line-height:1.2}
-.cta-sub{color:rgba(255,255,255,0.55);font-size:1.1rem;margin-bottom:1rem}
-.cta-price{font-family:'Cinzel Decorative',serif;font-size:3.5rem;color:white;line-height:1;margin-bottom:0.25rem}
-.cta-price-sub{font-size:0.9rem;color:rgba(255,255,255,0.35);margin-bottom:2.5rem;letter-spacing:0.05em}
+.cta-inner{position:relative;z-index:1;max-width:900px;margin:0 auto;text-align:center}
+.cta-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--bright-gold);margin-bottom:0.75rem;line-height:1.2}
+.cta-sub{color:rgba(255,255,255,0.55);font-size:1.1rem;margin-bottom:2.5rem}
 .btn-cta-wa{display:inline-flex;align-items:center;gap:0.6rem;background:#25D366;color:white;padding:1.1rem 2.5rem;font-family:'Cinzel Decorative',serif;font-size:0.85rem;letter-spacing:0.1em;text-decoration:none;box-shadow:0 4px 30px rgba(37,211,102,0.4);transition:transform 0.2s;border-radius:2px;margin-bottom:1rem}
 .btn-cta-wa:hover{transform:translateY(-2px)}
 .cta-note{font-size:0.85rem;color:rgba(255,255,255,0.3)}
+/* Pricing grid in CTA */
+.tg-pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:0 auto;text-align:left}
+.tg-card{background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:2rem 1.8rem;position:relative}
+.tg-card.featured{border-color:var(--bright-gold);background:rgba(212,160,23,0.07)}
+.tg-badge{position:absolute;top:-1px;right:1.5rem;background:var(--saffron);color:white;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px}
+.tg-name{font-family:'Cinzel Decorative',serif;font-size:0.72rem;color:var(--bright-gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.8rem}
+.tg-amount{display:flex;align-items:baseline;gap:0.4rem;margin-bottom:0.3rem}
+.tg-rupee{font-size:1.1rem;color:var(--bright-gold)}
+.tg-num{font-family:'Cinzel Decorative',serif;font-size:2.8rem;color:white;line-height:1;font-weight:900}
+.tg-old{font-size:1rem;color:rgba(255,255,255,0.3);text-decoration:line-through}
+.tg-note{font-size:0.75rem;color:rgba(255,255,255,0.45);margin-bottom:1.5rem}
+.tg-hr{border:none;border-top:1px solid rgba(212,160,23,0.15);margin:1.2rem 0}
+.tg-list{list-style:none;margin-bottom:1.8rem}
+.tg-list li{font-size:0.85rem;color:rgba(255,255,255,0.7);padding:0.35rem 0;display:flex;align-items:flex-start;gap:0.6rem;line-height:1.4;border-bottom:1px solid rgba(255,255,255,0.04)}
+.tg-list li:last-child{border-bottom:none}
+.tg-list .ck{color:var(--saffron);flex-shrink:0;font-size:0.9rem}
+.tg-btn{display:block;width:100%;padding:0.9rem 1rem;text-align:center;font-family:'Cinzel Decorative',serif;font-size:0.7rem;letter-spacing:0.08em;text-decoration:none;font-weight:700;cursor:pointer;border:none;transition:opacity 0.2s,transform 0.2s}
+.tg-btn:hover{opacity:0.88;transform:translateY(-1px)}
+.tg-btn.pdf{background:rgba(212,160,23,0.15);color:var(--bright-gold);border:1.5px solid rgba(212,160,23,0.4)}
+.tg-btn.full{background:var(--saffron);color:white}
+.tg-btn.wa{background:#25D366;color:white;margin-top:0.7rem}
+@media(max-width:700px){.tg-pricing-grid{grid-template-columns:1fr}}
 
 /* FAQ */
 .faq-mini{padding:5rem 2rem;background:var(--cream)}
@@ -332,15 +352,58 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
 
 <section class="cta-section" id="buy">
   <div class="cta-inner">
-    <div style="font-family:'Noto Serif Devanagari',serif;font-size:2rem;color:var(--gold);margin-bottom:1rem">जय माँ बगलामुखी</div>
+    <div style="font-family:'Noto Serif Devanagari',serif;font-size:2rem;color:var(--gold);margin-bottom:0.75rem">जय माँ बगलामुखी</div>
     <h2 class="cta-title">Ready for Your Nalkheda Yatra?</h2>
-    <p class="cta-sub">Get the complete guide right now and visit with full confidence.</p>
-    <div class="cta-price">₹99</div>
-    <div class="cta-price-sub">One-time payment • Instant WhatsApp delivery • Hindi & English</div>
-    <a href="https://wa.me/919754709571?text=Hi%2C%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999" target="_blank" rel="noopener" class="btn-cta-wa">
-      <span>💬</span> Get Guide on WhatsApp — ₹99
-    </a>
-    <p class="cta-note">Also available in Hindi. Questions first? WhatsApp anytime.</p>
+    <p class="cta-sub">Choose what your pilgrimage needs — from a ₹99 guide to a fully planned yatra.</p>
+
+    <div class="tg-pricing-grid">
+
+      <!-- Tier 1: Digital Guide ₹99 -->
+      <div class="tg-card">
+        <div class="tg-name">📖 Digital Guide</div>
+        <div class="tg-amount">
+          <span class="tg-rupee">₹</span>
+          <span class="tg-num">99</span>
+          <span class="tg-old">₹499</span>
+        </div>
+        <div class="tg-note">One-time · Instant WhatsApp delivery</div>
+        <hr class="tg-hr">
+        <ul class="tg-list">
+          <li><span class="ck">✓</span> Nalkheda Yatra PDF — 45 pages, Hindi + English</li>
+          <li><span class="ck">✓</span> Temple timings, hawan booking guide</li>
+          <li><span class="ck">✓</span> Routes from Ujjain, Indore, Bhopal</li>
+          <li><span class="ck">✓</span> Hotel &amp; dharamshala directory</li>
+          <li><span class="ck">✓</span> 2-day circuit itinerary</li>
+          <li><span class="ck">🎁</span> BONUS: 52 Shaktipeethas PDF (worth ₹99)</li>
+        </ul>
+        <a href="https://wa.me/919754709571?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999." target="_blank" rel="noopener" class="tg-btn wa">💬 Order on WhatsApp — ₹99</a>
+      </div>
+
+      <!-- Tier 2: Full Yatra Package ₹1999 -->
+      <div class="tg-card featured">
+        <span class="tg-badge">Most Popular</span>
+        <div class="tg-name">🌟 Full Yatra Package</div>
+        <div class="tg-amount">
+          <span class="tg-rupee">₹</span>
+          <span class="tg-num">1,999</span>
+        </div>
+        <div class="tg-note">Starting price · per person · WhatsApp for custom quote</div>
+        <hr class="tg-hr">
+        <ul class="tg-list">
+          <li><span class="ck">✓</span> Everything in Digital Guide (PDF included)</li>
+          <li><span class="ck">✓</span> Hotel booking assistance — we find &amp; confirm for you</li>
+          <li><span class="ck">✓</span> Local temple guide for 1 day (Hindi / English)</li>
+          <li><span class="ck">✓</span> Hawan kund booking coordination</li>
+          <li><span class="ck">✓</span> Personalised trip itinerary (1–3 days)</li>
+          <li><span class="ck">✓</span> WhatsApp support before &amp; during the trip</li>
+          <li><span class="ck">✓</span> Circuit extension: Ujjain + Omkareshwar planning</li>
+        </ul>
+        <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20the%20Full%20Yatra%20Package%20(hotel%20booking%20%2B%20guide%20%2B%20all%20arrangements)%20starting%20%E2%82%B91%2C999.%20Please%20share%20details." target="_blank" rel="noopener" class="tg-btn full">💬 Book Full Package — WhatsApp</a>
+        <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:0.8rem;">Custom pricing for groups · 2-day &amp; 3-day circuit packages available</p>
+      </div>
+
+    </div>
+    <p class="cta-note" style="margin-top:1.5rem">Questions first? WhatsApp anytime — reply within the hour. 🙏</p>
   </div>
 </section>
 
