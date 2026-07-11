@@ -3113,33 +3113,100 @@
     </div>
   </div>
 </section>
-<!-- ===== USER DATA COLLECTION — Yatra Planning Form ===== -->
-<section id="yatra-form" style="background:linear-gradient(135deg,#1A0A00,#3D0C02); padding:4rem 1.5rem;">
+<!-- ===== CUSTOMISE TRIP PLAN — 3-step wizard ===== -->
+<style>
+.tp-label{font-size:0.72rem;color:var(--gold);display:block;margin-bottom:0.4rem;font-family:'Cinzel Decorative',serif;letter-spacing:0.06em}
+.tp-input{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(212,160,23,0.3);color:white;padding:0.75rem;font-family:'Crimson Pro',serif;font-size:1rem;outline:none;border-radius:0}
+.tp-input::placeholder{color:rgba(255,255,255,0.3)}
+.tp-select{width:100%;background:#2a1200;border:1px solid rgba(212,160,23,0.3);color:white;padding:0.75rem;font-family:'Crimson Pro',serif;font-size:1rem;outline:none}
+.tp-2col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.tp-field{margin-bottom:1rem}
+.tp-btn-group{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.4rem}
+.tp-toggle{background:rgba(255,255,255,0.05);border:1px solid rgba(212,160,23,0.25);color:rgba(255,255,255,0.65);padding:0.5rem 0.85rem;font-family:'Crimson Pro',serif;font-size:0.92rem;cursor:pointer;transition:all 0.2s;border-radius:0}
+.tp-toggle:hover{border-color:rgba(212,160,23,0.5);color:white}
+.tp-toggle.tpa{background:var(--saffron);border-color:var(--saffron);color:white}
+.tp-card-group{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-top:0.4rem}
+.tp-card{background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:1rem 0.6rem;text-align:center;cursor:pointer;transition:all 0.2s}
+.tp-card:hover{border-color:rgba(212,160,23,0.5)}
+.tp-card.tpa{background:rgba(232,98,26,0.15);border-color:var(--saffron)}
+.tp-card-icon{font-size:1.5rem;margin-bottom:0.35rem}
+.tp-card-title{font-family:'Cinzel Decorative',serif;font-size:0.6rem;color:white;margin-bottom:0.2rem;line-height:1.4}
+.tp-card-sub{font-size:0.74rem;color:var(--muted);line-height:1.4}
+.tp-next-btn{width:100%;background:var(--saffron);color:white;border:none;padding:1rem;font-family:'Cinzel Decorative',serif;font-size:0.75rem;letter-spacing:0.1em;cursor:pointer;transition:background 0.2s;margin-top:0.25rem}
+.tp-next-btn:hover{background:var(--deep-saffron)}
+.tp-back-btn{background:transparent;border:1px solid rgba(212,160,23,0.25);color:rgba(255,255,255,0.45);padding:0.65rem 1.25rem;font-family:'Cinzel Decorative',serif;font-size:0.6rem;letter-spacing:0.08em;cursor:pointer;transition:all 0.2s}
+.tp-back-btn:hover{border-color:rgba(212,160,23,0.5);color:rgba(255,255,255,0.7)}
+.tp-step-dot{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(212,160,23,0.25);display:flex;align-items:center;justify-content:center;font-family:'Cinzel Decorative',serif;font-size:0.58rem;color:rgba(255,255,255,0.35);flex-shrink:0;transition:all 0.3s}
+.tp-step-dot.tpa{background:var(--saffron);border-color:var(--saffron);color:white}
+.tp-step-dot.tpd{background:var(--gold);border-color:var(--gold);color:#1A0A00}
+.tp-bar{flex:1;height:1px;background:rgba(212,160,23,0.15);transition:background 0.35s}
+.tp-bar.tpd{background:var(--gold)}
+.tp-day{padding:0.55rem 0;border-bottom:1px solid rgba(212,160,23,0.1);font-size:0.87rem;color:rgba(255,255,255,0.82);line-height:1.65}
+.tp-day:last-child{border-bottom:none}
+.tp-day-badge{display:inline-block;background:var(--saffron);color:white;font-family:'Cinzel Decorative',serif;font-size:0.52rem;padding:0.15rem 0.45rem;letter-spacing:0.05em;margin-right:0.5rem;vertical-align:middle}
+.tp-preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem 1rem;margin-bottom:1rem;font-size:0.86rem}
+.tp-preview-grid span{color:var(--muted)}
+.tp-preview-grid strong{color:white}
+@media(max-width:520px){
+  .tp-2col{grid-template-columns:1fr}
+  .tp-card-group{grid-template-columns:1fr}
+  .tp-preview-grid{grid-template-columns:1fr}
+}
+</style>
+<section id="yatra-form" style="background:linear-gradient(180deg,#0d0500 0%,#1a0a00 100%); padding:4rem 1.5rem;">
   <div class="section-inner" style="max-width:700px;">
-    <span class="section-label">Plan Your Visit</span>
-    <h2 class="section-title">Yatra Planning Form</h2>
+    <span class="section-label">Plan Your Yatra</span>
+    <h2 class="section-title">Customise Your Trip Plan</h2>
     <div class="divider"></div>
-    <p class="section-desc" style="margin-bottom:2rem;">Fill this form and we'll contact you on WhatsApp with a personalised Nalkheda yatra plan and quote. No commitment needed — Maa's blessings guide the way. 🙏</p>
+    <p class="section-desc" style="margin-bottom:2rem;">Answer 3 quick steps — we'll build your personalised Nalkheda itinerary and send it to WhatsApp.</p>
 
-    <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(212,160,23,0.2); padding:2rem;">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
-        <div>
-          <label style="font-size:0.8rem; color:var(--gold); display:block; margin-bottom:0.4rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.05em;">YOUR NAME *</label>
-          <input type="text" id="uf-name" placeholder="Aapka naam" style="width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(212,160,23,0.3); color:white; padding:0.75rem; font-family:'Crimson Pro',serif; font-size:1rem; outline:none;">
+    <!-- Progress -->
+    <div style="display:flex;align-items:center;margin-bottom:0.5rem;" id="tp-progress">
+      <div class="tp-step-dot tpa" id="tpdot1">1</div>
+      <div class="tp-bar" id="tpbar1"></div>
+      <div class="tp-step-dot" id="tpdot2">2</div>
+      <div class="tp-bar" id="tpbar2"></div>
+      <div class="tp-step-dot" id="tpdot3">3</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:1.75rem;font-family:'Cinzel Decorative',serif;font-size:0.56rem;letter-spacing:0.06em;color:rgba(255,255,255,0.35);">
+      <span>JOURNEY</span><span>PREFERENCES</span><span>YOUR PLAN</span>
+    </div>
+
+    <!-- STEP 1: Journey -->
+    <div id="tp-step1">
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:1.75rem;">
+        <div class="tp-2col">
+          <div>
+            <label class="tp-label">YOUR NAME *</label>
+            <input type="text" id="tp-name" placeholder="Aapka naam" class="tp-input">
+          </div>
+          <div>
+            <label class="tp-label">WHATSAPP NUMBER *</label>
+            <input type="tel" id="tp-phone" placeholder="10-digit number" class="tp-input">
+          </div>
         </div>
-        <div>
-          <label style="font-size:0.8rem; color:var(--gold); display:block; margin-bottom:0.4rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.05em;">WHATSAPP NUMBER *</label>
-          <input type="tel" id="uf-phone" placeholder="10-digit number" style="width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(212,160,23,0.3); color:white; padding:0.75rem; font-family:'Crimson Pro',serif; font-size:1rem; outline:none;">
+        <div class="tp-2col">
+          <div>
+            <label class="tp-label">TRAVELLING FROM</label>
+            <input type="text" id="tp-city" placeholder="Indore / Ujjain / Delhi..." class="tp-input">
+          </div>
+          <div>
+            <label class="tp-label">TRAVEL DATE</label>
+            <input type="date" id="tp-date" class="tp-input">
+          </div>
         </div>
-      </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
-        <div>
-          <label style="font-size:0.8rem; color:var(--gold); display:block; margin-bottom:0.4rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.05em;">TRAVEL DATE</label>
-          <input type="date" id="uf-date" style="width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(212,160,23,0.3); color:white; padding:0.75rem; font-family:'Crimson Pro',serif; font-size:1rem; outline:none;">
+        <div class="tp-field">
+          <label class="tp-label">HOW MANY DAYS?</label>
+          <div class="tp-btn-group" id="tpg-days">
+            <button class="tp-toggle" data-val="1 Day" onclick="tpToggle('tpg-days',this)">1 Day</button>
+            <button class="tp-toggle" data-val="2 Days" onclick="tpToggle('tpg-days',this)">2 Days</button>
+            <button class="tp-toggle" data-val="3 Days" onclick="tpToggle('tpg-days',this)">3 Days</button>
+            <button class="tp-toggle" data-val="4+ Days" onclick="tpToggle('tpg-days',this)">4+ Days</button>
+          </div>
         </div>
-        <div>
-          <label style="font-size:0.8rem; color:var(--gold); display:block; margin-bottom:0.4rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.05em;">GROUP SIZE</label>
-          <select id="uf-group" style="width:100%; background:#2a1200; border:1px solid rgba(212,160,23,0.3); color:white; padding:0.75rem; font-family:'Crimson Pro',serif; font-size:1rem; outline:none;">
+        <div class="tp-field" style="margin-bottom:1.5rem;">
+          <label class="tp-label">GROUP SIZE</label>
+          <select id="tp-group" class="tp-select">
             <option value="">Select</option>
             <option>Solo (1)</option>
             <option>Couple (2)</option>
@@ -3148,33 +3215,88 @@
             <option>Large group (10+)</option>
           </select>
         </div>
+        <button onclick="tpNext(1)" class="tp-next-btn">NEXT: CHOOSE TEMPLES &amp; PREFERENCES →</button>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
-        <div>
-          <label style="font-size:0.8rem; color:var(--gold); display:block; margin-bottom:0.4rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.05em;">TRAVELLING FROM</label>
-          <input type="text" id="uf-city" placeholder="Indore / Ujjain / Bhopal..." style="width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(212,160,23,0.3); color:white; padding:0.75rem; font-family:'Crimson Pro',serif; font-size:1rem; outline:none;">
-        </div>
-        <div>
-          <label style="font-size:0.8rem; color:var(--gold); display:block; margin-bottom:0.4rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.05em;">EMAIL (OPTIONAL)</label>
-          <input type="email" id="uf-email" placeholder="For PDF delivery" style="width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(212,160,23,0.3); color:white; padding:0.75rem; font-family:'Crimson Pro',serif; font-size:1rem; outline:none;">
-        </div>
-      </div>
-      <div style="margin-bottom:1.2rem;">
-        <label style="font-size:0.8rem; color:var(--gold); display:block; margin-bottom:0.4rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.05em;">WHAT DO YOU NEED HELP WITH?</label>
-        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;" id="uf-needs">
-          <label style="display:flex; align-items:center; gap:0.4rem; font-size:0.9rem; color:rgba(255,255,255,0.8); cursor:pointer;"><input type="checkbox" value="Hotel booking"> Hotel Booking</label>
-          <label style="display:flex; align-items:center; gap:0.4rem; font-size:0.9rem; color:rgba(255,255,255,0.8); cursor:pointer;"><input type="checkbox" value="Cab booking"> Cab Booking</label>
-          <label style="display:flex; align-items:center; gap:0.4rem; font-size:0.9rem; color:rgba(255,255,255,0.8); cursor:pointer;"><input type="checkbox" value="Hawan booking"> Hawan Booking</label>
-          <label style="display:flex; align-items:center; gap:0.4rem; font-size:0.9rem; color:rgba(255,255,255,0.8); cursor:pointer;"><input type="checkbox" value="Travel guide PDF"> Travel Guide PDF</label>
-          <label style="display:flex; align-items:center; gap:0.4rem; font-size:0.9rem; color:rgba(255,255,255,0.8); cursor:pointer;"><input type="checkbox" value="Route planning"> Route Planning</label>
-        </div>
-      </div>
-      <div id="uf-msg" style="display:none; padding:0.75rem; margin-bottom:1rem; font-family:'Crimson Pro',serif; font-size:0.95rem; text-align:center;"></div>
-      <button onclick="submitYatraForm()" style="width:100%; background:var(--saffron); color:white; border:none; padding:1rem; font-family:'Cinzel Decorative',serif; font-size:0.8rem; letter-spacing:0.1em; cursor:pointer; transition:background 0.2s;">
-        🙏 SEND MY YATRA PLAN REQUEST
-      </button>
-      <p style="font-size:0.78rem; color:rgba(255,255,255,0.35); text-align:center; margin-top:0.75rem;">We reply within 2 hours on WhatsApp. Your data is never shared with anyone.</p>
     </div>
+
+    <!-- STEP 2: Preferences -->
+    <div id="tp-step2" style="display:none;">
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:1.75rem;">
+        <div class="tp-field">
+          <label class="tp-label">SELECT YOUR TEMPLE CIRCUIT</label>
+          <div class="tp-card-group" id="tpg-circuit">
+            <div class="tp-card" data-val="Nalkheda Only" onclick="tpCard('tpg-circuit',this)">
+              <div class="tp-card-icon">🙏</div>
+              <div class="tp-card-title">Nalkheda Only</div>
+              <div class="tp-card-sub">Maa Baglamukhi<br>1 day</div>
+            </div>
+            <div class="tp-card" data-val="Nalkheda + Ujjain" onclick="tpCard('tpg-circuit',this)">
+              <div class="tp-card-icon">⭕</div>
+              <div class="tp-card-title">Nalkheda + Ujjain</div>
+              <div class="tp-card-sub">+ Mahakaleshwar<br>2 days</div>
+            </div>
+            <div class="tp-card" data-val="Full Circuit: Nalkheda + Ujjain + Omkareshwar" onclick="tpCard('tpg-circuit',this)">
+              <div class="tp-card-icon">🌊</div>
+              <div class="tp-card-title">Full 3-Temple Circuit</div>
+              <div class="tp-card-sub">+ Omkareshwar<br>3+ days</div>
+            </div>
+          </div>
+        </div>
+        <div class="tp-field">
+          <label class="tp-label">ACCOMMODATION</label>
+          <div class="tp-btn-group" id="tpg-stay">
+            <button class="tp-toggle" data-val="Dharamshala (free/donation)" onclick="tpToggle('tpg-stay',this)">🙏 Dharamshala</button>
+            <button class="tp-toggle" data-val="Budget Hotel (₹500–900/night)" onclick="tpToggle('tpg-stay',this)">Budget Hotel</button>
+            <button class="tp-toggle" data-val="Standard Hotel (₹900+/night)" onclick="tpToggle('tpg-stay',this)">Standard Hotel</button>
+          </div>
+        </div>
+        <div class="tp-field">
+          <label class="tp-label">TRANSPORT</label>
+          <div class="tp-btn-group" id="tpg-cab">
+            <button class="tp-toggle" data-val="Own vehicle" onclick="tpToggle('tpg-cab',this)">Own Vehicle</button>
+            <button class="tp-toggle" data-val="Need cab / taxi" onclick="tpToggle('tpg-cab',this)">Need Cab</button>
+            <button class="tp-toggle" data-val="Bus / public transport" onclick="tpToggle('tpg-cab',this)">By Bus</button>
+          </div>
+        </div>
+        <div class="tp-field">
+          <label class="tp-label">HAWAN / PUJA</label>
+          <div class="tp-btn-group" id="tpg-hawan">
+            <button class="tp-toggle" data-val="Just darshan" onclick="tpToggle('tpg-hawan',this)">Just Darshan</button>
+            <button class="tp-toggle" data-val="Hawan booking assistance needed" onclick="tpToggle('tpg-hawan',this)">Hawan Booking</button>
+            <button class="tp-toggle" data-val="Special mahayagya / puja arrangement" onclick="tpToggle('tpg-hawan',this)">Special Puja</button>
+          </div>
+        </div>
+        <div class="tp-field" style="margin-bottom:1.5rem;">
+          <label class="tp-label">TOTAL BUDGET (APPROXIMATE)</label>
+          <div class="tp-btn-group" id="tpg-budget">
+            <button class="tp-toggle" data-val="₹1,000–5,000" onclick="tpToggle('tpg-budget',this)">₹1k–5k</button>
+            <button class="tp-toggle" data-val="₹5,000–15,000" onclick="tpToggle('tpg-budget',this)">₹5k–15k</button>
+            <button class="tp-toggle" data-val="₹15,000+" onclick="tpToggle('tpg-budget',this)">₹15k+</button>
+            <button class="tp-toggle" data-val="Flexible" onclick="tpToggle('tpg-budget',this)">Flexible</button>
+          </div>
+        </div>
+        <div style="display:flex;gap:0.75rem;">
+          <button onclick="tpBack(2)" class="tp-back-btn">← BACK</button>
+          <button onclick="tpNext(2)" class="tp-next-btn" style="flex:1;">SEE YOUR PERSONALISED PLAN →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: Plan Preview + Submit -->
+    <div id="tp-step3" style="display:none;">
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:1.75rem;">
+        <div id="tp-preview"></div>
+        <div class="tp-field">
+          <label class="tp-label">SPECIAL REQUESTS (OPTIONAL)</label>
+          <textarea id="tp-notes" placeholder="Senior citizens, accessibility needs, specific aarti time, any other requirements..." class="tp-input" style="height:75px;resize:vertical;"></textarea>
+        </div>
+        <div id="tp-form-msg" style="display:none;padding:0.75rem;margin-bottom:1rem;font-family:'Crimson Pro',serif;font-size:0.95rem;text-align:center;"></div>
+        <button onclick="tpSubmit()" class="tp-next-btn">🙏 SEND MY PLAN TO WHATSAPP</button>
+        <p style="font-size:0.76rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:0.75rem;">We reply within 2–4 hours on WhatsApp. No commitment needed.</p>
+        <button onclick="tpBack(3)" class="tp-back-btn" style="width:100%;margin-top:0.75rem;display:block;">← EDIT PREFERENCES</button>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -4091,53 +4213,152 @@ function removeListing(i) {
 }
 
 // ===== YATRA FORM SUBMIT =====
-window.submitYatraForm = function() {
-  const name = document.getElementById('uf-name').value.trim();
-  const phone = document.getElementById('uf-phone').value.trim();
-  const date = document.getElementById('uf-date').value;
-  const group = document.getElementById('uf-group').value;
-  const city = document.getElementById('uf-city').value.trim();
-  const email = document.getElementById('uf-email').value.trim();
-  const needs = Array.from(document.querySelectorAll('#uf-needs input:checked')).map(c => c.value).join(', ');
-  const msgEl = document.getElementById('uf-msg');
+// ===== TRIP PLANNER WIZARD =====
+(function() {
+  const tp = {};
 
-  if (!name) { showFormMsg('error', 'Please enter your name'); return; }
-  if (!phone || phone.length < 10) { showFormMsg('error', 'Please enter valid WhatsApp number'); return; }
+  window.tpToggle = function(gid, btn) {
+    document.querySelectorAll('#' + gid + ' .tp-toggle').forEach(b => b.classList.remove('tpa'));
+    btn.classList.add('tpa');
+    tp[gid] = btn.dataset.val;
+  };
 
-  // Save to localStorage
-  saveUser({ name, phone, date, group, city, email, needs, travelDate: date });
+  window.tpCard = function(gid, card) {
+    document.querySelectorAll('#' + gid + ' .tp-card').forEach(c => c.classList.remove('tpa'));
+    card.classList.add('tpa');
+    tp[gid] = card.dataset.val;
+  };
 
-  // Send to Google Sheets if URL configured
-  const settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
-  if (settings.sheet) {
-    fetch(settings.sheet, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, phone, date, group, city, email, needs, source: 'nalkheda.in yatra form', timestamp: new Date().toISOString() })
-    }).catch(() => {});
+  function setProgress(step) {
+    [1,2,3].forEach(i => {
+      const dot = document.getElementById('tpdot'+i);
+      dot.classList.toggle('tpa', i === step);
+      dot.classList.toggle('tpd', i < step);
+    });
+    ['tpbar1','tpbar2'].forEach((id,i) => {
+      document.getElementById(id).classList.toggle('tpd', step > i+1);
+    });
   }
 
-  // Show success + WhatsApp redirect
-  showFormMsg('success', '🙏 Jai Maa Baglamukhi! We received your request. Redirecting to WhatsApp...');
-  setTimeout(() => {
-    const msg = `Jai Maa Baglamukhi! 🙏\n\nMera naam ${name} hai.\nPhone: ${phone}\nCity: ${city||'N/A'}\nYatra Date: ${date||'N/A'}\nGroup: ${group||'N/A'}\nHelp needed: ${needs||'General info'}\n\nNalkheda yatra plan chahiye!`;
-    window.open('https://wa.me/919754709571?text=' + encodeURIComponent(msg), '_blank');
-    // Reset form
-    ['uf-name','uf-phone','uf-date','uf-city','uf-email'].forEach(id => document.getElementById(id).value = '');
-    document.getElementById('uf-group').value = '';
-    document.querySelectorAll('#uf-needs input').forEach(c => c.checked = false);
-  }, 1500);
-};
+  function scrollToForm() {
+    const el = document.getElementById('yatra-form');
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
+  }
 
-function showFormMsg(type, text) {
-  const el = document.getElementById('uf-msg');
-  el.style.display = 'block';
-  el.style.background = type === 'success' ? 'rgba(39,174,96,0.15)' : 'rgba(255,100,100,0.15)';
-  el.style.color = type === 'success' ? '#27AE60' : '#ff6b6b';
-  el.style.border = type === 'success' ? '1px solid rgba(39,174,96,0.3)' : '1px solid rgba(255,100,100,0.3)';
-  el.textContent = text;
-}
+  window.tpNext = function(from) {
+    if (from === 1) {
+      const name = document.getElementById('tp-name').value.trim();
+      const phone = document.getElementById('tp-phone').value.trim();
+      if (!name) { alert('Please enter your name.'); return; }
+      if (!phone || phone.replace(/\D/g,'').length < 10) { alert('Please enter a valid 10-digit WhatsApp number.'); return; }
+      document.getElementById('tp-step1').style.display = 'none';
+      document.getElementById('tp-step2').style.display = 'block';
+      setProgress(2);
+    } else if (from === 2) {
+      document.getElementById('tp-step2').style.display = 'none';
+      document.getElementById('tp-step3').style.display = 'block';
+      buildPreview();
+      setProgress(3);
+    }
+    scrollToForm();
+  };
+
+  window.tpBack = function(from) {
+    if (from === 2) {
+      document.getElementById('tp-step2').style.display = 'none';
+      document.getElementById('tp-step1').style.display = 'block';
+      setProgress(1);
+    } else if (from === 3) {
+      document.getElementById('tp-step3').style.display = 'none';
+      document.getElementById('tp-step2').style.display = 'block';
+      setProgress(2);
+    }
+    scrollToForm();
+  };
+
+  function buildPreview() {
+    const name = document.getElementById('tp-name').value.trim();
+    const city = document.getElementById('tp-city').value.trim() || 'Your city';
+    const dateRaw = document.getElementById('tp-date').value;
+    const date = dateRaw ? new Date(dateRaw + 'T00:00:00').toLocaleDateString('en-IN', {day:'numeric',month:'long',year:'numeric'}) : 'Date TBD';
+    const group = document.getElementById('tp-group').value || 'Not specified';
+    const days   = tp['tpg-days']    || '1 Day';
+    const circuit= tp['tpg-circuit'] || 'Nalkheda Only';
+    const stay   = tp['tpg-stay']    || 'Not specified';
+    const cab    = tp['tpg-cab']     || 'Not specified';
+    const hawan  = tp['tpg-hawan']   || 'Just darshan';
+    const budget = tp['tpg-budget']  || 'Flexible';
+
+    const hawanNote = hawan.includes('darshan') ? '' : ' ' + hawan + '.';
+    let days_html = '';
+    if (circuit.includes('Full Circuit')) {
+      days_html = `
+        <div class="tp-day"><span class="tp-day-badge">Day 1</span>Travel from ${city} → Nalkheda. Evening darshan at Maa Baglamukhi Mandir + Sandhya Aarti (7:30 PM).${hawanNote} ${stay.includes('Dharamshala') ? 'Night at temple dharamshala.' : stay.includes('Budget') ? 'Night at budget hotel near temple.' : stay.includes('Standard') ? 'Night at standard hotel.' : ''}</div>
+        <div class="tp-day"><span class="tp-day-badge">Day 2</span>Morning Mangala Aarti (6 AM) at Nalkheda. Drive to Ujjain (~100 km, ~2 hrs). Mahakaleshwar Jyotirlinga darshan + Bhasma Aarti (pre-booking required). Night in Ujjain.</div>
+        <div class="tp-day"><span class="tp-day-badge">Day 3</span>Ujjain darshan — Kal Bhairav, Ram Ghat, Harsiddhi. Drive to Omkareshwar (~135 km, ~3 hrs). Omkareshwar Jyotirlinga + Mamaleswara darshan. Return journey begins.</div>`;
+    } else if (circuit.includes('Ujjain')) {
+      days_html = `
+        <div class="tp-day"><span class="tp-day-badge">Day 1</span>Travel from ${city} → Nalkheda. Maa Baglamukhi darshan (6 AM–9:30 PM). Sandhya Aarti at 7:30 PM.${hawanNote} ${stay.includes('Dharamshala') ? 'Night at temple dharamshala.' : 'Night at hotel near temple.'}</div>
+        <div class="tp-day"><span class="tp-day-badge">Day 2</span>Morning aarti at 6 AM. Drive Nalkheda → Ujjain (~100 km, ~2 hrs via NH-52). Mahakaleshwar Jyotirlinga darshan + Kal Bhairav temple. Return journey or overnight Ujjain.</div>`;
+    } else {
+      const numDays = parseInt(days) || 1;
+      days_html = `<div class="tp-day"><span class="tp-day-badge">Day 1</span>Travel from ${city} → Nalkheda. Maa Baglamukhi darshan (darshan 6 AM–9:30 PM). Sandhya Aarti at 7:30 PM.${hawanNote} ${numDays > 1 ? (stay.includes('Dharamshala') ? 'Night at temple dharamshala.' : 'Night at hotel near temple.') : 'Return same day.'}</div>`;
+      if (numDays > 1) days_html += `<div class="tp-day"><span class="tp-day-badge">Day 2</span>Morning Mangala Aarti at 6 AM. Explore Nalkheda — Lakhundar river ghat, local market. Leisurely return journey.</div>`;
+    }
+
+    document.getElementById('tp-preview').innerHTML = `
+      <div style="border:1px solid rgba(212,160,23,0.3);padding:1.25rem;background:rgba(212,160,23,0.04);margin-bottom:1.25rem;">
+        <div style="font-family:'Cinzel Decorative',serif;font-size:0.6rem;letter-spacing:0.15em;color:var(--gold);margin-bottom:0.85rem;">✦ YOUR PERSONALISED YATRA PLAN ✦</div>
+        <div class="tp-preview-grid">
+          <div><span>Pilgrim: </span><strong>${name}</strong></div>
+          <div><span>Date: </span><strong>${date}</strong></div>
+          <div><span>From: </span><strong>${city}</strong></div>
+          <div><span>Group: </span><strong>${group}</strong></div>
+          <div><span>Duration: </span><strong>${days}</strong></div>
+          <div><span>Circuit: </span><strong>${circuit.split(':')[0].trim().replace('Full ','')}</strong></div>
+          <div><span>Stay: </span><strong>${stay.split('(')[0].trim()}</strong></div>
+          <div><span>Transport: </span><strong>${cab.split('/')[0].trim()}</strong></div>
+        </div>
+        <div style="border-top:1px solid rgba(212,160,23,0.18);padding-top:0.85rem;">
+          <div style="font-family:'Cinzel Decorative',serif;font-size:0.55rem;letter-spacing:0.1em;color:var(--saffron);margin-bottom:0.6rem;">ITINERARY OUTLINE</div>
+          ${days_html}
+        </div>
+        <div style="border-top:1px solid rgba(212,160,23,0.18);padding-top:0.65rem;margin-top:0.65rem;font-size:0.8rem;color:rgba(255,255,255,0.45);">
+          Budget range: <strong style="color:var(--gold);">${budget}</strong> &nbsp;·&nbsp; Exact costs confirmed on WhatsApp.
+        </div>
+      </div>`;
+  }
+
+  window.tpSubmit = function() {
+    const name  = document.getElementById('tp-name').value.trim();
+    const phone = document.getElementById('tp-phone').value.trim();
+    const city  = document.getElementById('tp-city').value.trim()  || 'N/A';
+    const dateR = document.getElementById('tp-date').value         || 'N/A';
+    const group = document.getElementById('tp-group').value        || 'N/A';
+    const notes = document.getElementById('tp-notes').value.trim();
+    const days   = tp['tpg-days']    || 'N/A';
+    const circuit= tp['tpg-circuit'] || 'Nalkheda Only';
+    const stay   = tp['tpg-stay']    || 'N/A';
+    const cab    = tp['tpg-cab']     || 'N/A';
+    const hawan  = tp['tpg-hawan']   || 'Just darshan';
+    const budget = tp['tpg-budget']  || 'Flexible';
+
+    saveUser({ name, phone, date: dateR, group, city, circuit, stay, cab, hawan, budget, notes, travelDate: dateR });
+    const settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
+    if (settings.sheet) {
+      fetch(settings.sheet, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ name, phone, city, date: dateR, group, days, circuit, stay, cab, hawan, budget, notes, source:'nalkheda.in trip planner' })
+      }).catch(() => {});
+    }
+
+    const el = document.getElementById('tp-form-msg');
+    el.style.cssText = 'display:block;padding:0.75rem;margin-bottom:1rem;font-family:Crimson Pro,serif;font-size:0.95rem;text-align:center;background:rgba(39,174,96,0.15);color:#27AE60;border:1px solid rgba(39,174,96,0.3);';
+    el.textContent = '🙏 Jai Maa Baglamukhi! Redirecting to WhatsApp...';
+
+    const waMsg = `🙏 Jai Maa Baglamukhi!\n\nCustomised Yatra Plan Request\n━━━━━━━━━━━━━━\nNaam: ${name}\nPhone: ${phone}\nCity: ${city}\nDate: ${dateR}\nGroup: ${group}\n\n📋 TRIP PREFERENCES\nDuration: ${days}\nCircuit: ${circuit}\nAccommodation: ${stay}\nTransport: ${cab}\nHawan/Puja: ${hawan}\nBudget: ${budget}${notes ? '\nSpecial requests: ' + notes : ''}\n\nKripya mera personalised yatra plan aur quote bhejein. 🙏`;
+    setTimeout(() => window.open('https://wa.me/919754709571?text=' + encodeURIComponent(waMsg), '_blank'), 900);
+  };
+})();
 </script>
 </body>
 </html>
