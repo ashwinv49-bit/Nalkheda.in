@@ -3245,10 +3245,11 @@
         <div class="tp-field">
           <label class="tp-label">ACCOMMODATION</label>
           <div class="tp-btn-group" id="tpg-stay">
-            <button class="tp-toggle" data-val="Dharamshala (free/donation)" onclick="tpToggle('tpg-stay',this)">🙏 Dharamshala</button>
             <button class="tp-toggle" data-val="Budget Hotel (₹500–900/night)" onclick="tpToggle('tpg-stay',this)">Budget Hotel</button>
-            <button class="tp-toggle" data-val="Standard Hotel (₹900+/night)" onclick="tpToggle('tpg-stay',this)">Standard Hotel</button>
+            <button class="tp-toggle" data-val="Standard Hotel (₹1,000+/night)" onclick="tpToggle('tpg-stay',this)">Standard Hotel</button>
+            <button class="tp-toggle" data-val="No stay needed (same-day visit)" onclick="tpToggle('tpg-stay',this)">No Stay</button>
           </div>
+          <p style="font-size:0.76rem;color:rgba(255,255,255,0.35);margin-top:0.5rem;">Temple dharamshala is managed by the official trust — book at <a href="https://mabaglamukhi.com" target="_blank" rel="noopener" style="color:var(--muted);">mabaglamukhi.com</a></p>
         </div>
         <div class="tp-field">
           <label class="tp-label">TRANSPORT</label>
@@ -3269,9 +3270,9 @@
         <div class="tp-field" style="margin-bottom:1.5rem;">
           <label class="tp-label">TOTAL BUDGET (APPROXIMATE)</label>
           <div class="tp-btn-group" id="tpg-budget">
-            <button class="tp-toggle" data-val="₹1,000–5,000" onclick="tpToggle('tpg-budget',this)">₹1k–5k</button>
-            <button class="tp-toggle" data-val="₹5,000–15,000" onclick="tpToggle('tpg-budget',this)">₹5k–15k</button>
-            <button class="tp-toggle" data-val="₹15,000+" onclick="tpToggle('tpg-budget',this)">₹15k+</button>
+            <button class="tp-toggle" data-val="₹5,000–12,000" onclick="tpToggle('tpg-budget',this)">₹5k–12k</button>
+            <button class="tp-toggle" data-val="₹12,000–30,000" onclick="tpToggle('tpg-budget',this)">₹12k–30k</button>
+            <button class="tp-toggle" data-val="₹30,000+" onclick="tpToggle('tpg-budget',this)">₹30k+</button>
             <button class="tp-toggle" data-val="Flexible" onclick="tpToggle('tpg-budget',this)">Flexible</button>
           </div>
         </div>
@@ -4293,12 +4294,12 @@ function removeListing(i) {
     let days_html = '';
     if (circuit.includes('Full Circuit')) {
       days_html = `
-        <div class="tp-day"><span class="tp-day-badge">Day 1</span>Travel from ${city} → Nalkheda. Evening darshan at Maa Baglamukhi Mandir + Sandhya Aarti (7:30 PM).${hawanNote} ${stay.includes('Dharamshala') ? 'Night at temple dharamshala.' : stay.includes('Budget') ? 'Night at budget hotel near temple.' : stay.includes('Standard') ? 'Night at standard hotel.' : ''}</div>
+        <div class="tp-day"><span class="tp-day-badge">Day 1</span>Travel from ${city} → Nalkheda. Evening darshan at Maa Baglamukhi Mandir + Sandhya Aarti (7:30 PM).${hawanNote} ${stay.includes('Budget') ? 'Night at budget hotel near temple.' : stay.includes('Standard') ? 'Night at standard hotel near temple.' : stay.includes('same-day') ? 'Same-day return.' : ''}</div>
         <div class="tp-day"><span class="tp-day-badge">Day 2</span>Morning Mangala Aarti (6 AM) at Nalkheda. Drive to Ujjain (~100 km, ~2 hrs). Mahakaleshwar Jyotirlinga darshan + Bhasma Aarti (pre-booking required). Night in Ujjain.</div>
         <div class="tp-day"><span class="tp-day-badge">Day 3</span>Ujjain darshan — Kal Bhairav, Ram Ghat, Harsiddhi. Drive to Omkareshwar (~135 km, ~3 hrs). Omkareshwar Jyotirlinga + Mamaleswara darshan. Return journey begins.</div>`;
     } else if (circuit.includes('Ujjain')) {
       days_html = `
-        <div class="tp-day"><span class="tp-day-badge">Day 1</span>Travel from ${city} → Nalkheda. Maa Baglamukhi darshan (6 AM–9:30 PM). Sandhya Aarti at 7:30 PM.${hawanNote} ${stay.includes('Dharamshala') ? 'Night at temple dharamshala.' : 'Night at hotel near temple.'}</div>
+        <div class="tp-day"><span class="tp-day-badge">Day 1</span>Travel from ${city} → Nalkheda. Maa Baglamukhi darshan (6 AM–9:30 PM). Sandhya Aarti at 7:30 PM.${hawanNote} ${stay.includes('same-day') ? 'Same-day return.' : 'Night at hotel near temple.'}</div>
         <div class="tp-day"><span class="tp-day-badge">Day 2</span>Morning aarti at 6 AM. Drive Nalkheda → Ujjain (~100 km, ~2 hrs via NH-52). Mahakaleshwar Jyotirlinga darshan + Kal Bhairav temple. Return journey or overnight Ujjain.</div>`;
     } else {
       const numDays = parseInt(days) || 1;
