@@ -235,7 +235,7 @@
     --cream: #FDF6E3;
     --pale-gold: #FFF3CC;
     --text: #2C1A00;
-    --muted: #7A5C3A;
+    --muted: #5C4320;
     --white: #FFFFFF;
   }
 
@@ -651,7 +651,7 @@
   }
 
   #rituals .section-title { color: white; }
-  #rituals .section-desc { color: rgba(255,255,255,0.5); }
+  #rituals .section-desc { color: rgba(255,255,255,0.75); }
 
   .rituals-grid {
     display: grid;
@@ -974,7 +974,7 @@
   }
 
   #guide .section-title { color: white; }
-  #guide .section-desc { color: rgba(255,255,255,0.5); }
+  #guide .section-desc { color: rgba(255,255,255,0.75); }
 
   .guide-layout {
     display: grid;
@@ -1098,7 +1098,7 @@
 
   .guide-feature p {
     font-size: 0.9rem;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.75);
     line-height: 1.5;
   }
 
@@ -1315,7 +1315,7 @@
   }
   #circuit .section-title { color: var(--bright-gold); }
   #circuit .section-label { color: var(--saffron); opacity:1; }
-  #circuit .section-desc { color: rgba(255,255,255,0.55); }
+  #circuit .section-desc { color: rgba(255,255,255,0.75); }
   #circuit .divider { background: var(--saffron); }
 
   .circuit-grid {
@@ -1775,7 +1775,7 @@
   }
 
   #gallery .section-title { color: white; }
-  #gallery .section-desc { color: rgba(255,255,255,0.5); }
+  #gallery .section-desc { color: rgba(255,255,255,0.75); }
 
   .gallery-header {
     display: flex;
@@ -1968,7 +1968,7 @@
 
   .gdrive-info-text p {
     font-size: 0.9rem;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.70);
     line-height: 1.6;
   }
 
@@ -2019,7 +2019,7 @@
     position: absolute;
     bottom: 1.5rem; left: 50%;
     transform: translateX(-50%);
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.75);
     font-family: 'Crimson Pro', serif;
     font-style: italic;
     font-size: 0.9rem;
@@ -2128,7 +2128,7 @@
     letter-spacing: 0.03em;
   }
   .countdown-inner { display: inline-flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
-  .countdown-label { color: var(--saffron); font-weight: 600; }
+  .countdown-label { color: var(--bright-gold); font-weight: 600; }
   .countdown-units { display: inline-flex; gap: 0.6rem; }
   .cd-unit { display: inline-flex; flex-direction: column; align-items: center; }
   .cd-num {
@@ -2140,8 +2140,8 @@
     min-width: 2rem;
     text-align: center;
   }
-  .cd-lbl { font-size: 0.6rem; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
-  .cd-sep { color: var(--saffron); font-size: 1.3rem; line-height: 1; align-self: flex-start; margin-top: 2px; }
+  .cd-lbl { font-size: 0.6rem; color: rgba(255,255,255,0.70); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
+  .cd-sep { color: var(--bright-gold); font-size: 1.3rem; line-height: 1; align-self: flex-start; margin-top: 2px; }
 
   /* ===== FESTIVAL CALENDAR ===== */
   #festivals {
@@ -2178,7 +2178,7 @@
   /* ===== TESTIMONIALS ===== */
   #testimonials { background: linear-gradient(180deg, #1a0a00 0%, #2c1200 100%); color: white; }
   #testimonials .section-title { color: var(--bright-gold); }
-  #testimonials .section-desc { color: rgba(255,255,255,0.5); }
+  #testimonials .section-desc { color: rgba(255,255,255,0.75); }
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -2206,7 +2206,7 @@
   .testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
   .testimonial-avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--saffron), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
   .testimonial-name { font-size: 0.85rem; color: var(--bright-gold); font-weight: 600; }
-  .testimonial-city { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+  .testimonial-city { font-size: 0.75rem; color: rgba(255,255,255,0.65); }
   @media (max-width: 768px) {
     .testimonials-grid { grid-template-columns: 1fr; }
   }
@@ -2308,8 +2308,8 @@
     line-height: 1;
     font-weight: 900;
   }
-  .pricing-old { font-size: 1rem; color: rgba(255,255,255,0.3); text-decoration: line-through; }
-  .pricing-note { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-bottom: 1.5rem; }
+  .pricing-old { font-size: 1rem; color: rgba(255,255,255,0.50); text-decoration: line-through; }
+  .pricing-note { font-size: 0.75rem; color: rgba(255,255,255,0.70); margin-bottom: 1.5rem; }
   .pricing-divider { border: none; border-top: 1px solid rgba(212,160,23,0.15); margin: 1.2rem 0; }
   .pricing-includes { list-style: none; margin-bottom: 1.8rem; }
   .pricing-includes li {
@@ -2343,6 +2343,57 @@
   .pricing-cta.cta-full { background: var(--saffron); color: white; }
   .pricing-cta.cta-wa { background: #25D366; color: white; margin-top: 0.7rem; }
   @media (max-width: 700px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+
+/* ===== TRIP PLANNER ===== */
+.tp-label{font-size:0.72rem;color:var(--gold);display:block;margin-bottom:0.4rem;font-family:'Cinzel Decorative',serif;letter-spacing:0.06em}
+.tp-input{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(212,160,23,0.3);color:white;padding:0.75rem;font-family:'Crimson Pro',serif;font-size:1rem;outline:none;border-radius:0}
+.tp-input::placeholder{color:rgba(255,255,255,0.3)}
+.tp-select{width:100%;background:#2a1200;border:1px solid rgba(212,160,23,0.3);color:white;padding:0.75rem;font-family:'Crimson Pro',serif;font-size:1rem;outline:none}
+.tp-2col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.tp-field{margin-bottom:1rem}
+.tp-btn-group{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.4rem}
+.tp-toggle{background:rgba(255,255,255,0.05);border:1px solid rgba(212,160,23,0.25);color:rgba(255,255,255,0.65);padding:0.5rem 0.85rem;font-family:'Crimson Pro',serif;font-size:0.92rem;cursor:pointer;transition:all 0.2s;border-radius:0}
+.tp-toggle:hover{border-color:rgba(212,160,23,0.5);color:white}
+.tp-toggle.tpa{background:var(--saffron);border-color:var(--saffron);color:white}
+.tp-card-group{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-top:0.4rem}
+.tp-card{background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:1rem 0.6rem;text-align:center;cursor:pointer;transition:all 0.2s}
+.tp-card:hover{border-color:rgba(212,160,23,0.5)}
+.tp-card.tpa{background:rgba(232,98,26,0.15);border-color:var(--saffron)}
+.tp-card-icon{font-size:1.5rem;margin-bottom:0.35rem}
+.tp-card-title{font-family:'Cinzel Decorative',serif;font-size:0.6rem;color:white;margin-bottom:0.2rem;line-height:1.4}
+.tp-card-sub{font-size:0.74rem;color:rgba(255,255,255,0.65);line-height:1.4}
+.tp-next-btn{width:100%;background:var(--saffron);color:white;border:none;padding:1rem;font-family:'Cinzel Decorative',serif;font-size:0.75rem;letter-spacing:0.1em;cursor:pointer;transition:background 0.2s;margin-top:0.25rem}
+.tp-next-btn:hover{background:var(--deep-saffron)}
+.tp-back-btn{background:transparent;border:1px solid rgba(212,160,23,0.25);color:rgba(255,255,255,0.70);padding:0.65rem 1.25rem;font-family:'Cinzel Decorative',serif;font-size:0.6rem;letter-spacing:0.08em;cursor:pointer;transition:all 0.2s}
+.tp-back-btn:hover{border-color:rgba(212,160,23,0.5);color:rgba(255,255,255,0.7)}
+.tp-step-dot{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(212,160,23,0.25);display:flex;align-items:center;justify-content:center;font-family:'Cinzel Decorative',serif;font-size:0.58rem;color:rgba(255,255,255,0.55);flex-shrink:0;transition:all 0.3s}
+.tp-step-dot.tpa{background:var(--saffron);border-color:var(--saffron);color:white}
+.tp-step-dot.tpd{background:var(--gold);border-color:var(--gold);color:#1A0A00}
+.tp-bar{flex:1;height:1px;background:rgba(212,160,23,0.15);transition:background 0.35s}
+.tp-bar.tpd{background:var(--gold)}
+.tp-day{padding:0.55rem 0;border-bottom:1px solid rgba(212,160,23,0.1);font-size:0.87rem;color:rgba(255,255,255,0.82);line-height:1.65}
+.tp-day:last-child{border-bottom:none}
+.tp-day-badge{display:inline-block;background:var(--saffron);color:white;font-family:'Cinzel Decorative',serif;font-size:0.52rem;padding:0.15rem 0.45rem;letter-spacing:0.05em;margin-right:0.5rem;vertical-align:middle}
+.tp-preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem 1rem;margin-bottom:1rem;font-size:0.86rem}
+.tp-preview-grid span{color:rgba(255,255,255,0.65)}
+.tp-preview-grid strong{color:white}
+@media(max-width:520px){
+  .tp-2col{grid-template-columns:1fr}
+  .tp-card-group{grid-template-columns:1fr}
+  .tp-preview-grid{grid-template-columns:1fr}
+}
+
+/* ===== HERO PACKAGE STRIP ===== */
+.hero-pkg-strip{display:inline-flex;align-items:center;gap:1.25rem;flex-wrap:wrap;justify-content:center;background:rgba(212,160,23,0.08);border:1px solid rgba(212,160,23,0.30);padding:0.65rem 1.5rem;margin-top:2rem}
+.hero-pkg-label{font-family:'Cinzel Decorative',serif;font-size:0.55rem;letter-spacing:0.2em;color:var(--gold)}
+.hero-pkg-items{display:inline-flex;align-items:center;gap:0.75rem;flex-wrap:wrap;justify-content:center}
+.hero-pkg-item{font-size:0.88rem;color:rgba(255,255,255,0.80)}
+.hero-pkg-item strong{color:var(--bright-gold)}
+.hero-pkg-sep{color:rgba(212,160,23,0.45)}
+.hero-pkg-cta{background:var(--saffron);color:white;padding:0.35rem 0.9rem;font-family:'Cinzel Decorative',serif;font-size:0.55rem;letter-spacing:0.08em;text-decoration:none;white-space:nowrap;transition:background 0.2s}
+.hero-pkg-cta:hover{background:var(--deep-saffron)}
+@media(max-width:480px){.hero-pkg-strip{gap:0.75rem;padding:0.5rem 1rem}.hero-pkg-sep{display:none}.hero-pkg-items{flex-direction:column;gap:0.3rem}}
 
 </style>
     <meta name="robots" content="index, follow">
@@ -2444,7 +2495,16 @@
     </div>
     <div class="hero-buttons">
       <a href="#about" class="btn-primary">Explore the Dham</a>
-      <a href="#guide" class="btn-outline">📥 Get Guide PDF — ₹99</a>
+      <a href="#guide" class="btn-outline">🌟 Plan My Yatra — from ₹99</a>
+    </div>
+    <div class="hero-pkg-strip">
+      <span class="hero-pkg-label">YATRA PACKAGES</span>
+      <div class="hero-pkg-items">
+        <span class="hero-pkg-item">📖 Digital Guide <strong>₹99</strong></span>
+        <span class="hero-pkg-sep">·</span>
+        <span class="hero-pkg-item">🌟 Full Package <strong>₹1,999</strong></span>
+      </div>
+      <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20the%20Full%20Yatra%20Package%20(hotel%20booking%20%2B%20guide%20%2B%20all%20arrangements)%20starting%20%E2%82%B91%2C999.%20Please%20share%20details." target="_blank" rel="noopener" class="hero-pkg-cta">Book on WhatsApp →</a>
     </div>
   </div>
   <div class="scroll-indicator">↓</div>
@@ -2463,7 +2523,7 @@
       <span class="cd-sep">:</span>
       <div class="cd-unit"><span class="cd-num" id="cd-sec">--</span><span class="cd-lbl">Sec</span></div>
     </div>
-    <span style="color:rgba(255,255,255,0.5); font-size:0.8rem;">Sept 25 – Oct 3, 2026</span>
+    <span style="color:var(--gold); font-size:0.8rem;">Sept 25 – Oct 3, 2026</span>
   </div>
 </div>
 
@@ -2570,6 +2630,250 @@
 
     <div style="text-align:center;">
       <a href="/blog/nalkheda-to-omkareshwar.html" class="circuit-route-link">📍 See Full Route &amp; Distance Guide</a>
+    </div>
+
+  </div>
+</section>
+<!-- PDF GUIDE -->
+<section id="guide">
+  <div class="section-inner">
+    <span class="section-label">Exclusive Digital Download</span>
+    <h2 class="section-title">Complete Nalkheda<br>Pilgrim Travel Guide</h2>
+    <div class="divider"></div>
+    <div class="guide-layout">
+      <div class="pdf-mockup">
+        <div class="pdf-book">
+          <div class="pdf-book-spine"></div>
+          <div class="pdf-book-devanagari">नलखेड़ा यात्रा गाइड</div>
+          <div class="pdf-book-title">Nalkheda Dham<br>Complete Pilgrim Guide</div>
+          <div class="pdf-book-subtitle">The Ultimate Travel Companion</div>
+          <ul class="pdf-preview-items">
+            <li>Temple history, mythology & significance</li>
+            <li>Complete puja booking process (step-by-step)</li>
+            <li>Best hotels, dharamshalas & eating spots</li>
+            <li>Day-wise Nalkheda + Ujjain + Omkareshwar itinerary</li>
+            <li>Navratri special — dates, prep & crowd tips</li>
+            <li>Nearby mandirs (Mahakaleshwar, Omkareshwar, etc.)</li>
+            <li>Budget breakdown: ₹2,000 to ₹20,000 trips</li>
+            <li>Emergency contacts, ATMs, transport guide</li>
+            <li>Hindi & English — printable format</li>
+          </ul>
+          <div class="pdf-pages-count">~45 PAGES · PDF FORMAT</div>
+
+          <!-- BONUS PDF -->
+          <div style="margin-top:1rem; background:rgba(212,160,23,0.15); border:1px solid rgba(212,160,23,0.4); padding:0.9rem 1rem;">
+            <div style="font-size:0.65rem; letter-spacing:0.2em; color:var(--bright-gold); font-family:'Cinzel Decorative',serif; margin-bottom:0.4rem;">🎁 FREE BONUS INCLUDED</div>
+            <div style="font-size:0.9rem; color:white; font-weight:700; margin-bottom:0.2rem;">52 Shaktipeethas Complete Guide PDF</div>
+            <div style="font-size:0.78rem; color:rgba(255,255,255,0.65); line-height:1.5;">All 52 sacred Shaktipeethas — Devi names, Bhairav, body parts, locations & significance. Includes special MP Peethas + Nalkheda Dham detailed section. Worth ₹99 — yours FREE with this guide.</div>
+          </div>
+        </div>
+      </div>
+      <div class="guide-purchase">
+        <div class="pricing-grid">
+
+          <!-- Tier 1: Digital Guide ₹99 -->
+          <div class="pricing-card">
+            <div class="pricing-name">📖 Digital Guide</div>
+            <div class="pricing-amount">
+              <span class="pricing-rupee">₹</span>
+              <span class="pricing-num">99</span>
+              <span class="pricing-old">₹499</span>
+            </div>
+            <div class="pricing-note">One-time · Instant WhatsApp delivery</div>
+            <hr class="pricing-divider">
+            <ul class="pricing-includes">
+              <li><span class="check">✓</span> Nalkheda Yatra PDF — 13 pages · Hindi &amp; English versions</li>
+              <li><span class="check">✓</span> Temple timings, hawan booking guide</li>
+              <li><span class="check">✓</span> Routes from Ujjain, Indore, Bhopal</li>
+              <li><span class="check">✓</span> Hotel &amp; dharamshala directory</li>
+              <li><span class="check">✓</span> 2-day circuit itinerary</li>
+              <li><span class="check">🎁</span> BONUS: 52 Shaktipeethas PDF (worth ₹99)</li>
+            </ul>
+            <button class="pricing-cta cta-pdf" onclick="openPayModal('razorpay')">💳 Pay ₹99 Now</button>
+            <a href="https://wa.me/919754709571?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999." target="_blank" rel="noopener" class="pricing-cta cta-wa">💬 Order on WhatsApp</a>
+          </div>
+
+          <!-- Tier 2: Full Yatra Package ₹1999 -->
+          <div class="pricing-card featured">
+            <span class="pricing-badge">Most Popular</span>
+            <div class="pricing-name">🌟 Full Yatra Package</div>
+            <div class="pricing-amount">
+              <span class="pricing-rupee">₹</span>
+              <span class="pricing-num">1,999</span>
+            </div>
+            <div class="pricing-note">Starting price · per person · WhatsApp for custom quote</div>
+            <hr class="pricing-divider">
+            <ul class="pricing-includes">
+              <li><span class="check">✓</span> Everything in Digital Guide (PDF included)</li>
+              <li><span class="check">✓</span> Hotel booking assistance — we find &amp; confirm for you</li>
+              <li><span class="check">✓</span> Local guide assistance &amp; temple orientation</li>
+              <li><span class="check">✓</span> Hawan kund booking coordination</li>
+              <li><span class="check">✓</span> Personalised trip itinerary (1–3 days)</li>
+              <li><span class="check">✓</span> WhatsApp support before &amp; during the trip</li>
+              <li><span class="check">✓</span> Circuit extension: Ujjain + Omkareshwar planning</li>
+            </ul>
+            <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20the%20Full%20Yatra%20Package%20(hotel%20booking%20%2B%20guide%20%2B%20all%20arrangements)%20starting%20%E2%82%B91%2C999.%20Please%20share%20details." target="_blank" rel="noopener" class="pricing-cta cta-full">💬 Book Full Package — WhatsApp</a>
+            <p style="font-size:0.72rem;color:rgba(255,255,255,0.65);text-align:center;margin-top:0.8rem;">Custom pricing for groups · 2-day &amp; 3-day circuit packages available</p>
+          </div>
+
+        </div>
+        <div class="security-badges" style="margin-top:1.5rem; justify-content:center;">
+          <span class="security-badge">🔒 Secure Payment</span>
+          <span class="security-badge">📧 Instant Delivery</span>
+          <span class="security-badge">🙏 Verified by Pilgrims</span>
+          <span class="security-badge">💬 WhatsApp Support</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===== CUSTOMISE TRIP PLAN — 3-step wizard ===== --><section id="yatra-form" style="background:linear-gradient(180deg,#0d0500 0%,#1a0a00 100%); padding:4rem 1.5rem;">
+  <div class="section-inner" style="max-width:700px;">
+    <span class="section-label">Plan Your Yatra</span>
+    <h2 class="section-title">Customise Your Trip Plan</h2>
+    <div class="divider"></div>
+    <p class="section-desc" style="margin-bottom:2rem;color:rgba(255,255,255,0.75);">Answer 3 quick steps — we'll build your personalised Nalkheda itinerary and send it to WhatsApp.</p>
+
+    <!-- Progress -->
+    <div style="display:flex;align-items:center;margin-bottom:0.5rem;" id="tp-progress">
+      <div class="tp-step-dot tpa" id="tpdot1">1</div>
+      <div class="tp-bar" id="tpbar1"></div>
+      <div class="tp-step-dot" id="tpdot2">2</div>
+      <div class="tp-bar" id="tpbar2"></div>
+      <div class="tp-step-dot" id="tpdot3">3</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:1.75rem;font-family:'Cinzel Decorative',serif;font-size:0.56rem;letter-spacing:0.06em;color:rgba(255,255,255,0.65);">
+      <span>JOURNEY</span><span>PREFERENCES</span><span>YOUR PLAN</span>
+    </div>
+
+    <!-- STEP 1: Journey -->
+    <div id="tp-step1">
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:1.75rem;">
+        <div class="tp-2col">
+          <div>
+            <label class="tp-label">YOUR NAME *</label>
+            <input type="text" id="tp-name" placeholder="Aapka naam" class="tp-input">
+          </div>
+          <div>
+            <label class="tp-label">WHATSAPP NUMBER *</label>
+            <input type="tel" id="tp-phone" placeholder="10-digit number" class="tp-input">
+          </div>
+        </div>
+        <div class="tp-2col">
+          <div>
+            <label class="tp-label">TRAVELLING FROM</label>
+            <input type="text" id="tp-city" placeholder="Indore / Ujjain / Delhi..." class="tp-input">
+          </div>
+          <div>
+            <label class="tp-label">TRAVEL DATE</label>
+            <input type="date" id="tp-date" class="tp-input">
+          </div>
+        </div>
+        <div class="tp-field">
+          <label class="tp-label">HOW MANY DAYS?</label>
+          <div class="tp-btn-group" id="tpg-days">
+            <button class="tp-toggle" data-val="1 Day" onclick="tpToggle('tpg-days',this)">1 Day</button>
+            <button class="tp-toggle" data-val="2 Days" onclick="tpToggle('tpg-days',this)">2 Days</button>
+            <button class="tp-toggle" data-val="3 Days" onclick="tpToggle('tpg-days',this)">3 Days</button>
+            <button class="tp-toggle" data-val="4+ Days" onclick="tpToggle('tpg-days',this)">4+ Days</button>
+          </div>
+        </div>
+        <div class="tp-field" style="margin-bottom:1.5rem;">
+          <label class="tp-label">GROUP SIZE</label>
+          <select id="tp-group" class="tp-select">
+            <option value="">Select</option>
+            <option>Solo (1)</option>
+            <option>Couple (2)</option>
+            <option>Small group (3–5)</option>
+            <option>Family (6–10)</option>
+            <option>Large group (10+)</option>
+          </select>
+        </div>
+        <button onclick="tpNext(1)" class="tp-next-btn">NEXT: CHOOSE TEMPLES &amp; PREFERENCES →</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: Preferences -->
+    <div id="tp-step2" style="display:none;">
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:1.75rem;">
+        <div class="tp-field">
+          <label class="tp-label">SELECT YOUR TEMPLE CIRCUIT</label>
+          <div class="tp-card-group" id="tpg-circuit">
+            <div class="tp-card" data-val="Nalkheda Only" onclick="tpCard('tpg-circuit',this)">
+              <div class="tp-card-icon">🙏</div>
+              <div class="tp-card-title">Nalkheda Only</div>
+              <div class="tp-card-sub">Maa Baglamukhi<br>1 day</div>
+            </div>
+            <div class="tp-card" data-val="Nalkheda + Ujjain" onclick="tpCard('tpg-circuit',this)">
+              <div class="tp-card-icon">⭕</div>
+              <div class="tp-card-title">Nalkheda + Ujjain</div>
+              <div class="tp-card-sub">+ Mahakaleshwar<br>2 days</div>
+            </div>
+            <div class="tp-card" data-val="Full Circuit: Nalkheda + Ujjain + Omkareshwar" onclick="tpCard('tpg-circuit',this)">
+              <div class="tp-card-icon">🌊</div>
+              <div class="tp-card-title">Full 3-Temple Circuit</div>
+              <div class="tp-card-sub">+ Omkareshwar<br>3+ days</div>
+            </div>
+          </div>
+        </div>
+        <div class="tp-field">
+          <label class="tp-label">ACCOMMODATION</label>
+          <div class="tp-btn-group" id="tpg-stay">
+            <button class="tp-toggle" data-val="Budget Hotel (₹500–900/night)" onclick="tpToggle('tpg-stay',this)">Budget Hotel</button>
+            <button class="tp-toggle" data-val="Standard Hotel (₹1,000+/night)" onclick="tpToggle('tpg-stay',this)">Standard Hotel</button>
+            <button class="tp-toggle" data-val="No stay needed (same-day visit)" onclick="tpToggle('tpg-stay',this)">No Stay</button>
+          </div>
+          <p style="font-size:0.76rem;color:rgba(255,255,255,0.65);margin-top:0.5rem;">Temple dharamshala is managed by the official trust — book at <a href="https://mabaglamukhi.com" target="_blank" rel="noopener" style="color:var(--gold);">mabaglamukhi.com</a></p>
+        </div>
+        <div class="tp-field">
+          <label class="tp-label">TRANSPORT</label>
+          <div class="tp-btn-group" id="tpg-cab">
+            <button class="tp-toggle" data-val="Own vehicle" onclick="tpToggle('tpg-cab',this)">Own Vehicle</button>
+            <button class="tp-toggle" data-val="Need cab / taxi" onclick="tpToggle('tpg-cab',this)">Need Cab</button>
+            <button class="tp-toggle" data-val="Bus / public transport" onclick="tpToggle('tpg-cab',this)">By Bus</button>
+          </div>
+        </div>
+        <div class="tp-field">
+          <label class="tp-label">HAWAN / PUJA</label>
+          <div class="tp-btn-group" id="tpg-hawan">
+            <button class="tp-toggle" data-val="Just darshan" onclick="tpToggle('tpg-hawan',this)">Just Darshan</button>
+            <button class="tp-toggle" data-val="Hawan booking assistance needed" onclick="tpToggle('tpg-hawan',this)">Hawan Booking</button>
+            <button class="tp-toggle" data-val="Special mahayagya / puja arrangement" onclick="tpToggle('tpg-hawan',this)">Special Puja</button>
+          </div>
+        </div>
+        <div class="tp-field" style="margin-bottom:1.5rem;">
+          <label class="tp-label">TOTAL BUDGET (APPROXIMATE)</label>
+          <div class="tp-btn-group" id="tpg-budget">
+            <button class="tp-toggle" data-val="₹5,000–12,000" onclick="tpToggle('tpg-budget',this)">₹5k–12k</button>
+            <button class="tp-toggle" data-val="₹12,000–30,000" onclick="tpToggle('tpg-budget',this)">₹12k–30k</button>
+            <button class="tp-toggle" data-val="₹30,000+" onclick="tpToggle('tpg-budget',this)">₹30k+</button>
+            <button class="tp-toggle" data-val="Flexible" onclick="tpToggle('tpg-budget',this)">Flexible</button>
+            <button class="tp-toggle" data-val="custom" onclick="tpToggle('tpg-budget',this);tpShowCustomBudget()">Custom Amount</button>
+          </div>
+          <div id="tp-custom-budget-wrap" style="display:none;width:100%;margin-top:0.5rem;">
+            <input type="text" id="tp-custom-budget" placeholder="e.g. ₹8,500 or ₹45,000 for group" class="tp-input" oninput="tpSyncCustomBudget(this.value)">
+          </div>
+        </div>
+        <div style="display:flex;gap:0.75rem;">
+          <button onclick="tpBack(2)" class="tp-back-btn">← BACK</button>
+          <button onclick="tpNext(2)" class="tp-next-btn" style="flex:1;">SEE YOUR PERSONALISED PLAN →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: Plan Preview + Submit -->
+    <div id="tp-step3" style="display:none;">
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:1.75rem;">
+        <div id="tp-preview"></div>
+        <div class="tp-field">
+          <label class="tp-label">SPECIAL REQUESTS (OPTIONAL)</label>
+          <textarea id="tp-notes" placeholder="Senior citizens, accessibility needs, specific aarti time, any other requirements..." class="tp-input" style="height:75px;resize:vertical;"></textarea>
+        </div>
+        <div id="tp-form-msg" style="display:none;padding:0.75rem;margin-bottom:1rem;font-family:'Crimson Pro',serif;font-size:0.95rem;text-align:center;"></div>
+        <button onclick="tpSubmit()" class="tp-next-btn">🙏 SEND MY PLAN TO WHATSAPP</button>
+        <p style="font-size:0.76rem;color:rgba(255,255,255,0.65);text-align:center;margin-top:0.75rem;">We reply within 2–4 hours on WhatsApp. No commitment needed.</p>
+        <button onclick="tpBack(3)" class="tp-back-btn" style="width:100%;margin-top:0.75rem;display:block;">← EDIT PREFERENCES</button>
+      </div>
     </div>
 
   </div>
@@ -3020,286 +3324,6 @@
   </div>
 </section>
 
-<!-- PDF GUIDE -->
-<section id="guide">
-  <div class="section-inner">
-    <span class="section-label">Exclusive Digital Download</span>
-    <h2 class="section-title">Complete Nalkheda<br>Pilgrim Travel Guide</h2>
-    <div class="divider"></div>
-    <div class="guide-layout">
-      <div class="pdf-mockup">
-        <div class="pdf-book">
-          <div class="pdf-book-spine"></div>
-          <div class="pdf-book-devanagari">नलखेड़ा यात्रा गाइड</div>
-          <div class="pdf-book-title">Nalkheda Dham<br>Complete Pilgrim Guide</div>
-          <div class="pdf-book-subtitle">The Ultimate Travel Companion</div>
-          <ul class="pdf-preview-items">
-            <li>Temple history, mythology & significance</li>
-            <li>Complete puja booking process (step-by-step)</li>
-            <li>Best hotels, dharamshalas & eating spots</li>
-            <li>Day-wise Nalkheda + Ujjain + Omkareshwar itinerary</li>
-            <li>Navratri special — dates, prep & crowd tips</li>
-            <li>Nearby mandirs (Mahakaleshwar, Omkareshwar, etc.)</li>
-            <li>Budget breakdown: ₹2,000 to ₹20,000 trips</li>
-            <li>Emergency contacts, ATMs, transport guide</li>
-            <li>Hindi & English — printable format</li>
-          </ul>
-          <div class="pdf-pages-count">~45 PAGES · PDF FORMAT</div>
-
-          <!-- BONUS PDF -->
-          <div style="margin-top:1rem; background:rgba(212,160,23,0.15); border:1px solid rgba(212,160,23,0.4); padding:0.9rem 1rem;">
-            <div style="font-size:0.65rem; letter-spacing:0.2em; color:var(--bright-gold); font-family:'Cinzel Decorative',serif; margin-bottom:0.4rem;">🎁 FREE BONUS INCLUDED</div>
-            <div style="font-size:0.9rem; color:white; font-weight:700; margin-bottom:0.2rem;">52 Shaktipeethas Complete Guide PDF</div>
-            <div style="font-size:0.78rem; color:rgba(255,255,255,0.65); line-height:1.5;">All 52 sacred Shaktipeethas — Devi names, Bhairav, body parts, locations & significance. Includes special MP Peethas + Nalkheda Dham detailed section. Worth ₹99 — yours FREE with this guide.</div>
-          </div>
-        </div>
-      </div>
-      <div class="guide-purchase">
-        <div class="pricing-grid">
-
-          <!-- Tier 1: Digital Guide ₹99 -->
-          <div class="pricing-card">
-            <div class="pricing-name">📖 Digital Guide</div>
-            <div class="pricing-amount">
-              <span class="pricing-rupee">₹</span>
-              <span class="pricing-num">99</span>
-              <span class="pricing-old">₹499</span>
-            </div>
-            <div class="pricing-note">One-time · Instant WhatsApp delivery</div>
-            <hr class="pricing-divider">
-            <ul class="pricing-includes">
-              <li><span class="check">✓</span> Nalkheda Yatra PDF — 13 pages · Hindi &amp; English versions</li>
-              <li><span class="check">✓</span> Temple timings, hawan booking guide</li>
-              <li><span class="check">✓</span> Routes from Ujjain, Indore, Bhopal</li>
-              <li><span class="check">✓</span> Hotel &amp; dharamshala directory</li>
-              <li><span class="check">✓</span> 2-day circuit itinerary</li>
-              <li><span class="check">🎁</span> BONUS: 52 Shaktipeethas PDF (worth ₹99)</li>
-            </ul>
-            <button class="pricing-cta cta-pdf" onclick="openPayModal('razorpay')">💳 Pay ₹99 Now</button>
-            <a href="https://wa.me/919754709571?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999." target="_blank" rel="noopener" class="pricing-cta cta-wa">💬 Order on WhatsApp</a>
-          </div>
-
-          <!-- Tier 2: Full Yatra Package ₹1999 -->
-          <div class="pricing-card featured">
-            <span class="pricing-badge">Most Popular</span>
-            <div class="pricing-name">🌟 Full Yatra Package</div>
-            <div class="pricing-amount">
-              <span class="pricing-rupee">₹</span>
-              <span class="pricing-num">1,999</span>
-            </div>
-            <div class="pricing-note">Starting price · per person · WhatsApp for custom quote</div>
-            <hr class="pricing-divider">
-            <ul class="pricing-includes">
-              <li><span class="check">✓</span> Everything in Digital Guide (PDF included)</li>
-              <li><span class="check">✓</span> Hotel booking assistance — we find &amp; confirm for you</li>
-              <li><span class="check">✓</span> Local guide assistance &amp; temple orientation</li>
-              <li><span class="check">✓</span> Hawan kund booking coordination</li>
-              <li><span class="check">✓</span> Personalised trip itinerary (1–3 days)</li>
-              <li><span class="check">✓</span> WhatsApp support before &amp; during the trip</li>
-              <li><span class="check">✓</span> Circuit extension: Ujjain + Omkareshwar planning</li>
-            </ul>
-            <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20the%20Full%20Yatra%20Package%20(hotel%20booking%20%2B%20guide%20%2B%20all%20arrangements)%20starting%20%E2%82%B91%2C999.%20Please%20share%20details." target="_blank" rel="noopener" class="pricing-cta cta-full">💬 Book Full Package — WhatsApp</a>
-            <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:0.8rem;">Custom pricing for groups · 2-day &amp; 3-day circuit packages available</p>
-          </div>
-
-        </div>
-        <div class="security-badges" style="margin-top:1.5rem; justify-content:center;">
-          <span class="security-badge">🔒 Secure Payment</span>
-          <span class="security-badge">📧 Instant Delivery</span>
-          <span class="security-badge">🙏 Verified by Pilgrims</span>
-          <span class="security-badge">💬 WhatsApp Support</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ===== CUSTOMISE TRIP PLAN — 3-step wizard ===== -->
-<style>
-.tp-label{font-size:0.72rem;color:var(--gold);display:block;margin-bottom:0.4rem;font-family:'Cinzel Decorative',serif;letter-spacing:0.06em}
-.tp-input{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(212,160,23,0.3);color:white;padding:0.75rem;font-family:'Crimson Pro',serif;font-size:1rem;outline:none;border-radius:0}
-.tp-input::placeholder{color:rgba(255,255,255,0.3)}
-.tp-select{width:100%;background:#2a1200;border:1px solid rgba(212,160,23,0.3);color:white;padding:0.75rem;font-family:'Crimson Pro',serif;font-size:1rem;outline:none}
-.tp-2col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
-.tp-field{margin-bottom:1rem}
-.tp-btn-group{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.4rem}
-.tp-toggle{background:rgba(255,255,255,0.05);border:1px solid rgba(212,160,23,0.25);color:rgba(255,255,255,0.65);padding:0.5rem 0.85rem;font-family:'Crimson Pro',serif;font-size:0.92rem;cursor:pointer;transition:all 0.2s;border-radius:0}
-.tp-toggle:hover{border-color:rgba(212,160,23,0.5);color:white}
-.tp-toggle.tpa{background:var(--saffron);border-color:var(--saffron);color:white}
-.tp-card-group{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-top:0.4rem}
-.tp-card{background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:1rem 0.6rem;text-align:center;cursor:pointer;transition:all 0.2s}
-.tp-card:hover{border-color:rgba(212,160,23,0.5)}
-.tp-card.tpa{background:rgba(232,98,26,0.15);border-color:var(--saffron)}
-.tp-card-icon{font-size:1.5rem;margin-bottom:0.35rem}
-.tp-card-title{font-family:'Cinzel Decorative',serif;font-size:0.6rem;color:white;margin-bottom:0.2rem;line-height:1.4}
-.tp-card-sub{font-size:0.74rem;color:var(--muted);line-height:1.4}
-.tp-next-btn{width:100%;background:var(--saffron);color:white;border:none;padding:1rem;font-family:'Cinzel Decorative',serif;font-size:0.75rem;letter-spacing:0.1em;cursor:pointer;transition:background 0.2s;margin-top:0.25rem}
-.tp-next-btn:hover{background:var(--deep-saffron)}
-.tp-back-btn{background:transparent;border:1px solid rgba(212,160,23,0.25);color:rgba(255,255,255,0.45);padding:0.65rem 1.25rem;font-family:'Cinzel Decorative',serif;font-size:0.6rem;letter-spacing:0.08em;cursor:pointer;transition:all 0.2s}
-.tp-back-btn:hover{border-color:rgba(212,160,23,0.5);color:rgba(255,255,255,0.7)}
-.tp-step-dot{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(212,160,23,0.25);display:flex;align-items:center;justify-content:center;font-family:'Cinzel Decorative',serif;font-size:0.58rem;color:rgba(255,255,255,0.35);flex-shrink:0;transition:all 0.3s}
-.tp-step-dot.tpa{background:var(--saffron);border-color:var(--saffron);color:white}
-.tp-step-dot.tpd{background:var(--gold);border-color:var(--gold);color:#1A0A00}
-.tp-bar{flex:1;height:1px;background:rgba(212,160,23,0.15);transition:background 0.35s}
-.tp-bar.tpd{background:var(--gold)}
-.tp-day{padding:0.55rem 0;border-bottom:1px solid rgba(212,160,23,0.1);font-size:0.87rem;color:rgba(255,255,255,0.82);line-height:1.65}
-.tp-day:last-child{border-bottom:none}
-.tp-day-badge{display:inline-block;background:var(--saffron);color:white;font-family:'Cinzel Decorative',serif;font-size:0.52rem;padding:0.15rem 0.45rem;letter-spacing:0.05em;margin-right:0.5rem;vertical-align:middle}
-.tp-preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem 1rem;margin-bottom:1rem;font-size:0.86rem}
-.tp-preview-grid span{color:var(--muted)}
-.tp-preview-grid strong{color:white}
-@media(max-width:520px){
-  .tp-2col{grid-template-columns:1fr}
-  .tp-card-group{grid-template-columns:1fr}
-  .tp-preview-grid{grid-template-columns:1fr}
-}
-</style>
-<section id="yatra-form" style="background:linear-gradient(180deg,#0d0500 0%,#1a0a00 100%); padding:4rem 1.5rem;">
-  <div class="section-inner" style="max-width:700px;">
-    <span class="section-label">Plan Your Yatra</span>
-    <h2 class="section-title">Customise Your Trip Plan</h2>
-    <div class="divider"></div>
-    <p class="section-desc" style="margin-bottom:2rem;">Answer 3 quick steps — we'll build your personalised Nalkheda itinerary and send it to WhatsApp.</p>
-
-    <!-- Progress -->
-    <div style="display:flex;align-items:center;margin-bottom:0.5rem;" id="tp-progress">
-      <div class="tp-step-dot tpa" id="tpdot1">1</div>
-      <div class="tp-bar" id="tpbar1"></div>
-      <div class="tp-step-dot" id="tpdot2">2</div>
-      <div class="tp-bar" id="tpbar2"></div>
-      <div class="tp-step-dot" id="tpdot3">3</div>
-    </div>
-    <div style="display:flex;justify-content:space-between;margin-bottom:1.75rem;font-family:'Cinzel Decorative',serif;font-size:0.56rem;letter-spacing:0.06em;color:rgba(255,255,255,0.35);">
-      <span>JOURNEY</span><span>PREFERENCES</span><span>YOUR PLAN</span>
-    </div>
-
-    <!-- STEP 1: Journey -->
-    <div id="tp-step1">
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:1.75rem;">
-        <div class="tp-2col">
-          <div>
-            <label class="tp-label">YOUR NAME *</label>
-            <input type="text" id="tp-name" placeholder="Aapka naam" class="tp-input">
-          </div>
-          <div>
-            <label class="tp-label">WHATSAPP NUMBER *</label>
-            <input type="tel" id="tp-phone" placeholder="10-digit number" class="tp-input">
-          </div>
-        </div>
-        <div class="tp-2col">
-          <div>
-            <label class="tp-label">TRAVELLING FROM</label>
-            <input type="text" id="tp-city" placeholder="Indore / Ujjain / Delhi..." class="tp-input">
-          </div>
-          <div>
-            <label class="tp-label">TRAVEL DATE</label>
-            <input type="date" id="tp-date" class="tp-input">
-          </div>
-        </div>
-        <div class="tp-field">
-          <label class="tp-label">HOW MANY DAYS?</label>
-          <div class="tp-btn-group" id="tpg-days">
-            <button class="tp-toggle" data-val="1 Day" onclick="tpToggle('tpg-days',this)">1 Day</button>
-            <button class="tp-toggle" data-val="2 Days" onclick="tpToggle('tpg-days',this)">2 Days</button>
-            <button class="tp-toggle" data-val="3 Days" onclick="tpToggle('tpg-days',this)">3 Days</button>
-            <button class="tp-toggle" data-val="4+ Days" onclick="tpToggle('tpg-days',this)">4+ Days</button>
-          </div>
-        </div>
-        <div class="tp-field" style="margin-bottom:1.5rem;">
-          <label class="tp-label">GROUP SIZE</label>
-          <select id="tp-group" class="tp-select">
-            <option value="">Select</option>
-            <option>Solo (1)</option>
-            <option>Couple (2)</option>
-            <option>Small group (3–5)</option>
-            <option>Family (6–10)</option>
-            <option>Large group (10+)</option>
-          </select>
-        </div>
-        <button onclick="tpNext(1)" class="tp-next-btn">NEXT: CHOOSE TEMPLES &amp; PREFERENCES →</button>
-      </div>
-    </div>
-
-    <!-- STEP 2: Preferences -->
-    <div id="tp-step2" style="display:none;">
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:1.75rem;">
-        <div class="tp-field">
-          <label class="tp-label">SELECT YOUR TEMPLE CIRCUIT</label>
-          <div class="tp-card-group" id="tpg-circuit">
-            <div class="tp-card" data-val="Nalkheda Only" onclick="tpCard('tpg-circuit',this)">
-              <div class="tp-card-icon">🙏</div>
-              <div class="tp-card-title">Nalkheda Only</div>
-              <div class="tp-card-sub">Maa Baglamukhi<br>1 day</div>
-            </div>
-            <div class="tp-card" data-val="Nalkheda + Ujjain" onclick="tpCard('tpg-circuit',this)">
-              <div class="tp-card-icon">⭕</div>
-              <div class="tp-card-title">Nalkheda + Ujjain</div>
-              <div class="tp-card-sub">+ Mahakaleshwar<br>2 days</div>
-            </div>
-            <div class="tp-card" data-val="Full Circuit: Nalkheda + Ujjain + Omkareshwar" onclick="tpCard('tpg-circuit',this)">
-              <div class="tp-card-icon">🌊</div>
-              <div class="tp-card-title">Full 3-Temple Circuit</div>
-              <div class="tp-card-sub">+ Omkareshwar<br>3+ days</div>
-            </div>
-          </div>
-        </div>
-        <div class="tp-field">
-          <label class="tp-label">ACCOMMODATION</label>
-          <div class="tp-btn-group" id="tpg-stay">
-            <button class="tp-toggle" data-val="Budget Hotel (₹500–900/night)" onclick="tpToggle('tpg-stay',this)">Budget Hotel</button>
-            <button class="tp-toggle" data-val="Standard Hotel (₹1,000+/night)" onclick="tpToggle('tpg-stay',this)">Standard Hotel</button>
-            <button class="tp-toggle" data-val="No stay needed (same-day visit)" onclick="tpToggle('tpg-stay',this)">No Stay</button>
-          </div>
-          <p style="font-size:0.76rem;color:rgba(255,255,255,0.35);margin-top:0.5rem;">Temple dharamshala is managed by the official trust — book at <a href="https://mabaglamukhi.com" target="_blank" rel="noopener" style="color:var(--muted);">mabaglamukhi.com</a></p>
-        </div>
-        <div class="tp-field">
-          <label class="tp-label">TRANSPORT</label>
-          <div class="tp-btn-group" id="tpg-cab">
-            <button class="tp-toggle" data-val="Own vehicle" onclick="tpToggle('tpg-cab',this)">Own Vehicle</button>
-            <button class="tp-toggle" data-val="Need cab / taxi" onclick="tpToggle('tpg-cab',this)">Need Cab</button>
-            <button class="tp-toggle" data-val="Bus / public transport" onclick="tpToggle('tpg-cab',this)">By Bus</button>
-          </div>
-        </div>
-        <div class="tp-field">
-          <label class="tp-label">HAWAN / PUJA</label>
-          <div class="tp-btn-group" id="tpg-hawan">
-            <button class="tp-toggle" data-val="Just darshan" onclick="tpToggle('tpg-hawan',this)">Just Darshan</button>
-            <button class="tp-toggle" data-val="Hawan booking assistance needed" onclick="tpToggle('tpg-hawan',this)">Hawan Booking</button>
-            <button class="tp-toggle" data-val="Special mahayagya / puja arrangement" onclick="tpToggle('tpg-hawan',this)">Special Puja</button>
-          </div>
-        </div>
-        <div class="tp-field" style="margin-bottom:1.5rem;">
-          <label class="tp-label">TOTAL BUDGET (APPROXIMATE)</label>
-          <div class="tp-btn-group" id="tpg-budget">
-            <button class="tp-toggle" data-val="₹5,000–12,000" onclick="tpToggle('tpg-budget',this)">₹5k–12k</button>
-            <button class="tp-toggle" data-val="₹12,000–30,000" onclick="tpToggle('tpg-budget',this)">₹12k–30k</button>
-            <button class="tp-toggle" data-val="₹30,000+" onclick="tpToggle('tpg-budget',this)">₹30k+</button>
-            <button class="tp-toggle" data-val="Flexible" onclick="tpToggle('tpg-budget',this)">Flexible</button>
-          </div>
-        </div>
-        <div style="display:flex;gap:0.75rem;">
-          <button onclick="tpBack(2)" class="tp-back-btn">← BACK</button>
-          <button onclick="tpNext(2)" class="tp-next-btn" style="flex:1;">SEE YOUR PERSONALISED PLAN →</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP 3: Plan Preview + Submit -->
-    <div id="tp-step3" style="display:none;">
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:1.75rem;">
-        <div id="tp-preview"></div>
-        <div class="tp-field">
-          <label class="tp-label">SPECIAL REQUESTS (OPTIONAL)</label>
-          <textarea id="tp-notes" placeholder="Senior citizens, accessibility needs, specific aarti time, any other requirements..." class="tp-input" style="height:75px;resize:vertical;"></textarea>
-        </div>
-        <div id="tp-form-msg" style="display:none;padding:0.75rem;margin-bottom:1rem;font-family:'Crimson Pro',serif;font-size:0.95rem;text-align:center;"></div>
-        <button onclick="tpSubmit()" class="tp-next-btn">🙏 SEND MY PLAN TO WHATSAPP</button>
-        <p style="font-size:0.76rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:0.75rem;">We reply within 2–4 hours on WhatsApp. No commitment needed.</p>
-        <button onclick="tpBack(3)" class="tp-back-btn" style="width:100%;margin-top:0.75rem;display:block;">← EDIT PREFERENCES</button>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 <!-- NEARBY TEMPLES -->
 <section id="nearby">
@@ -4222,6 +4246,21 @@ function removeListing(i) {
     document.querySelectorAll('#' + gid + ' .tp-toggle').forEach(b => b.classList.remove('tpa'));
     btn.classList.add('tpa');
     tp[gid] = btn.dataset.val;
+    if (gid === 'tpg-budget') {
+      const wrap = document.getElementById('tp-custom-budget-wrap');
+      if (wrap) wrap.style.display = btn.dataset.val === 'custom' ? 'block' : 'none';
+    }
+  };
+
+  window.tpShowCustomBudget = function() {
+    const wrap = document.getElementById('tp-custom-budget-wrap');
+    const inp  = document.getElementById('tp-custom-budget');
+    if (wrap) wrap.style.display = 'block';
+    if (inp)  inp.focus();
+  };
+
+  window.tpSyncCustomBudget = function(val) {
+    tp['tpg-budget'] = val.trim() ? 'Custom: ' + val.trim() : 'Custom amount';
   };
 
   window.tpCard = function(gid, card) {
