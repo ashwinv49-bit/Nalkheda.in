@@ -40,58 +40,63 @@
   [headers.values]
     Cache-Control = "public, max-age=604800"
 
-# Clean URLs — serve .html files without extension
+# Canonical redirects — 301 to consolidate Google signals to .html URLs
 [[redirects]]
   from = "/travel-guide"
   to = "/travel-guide.html"
-  status = 200
+  status = 301
 
 [[redirects]]
   from = "/hotels"
   to = "/hotels.html"
-  status = 200
+  status = 301
 
 [[redirects]]
   from = "/how-to-reach"
   to = "/how-to-reach.html"
-  status = 200
+  status = 301
 
 [[redirects]]
   from = "/temple-timings"
   to = "/temple-timings.html"
-  status = 200
+  status = 301
 
 [[redirects]]
   from = "/faq"
   to = "/faq.html"
-  status = 200
+  status = 301
 
 [[redirects]]
   from = "/contact"
   to = "/contact.html"
-  status = 200
+  status = 301
 
 [[redirects]]
   from = "/terms"
   to = "/terms.html"
-  status = 200
+  status = 301
 
 [[redirects]]
   from = "/disclaimer"
   to = "/disclaimer.html"
-  status = 200
+  status = 301
 
 [[redirects]]
   from = "/privacy-policy"
   to = "/privacy-policy.html"
-  status = 200
+  status = 301
 
 [[redirects]]
   from = "/ujjain"
   to = "/ujjain.html"
-  status = 200
+  status = 301
 
 [[redirects]]
   from = "/omkareshwar"
   to = "/omkareshwar.html"
-  status = 200
+  status = 301
+
+[[redirects]]
+  from = "/blog/nalkheda-to-omkareshwar"
+  to = "/blog/nalkheda-to-omkareshwar.html"
+  status = 301
