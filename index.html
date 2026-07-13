@@ -3896,7 +3896,10 @@
       <div id="tab-users" class="admin-tab-content">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem;">
           <div style="color:var(--gold); font-family:'Cinzel Decorative',serif; font-size:0.8rem;">YATRA FORM SUBMISSIONS</div>
-          <button onclick="exportCSV()" style="background:rgba(39,174,96,0.2); color:#27AE60; border:1px solid rgba(39,174,96,0.3); padding:0.4rem 0.8rem; font-size:0.8rem; cursor:pointer;">⬇ Export CSV</button>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <button onclick="exportCSV()" style="background:rgba(39,174,96,0.2); color:#27AE60; border:1px solid rgba(39,174,96,0.3); padding:0.4rem 0.8rem; font-size:0.8rem; cursor:pointer;">⬇ Export CSV</button>
+            <button onclick="syncAllToSheet()" style="background:rgba(212,160,23,0.15); color:var(--gold); border:1px solid rgba(212,160,23,0.3); padding:0.4rem 0.8rem; font-size:0.8rem; cursor:pointer;">↑ Sync All to Sheet</button>
+          </div>
         </div>
         <div id="user-table" style="overflow-x:auto;">
           <table style="width:100%; border-collapse:collapse; font-size:0.85rem;">
@@ -3907,8 +3910,9 @@
                 <th style="padding:0.6rem; text-align:left; color:var(--gold); border-bottom:1px solid rgba(212,160,23,0.2);">Phone</th>
                 <th style="padding:0.6rem; text-align:left; color:var(--gold); border-bottom:1px solid rgba(212,160,23,0.2);">City</th>
                 <th style="padding:0.6rem; text-align:left; color:var(--gold); border-bottom:1px solid rgba(212,160,23,0.2);">Date</th>
-                <th style="padding:0.6rem; text-align:left; color:var(--gold); border-bottom:1px solid rgba(212,160,23,0.2);">Group</th>
-                <th style="padding:0.6rem; text-align:left; color:var(--gold); border-bottom:1px solid rgba(212,160,23,0.2);">Needs</th>
+                <th style="padding:0.6rem; text-align:left; color:var(--gold); border-bottom:1px solid rgba(212,160,23,0.2);">Days</th>
+                <th style="padding:0.6rem; text-align:left; color:var(--gold); border-bottom:1px solid rgba(212,160,23,0.2);">Circuit</th>
+                <th style="padding:0.6rem; text-align:left; color:var(--gold); border-bottom:1px solid rgba(212,160,23,0.2);">Budget</th>
                 <th style="padding:0.6rem; text-align:left; color:var(--gold); border-bottom:1px solid rgba(212,160,23,0.2);">Action</th>
               </tr>
             </thead>
@@ -3972,7 +3976,12 @@
             <div style="display:grid; gap:0.75rem;">
               <div><label style="font-size:0.75rem; color:var(--gold);">WhatsApp Number</label><input id="set-wa" type="text" value="919754709571" style="width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(212,160,23,0.2); color:white; padding:0.5rem; margin-top:0.3rem; font-size:0.9rem;"></div>
               <div><label style="font-size:0.75rem; color:var(--gold);">Google Analytics ID</label><input id="set-ga" type="text" value="G-331NJD7HG3" placeholder="G-XXXXXXXXXX" style="width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(212,160,23,0.2); color:white; padding:0.5rem; margin-top:0.3rem; font-size:0.9rem;"></div>
-              <div><label style="font-size:0.75rem; color:var(--gold);">Google Sheets URL (for form data)</label><input id="set-sheet" type="text" placeholder="https://script.google.com/..." style="width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(212,160,23,0.2); color:white; padding:0.5rem; margin-top:0.3rem; font-size:0.9rem;"></div>
+              <div>
+                <label style="font-size:0.75rem; color:var(--gold);">Google Sheets URL (for form data)</label>
+                <input id="set-sheet" type="text" placeholder="https://script.google.com/..." style="width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(212,160,23,0.2); color:white; padding:0.5rem; margin-top:0.3rem; font-size:0.9rem;">
+                <button onclick="testSheetConnection()" style="margin-top:0.5rem; background:rgba(212,160,23,0.15); color:var(--gold); border:1px solid rgba(212,160,23,0.3); padding:0.4rem 1rem; font-size:0.8rem; cursor:pointer;">🔗 Test Connection</button>
+                <div id="sheet-test-result" style="font-size:0.8rem; margin-top:0.4rem;"></div>
+              </div>
             </div>
           </div>
           <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(212,160,23,0.15); padding:1.2rem;">
@@ -4109,8 +4118,9 @@ function loadUserTable() {
       <td style="padding:0.6rem;"><a href="tel:${u.phone}" style="color:#25D366;">${u.phone||'-'}</a></td>
       <td style="padding:0.6rem; color:rgba(255,255,255,0.7);">${u.city||'-'}</td>
       <td style="padding:0.6rem; color:rgba(255,255,255,0.7);">${u.travelDate||'-'}</td>
-      <td style="padding:0.6rem; color:rgba(255,255,255,0.7);">${u.group||'-'}</td>
-      <td style="padding:0.6rem; color:rgba(255,255,255,0.6); font-size:0.8rem;">${u.needs||'-'}</td>
+      <td style="padding:0.6rem; color:rgba(255,255,255,0.7);">${u.days||'-'}</td>
+      <td style="padding:0.6rem; color:rgba(255,255,255,0.7); font-size:0.8rem;">${u.circuit||'-'}</td>
+      <td style="padding:0.6rem; color:rgba(255,255,255,0.6); font-size:0.8rem;">${u.budget||'-'}</td>
       <td style="padding:0.6rem;">
         <a href="https://wa.me/91${u.phone}?text=Jai%20Maa%20Baglamukhi%20🙏%20${encodeURIComponent(u.name)}%20ji%2C%20aapka%20Nalkheda%20yatra%20plan%20ready%20hai!" target="_blank"
            style="background:#25D366; color:white; padding:0.3rem 0.6rem; text-decoration:none; font-size:0.78rem; white-space:nowrap;">💬 WA</a>
@@ -4122,8 +4132,8 @@ function loadUserTable() {
 function exportCSV() {
   const users = getUsers();
   if (!users.length) { alert('No data to export'); return; }
-  const headers = ['#','Name','Phone','City','Travel Date','Group','Email','Needs','Submitted'];
-  const rows = users.map((u,i) => [i+1, u.name, u.phone, u.city, u.travelDate, u.group, u.email, u.needs, u.submitted]);
+  const headers = ['#','Name','Phone','City','Travel Date','Days','Circuit','Stay','Transport','Hawan','Budget','Notes','Submitted'];
+  const rows = users.map((u,i) => [i+1, u.name, u.phone, u.city, u.travelDate, u.days, u.circuit, u.stay, u.cab, u.hawan, u.budget, u.notes, u.submitted]);
   const csv = [headers, ...rows].map(r => r.map(c => `"${c||''}"`).join(',')).join('\n');
   const a = document.createElement('a');
   a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
@@ -4157,6 +4167,41 @@ function saveSettings() {
   };
   localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
   alert('✅ Settings saved! Deploy the file to apply GA ID changes.');
+}
+
+function testSheetConnection() {
+  const url = document.getElementById('set-sheet').value.trim();
+  const res = document.getElementById('sheet-test-result');
+  if (!url) { res.style.color = '#ff8888'; res.textContent = '⚠ Paste your Google Apps Script URL first.'; return; }
+  res.style.color = 'rgba(255,255,255,0.6)';
+  res.textContent = '⏳ Sending test row...';
+  fetch(url, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ name:'TEST', phone:'0000000000', submitted: new Date().toLocaleString('en-IN'), source:'nalkheda.in connection test' })
+  }).then(() => {
+    res.style.color = '#27AE60';
+    res.textContent = '✅ Request sent — check your Google Sheet for a TEST row within 5 seconds.';
+  }).catch(() => {
+    res.style.color = '#ff8888';
+    res.textContent = '❌ Network error — check the URL and try again.';
+  });
+}
+
+function syncAllToSheet() {
+  const settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
+  if (!settings.sheet) { alert('Set and save your Google Sheets URL in Settings first.'); return; }
+  const users = getUsers();
+  if (!users.length) { alert('No submissions to sync.'); return; }
+  let i = 0;
+  function sendNext() {
+    if (i >= users.length) { alert('✅ Synced ' + users.length + ' records to Google Sheet.'); return; }
+    const u = users[i++];
+    fetch(settings.sheet, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ name:u.name, phone:u.phone, city:u.city, date:u.travelDate, group:u.group,
+        days:u.days, circuit:u.circuit, stay:u.stay, cab:u.cab, hawan:u.hawan,
+        budget:u.budget, notes:u.notes, submitted:u.submitted, source:'nalkheda.in sync' })
+    }).catch(() => {}).finally(() => setTimeout(sendNext, 200));
+  }
+  sendNext();
 }
 
 function savePrices() {
@@ -4383,11 +4428,12 @@ function removeListing(i) {
     const hawan  = tp['tpg-hawan']   || 'Just darshan';
     const budget = tp['tpg-budget']  || 'Flexible';
 
-    saveUser({ name, phone, date: dateR, group, city, circuit, stay, cab, hawan, budget, notes, travelDate: dateR });
+    const submitted = new Date().toLocaleString('en-IN');
+    saveUser({ name, phone, date: dateR, group, city, days, circuit, stay, cab, hawan, budget, notes, travelDate: dateR, submitted });
     const settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
     if (settings.sheet) {
       fetch(settings.sheet, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ name, phone, city, date: dateR, group, days, circuit, stay, cab, hawan, budget, notes, source:'nalkheda.in trip planner' })
+        body: JSON.stringify({ name, phone, city, date: dateR, group, days, circuit, stay, cab, hawan, budget, notes, submitted, source:'nalkheda.in trip planner' })
       }).catch(() => {});
     }
 
