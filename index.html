@@ -3978,7 +3978,7 @@
               <div><label style="font-size:0.75rem; color:var(--gold);">Google Analytics ID</label><input id="set-ga" type="text" value="G-331NJD7HG3" placeholder="G-XXXXXXXXXX" style="width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(212,160,23,0.2); color:white; padding:0.5rem; margin-top:0.3rem; font-size:0.9rem;"></div>
               <div>
                 <label style="font-size:0.75rem; color:var(--gold);">Google Sheets URL (for form data)</label>
-                <input id="set-sheet" type="text" placeholder="https://script.google.com/..." style="width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(212,160,23,0.2); color:white; padding:0.5rem; margin-top:0.3rem; font-size:0.9rem;">
+                <input id="set-sheet" type="text" placeholder="https://script.google.com/..." style="width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(212,160,23,0.2); color:white; padding:0.5rem; margin-top:0.3rem; font-size:0.9rem;" value="https://script.google.com/macros/s/AKfycbw6pMuFc-IWsfkZgqWHT7ab7LAr2mGGOn8oQjsYgvHBG6v6olKf8ecOiz9YVXCsEGdXvQ/exec">
                 <button onclick="testSheetConnection()" style="margin-top:0.5rem; background:rgba(212,160,23,0.15); color:var(--gold); border:1px solid rgba(212,160,23,0.3); padding:0.4rem 1rem; font-size:0.8rem; cursor:pointer;">🔗 Test Connection</button>
                 <div id="sheet-test-result" style="font-size:0.8rem; margin-top:0.4rem;"></div>
               </div>
@@ -4010,6 +4010,7 @@
 const ADMIN_KEY = 'nalkheda_admin_auth';
 const USERS_KEY = 'nalkheda_users';
 const SETTINGS_KEY = 'nalkheda_settings';
+const DEFAULT_SHEET = 'https://script.google.com/macros/s/AKfycbw6pMuFc-IWsfkZgqWHT7ab7LAr2mGGOn8oQjsYgvHBG6v6olKf8ecOiz9YVXCsEGdXvQ/exec';
 let adminPwd = localStorage.getItem('nalkheda_pwd') || 'maa@admin2026';
 
 document.addEventListener('keydown', e => {
@@ -4188,14 +4189,15 @@ function testSheetConnection() {
 
 function syncAllToSheet() {
   const settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
-  if (!settings.sheet) { alert('Set and save your Google Sheets URL in Settings first.'); return; }
+  const sheetUrl = settings.sheet || DEFAULT_SHEET;
+  if (!sheetUrl) { alert('No Google Sheets URL configured.'); return; }
   const users = getUsers();
   if (!users.length) { alert('No submissions to sync.'); return; }
   let i = 0;
   function sendNext() {
     if (i >= users.length) { alert('✅ Synced ' + users.length + ' records to Google Sheet.'); return; }
     const u = users[i++];
-    fetch(settings.sheet, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'},
+    fetch(sheetUrl, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({ name:u.name, phone:u.phone, city:u.city, date:u.travelDate, group:u.group,
         days:u.days, circuit:u.circuit, stay:u.stay, cab:u.cab, hawan:u.hawan,
         budget:u.budget, notes:u.notes, submitted:u.submitted, source:'nalkheda.in sync' })
@@ -4431,11 +4433,10 @@ function removeListing(i) {
     const submitted = new Date().toLocaleString('en-IN');
     saveUser({ name, phone, date: dateR, group, city, days, circuit, stay, cab, hawan, budget, notes, travelDate: dateR, submitted });
     const settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
-    if (settings.sheet) {
-      fetch(settings.sheet, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ name, phone, city, date: dateR, group, days, circuit, stay, cab, hawan, budget, notes, submitted, source:'nalkheda.in trip planner' })
-      }).catch(() => {});
-    }
+    const sheetUrl = settings.sheet || DEFAULT_SHEET;
+    fetch(sheetUrl, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ name, phone, city, date: dateR, group, days, circuit, stay, cab, hawan, budget, notes, submitted, source:'nalkheda.in trip planner' })
+    }).catch(() => {});
 
     const el = document.getElementById('tp-form-msg');
     el.style.cssText = 'display:block;padding:0.75rem;margin-bottom:1rem;font-family:Crimson Pro,serif;font-size:0.95rem;text-align:center;background:rgba(39,174,96,0.15);color:#27AE60;border:1px solid rgba(39,174,96,0.3);';
