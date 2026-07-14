@@ -173,8 +173,63 @@ Nalkheda → Ujjain: 100 km | Ujjain → Omkareshwar: 135 km | Total circuit: ~2
 
 ---
 
+## Git Rollback Guide
+
+Every major change is committed to `main` or the feature branch. To roll back:
+```bash
+git log --oneline          # see all commits with short hash
+git checkout <hash> -- index.html   # restore one file to a specific commit
+git reset --hard <hash>    # roll back entire branch to a commit (destructive)
+```
+Feature branch: `claude/nalkheda-temple-rebuild-gRBib`
+Main branch auto-deploys to Netlify on push.
+
+---
+
+## Available Skills (Claude Code slash commands)
+
+- `/audit` — Full codebase health check (CSS, bugs, conversion gaps, mobile, schema, hard-rules compliance)
+- `/seo` — SEO audit: meta tags, schema, GSC keyword gaps, canonicals, internal links
+- Source: `.claude/agents/audit.md` and `.claude/agents/seo.md`
+
+---
+
+## Design System (Current — as of July 2026)
+
+**CSS Variables:**
+```css
+--pitambara: #F4C430       /* Primary CTA — Pitambara yellow (Baglamukhi sacred colour) */
+--pitambara-deep: #D4A017  /* Hover state */
+--maroon: #6B0F1A          /* Nav, dark section backgrounds */
+--deep-maroon: #3D0C02     /* Deepest dark */
+--gold: #CFB53B            /* Icon halos, accents — use sparingly */
+--bright-gold: #F5C518     /* Countdown timer, festival dates */
+--dark: #1A0A00            /* Body dark bg */
+--cream: #FDF6E3           /* Light section bg */
+--pale-gold: #FFF3CC       /* Card backgrounds */
+--text: #2C1A00            /* Body text on light bg */
+--text-light: #FFF8E7      /* Body text on dark bg */
+--muted: #7A5C3A           /* Secondary text */
+--saffron: #E8621A         /* Urgency accents only */
+--wa-green: #25D366        /* WhatsApp — never change */
+```
+
+**Fonts:**
+- `'Tiro Devanagari Hindi', serif` — sacred Devanagari headings
+- `'Poppins', sans-serif` — English section titles, nav, labels
+- `'Mukta', sans-serif` — all body text (Hindi + English), buttons, inputs
+
+**WCAG rules:**
+- Dark maroon `#2C1A00` on Pitambara yellow `#F4C430` = 9.1:1 ✅
+- All form inputs: `font-size: max(16px, 1rem)` (prevents iOS Safari zoom)
+- Section labels minimum 0.8rem
+- Buttons: `border-radius: 6px` (no clip-path — was clipping text on small phones)
+
+---
+
 ## What's Been Built (session history)
 
+### Early sessions
 - Linked ujjain.html and omkareshwar.html from homepage `#nearby` section
 - Added `#circuit` section to homepage (dark maroon, immediately after hero)
 - Added Navratri countdown strip (`#navratri-strip`)
@@ -189,6 +244,28 @@ Nalkheda → Ujjain: 100 km | Ujjain → Omkareshwar: 135 km | Total circuit: ~2
 - SEO fixes based on Search Console: FAQ title, how-to-reach title, blog post title
 - Added "Nal Kheda" 2-word variant to homepage meta description
 - Updated PDFs: disclaimer footer on every page, contacts page URL corrected
+
+### Session — Google Sheets + Funnel rebuild (pre-redesign)
+- Connected trip planner form → Google Sheets via Apps Script (DEFAULT_SHEET constant hardcoded)
+- Rebuilt WhatsApp popover: only buyer-intent options reach WhatsApp; info-seekers deflected to website pages
+- Replaced ₹1,999 fixed package with 3 enquiry-based trip cards (Nalkheda Only / +Ujjain / Full Circuit)
+- Added "Trusted Yatra Partner" credibility section with 4 stat tiles
+- Added quick enquiry strip above footer (name + phone + date → WhatsApp)
+- Added buyer questions accordion: "Planning Yourself" vs "Want Us to Plan It" split
+- Updated cab prices: Indore ₹6k–7k, Ujjain ₹3k–5k, Dewas ₹3.5k–4.5k
+- netlify.toml redirects changed from 200 to 301
+
+### Session — Complete Redesign (July 14, 2026) — branch: claude/nalkheda-temple-rebuild-gRBib
+- **Palette:** Pitambara yellow (`#F4C430`) as primary; maroon (`#6B0F1A`) for dark sections
+- **Fonts:** Poppins + Mukta + Tiro Devanagari Hindi (replaced Cinzel Decorative / Crimson Pro / Noto)
+- **Hero:** Yellow-to-maroon gradient; single primary CTA with dark text on yellow (WCAG 9.1:1)
+- **Buttons:** Removed `clip-path: polygon()` parallelogram (was clipping text on ≤320px phones)
+- **iOS fix:** All form inputs `font-size: max(16px, 1rem)` — prevents Safari auto-zoom
+- **Schema:** Added Product schema (₹99 PDF) + Event schema (Navratri 2026) to `<head>`
+- **Content:** Fixed PDF page count "13 pages" → "45 pages"; replaced unverifiable "4.9★" with "500+ Happy Pilgrims"
+- **Trip planner:** Added Skip→WhatsApp button on steps 1 and 2
+- **Bug fixes:** Closed unclosed `<script>` tag (GA was inside JS block); removed duplicate `.ritual-item` transition; replaced hardcoded `#0d0500` with `var(--dark)`; removed broken `hreflang="hi"`
+- **Skills:** Created `/audit` and `/seo` skills in `.claude/agents/`
 
 ---
 
