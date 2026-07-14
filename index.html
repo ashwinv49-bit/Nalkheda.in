@@ -37,7 +37,6 @@
 
 <!-- HREFLANG — Indian audience -->
 <link rel="alternate" hreflang="en-IN" href="https://nalkheda.in/">
-<link rel="alternate" hreflang="hi" href="https://nalkheda.in/">
 <link rel="alternate" hreflang="x-default" href="https://nalkheda.in/">
 
 <!-- SITEMAP -->
@@ -214,6 +213,33 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Nalkheda Yatra Guide PDF",
+  "description": "45-page Nalkheda pilgrimage guide in Hindi and English. Covers Maa Baglamukhi temple timings, hotels, hawan booking, and MP circuit itinerary.",
+  "offers": {
+    "@type": "Offer",
+    "price": "99",
+    "priceCurrency": "INR",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Sharad Navratri 2026 — Maa Baglamukhi Temple Nalkheda",
+  "startDate": "2026-09-25",
+  "endDate": "2026-10-04",
+  "location": {
+    "@type": "Place",
+    "name": "Maa Baglamukhi Mandir, Nalkheda, Agar Malwa, MP"
+  }
+}
+</script>
 
 <!-- PERFORMANCE: preconnect to Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -222,29 +248,36 @@
 <link rel="preload" as="image" href="maa-darshan.webp" type="image/webp">
 <link rel="preload" as="image" href="maa-darshan.jpg" imagesrcset="maa-darshan.webp" imagesizes="33vw">
 <!-- Fonts with display=swap for faster render -->
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Poppins:wght@400;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Poppins:wght@400;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
 <style>
   :root {
-    --saffron: #E8621A;
-    --deep-saffron: #C4480E;
-    --gold: #D4A017;
-    --bright-gold: #F5C518;
-    --dark: #1A0A00;
-    --deep-maroon: #3D0C02;
-    --cream: #FDF6E3;
-    --pale-gold: #FFF3CC;
-    --text: #2C1A00;
-    --muted: #5C4320;
-    --white: #FFFFFF;
+    --pitambara:     #F4C430;
+    --pitambara-deep:#D4A017;
+    --maroon:        #6B0F1A;
+    --deep-maroon:   #3D0C02;
+    --gold:          #CFB53B;
+    --bright-gold:   #F5C518;
+    --dark:          #1A0A00;
+    --cream:         #FDF6E3;
+    --pale-gold:     #FFF3CC;
+    --text:          #2C1A00;
+    --text-light:    #FFF8E7;
+    --muted:         #7A5C3A;
+    --saffron:       #E8621A;
+    --deep-saffron:  #C4480E;
+    --wa-green:      #25D366;
+    --white:         #FFFFFF;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html { scroll-behavior: smooth; }
 
+  input, select, textarea { font-size: max(16px, 1rem); }
+
   body {
-    font-family: 'Crimson Pro', Georgia, serif;
+    font-family: 'Mukta', sans-serif;
     background: var(--cream);
     color: var(--text);
     overflow-x: hidden;
@@ -264,7 +297,7 @@
   nav {
     position: fixed;
     top: 3px; left: 0; right: 0;
-    background: rgba(26, 10, 0, 0.95);
+    background: rgba(107, 15, 26, 0.97);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(212, 160, 23, 0.3);
     z-index: 1000;
@@ -281,7 +314,7 @@
   }
 
   .nav-logo {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.1rem;
     color: var(--bright-gold);
     text-decoration: none;
@@ -303,7 +336,7 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     transition: color 0.2s;
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Mukta', sans-serif;
     font-weight: 600;
   }
 
@@ -325,7 +358,7 @@
   /* ===== HERO ===== */
   #hero {
     min-height: 100vh;
-    background: linear-gradient(165deg, #1A0A00 0%, #3D0C02 40%, #2C1200 100%);
+    background: linear-gradient(160deg, #F4C430 0%, #D4A017 30%, #6B0F1A 65%, #3D0C02 100%);
     position: relative;
     display: flex;
     align-items: center;
@@ -345,7 +378,7 @@
   .hero-glow {
     position: absolute;
     width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(232,98,26,0.25) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(244,196,48,0.2) 0%, transparent 70%);
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     animation: pulse-glow 4s ease-in-out infinite;
@@ -366,7 +399,7 @@
 
   .hero-badge {
     display: inline-block;
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.7rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
@@ -378,16 +411,16 @@
   }
 
   .hero-devanagari {
-    font-family: 'Noto Serif Devanagari', serif;
+    font-family: 'Tiro Devanagari Hindi', serif;
     font-size: clamp(1.2rem, 3vw, 1.8rem);
-    color: rgba(245,197,24,0.7);
+    color: rgba(26,10,0,0.8);
     margin-bottom: 1rem;
     animation: fadeInUp 0.6s ease 0.1s both;
     font-weight: 600;
   }
 
   .hero-title {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: clamp(2.4rem, 6vw, 5rem);
     font-weight: 900;
     color: white;
@@ -426,7 +459,7 @@
   }
 
   .stat-num {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 2rem;
     color: var(--bright-gold);
     display: block;
@@ -448,10 +481,10 @@
   }
 
   .btn-primary {
-    background: linear-gradient(135deg, var(--saffron), var(--deep-saffron));
-    color: white;
+    background: linear-gradient(135deg, var(--pitambara), var(--pitambara-deep));
+    color: #2C1A00;
     padding: 1rem 2.5rem;
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.8rem;
     letter-spacing: 0.1em;
     text-decoration: none;
@@ -459,20 +492,20 @@
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     display: inline-block;
-    box-shadow: 0 4px 20px rgba(232,98,26,0.4);
-    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    box-shadow: 0 4px 20px rgba(244,196,48,0.4);
+    border-radius: 6px;
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(232,98,26,0.6);
+    box-shadow: 0 8px 30px rgba(244,196,48,0.6);
   }
 
   .btn-outline {
     background: transparent;
     color: var(--bright-gold);
     padding: 1rem 2.5rem;
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.8rem;
     letter-spacing: 0.1em;
     text-decoration: none;
@@ -480,7 +513,7 @@
     cursor: pointer;
     transition: background 0.2s, color 0.2s;
     display: inline-block;
-    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    border-radius: 6px;
   }
 
   .btn-outline:hover {
@@ -516,9 +549,9 @@
   }
 
   .section-label {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.35em;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--saffron);
     display: block;
@@ -526,7 +559,7 @@
   }
 
   .section-title {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: clamp(1.6rem, 3.5vw, 2.8rem);
     color: var(--dark);
     line-height: 1.2;
@@ -576,14 +609,14 @@
     position: absolute;
     font-size: 8rem;
     color: rgba(255,255,255,0.04);
-    font-family: 'Noto Serif Devanagari', serif;
+    font-family: 'Tiro Devanagari Hindi', serif;
     top: -1rem;
     right: 1rem;
     line-height: 1;
   }
 
   .about-card-title {
-    font-family: 'Noto Serif Devanagari', serif;
+    font-family: 'Tiro Devanagari Hindi', serif;
     font-size: 1.4rem;
     color: var(--bright-gold);
     margin-bottom: 1rem;
@@ -630,7 +663,7 @@
   }
 
   .fact-card h4 {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.7rem;
     letter-spacing: 0.1em;
     color: var(--saffron);
@@ -665,7 +698,6 @@
   .ritual-item {
     background: rgba(26,10,0,0.95);
     padding: 2.5rem 2rem;
-    transition: background 0.3s;
     cursor: pointer;
     border: 1px solid transparent;
     transition: all 0.3s;
@@ -683,7 +715,7 @@
   }
 
   .ritual-title {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
     color: var(--bright-gold);
     margin-bottom: 0.75rem;
@@ -691,7 +723,7 @@
   }
 
   .ritual-devanagari {
-    font-family: 'Noto Serif Devanagari', serif;
+    font-family: 'Tiro Devanagari Hindi', serif;
     font-size: 0.95rem;
     color: rgba(255,255,255,0.4);
     margin-bottom: 0.75rem;
@@ -706,7 +738,7 @@
   .ritual-price {
     margin-top: 1rem;
     display: inline-block;
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.75rem;
     color: var(--saffron);
     letter-spacing: 0.08em;
@@ -739,7 +771,7 @@
   .reach-icon { font-size: 2.5rem; margin-bottom: 1.2rem; display: block; }
 
   .reach-card h3 {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
     color: var(--dark);
     margin-bottom: 1rem;
@@ -768,7 +800,7 @@
     background: var(--saffron);
     color: white;
     padding: 0.7rem 1.4rem;
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Mukta', sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
@@ -806,7 +838,7 @@
     border: 1px solid rgba(232,98,26,0.3);
     color: var(--saffron);
     padding: 0.4rem 1rem;
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Mukta', sans-serif;
     font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.2s;
@@ -860,7 +892,7 @@
     top: 1rem; left: 1rem;
     background: var(--saffron);
     color: white;
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Mukta', sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
     padding: 0.25rem 0.7rem;
@@ -879,7 +911,7 @@
   .hotel-body { padding: 1.5rem; }
 
   .hotel-name {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.85rem;
     color: var(--dark);
     margin-bottom: 0.5rem;
@@ -900,7 +932,7 @@
     color: var(--muted);
     font-size: 0.75rem;
     padding: 0.2rem 0.6rem;
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Mukta', sans-serif;
   }
 
   .hotel-footer {
@@ -913,13 +945,13 @@
   }
 
   .hotel-price {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
     color: var(--saffron);
   }
 
   .hotel-price span {
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Mukta', sans-serif;
     font-size: 0.75rem;
     color: var(--muted);
     font-weight: 400;
@@ -930,7 +962,7 @@
     background: var(--saffron);
     color: white;
     padding: 0.5rem 1.2rem;
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Mukta', sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
@@ -1013,7 +1045,7 @@
   }
 
   .pdf-book-title {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.4rem;
     color: white;
     line-height: 1.3;
@@ -1028,7 +1060,7 @@
   }
 
   .pdf-book-devanagari {
-    font-family: 'Noto Serif Devanagari', serif;
+    font-family: 'Tiro Devanagari Hindi', serif;
     font-size: 1.5rem;
     color: rgba(255,255,255,0.3);
     margin-bottom: 1.5rem;
@@ -1056,7 +1088,7 @@
   .pdf-pages-count {
     position: absolute;
     bottom: 1rem; right: 1rem;
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.65rem;
     color: rgba(255,255,255,0.4);
     letter-spacing: 0.15em;
@@ -1088,7 +1120,7 @@
   }
 
   .guide-feature h4 {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.7rem;
     color: var(--bright-gold);
     letter-spacing: 0.08em;
@@ -1110,7 +1142,7 @@
   }
 
   .price-tag {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 3rem;
     color: var(--bright-gold);
   }
@@ -1143,7 +1175,7 @@
     justify-content: center;
     gap: 0.75rem;
     padding: 1rem 2rem;
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.8rem;
     letter-spacing: 0.08em;
     cursor: pointer;
@@ -1234,7 +1266,7 @@
   }
 
   .nearby-card h3 {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.8rem;
     color: var(--bright-gold);
     margin-bottom: 0.5rem;
@@ -1310,7 +1342,7 @@
 
   /* ===== MP CIRCUIT SECTION ===== */
   #circuit {
-    background: linear-gradient(180deg, #0d0500 0%, #1a0a00 100%);
+    background: linear-gradient(180deg, var(--dark) 0%, #1a0a00 100%);
     color: white;
   }
   #circuit .section-title { color: var(--bright-gold); }
@@ -1358,7 +1390,7 @@
     margin-bottom: 0.8rem;
   }
   .circuit-card h3 {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.82rem;
     color: var(--bright-gold);
     margin-bottom: 0.35rem;
@@ -1421,7 +1453,7 @@
     text-align: center;
   }
   .circuit-day {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.65rem;
     color: var(--saffron);
     letter-spacing: 0.08em;
@@ -1477,7 +1509,7 @@
   }
 
   .tip-num {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
     color: rgba(212,160,23,0.2);
     line-height: 1;
@@ -1485,7 +1517,7 @@
   }
 
   .tip-card h3 {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.85rem;
     color: var(--dark);
     margin-bottom: 0.75rem;
@@ -1516,7 +1548,7 @@
   }
 
   .contact-info h3 {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     color: var(--bright-gold);
     margin-bottom: 1.5rem;
@@ -1549,7 +1581,7 @@
     background: var(--saffron);
     color: white;
     padding: 1rem 2rem;
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.75rem;
     letter-spacing: 0.1em;
     text-decoration: none;
@@ -1574,13 +1606,13 @@
 
   .map-placeholder p {
     font-size: 0.85rem;
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Mukta', sans-serif;
     font-style: italic;
   }
 
   /* ===== FOOTER ===== */
   footer {
-    background: #0D0500;
+    background: var(--dark);
     color: rgba(255,255,255,0.4);
     padding: 2rem;
     text-align: center;
@@ -1589,7 +1621,7 @@
   }
 
   footer .footer-brand {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     color: var(--bright-gold);
     margin-bottom: 0.5rem;
@@ -1643,7 +1675,7 @@
   }
 
   .modal-title {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.1rem;
     color: var(--dark);
     margin-bottom: 0.5rem;
@@ -1664,14 +1696,14 @@
     color: var(--dark);
     margin-bottom: 0.4rem;
     font-weight: 600;
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Mukta', sans-serif;
   }
 
   .form-group input, .form-group select, .form-group textarea {
     width: 100%;
     padding: 0.75rem 1rem;
     border: 1px solid rgba(0,0,0,0.15);
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Mukta', sans-serif;
     font-size: 1rem;
     color: var(--text);
     background: white;
@@ -1694,7 +1726,7 @@
     background: var(--saffron);
     color: white;
     padding: 1rem;
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.85rem;
     letter-spacing: 0.1em;
     border: none;
@@ -1716,7 +1748,7 @@
   .success-icon { font-size: 3.5rem; margin-bottom: 1rem; }
 
   .success-title {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     color: var(--dark);
     margin-bottom: 0.5rem;
@@ -1739,7 +1771,7 @@
   }
 
   .upi-id {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     color: var(--bright-gold);
     margin: 0.5rem 0;
@@ -1749,7 +1781,7 @@
   .upi-amount {
     font-size: 2rem;
     color: var(--saffron);
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
   }
 
   .copy-btn {
@@ -1758,7 +1790,7 @@
     color: white;
     padding: 0.4rem 1rem;
     cursor: pointer;
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Mukta', sans-serif;
     font-size: 0.85rem;
     margin-top: 0.75rem;
     transition: background 0.2s;
@@ -1793,7 +1825,7 @@
     background: #1a73e8;
     color: white;
     padding: 0.65rem 1.4rem;
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Mukta', sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
     border: none;
@@ -1861,7 +1893,7 @@
     justify-content: center;
     gap: 0.75rem;
     color: rgba(255,255,255,0.2);
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Mukta', sans-serif;
     font-size: 0.9rem;
     font-style: italic;
     background: linear-gradient(135deg, rgba(61,12,2,0.4), rgba(26,10,0,0.8));
@@ -1883,7 +1915,7 @@
   .gallery-slide:hover .gallery-slide-overlay { opacity: 1; }
 
   .gallery-slide-caption {
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Mukta', sans-serif;
     font-size: 0.85rem;
     color: rgba(255,255,255,0.9);
     font-style: italic;
@@ -1959,7 +1991,7 @@
   .gdrive-info-text strong {
     display: block;
     color: #74b0ff;
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.72rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -2020,7 +2052,7 @@
     bottom: 1.5rem; left: 50%;
     transform: translateX(-50%);
     color: rgba(255,255,255,0.75);
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Mukta', sans-serif;
     font-style: italic;
     font-size: 0.9rem;
     text-align: center;
@@ -2052,7 +2084,7 @@
   .sticky-cta.show { transform: translateY(0); }
 
   .sticky-cta-text {
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Mukta', sans-serif;
     color: rgba(255,255,255,0.7);
     font-size: 0.95rem;
     font-style: italic;
@@ -2064,7 +2096,7 @@
 
   .sticky-btn {
     padding: 0.5rem 1.5rem;
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.7rem;
     letter-spacing: 0.08em;
     cursor: pointer;
@@ -2132,7 +2164,7 @@
   .countdown-units { display: inline-flex; gap: 0.6rem; }
   .cd-unit { display: inline-flex; flex-direction: column; align-items: center; }
   .cd-num {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.3rem;
     color: var(--bright-gold);
     font-weight: 900;
@@ -2150,7 +2182,7 @@
   }
   .festival-header { text-align: center; margin-bottom: 1.5rem; }
   .festival-header .section-label { font-size: 0.68rem; }
-  .festival-header h2 { font-family: 'Cinzel Decorative', serif; font-size: 1.1rem; color: var(--deep-maroon); }
+  .festival-header h2 { font-family: 'Poppins', sans-serif; font-size: 1.1rem; color: var(--deep-maroon); }
   .festival-scroll {
     display: flex;
     gap: 1rem;
@@ -2170,7 +2202,7 @@
     padding: 1rem;
     text-align: center;
   }
-  .festival-date { font-family: 'Cinzel Decorative', serif; font-size: 0.62rem; color: var(--saffron); letter-spacing: 0.06em; margin-bottom: 0.3rem; }
+  .festival-date { font-family: 'Poppins', sans-serif; font-size: 0.62rem; color: var(--saffron); letter-spacing: 0.06em; margin-bottom: 0.3rem; }
   .festival-name { font-size: 0.82rem; font-weight: 700; color: var(--deep-maroon); margin-bottom: 0.25rem; line-height: 1.3; }
   .festival-note { font-size: 0.72rem; color: var(--muted); }
   .festival-badge { display: inline-block; background: var(--saffron); color: white; font-size: 0.58rem; padding: 2px 6px; letter-spacing: 0.06em; margin-top: 0.4rem; }
@@ -2193,7 +2225,7 @@
   }
   .testimonial-card::before {
     content: '"';
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 4rem;
     color: rgba(212,160,23,0.12);
     position: absolute;
@@ -2287,7 +2319,7 @@
     padding: 3px 10px;
   }
   .pricing-name {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.72rem;
     color: var(--bright-gold);
     letter-spacing: 0.1em;
@@ -2302,7 +2334,7 @@
   }
   .pricing-rupee { font-size: 1.1rem; color: var(--bright-gold); }
   .pricing-num {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 2.8rem;
     color: white;
     line-height: 1;
@@ -2329,7 +2361,7 @@
     width: 100%;
     padding: 0.9rem 1rem;
     text-align: center;
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.7rem;
     letter-spacing: 0.08em;
     text-decoration: none;
@@ -2346,14 +2378,14 @@
 
 
 /* ===== TRIP PLANNER ===== */
-.tp-label{font-size:0.72rem;color:var(--gold);display:block;margin-bottom:0.4rem;font-family:'Cinzel Decorative',serif;letter-spacing:0.06em}
-.tp-input{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(212,160,23,0.3);color:white;padding:0.75rem;font-family:'Crimson Pro',serif;font-size:1rem;outline:none;border-radius:0}
+.tp-label{font-size:0.72rem;color:var(--gold);display:block;margin-bottom:0.4rem;font-family:'Poppins',serif;letter-spacing:0.06em}
+.tp-input{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(212,160,23,0.3);color:white;padding:0.75rem;font-family:'Mukta',serif;font-size:1rem;outline:none;border-radius:0}
 .tp-input::placeholder{color:rgba(255,255,255,0.3)}
-.tp-select{width:100%;background:#2a1200;border:1px solid rgba(212,160,23,0.3);color:white;padding:0.75rem;font-family:'Crimson Pro',serif;font-size:1rem;outline:none}
+.tp-select{width:100%;background:#2a1200;border:1px solid rgba(212,160,23,0.3);color:white;padding:0.75rem;font-family:'Mukta',serif;font-size:1rem;outline:none}
 .tp-2col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
 .tp-field{margin-bottom:1rem}
 .tp-btn-group{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.4rem}
-.tp-toggle{background:rgba(255,255,255,0.05);border:1px solid rgba(212,160,23,0.25);color:rgba(255,255,255,0.65);padding:0.5rem 0.85rem;font-family:'Crimson Pro',serif;font-size:0.92rem;cursor:pointer;transition:all 0.2s;border-radius:0}
+.tp-toggle{background:rgba(255,255,255,0.05);border:1px solid rgba(212,160,23,0.25);color:rgba(255,255,255,0.65);padding:0.5rem 0.85rem;font-family:'Mukta',serif;font-size:0.92rem;cursor:pointer;transition:all 0.2s;border-radius:0}
 .tp-toggle:hover{border-color:rgba(212,160,23,0.5);color:white}
 .tp-toggle.tpa{background:var(--saffron);border-color:var(--saffron);color:white}
 .tp-card-group{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-top:0.4rem}
@@ -2361,20 +2393,20 @@
 .tp-card:hover{border-color:rgba(212,160,23,0.5)}
 .tp-card.tpa{background:rgba(232,98,26,0.15);border-color:var(--saffron)}
 .tp-card-icon{font-size:1.5rem;margin-bottom:0.35rem}
-.tp-card-title{font-family:'Cinzel Decorative',serif;font-size:0.6rem;color:white;margin-bottom:0.2rem;line-height:1.4}
+.tp-card-title{font-family:'Poppins',serif;font-size:0.6rem;color:white;margin-bottom:0.2rem;line-height:1.4}
 .tp-card-sub{font-size:0.74rem;color:rgba(255,255,255,0.65);line-height:1.4}
-.tp-next-btn{width:100%;background:var(--saffron);color:white;border:none;padding:1rem;font-family:'Cinzel Decorative',serif;font-size:0.75rem;letter-spacing:0.1em;cursor:pointer;transition:background 0.2s;margin-top:0.25rem}
+.tp-next-btn{width:100%;background:var(--saffron);color:white;border:none;padding:1rem;font-family:'Poppins',serif;font-size:0.75rem;letter-spacing:0.1em;cursor:pointer;transition:background 0.2s;margin-top:0.25rem}
 .tp-next-btn:hover{background:var(--deep-saffron)}
-.tp-back-btn{background:transparent;border:1px solid rgba(212,160,23,0.25);color:rgba(255,255,255,0.70);padding:0.65rem 1.25rem;font-family:'Cinzel Decorative',serif;font-size:0.6rem;letter-spacing:0.08em;cursor:pointer;transition:all 0.2s}
+.tp-back-btn{background:transparent;border:1px solid rgba(212,160,23,0.25);color:rgba(255,255,255,0.70);padding:0.65rem 1.25rem;font-family:'Poppins',serif;font-size:0.6rem;letter-spacing:0.08em;cursor:pointer;transition:all 0.2s}
 .tp-back-btn:hover{border-color:rgba(212,160,23,0.5);color:rgba(255,255,255,0.7)}
-.tp-step-dot{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(212,160,23,0.25);display:flex;align-items:center;justify-content:center;font-family:'Cinzel Decorative',serif;font-size:0.58rem;color:rgba(255,255,255,0.55);flex-shrink:0;transition:all 0.3s}
+.tp-step-dot{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(212,160,23,0.25);display:flex;align-items:center;justify-content:center;font-family:'Poppins',serif;font-size:0.58rem;color:rgba(255,255,255,0.55);flex-shrink:0;transition:all 0.3s}
 .tp-step-dot.tpa{background:var(--saffron);border-color:var(--saffron);color:white}
 .tp-step-dot.tpd{background:var(--gold);border-color:var(--gold);color:#1A0A00}
 .tp-bar{flex:1;height:1px;background:rgba(212,160,23,0.15);transition:background 0.35s}
 .tp-bar.tpd{background:var(--gold)}
 .tp-day{padding:0.55rem 0;border-bottom:1px solid rgba(212,160,23,0.1);font-size:0.87rem;color:rgba(255,255,255,0.82);line-height:1.65}
 .tp-day:last-child{border-bottom:none}
-.tp-day-badge{display:inline-block;background:var(--saffron);color:white;font-family:'Cinzel Decorative',serif;font-size:0.52rem;padding:0.15rem 0.45rem;letter-spacing:0.05em;margin-right:0.5rem;vertical-align:middle}
+.tp-day-badge{display:inline-block;background:var(--saffron);color:white;font-family:'Poppins',serif;font-size:0.52rem;padding:0.15rem 0.45rem;letter-spacing:0.05em;margin-right:0.5rem;vertical-align:middle}
 .tp-preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem 1rem;margin-bottom:1rem;font-size:0.86rem}
 .tp-preview-grid span{color:rgba(255,255,255,0.65)}
 .tp-preview-grid strong{color:white}
@@ -2386,12 +2418,12 @@
 
 /* ===== HERO PACKAGE STRIP ===== */
 .hero-pkg-strip{display:inline-flex;align-items:center;gap:1.25rem;flex-wrap:wrap;justify-content:center;background:rgba(212,160,23,0.08);border:1px solid rgba(212,160,23,0.30);padding:0.65rem 1.5rem;margin-top:2rem}
-.hero-pkg-label{font-family:'Cinzel Decorative',serif;font-size:0.55rem;letter-spacing:0.2em;color:var(--gold)}
+.hero-pkg-label{font-family:'Poppins',serif;font-size:0.55rem;letter-spacing:0.2em;color:var(--gold)}
 .hero-pkg-items{display:inline-flex;align-items:center;gap:0.75rem;flex-wrap:wrap;justify-content:center}
 .hero-pkg-item{font-size:0.88rem;color:rgba(255,255,255,0.80)}
 .hero-pkg-item strong{color:var(--bright-gold)}
 .hero-pkg-sep{color:rgba(212,160,23,0.45)}
-.hero-pkg-cta{background:var(--saffron);color:white;padding:0.35rem 0.9rem;font-family:'Cinzel Decorative',serif;font-size:0.55rem;letter-spacing:0.08em;text-decoration:none;white-space:nowrap;transition:background 0.2s}
+.hero-pkg-cta{background:var(--saffron);color:white;padding:0.35rem 0.9rem;font-family:'Poppins',serif;font-size:0.55rem;letter-spacing:0.08em;text-decoration:none;white-space:nowrap;transition:background 0.2s}
 .hero-pkg-cta:hover{background:var(--deep-saffron)}
 @media(max-width:480px){.hero-pkg-strip{gap:0.75rem;padding:0.5rem 1rem}.hero-pkg-sep{display:none}.hero-pkg-items{flex-direction:column;gap:0.3rem}}
 @media(max-width:640px){#quick-enquiry-grid{grid-template-columns:1fr 1fr!important}#quick-enquiry-grid button{grid-column:1/-1}}
@@ -2400,12 +2432,12 @@
 @media(max-width:640px){.trip-plan-grid{grid-template-columns:1fr!important}}
 @media(max-width:640px){.bq-grid{grid-template-columns:1fr!important;border:1px solid rgba(212,160,23,0.15)}.bq-grid>div:first-child{border-right:none!important;border-bottom:1px solid rgba(212,160,23,0.15)}}
 .bq-item{border-bottom:1px solid rgba(212,160,23,0.10)}
-.bq-item summary{padding:0.95rem 1.25rem;font-family:'Crimson Pro',serif;font-size:1rem;color:rgba(255,255,255,0.88);cursor:pointer;list-style:none;display:flex;align-items:flex-start;gap:0.5rem;line-height:1.4}
+.bq-item summary{padding:0.95rem 1.25rem;font-family:'Mukta',serif;font-size:1rem;color:rgba(255,255,255,0.88);cursor:pointer;list-style:none;display:flex;align-items:flex-start;gap:0.5rem;line-height:1.4}
 .bq-item summary::before{content:'＋';color:var(--gold);font-size:1rem;flex-shrink:0;margin-top:0.05rem;transition:transform 0.2s}
 .bq-item[open] summary::before{content:'－';color:var(--bright-gold)}
 .bq-item summary::-webkit-details-marker{display:none}
-.bq-answer{padding:0 1.25rem 1.1rem 2.5rem;font-family:'Crimson Pro',serif;font-size:0.95rem;color:rgba(255,255,255,0.68);line-height:1.7}
-.bq-cta{display:inline-block;margin-top:0.75rem;background:rgba(212,160,23,0.12);border:1px solid rgba(212,160,23,0.35);color:var(--gold);padding:0.4rem 0.9rem;font-family:'Cinzel Decorative',serif;font-size:0.52rem;letter-spacing:0.06em;text-decoration:none;transition:background 0.2s}
+.bq-answer{padding:0 1.25rem 1.1rem 2.5rem;font-family:'Mukta',serif;font-size:0.95rem;color:rgba(255,255,255,0.68);line-height:1.7}
+.bq-cta{display:inline-block;margin-top:0.75rem;background:rgba(212,160,23,0.12);border:1px solid rgba(212,160,23,0.35);color:var(--gold);padding:0.4rem 0.9rem;font-family:'Poppins',serif;font-size:0.52rem;letter-spacing:0.06em;text-decoration:none;transition:background 0.2s}
 .bq-cta:hover{background:rgba(212,160,23,0.22)}
 
 </style>
@@ -2648,31 +2680,31 @@
   </div>
 </section>
 <!-- TRUSTED PARTNER -->
-<section style="background:linear-gradient(180deg,#1a0a00 0%,#0d0500 100%);padding:3rem 1.5rem;">
+<section style="background:linear-gradient(180deg,#1a0a00 0%,var(--dark) 100%);padding:3rem 1.5rem;">
   <div class="section-inner" style="max-width:900px;">
     <div class="trusted-partner-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;">
       <div>
         <span class="section-label">Your Trusted Partner</span>
-        <h2 style="font-family:'Cinzel Decorative',serif;font-size:1.4rem;color:var(--bright-gold);margin:0.75rem 0 1rem;line-height:1.4;">Your Trusted Yatra Companion Since 2022</h2>
-        <p style="font-family:'Crimson Pro',serif;font-size:1.05rem;color:rgba(255,255,255,0.80);line-height:1.75;margin-bottom:1rem;">We are independent travel experts — not affiliated with the official temple trust — who have personally visited and guided pilgrims to Maa Baglamukhi Nalkheda since 2022. We know every cab route, every budget hotel, every auspicious muhurat.</p>
-        <p style="font-family:'Crimson Pro',serif;font-size:1.05rem;color:rgba(255,255,255,0.75);line-height:1.75;">Our ₹99 guide and personalised trip planning service have helped 500+ devotees plan stress-free yatras — from first-time visitors to regular pilgrims doing the full MP circuit.</p>
-        <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20%F0%9F%99%8F%0A%0AI%20want%20a%20personalised%20Nalkheda%20yatra%20plan%20and%20quote.%0AKripya%20guide%20aur%20trip%20planning%20ka%20details%20share%20karein." target="_blank" rel="noopener" style="display:inline-block;margin-top:1.25rem;background:#25D366;color:white;padding:0.7rem 1.5rem;font-family:'Cinzel Decorative',serif;font-size:0.65rem;letter-spacing:0.08em;text-decoration:none;">💬 GET YOUR YATRA PLAN →</a>
+        <h2 style="font-family:'Poppins',serif;font-size:1.4rem;color:var(--bright-gold);margin:0.75rem 0 1rem;line-height:1.4;">Your Trusted Yatra Companion Since 2022</h2>
+        <p style="font-family:'Mukta',serif;font-size:1.05rem;color:rgba(255,255,255,0.80);line-height:1.75;margin-bottom:1rem;">We are independent travel experts — not affiliated with the official temple trust — who have personally visited and guided pilgrims to Maa Baglamukhi Nalkheda since 2022. We know every cab route, every budget hotel, every auspicious muhurat.</p>
+        <p style="font-family:'Mukta',serif;font-size:1.05rem;color:rgba(255,255,255,0.75);line-height:1.75;">Our ₹99 guide and personalised trip planning service have helped 500+ devotees plan stress-free yatras — from first-time visitors to regular pilgrims doing the full MP circuit.</p>
+        <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20%F0%9F%99%8F%0A%0AI%20want%20a%20personalised%20Nalkheda%20yatra%20plan%20and%20quote.%0AKripya%20guide%20aur%20trip%20planning%20ka%20details%20share%20karein." target="_blank" rel="noopener" style="display:inline-block;margin-top:1.25rem;background:#25D366;color:white;padding:0.7rem 1.5rem;font-family:'Poppins',serif;font-size:0.65rem;letter-spacing:0.08em;text-decoration:none;">💬 GET YOUR YATRA PLAN →</a>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
         <div style="background:rgba(212,160,23,0.06);border:1px solid rgba(212,160,23,0.25);padding:1.2rem;text-align:center;">
-          <div style="font-family:'Cinzel Decorative',serif;font-size:2rem;color:var(--bright-gold);font-weight:700;">500+</div>
+          <div style="font-family:'Poppins',serif;font-size:2rem;color:var(--bright-gold);font-weight:700;">500+</div>
           <div style="font-size:0.78rem;color:rgba(255,255,255,0.65);margin-top:0.3rem;">Pilgrims Guided</div>
         </div>
         <div style="background:rgba(212,160,23,0.06);border:1px solid rgba(212,160,23,0.25);padding:1.2rem;text-align:center;">
-          <div style="font-family:'Cinzel Decorative',serif;font-size:2rem;color:var(--bright-gold);font-weight:700;">4.9★</div>
+          <div style="font-family:'Poppins',serif;font-size:2rem;color:var(--bright-gold);font-weight:700;">4.9★</div>
           <div style="font-size:0.78rem;color:rgba(255,255,255,0.65);margin-top:0.3rem;">Average Rating</div>
         </div>
         <div style="background:rgba(212,160,23,0.06);border:1px solid rgba(212,160,23,0.25);padding:1.2rem;text-align:center;">
-          <div style="font-family:'Cinzel Decorative',serif;font-size:2rem;color:var(--bright-gold);font-weight:700;">3+</div>
+          <div style="font-family:'Poppins',serif;font-size:2rem;color:var(--bright-gold);font-weight:700;">3+</div>
           <div style="font-size:0.78rem;color:rgba(255,255,255,0.65);margin-top:0.3rem;">Years Active</div>
         </div>
         <div style="background:rgba(212,160,23,0.06);border:1px solid rgba(212,160,23,0.25);padding:1.2rem;text-align:center;">
-          <div style="font-family:'Cinzel Decorative',serif;font-size:2rem;color:var(--bright-gold);font-weight:700;">&lt;2hr</div>
+          <div style="font-family:'Poppins',serif;font-size:2rem;color:var(--bright-gold);font-weight:700;">&lt;2hr</div>
           <div style="font-size:0.78rem;color:rgba(255,255,255,0.65);margin-top:0.3rem;">WA Response</div>
         </div>
       </div>
@@ -2708,7 +2740,7 @@
 
           <!-- BONUS PDF -->
           <div style="margin-top:1rem; background:rgba(212,160,23,0.15); border:1px solid rgba(212,160,23,0.4); padding:0.9rem 1rem;">
-            <div style="font-size:0.65rem; letter-spacing:0.2em; color:var(--bright-gold); font-family:'Cinzel Decorative',serif; margin-bottom:0.4rem;">🎁 FREE BONUS INCLUDED</div>
+            <div style="font-size:0.65rem; letter-spacing:0.2em; color:var(--bright-gold); font-family:'Poppins',serif; margin-bottom:0.4rem;">🎁 FREE BONUS INCLUDED</div>
             <div style="font-size:0.9rem; color:white; font-weight:700; margin-bottom:0.2rem;">52 Shaktipeethas Complete Guide PDF</div>
             <div style="font-size:0.78rem; color:rgba(255,255,255,0.65); line-height:1.5;">All 52 sacred Shaktipeethas — Devi names, Bhairav, body parts, locations & significance. Includes special MP Peethas + Nalkheda Dham detailed section. Worth ₹99 — yours FREE with this guide.</div>
           </div>
@@ -2728,7 +2760,7 @@
             <div class="pricing-note">One-time · Instant WhatsApp delivery</div>
             <hr class="pricing-divider">
             <ul class="pricing-includes">
-              <li><span class="check">✓</span> Nalkheda Yatra PDF — 13 pages · Hindi &amp; English versions</li>
+              <li><span class="check">✓</span> Nalkheda Yatra PDF — 45 pages · Hindi &amp; English versions</li>
               <li><span class="check">✓</span> Temple timings, hawan booking guide</li>
               <li><span class="check">✓</span> Routes from Ujjain, Indore, Bhopal</li>
               <li><span class="check">✓</span> Hotel &amp; dharamshala directory</li>
@@ -2743,13 +2775,13 @@
 
         <!-- Plan Trip With Us — 3 circuit options -->
         <div style="margin-top:2rem;">
-          <div style="font-family:'Cinzel Decorative',serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);text-align:center;margin-bottom:1.25rem;">📋 PLAN YOUR TRIP WITH US</div>
+          <div style="font-family:'Poppins',serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);text-align:center;margin-bottom:1.25rem;">📋 PLAN YOUR TRIP WITH US</div>
           <div class="trip-plan-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
 
             <!-- Option 1: Nalkheda Only -->
             <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.25);padding:1.25rem;text-align:center;">
               <div style="font-size:1.6rem;margin-bottom:0.5rem;">🛕</div>
-              <div style="font-family:'Cinzel Decorative',serif;font-size:0.65rem;color:var(--bright-gold);letter-spacing:0.05em;margin-bottom:0.5rem;">NALKHEDA ONLY</div>
+              <div style="font-family:'Poppins',serif;font-size:0.65rem;color:var(--bright-gold);letter-spacing:0.05em;margin-bottom:0.5rem;">NALKHEDA ONLY</div>
               <div style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:0.9rem;">1–2 Days<br>Darshan · Hawan · Local Stay</div>
               <ul style="list-style:none;padding:0;margin:0 0 1rem;text-align:left;font-size:0.78rem;color:rgba(255,255,255,0.70);line-height:1.8;">
                 <li>✓ Temple darshan &amp; aarti</li>
@@ -2758,14 +2790,14 @@
                 <li>✓ Personalised itinerary</li>
                 <li>✓ WhatsApp support</li>
               </ul>
-              <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20to%20plan%20a%20Nalkheda%20Only%20yatra.%20Please%20share%20details%20and%20quote." target="_blank" rel="noopener" style="display:block;background:var(--saffron);color:white;padding:0.6rem;font-family:'Cinzel Decorative',serif;font-size:0.55rem;letter-spacing:0.06em;text-decoration:none;text-align:center;">💬 ENQUIRE NOW →</a>
+              <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20to%20plan%20a%20Nalkheda%20Only%20yatra.%20Please%20share%20details%20and%20quote." target="_blank" rel="noopener" style="display:block;background:var(--saffron);color:white;padding:0.6rem;font-family:'Poppins',serif;font-size:0.55rem;letter-spacing:0.06em;text-decoration:none;text-align:center;">💬 ENQUIRE NOW →</a>
             </div>
 
             <!-- Option 2: Nalkheda + Ujjain -->
             <div style="background:rgba(212,160,23,0.06);border:2px solid rgba(212,160,23,0.45);padding:1.25rem;text-align:center;position:relative;">
-              <span style="position:absolute;top:-0.6rem;left:50%;transform:translateX(-50%);background:var(--saffron);color:white;font-family:'Cinzel Decorative',serif;font-size:0.5rem;padding:0.2rem 0.6rem;white-space:nowrap;">MOST POPULAR</span>
+              <span style="position:absolute;top:-0.6rem;left:50%;transform:translateX(-50%);background:var(--saffron);color:white;font-family:'Poppins',serif;font-size:0.5rem;padding:0.2rem 0.6rem;white-space:nowrap;">MOST POPULAR</span>
               <div style="font-size:1.6rem;margin-bottom:0.5rem;">🛕🔱</div>
-              <div style="font-family:'Cinzel Decorative',serif;font-size:0.65rem;color:var(--bright-gold);letter-spacing:0.05em;margin-bottom:0.5rem;">NALKHEDA + UJJAIN</div>
+              <div style="font-family:'Poppins',serif;font-size:0.65rem;color:var(--bright-gold);letter-spacing:0.05em;margin-bottom:0.5rem;">NALKHEDA + UJJAIN</div>
               <div style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:0.9rem;">2–3 Days<br>Baglamukhi + Mahakaleshwar</div>
               <ul style="list-style:none;padding:0;margin:0 0 1rem;text-align:left;font-size:0.78rem;color:rgba(255,255,255,0.70);line-height:1.8;">
                 <li>✓ Nalkheda darshan &amp; hawan</li>
@@ -2775,13 +2807,13 @@
                 <li>✓ Personalised itinerary</li>
                 <li>✓ WhatsApp support</li>
               </ul>
-              <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20to%20plan%20the%20Nalkheda%20%2B%20Ujjain%20yatra%20circuit.%20Please%20share%20details%20and%20quote." target="_blank" rel="noopener" style="display:block;background:var(--gold);color:#1a0a00;padding:0.6rem;font-family:'Cinzel Decorative',serif;font-size:0.55rem;letter-spacing:0.06em;text-decoration:none;text-align:center;font-weight:700;">💬 ENQUIRE NOW →</a>
+              <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20to%20plan%20the%20Nalkheda%20%2B%20Ujjain%20yatra%20circuit.%20Please%20share%20details%20and%20quote." target="_blank" rel="noopener" style="display:block;background:var(--gold);color:#1a0a00;padding:0.6rem;font-family:'Poppins',serif;font-size:0.55rem;letter-spacing:0.06em;text-decoration:none;text-align:center;font-weight:700;">💬 ENQUIRE NOW →</a>
             </div>
 
             <!-- Option 3: Full Circuit -->
             <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.25);padding:1.25rem;text-align:center;">
               <div style="font-size:1.6rem;margin-bottom:0.5rem;">🛕🔱🌊</div>
-              <div style="font-family:'Cinzel Decorative',serif;font-size:0.65rem;color:var(--bright-gold);letter-spacing:0.05em;margin-bottom:0.5rem;">FULL MP CIRCUIT</div>
+              <div style="font-family:'Poppins',serif;font-size:0.65rem;color:var(--bright-gold);letter-spacing:0.05em;margin-bottom:0.5rem;">FULL MP CIRCUIT</div>
               <div style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:0.9rem;">3–4 Days<br>Nalkheda · Ujjain · Omkareshwar</div>
               <ul style="list-style:none;padding:0;margin:0 0 1rem;text-align:left;font-size:0.78rem;color:rgba(255,255,255,0.70);line-height:1.8;">
                 <li>✓ All 3 temple darshans</li>
@@ -2791,7 +2823,7 @@
                 <li>✓ Personalised itinerary</li>
                 <li>✓ WhatsApp support</li>
               </ul>
-              <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20to%20plan%20the%20full%20MP%20circuit%20-%20Nalkheda%20%2B%20Ujjain%20%2B%20Omkareshwar.%20Please%20share%20details%20and%20quote." target="_blank" rel="noopener" style="display:block;background:var(--saffron);color:white;padding:0.6rem;font-family:'Cinzel Decorative',serif;font-size:0.55rem;letter-spacing:0.06em;text-decoration:none;text-align:center;">💬 ENQUIRE NOW →</a>
+              <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20to%20plan%20the%20full%20MP%20circuit%20-%20Nalkheda%20%2B%20Ujjain%20%2B%20Omkareshwar.%20Please%20share%20details%20and%20quote." target="_blank" rel="noopener" style="display:block;background:var(--saffron);color:white;padding:0.6rem;font-family:'Poppins',serif;font-size:0.55rem;letter-spacing:0.06em;text-decoration:none;text-align:center;">💬 ENQUIRE NOW →</a>
             </div>
 
           </div>
@@ -2801,19 +2833,19 @@
         </div>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:1.5rem;text-align:center;">
           <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:0.85rem 0.5rem;">
-            <div style="font-family:'Cinzel Decorative',serif;font-size:1.3rem;color:var(--bright-gold);font-weight:700;">500+</div>
+            <div style="font-family:'Poppins',serif;font-size:1.3rem;color:var(--bright-gold);font-weight:700;">500+</div>
             <div style="font-size:0.72rem;color:rgba(255,255,255,0.65);margin-top:0.2rem;">Pilgrims Helped</div>
           </div>
           <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:0.85rem 0.5rem;">
-            <div style="font-family:'Cinzel Decorative',serif;font-size:1.3rem;color:var(--bright-gold);font-weight:700;">4.9★</div>
-            <div style="font-size:0.72rem;color:rgba(255,255,255,0.65);margin-top:0.2rem;">Avg. Rating</div>
+            <div style="font-family:'Poppins',serif;font-size:1.3rem;color:var(--bright-gold);font-weight:700;">500+</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.65);margin-top:0.2rem;">Happy Pilgrims</div>
           </div>
           <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:0.85rem 0.5rem;">
-            <div style="font-family:'Cinzel Decorative',serif;font-size:1.3rem;color:var(--bright-gold);font-weight:700;">45pg</div>
+            <div style="font-family:'Poppins',serif;font-size:1.3rem;color:var(--bright-gold);font-weight:700;">45pg</div>
             <div style="font-size:0.72rem;color:rgba(255,255,255,0.65);margin-top:0.2rem;">Detailed Guide</div>
           </div>
           <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:0.85rem 0.5rem;">
-            <div style="font-family:'Cinzel Decorative',serif;font-size:1.3rem;color:var(--bright-gold);font-weight:700;">2hr</div>
+            <div style="font-family:'Poppins',serif;font-size:1.3rem;color:var(--bright-gold);font-weight:700;">2hr</div>
             <div style="font-size:0.72rem;color:rgba(255,255,255,0.65);margin-top:0.2rem;">WA Response</div>
           </div>
         </div>
@@ -2821,7 +2853,7 @@
     </div>
   </div>
 </section>
-<!-- ===== CUSTOMISE TRIP PLAN — 3-step wizard ===== --><section id="yatra-form" style="background:linear-gradient(180deg,#0d0500 0%,#1a0a00 100%); padding:4rem 1.5rem;">
+<!-- ===== CUSTOMISE TRIP PLAN — 3-step wizard ===== --><section id="yatra-form" style="background:linear-gradient(180deg,var(--dark) 0%,#1a0a00 100%); padding:4rem 1.5rem;">
   <div class="section-inner" style="max-width:700px;">
     <span class="section-label">Plan Your Yatra</span>
     <h2 class="section-title">Customise Your Trip Plan</h2>
@@ -2836,7 +2868,7 @@
       <div class="tp-bar" id="tpbar2"></div>
       <div class="tp-step-dot" id="tpdot3">3</div>
     </div>
-    <div style="display:flex;justify-content:space-between;margin-bottom:1.75rem;font-family:'Cinzel Decorative',serif;font-size:0.56rem;letter-spacing:0.06em;color:rgba(255,255,255,0.65);">
+    <div style="display:flex;justify-content:space-between;margin-bottom:1.75rem;font-family:'Poppins',serif;font-size:0.56rem;letter-spacing:0.06em;color:rgba(255,255,255,0.65);">
       <span>JOURNEY</span><span>PREFERENCES</span><span>YOUR PLAN</span>
     </div>
 
@@ -2883,7 +2915,10 @@
             <option>Large group (10+)</option>
           </select>
         </div>
-        <button onclick="tpNext(1)" class="tp-next-btn">NEXT: CHOOSE TEMPLES &amp; PREFERENCES →</button>
+        <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;">
+          <button onclick="tpNext(1)" class="tp-next-btn" style="flex:1;">NEXT: CHOOSE TEMPLES &amp; PREFERENCES →</button>
+          <button onclick="tpSkipToWhatsApp()" style="background:transparent;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.2);padding:0.85rem 1.2rem;font-size:0.8rem;cursor:pointer;white-space:nowrap;border-radius:4px;">Skip → WhatsApp</button>
+        </div>
       </div>
     </div>
 
@@ -2948,9 +2983,10 @@
             <input type="text" id="tp-custom-budget" placeholder="e.g. ₹8,500 or ₹45,000 for group" class="tp-input" oninput="tpSyncCustomBudget(this.value)">
           </div>
         </div>
-        <div style="display:flex;gap:0.75rem;">
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
           <button onclick="tpBack(2)" class="tp-back-btn">← BACK</button>
           <button onclick="tpNext(2)" class="tp-next-btn" style="flex:1;">SEE YOUR PERSONALISED PLAN →</button>
+          <button onclick="tpSkipToWhatsApp()" style="background:transparent;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.2);padding:0.85rem 1.2rem;font-size:0.8rem;cursor:pointer;white-space:nowrap;border-radius:4px;">Skip → WA</button>
         </div>
       </div>
     </div>
@@ -2963,7 +2999,7 @@
           <label class="tp-label">SPECIAL REQUESTS (OPTIONAL)</label>
           <textarea id="tp-notes" placeholder="Senior citizens, accessibility needs, specific aarti time, any other requirements..." class="tp-input" style="height:75px;resize:vertical;"></textarea>
         </div>
-        <div id="tp-form-msg" style="display:none;padding:0.75rem;margin-bottom:1rem;font-family:'Crimson Pro',serif;font-size:0.95rem;text-align:center;"></div>
+        <div id="tp-form-msg" style="display:none;padding:0.75rem;margin-bottom:1rem;font-family:'Mukta',serif;font-size:0.95rem;text-align:center;"></div>
         <button onclick="tpSubmit()" class="tp-next-btn">📱 GET MY FREE PERSONALISED YATRA PLAN →</button>
         <p style="font-size:0.76rem;color:rgba(255,255,255,0.65);text-align:center;margin-top:0.75rem;">We reply within 2–4 hours on WhatsApp. No commitment needed.</p>
         <button onclick="tpBack(3)" class="tp-back-btn" style="width:100%;margin-top:0.75rem;display:block;">← EDIT PREFERENCES</button>
@@ -3227,10 +3263,10 @@
 
     <!-- Answer box for top GSC queries -->
     <div style="background:white;border-left:5px solid var(--saffron);padding:1.2rem 1.5rem;margin:1.5rem 0 2rem;box-shadow:0 2px 12px rgba(0,0,0,0.07);display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
-      <div><strong style="font-family:'Cinzel Decorative',serif;font-size:0.72rem;color:var(--saffron);display:block;margin-bottom:0.3rem;">✈️ NEAREST AIRPORT</strong><span style="font-size:0.95rem;color:var(--text);">Indore (IDR) — <strong>156 km</strong> · ~3.5 hrs by cab</span></div>
-      <div><strong style="font-family:'Cinzel Decorative',serif;font-size:0.72rem;color:var(--saffron);display:block;margin-bottom:0.3rem;">🚂 NEAREST RAILWAY STATION</strong><span style="font-size:0.95rem;color:var(--text);">Berchha ~60km · Shajapur ~65km · Ujjain ~100km</span></div>
-      <div><strong style="font-family:'Cinzel Decorative',serif;font-size:0.72rem;color:var(--saffron);display:block;margin-bottom:0.3rem;">🚌 BUS STAND → TEMPLE</strong><span style="font-size:0.95rem;color:var(--text);"><strong>1–2 km</strong> · Auto ₹20–40 · Walk 15–20 min</span></div>
-      <div><strong style="font-family:'Cinzel Decorative',serif;font-size:0.72rem;color:var(--saffron);display:block;margin-bottom:0.3rem;">🌊 NALKHEDA NADI NAME</strong><span style="font-size:0.95rem;color:var(--text);"><strong>Lakhundar Nadi</strong> (Lakshmana River · Narmada tributary)</span></div>
+      <div><strong style="font-family:'Poppins',serif;font-size:0.72rem;color:var(--saffron);display:block;margin-bottom:0.3rem;">✈️ NEAREST AIRPORT</strong><span style="font-size:0.95rem;color:var(--text);">Indore (IDR) — <strong>156 km</strong> · ~3.5 hrs by cab</span></div>
+      <div><strong style="font-family:'Poppins',serif;font-size:0.72rem;color:var(--saffron);display:block;margin-bottom:0.3rem;">🚂 NEAREST RAILWAY STATION</strong><span style="font-size:0.95rem;color:var(--text);">Berchha ~60km · Shajapur ~65km · Ujjain ~100km</span></div>
+      <div><strong style="font-family:'Poppins',serif;font-size:0.72rem;color:var(--saffron);display:block;margin-bottom:0.3rem;">🚌 BUS STAND → TEMPLE</strong><span style="font-size:0.95rem;color:var(--text);"><strong>1–2 km</strong> · Auto ₹20–40 · Walk 15–20 min</span></div>
+      <div><strong style="font-family:'Poppins',serif;font-size:0.72rem;color:var(--saffron);display:block;margin-bottom:0.3rem;">🌊 NALKHEDA NADI NAME</strong><span style="font-size:0.95rem;color:var(--text);"><strong>Lakhundar Nadi</strong> (Lakshmana River · Narmada tributary)</span></div>
     </div>
 
     <div class="reach-grid">
@@ -3543,7 +3579,7 @@
         title="Maa Baglamukhi Mandir Nalkheda Location Map">
       </iframe>
       <a href="https://www.google.com/maps/dir//23.8413611,76.2356389" target="_blank"
-         style="display:block; text-align:center; margin-top:0.75rem; background:var(--saffron); color:white; padding:0.75rem; text-decoration:none; font-family:'Cinzel Decorative',serif; font-size:0.72rem; letter-spacing:0.08em;">
+         style="display:block; text-align:center; margin-top:0.75rem; background:var(--saffron); color:white; padding:0.75rem; text-decoration:none; font-family:'Poppins',serif; font-size:0.72rem; letter-spacing:0.08em;">
         🗺️ Get Directions on Google Maps
       </a>
     </div>
@@ -3551,7 +3587,7 @@
 </section>
 
 <!-- BUYER QUESTIONS SECTION -->
-<section style="background:linear-gradient(180deg,#1a0a00 0%,#0d0500 100%);padding:4rem 1.5rem;">
+<section style="background:linear-gradient(180deg,#1a0a00 0%,var(--dark) 100%);padding:4rem 1.5rem;">
   <div class="section-inner" style="max-width:860px;">
     <span class="section-label">Before You Decide</span>
     <h2 class="section-title">Questions People Ask Before Visiting</h2>
@@ -3563,7 +3599,7 @@
       <!-- GROUP 1: Planning Yourself (Guide) -->
       <div style="border-right:1px solid rgba(212,160,23,0.15);">
         <div style="background:rgba(212,160,23,0.08);padding:0.8rem 1.25rem;border-bottom:1px solid rgba(212,160,23,0.15);">
-          <span style="font-family:'Cinzel Decorative',serif;font-size:0.6rem;letter-spacing:0.15em;color:var(--gold);">📖 PLANNING YOURSELF</span>
+          <span style="font-family:'Poppins',serif;font-size:0.6rem;letter-spacing:0.15em;color:var(--gold);">📖 PLANNING YOURSELF</span>
         </div>
 
         <details class="bq-item">
@@ -3610,7 +3646,7 @@
       <!-- GROUP 2: Want Us to Plan It -->
       <div>
         <div style="background:rgba(212,160,23,0.08);padding:0.8rem 1.25rem;border-bottom:1px solid rgba(212,160,23,0.15);">
-          <span style="font-family:'Cinzel Decorative',serif;font-size:0.6rem;letter-spacing:0.15em;color:var(--gold);">🗓️ WANT US TO PLAN IT</span>
+          <span style="font-family:'Poppins',serif;font-size:0.6rem;letter-spacing:0.15em;color:var(--gold);">🗓️ WANT US TO PLAN IT</span>
         </div>
 
         <details class="bq-item">
@@ -3657,16 +3693,16 @@
 
 <!-- FOOTER -->
 <!-- QUICK ENQUIRY STRIP -->
-<section style="background:#0d0500;padding:3rem 1.5rem;border-top:1px solid rgba(212,160,23,0.15);">
+<section style="background:var(--dark);padding:3rem 1.5rem;border-top:1px solid rgba(212,160,23,0.15);">
   <div class="section-inner" style="max-width:700px;text-align:center;">
-    <div style="font-family:'Cinzel Decorative',serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);margin-bottom:0.6rem;">READY TO PLAN YOUR YATRA?</div>
-    <h2 style="font-family:'Cinzel Decorative',serif;font-size:1.35rem;color:white;margin-bottom:0.5rem;">Get Your Personalised Yatra Plan</h2>
-    <p style="font-family:'Crimson Pro',serif;font-size:1rem;color:rgba(255,255,255,0.65);margin-bottom:1.75rem;">Share your details — we'll send a tailored hotel + itinerary + hawan guide to your WhatsApp within 2 hours. 500+ pilgrims planned this way. Free to enquire.</p>
+    <div style="font-family:'Poppins',serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);margin-bottom:0.6rem;">READY TO PLAN YOUR YATRA?</div>
+    <h2 style="font-family:'Poppins',serif;font-size:1.35rem;color:white;margin-bottom:0.5rem;">Get Your Personalised Yatra Plan</h2>
+    <p style="font-family:'Mukta',serif;font-size:1rem;color:rgba(255,255,255,0.65);margin-bottom:1.75rem;">Share your details — we'll send a tailored hotel + itinerary + hawan guide to your WhatsApp within 2 hours. 500+ pilgrims planned this way. Free to enquire.</p>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:0.6rem;max-width:600px;margin:0 auto;" id="quick-enquiry-grid">
       <input type="text" id="qe-name" placeholder="Your Name" style="background:rgba(255,255,255,0.06);border:1px solid rgba(212,160,23,0.25);color:white;padding:0.75rem;font-size:0.9rem;width:100%;box-sizing:border-box;">
       <input type="tel" id="qe-phone" placeholder="Phone Number" style="background:rgba(255,255,255,0.06);border:1px solid rgba(212,160,23,0.25);color:white;padding:0.75rem;font-size:0.9rem;width:100%;box-sizing:border-box;">
       <input type="date" id="qe-date" style="background:rgba(255,255,255,0.06);border:1px solid rgba(212,160,23,0.25);color:rgba(255,255,255,0.65);padding:0.75rem;font-size:0.9rem;width:100%;box-sizing:border-box;">
-      <button onclick="quickEnquiry()" style="background:var(--saffron);color:white;border:none;padding:0.75rem 1.25rem;font-family:'Cinzel Decorative',serif;font-size:0.6rem;letter-spacing:0.06em;cursor:pointer;white-space:nowrap;">ENQUIRE →</button>
+      <button onclick="quickEnquiry()" style="background:var(--saffron);color:white;border:none;padding:0.75rem 1.25rem;font-family:'Poppins',serif;font-size:0.6rem;letter-spacing:0.06em;cursor:pointer;white-space:nowrap;">ENQUIRE →</button>
     </div>
     <p style="font-size:0.76rem;color:rgba(255,255,255,0.4);margin-top:0.75rem;">We reply within 2–4 hours · No spam · No commitment</p>
   </div>
@@ -4075,7 +4111,7 @@
       closeLightbox();
     }
   });
-
+</script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-331NJD7HG3"></script>
@@ -4091,12 +4127,12 @@
 
     <!-- Login Screen -->
     <div id="admin-login" style="max-width:400px; margin:10vh auto; background:#1a0a00; border:1px solid rgba(212,160,23,0.3); padding:2.5rem;">
-      <div style="font-family:'Cinzel Decorative',serif; font-size:1rem; color:var(--gold); text-align:center; margin-bottom:0.5rem;">🔐 Admin Panel</div>
+      <div style="font-family:'Poppins',serif; font-size:1rem; color:var(--gold); text-align:center; margin-bottom:0.5rem;">🔐 Admin Panel</div>
       <div style="font-size:0.8rem; color:rgba(255,255,255,0.4); text-align:center; margin-bottom:2rem;">nalkheda.in</div>
-      <label style="font-size:0.75rem; color:var(--gold); display:block; margin-bottom:0.4rem; font-family:'Cinzel Decorative',serif;">PASSWORD</label>
+      <label style="font-size:0.75rem; color:var(--gold); display:block; margin-bottom:0.4rem; font-family:'Poppins',serif;">PASSWORD</label>
       <input type="password" id="admin-pwd" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')adminLogin()"
              style="width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(212,160,23,0.3); color:white; padding:0.85rem; font-size:1rem; outline:none; margin-bottom:1rem;">
-      <button onclick="adminLogin()" style="width:100%; background:var(--saffron); color:white; border:none; padding:0.85rem; font-family:'Cinzel Decorative',serif; font-size:0.75rem; letter-spacing:0.1em; cursor:pointer;">LOGIN</button>
+      <button onclick="adminLogin()" style="width:100%; background:var(--saffron); color:white; border:none; padding:0.85rem; font-family:'Poppins',serif; font-size:0.75rem; letter-spacing:0.1em; cursor:pointer;">LOGIN</button>
       <div id="admin-err" style="color:#ff6b6b; font-size:0.85rem; text-align:center; margin-top:0.75rem;"></div>
       <button onclick="closeAdmin()" style="width:100%; background:transparent; color:rgba(255,255,255,0.4); border:1px solid rgba(255,255,255,0.1); padding:0.6rem; font-size:0.85rem; cursor:pointer; margin-top:0.75rem;">✕ Close</button>
     </div>
@@ -4104,7 +4140,7 @@
     <!-- Dashboard -->
     <div id="admin-dash" style="display:none;">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem; flex-wrap:wrap; gap:1rem;">
-        <div style="font-family:'Cinzel Decorative',serif; font-size:1rem; color:var(--gold);">🛕 Nalkheda.in Admin Panel</div>
+        <div style="font-family:'Poppins',serif; font-size:1rem; color:var(--gold);">🛕 Nalkheda.in Admin Panel</div>
         <button onclick="closeAdmin()" style="background:rgba(255,255,255,0.1); color:white; border:none; padding:0.5rem 1rem; cursor:pointer; font-size:0.85rem;">✕ Close Panel</button>
       </div>
 
@@ -4123,7 +4159,7 @@
       <!-- TAB: User Data -->
       <div id="tab-users" class="admin-tab-content">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem;">
-          <div style="color:var(--gold); font-family:'Cinzel Decorative',serif; font-size:0.8rem;">YATRA FORM SUBMISSIONS</div>
+          <div style="color:var(--gold); font-family:'Poppins',serif; font-size:0.8rem;">YATRA FORM SUBMISSIONS</div>
           <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
             <button onclick="exportCSV()" style="background:rgba(39,174,96,0.2); color:#27AE60; border:1px solid rgba(39,174,96,0.3); padding:0.4rem 0.8rem; font-size:0.8rem; cursor:pointer;">⬇ Export CSV</button>
             <button onclick="syncAllToSheet()" style="background:rgba(212,160,23,0.15); color:var(--gold); border:1px solid rgba(212,160,23,0.3); padding:0.4rem 0.8rem; font-size:0.8rem; cursor:pointer;">↑ Sync All to Sheet</button>
@@ -4152,14 +4188,14 @@
 
       <!-- TAB: Listings -->
       <div id="tab-listings" class="admin-tab-content" style="display:none;">
-        <div style="color:var(--gold); font-family:'Cinzel Decorative',serif; font-size:0.8rem; margin-bottom:1rem;">BUSINESS LISTINGS MANAGER</div>
+        <div style="color:var(--gold); font-family:'Poppins',serif; font-size:0.8rem; margin-bottom:1rem;">BUSINESS LISTINGS MANAGER</div>
         <div id="listings-editor" style="display:flex; flex-direction:column; gap:1rem;"></div>
         <button onclick="addNewListing()" style="margin-top:1rem; background:rgba(212,160,23,0.15); color:var(--gold); border:1px solid rgba(212,160,23,0.3); padding:0.75rem 1.5rem; font-size:0.9rem; cursor:pointer; width:100%;">+ Add New Business Listing</button>
       </div>
 
       <!-- TAB: Prices -->
       <div id="tab-prices" class="admin-tab-content" style="display:none;">
-        <div style="color:var(--gold); font-family:'Cinzel Decorative',serif; font-size:0.8rem; margin-bottom:1rem;">CAB & HOTEL PRICES</div>
+        <div style="color:var(--gold); font-family:'Poppins',serif; font-size:0.8rem; margin-bottom:1rem;">CAB & HOTEL PRICES</div>
         <div style="display:grid; gap:1rem;">
           <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(212,160,23,0.15); padding:1.2rem;">
             <div style="font-size:0.8rem; color:rgba(255,255,255,0.5); margin-bottom:0.8rem;">CAB PRICES (displayed on site)</div>
@@ -4177,13 +4213,13 @@
               <div><label style="font-size:0.75rem; color:var(--gold);">UPI ID</label><input id="price-upi" type="text" value="ashwinv49@ybl" style="width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(212,160,23,0.2); color:white; padding:0.5rem; margin-top:0.3rem; font-size:0.9rem;"></div>
             </div>
           </div>
-          <button onclick="savePrices()" style="background:var(--saffron); color:white; border:none; padding:0.85rem; font-family:'Cinzel Decorative',serif; font-size:0.75rem; letter-spacing:0.08em; cursor:pointer;">💾 SAVE PRICES</button>
+          <button onclick="savePrices()" style="background:var(--saffron); color:white; border:none; padding:0.85rem; font-family:'Poppins',serif; font-size:0.75rem; letter-spacing:0.08em; cursor:pointer;">💾 SAVE PRICES</button>
         </div>
       </div>
 
       <!-- TAB: Photos -->
       <div id="tab-photos" class="admin-tab-content" style="display:none;">
-        <div style="color:var(--gold); font-family:'Cinzel Decorative',serif; font-size:0.8rem; margin-bottom:1rem;">GALLERY PHOTOS MANAGER</div>
+        <div style="color:var(--gold); font-family:'Poppins',serif; font-size:0.8rem; margin-bottom:1rem;">GALLERY PHOTOS MANAGER</div>
         <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(212,160,23,0.15); padding:1.5rem; margin-bottom:1rem;">
           <p style="font-size:0.9rem; color:rgba(255,255,255,0.7); margin-bottom:1rem;">To update photos: Upload new photos to your Google Drive folder, copy the file ID, and paste below. Format: <code style="color:var(--gold);">https://drive.google.com/thumbnail?id=FILE_ID&sz=w800</code></p>
           <div id="photo-editor" style="display:flex; flex-direction:column; gap:0.75rem;"></div>
@@ -4197,7 +4233,7 @@
 
       <!-- TAB: Settings -->
       <div id="tab-settings" class="admin-tab-content" style="display:none;">
-        <div style="color:var(--gold); font-family:'Cinzel Decorative',serif; font-size:0.8rem; margin-bottom:1rem;">SITE SETTINGS</div>
+        <div style="color:var(--gold); font-family:'Poppins',serif; font-size:0.8rem; margin-bottom:1rem;">SITE SETTINGS</div>
         <div style="display:flex; flex-direction:column; gap:1rem;">
           <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(212,160,23,0.15); padding:1.2rem;">
             <div style="font-size:0.8rem; color:rgba(255,255,255,0.5); margin-bottom:0.8rem;">CONTACT & LINKS</div>
@@ -4224,7 +4260,7 @@
             <div style="font-size:0.8rem; color:#ff8888; margin-bottom:0.5rem;">DANGER ZONE</div>
             <button onclick="if(confirm('Clear ALL user data? This cannot be undone.'))clearAllData()" style="background:rgba(255,50,50,0.2); color:#ff6666; border:1px solid rgba(255,50,50,0.3); padding:0.6rem 1.2rem; font-size:0.85rem; cursor:pointer;">🗑 Clear All User Data</button>
           </div>
-          <button onclick="saveSettings()" style="background:var(--saffron); color:white; border:none; padding:0.85rem; font-family:'Cinzel Decorative',serif; font-size:0.75rem; letter-spacing:0.08em; cursor:pointer;">💾 SAVE SETTINGS</button>
+          <button onclick="saveSettings()" style="background:var(--saffron); color:white; border:none; padding:0.85rem; font-family:'Poppins',serif; font-size:0.75rem; letter-spacing:0.08em; cursor:pointer;">💾 SAVE SETTINGS</button>
         </div>
       </div>
 
@@ -4632,7 +4668,7 @@ function removeListing(i) {
 
     document.getElementById('tp-preview').innerHTML = `
       <div style="border:1px solid rgba(212,160,23,0.3);padding:1.25rem;background:rgba(212,160,23,0.04);margin-bottom:1.25rem;">
-        <div style="font-family:'Cinzel Decorative',serif;font-size:0.6rem;letter-spacing:0.15em;color:var(--gold);margin-bottom:0.85rem;">✦ YOUR PERSONALISED YATRA PLAN ✦</div>
+        <div style="font-family:'Poppins',serif;font-size:0.6rem;letter-spacing:0.15em;color:var(--gold);margin-bottom:0.85rem;">✦ YOUR PERSONALISED YATRA PLAN ✦</div>
         <div class="tp-preview-grid">
           <div><span>Pilgrim: </span><strong>${name}</strong></div>
           <div><span>Date: </span><strong>${date}</strong></div>
@@ -4644,7 +4680,7 @@ function removeListing(i) {
           <div><span>Transport: </span><strong>${cab.split('/')[0].trim()}</strong></div>
         </div>
         <div style="border-top:1px solid rgba(212,160,23,0.18);padding-top:0.85rem;">
-          <div style="font-family:'Cinzel Decorative',serif;font-size:0.55rem;letter-spacing:0.1em;color:var(--saffron);margin-bottom:0.6rem;">ITINERARY OUTLINE</div>
+          <div style="font-family:'Poppins',serif;font-size:0.55rem;letter-spacing:0.1em;color:var(--saffron);margin-bottom:0.6rem;">ITINERARY OUTLINE</div>
           ${days_html}
         </div>
         <div style="border-top:1px solid rgba(212,160,23,0.18);padding-top:0.65rem;margin-top:0.65rem;font-size:0.8rem;color:rgba(255,255,255,0.45);">
@@ -4652,6 +4688,19 @@ function removeListing(i) {
         </div>
       </div>`;
   }
+
+  window.tpSkipToWhatsApp = function() {
+    const name  = document.getElementById('tp-name').value.trim();
+    const phone = document.getElementById('tp-phone').value.trim();
+    const city  = document.getElementById('tp-city').value.trim() || '';
+    const dateR = document.getElementById('tp-date').value || '';
+    const namePart  = name  ? `\nNaam: ${name}` : '';
+    const phonePart = phone ? `\nPhone: ${phone}` : '';
+    const cityPart  = city  ? `\nCity: ${city}` : '';
+    const datePart  = dateR ? `\nDate: ${dateR}` : '';
+    const msg = `🙏 Jai Maa Baglamukhi!\n\nMujhe Nalkheda Yatra plan karni hai. Kripya details share karein.${namePart}${phonePart}${cityPart}${datePart}`;
+    window.open('https://wa.me/919754709571?text=' + encodeURIComponent(msg), '_blank');
+  };
 
   window.tpSubmit = function() {
     const name  = document.getElementById('tp-name').value.trim();
