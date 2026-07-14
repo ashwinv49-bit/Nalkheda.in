@@ -4461,7 +4461,7 @@ function syncAllToSheet() {
   function sendNext() {
     if (i >= users.length) { alert('✅ Synced ' + users.length + ' records to Google Sheet.'); return; }
     const u = users[i++];
-    fetch(sheetUrl, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'},
+    fetch(sheetUrl, { method:'POST', mode:'no-cors', keepalive: true, headers:{'Content-Type':'application/json'},
       body: JSON.stringify({ name:u.name, phone:u.phone, city:u.city, date:u.travelDate, group:u.group,
         days:u.days, circuit:u.circuit, stay:u.stay, cab:u.cab, hawan:u.hawan,
         budget:u.budget, notes:u.notes, submitted:u.submitted, source:'nalkheda.in sync' })
@@ -4720,7 +4720,7 @@ function removeListing(i) {
     saveUser({ name, phone, date: dateR, group, city, days, circuit, stay, cab, hawan, budget, notes, travelDate: dateR, submitted });
     const settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
     const sheetUrl = settings.sheet || DEFAULT_SHEET;
-    fetch(sheetUrl, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'},
+    fetch(sheetUrl, { method:'POST', mode:'no-cors', keepalive: true, headers:{'Content-Type':'application/json'},
       body: JSON.stringify({ name, phone, city, date: dateR, group, days, circuit, stay, cab, hawan, budget, notes, submitted, source:'nalkheda.in trip planner' })
     }).catch(() => {});
 
