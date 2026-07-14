@@ -159,7 +159,7 @@ Static HTML site on Netlify, auto-deployed from GitHub `main` branch.
 - **From Indore:** 160 km, ~3–3.5 hrs
 - **From Bhopal:** 210 km, ~4 hrs
 - **Main festival:** Baglamukhi Jayanti — Vaishakh Shukla Ashtami
-- **Navratri 2026 (Sharad):** September 25 – October 4
+- **Navratri 2026 (Sharad):** October 11 – October 20 (Ghatasthapana Oct 11, Dussehra Oct 20)
 
 ---
 
