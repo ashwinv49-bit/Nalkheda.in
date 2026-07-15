@@ -2385,6 +2385,33 @@
   .pricing-cta.cta-wa { background: #25D366; color: white; margin-top: 0.7rem; }
   @media (max-width: 700px) { .pricing-grid { grid-template-columns: 1fr; } }
 
+/* ===== YATRA PLANS 3-TIER ===== */
+.yatra-plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem;}
+@media(max-width:860px){.yatra-plans-grid{grid-template-columns:1fr;}}
+.yp-card{background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.25);padding:1.75rem 1.5rem;position:relative;display:flex;flex-direction:column;}
+.yp-card.featured{border:2px solid var(--pitambara);background:rgba(244,196,48,0.06);}
+.yp-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--pitambara);color:var(--deep-maroon);font-family:'Poppins',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;padding:3px 14px;white-space:nowrap;}
+.yp-icon{font-size:2rem;margin-bottom:0.75rem;}
+.yp-name{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;color:white;margin-bottom:0.35rem;}
+.yp-tagline{font-size:0.78rem;color:rgba(255,255,255,0.6);margin-bottom:1rem;line-height:1.4;}
+.yp-price{margin-bottom:1rem;}
+.yp-price .rupee{font-size:1.1rem;color:var(--bright-gold);vertical-align:super;}
+.yp-price .amount{font-family:'Poppins',sans-serif;font-size:2rem;font-weight:700;color:var(--bright-gold);}
+.yp-price .old{font-size:0.85rem;color:rgba(255,255,255,0.4);text-decoration:line-through;margin-left:0.4rem;}
+.yp-price .from{font-size:0.7rem;color:rgba(255,255,255,0.45);display:block;margin-top:0.1rem;}
+.yp-divider{border:none;border-top:1px solid rgba(212,160,23,0.2);margin:0.75rem 0 1rem;}
+.yp-features{list-style:none;padding:0;margin:0 0 1rem;flex:1;}
+.yp-features li{font-size:0.82rem;color:rgba(255,255,255,0.75);line-height:1.6;padding:0.15rem 0;display:flex;gap:0.5rem;}
+.yp-features li .ck{color:var(--pitambara);flex-shrink:0;}
+.yp-trust{font-size:0.72rem;color:rgba(255,255,255,0.45);text-align:center;margin-bottom:0.75rem;font-style:italic;}
+.yp-scarcity{font-size:0.72rem;color:var(--saffron);text-align:center;margin-bottom:0.5rem;font-weight:600;}
+.yp-cta-primary{display:block;background:var(--pitambara);color:var(--deep-maroon);text-align:center;padding:0.85rem;font-family:'Poppins',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.05em;text-decoration:none;margin-bottom:0.5rem;border-radius:4px;}
+.yp-cta-wa{display:block;background:var(--wa-green);color:white;text-align:center;padding:0.85rem;font-family:'Poppins',sans-serif;font-size:0.8rem;font-weight:700;text-decoration:none;border-radius:4px;}
+.yp-circuit{display:flex;gap:0.4rem;margin-bottom:1rem;flex-wrap:wrap;}
+.yp-circuit-btn{background:transparent;border:1px solid rgba(212,160,23,0.4);color:rgba(255,255,255,0.65);font-family:'Poppins',sans-serif;font-size:0.68rem;padding:0.35rem 0.7rem;cursor:pointer;border-radius:20px;white-space:nowrap;transition:all 0.2s;}
+.yp-circuit-btn.active{background:var(--saffron);border-color:var(--saffron);color:white;font-weight:600;}
+
+
 
 /* ===== TRIP PLANNER ===== */
 .tp-label{font-size:0.72rem;color:var(--gold);display:block;margin-bottom:0.4rem;font-family:'Poppins',serif;letter-spacing:0.06em}
@@ -2837,164 +2864,112 @@
   </div>
 </section>
 
-<!-- PDF GUIDE -->
+<!-- YATRA PLANS -->
 <section id="guide">
   <div class="section-inner">
-    <span class="section-label">Premium Planning Service</span>
-    <h2 class="section-title">Nalkheda<br>Digital Companion</h2>
+    <span class="section-label">Choose Your Journey</span>
+    <h2 class="section-title" style="color:white;">Yatra Plans &amp; Pricing</h2>
+    <p class="section-sub" style="max-width:520px;margin:0.5rem auto 0.5rem;color:rgba(255,255,255,0.7);">Three ways to experience Maa Baglamukhi Yatra — from a self-guided PDF to a fully managed pilgrimage.</p>
     <div class="divider"></div>
-    <div class="guide-layout">
-      <div class="pdf-mockup">
-        <div class="pdf-book">
-          <div class="pdf-book-spine"></div>
-          <div class="pdf-book-devanagari">नलखेड़ा यात्रा गाइड</div>
-          <div class="pdf-book-title">Nalkheda Dham<br>Complete Pilgrim Guide</div>
-          <div class="pdf-book-subtitle">The Ultimate Travel Companion</div>
-          <ul class="pdf-preview-items">
-            <li>Temple history, mythology & significance</li>
-            <li>Complete puja booking process (step-by-step)</li>
-            <li>Best hotels, dharamshalas & eating spots</li>
-            <li>Day-wise Nalkheda + Ujjain + Omkareshwar itinerary</li>
-            <li>Navratri special — dates, prep & crowd tips</li>
-            <li>Nearby mandirs (Mahakaleshwar, Omkareshwar, etc.)</li>
-            <li>Budget breakdown: ₹2,000 to ₹20,000 trips</li>
-            <li>Emergency contacts, ATMs, transport guide</li>
-            <li>Hindi & English — printable format</li>
-          </ul>
-          <div class="pdf-pages-count">~45 PAGES · PDF FORMAT</div>
 
-          <!-- BONUS PDF -->
-          <div style="margin-top:1rem; background:rgba(212,160,23,0.15); border:1px solid rgba(212,160,23,0.4); padding:0.9rem 1rem;">
-            <div style="font-size:0.8rem; letter-spacing:0.2em; color:var(--bright-gold); font-family:'Poppins',serif; margin-bottom:0.4rem;">🎁 FREE BONUS INCLUDED</div>
-            <div style="font-size:0.9rem; color:white; font-weight:700; margin-bottom:0.2rem;">52 Shaktipeethas Complete Guide PDF</div>
-            <div style="font-size:0.78rem; color:rgba(255,255,255,0.65); line-height:1.5;">All 52 sacred Shaktipeethas — Devi names, Bhairav, body parts, locations & significance. Includes special MP Peethas + Nalkheda Dham detailed section. Worth ₹99 — yours FREE with this guide.</div>
-          </div>
+    <div class="yatra-plans-grid">
+
+      <!-- PLAN 1: PDF Guide ₹99 -->
+      <div class="yp-card">
+        <div class="yp-icon">📖</div>
+        <div class="yp-name">PDF Yatra Guide</div>
+        <div class="yp-tagline">Self-guided · Instant WhatsApp delivery</div>
+        <div class="yp-price">
+          <span class="rupee">₹</span><span class="amount">99</span><span class="old">₹499</span>
+          <span class="from">One-time · No subscription</span>
         </div>
+        <hr class="yp-divider">
+        <ul class="yp-features">
+          <li><span class="ck">✓</span> 45-page Nalkheda Yatra PDF (Hindi &amp; English)</li>
+          <li><span class="ck">✓</span> Temple timings &amp; hawan booking process</li>
+          <li><span class="ck">✓</span> Hotels, routes &amp; 2-day itinerary</li>
+          <li><span class="ck">✓</span> Navratri special tips &amp; crowd guide</li>
+          <li><span class="ck">🎁</span> BONUS: 52 Shaktipeethas Guide PDF (free)</li>
+        </ul>
+        <div class="yp-trust">Downloaded by 500+ pilgrims</div>
+        <a href="https://wa.me/919754709571?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999." target="_blank" rel="noopener" class="yp-cta-wa">💬 Get on WhatsApp — ₹99</a>
       </div>
-      <div class="guide-purchase">
-        <div class="pricing-grid">
 
-          <!-- Digital Companion ₹1,999 -->
-          <div class="pricing-card" style="border-color:var(--pitambara);border-width:2px;position:relative;">
-            <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--pitambara);color:var(--deep-maroon);font-family:'Poppins',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.12em;padding:3px 14px;white-space:nowrap;">RECOMMENDED</div>
-            <div class="pricing-name">🌟 Digital Companion</div>
-            <div class="pricing-amount">
-              <span class="pricing-rupee">₹</span>
-              <span class="pricing-num">1,999</span>
-            </div>
-            <div class="pricing-note">2-Day WhatsApp Support · Personal Planning</div>
-            <hr class="pricing-divider">
-            <ul class="pricing-includes">
-              <li><span class="check">✓</span> Personalized travel planning &amp; custom itinerary</li>
-              <li><span class="check">✓</span> WhatsApp support during your trip (2 days)</li>
-              <li><span class="check">✓</span> Local hotel recommendations</li>
-              <li><span class="check">✓</span> Temple timings, route &amp; parking guidance</li>
-              <li><span class="check">✓</span> Food, budget &amp; insider tips</li>
-              <li><span class="check">✓</span> Family &amp; senior citizen guidance</li>
-              <li><span class="check">📖</span> Digital guide included</li>
-            </ul>
-            <a href="/digital-companion.html" class="pricing-cta" style="display:block;background:var(--pitambara);color:var(--deep-maroon);text-align:center;padding:0.85rem;font-family:'Poppins',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-decoration:none;margin-bottom:0.6rem;">🌟 Book Digital Companion →</a>
-            <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20to%20book%20the%20Nalkheda%20Digital%20Companion%20service%20(%E2%82%B91%2C999).%20Please%20share%20details." target="_blank" rel="noopener" class="pricing-cta cta-wa">💬 Enquire on WhatsApp</a>
-          </div>
-          <!-- Travel Guide ₹99 (entry tier) -->
-          <div class="pricing-card" style="opacity:0.85;">
-            <div class="pricing-name">📖 Digital Guide</div>
-            <div class="pricing-amount">
-              <span class="pricing-rupee">₹</span>
-              <span class="pricing-num">99</span>
-              <span class="pricing-old">₹499</span>
-            </div>
-            <div class="pricing-note">Self-guided · Instant WhatsApp delivery</div>
-            <hr class="pricing-divider">
-            <ul class="pricing-includes">
-              <li><span class="check">✓</span> Nalkheda Yatra PDF — 45 pages · Hindi &amp; English</li>
-              <li><span class="check">✓</span> Temple timings, hawan guide</li>
-              <li><span class="check">✓</span> Routes, hotels &amp; 2-day itinerary</li>
-              <li><span class="check">🎁</span> BONUS: 52 Shaktipeethas PDF</li>
-            </ul>
-            <a href="https://wa.me/919754709571?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999." target="_blank" rel="noopener" class="pricing-cta cta-wa">💬 Get Guide on WhatsApp — ₹99</a>
-          </div>
-
+      <!-- PLAN 2: Digital Companion ₹1,999 (FEATURED) -->
+      <div class="yp-card featured">
+        <div class="yp-badge">MOST POPULAR</div>
+        <div class="yp-icon">🌟</div>
+        <div class="yp-name">Digital Companion</div>
+        <div class="yp-tagline">Personal planning + 2-day trip support</div>
+        <div class="yp-price">
+          <span class="rupee">₹</span><span class="amount">1,999</span>
+          <span class="from">Per booking · Any group size</span>
         </div>
+        <hr class="yp-divider">
+        <ul class="yp-features">
+          <li><span class="ck">✓</span> Custom itinerary built for your travel dates</li>
+          <li><span class="ck">✓</span> Pre-trip planning session on WhatsApp</li>
+          <li><span class="ck">✓</span> WhatsApp support during your trip (2 days)</li>
+          <li><span class="ck">✓</span> Vetted hotel recommendations &amp; local tips</li>
+          <li><span class="ck">✓</span> Senior &amp; family-specific guidance</li>
+          <li><span class="ck">📖</span> PDF Guide included</li>
+        </ul>
+        <div class="yp-trust">⭐ Recommended for families &amp; first-timers</div>
+        <a href="/digital-companion.html" class="yp-cta-primary">🌟 Book Digital Companion →</a>
+        <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20to%20book%20the%20Nalkheda%20Digital%20Companion%20(%E2%82%B91%2C999).%20Please%20share%20details." target="_blank" rel="noopener" class="yp-cta-wa">💬 Plan on WhatsApp</a>
+      </div>
 
-        <!-- Plan Trip With Us — 3 circuit options -->
-        <div style="margin-top:2rem;">
-          <div style="font-family:'Poppins',serif;font-size:0.8rem;letter-spacing:0.2em;color:var(--gold);text-align:center;margin-bottom:1.25rem;">📋 PLAN YOUR TRIP WITH US</div>
-          <div class="trip-plan-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
-
-            <!-- Option 1: Nalkheda Only -->
-            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.25);padding:1.25rem;text-align:center;">
-              <div style="font-size:1.6rem;margin-bottom:0.5rem;">🛕</div>
-              <div style="font-family:'Poppins',serif;font-size:0.75rem;color:var(--bright-gold);letter-spacing:0.05em;margin-bottom:0.5rem;">NALKHEDA ONLY</div>
-              <div style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:0.9rem;">1–2 Days<br>Darshan · Hawan · Local Stay</div>
-              <ul style="list-style:none;padding:0;margin:0 0 1rem;text-align:left;font-size:0.78rem;color:rgba(255,255,255,0.70);line-height:1.8;">
-                <li>✓ Temple darshan &amp; aarti</li>
-                <li>✓ Hawan coordination</li>
-                <li>✓ Hotel near temple</li>
-                <li>✓ Personalised itinerary</li>
-                <li>✓ WhatsApp support</li>
-              </ul>
-              <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20to%20plan%20a%20Nalkheda%20Only%20yatra.%20Please%20share%20details%20and%20quote." target="_blank" rel="noopener" style="display:block;background:var(--saffron);color:white;padding:0.6rem;font-family:'Poppins',serif;font-size:0.75rem;letter-spacing:0.06em;text-decoration:none;text-align:center;">💬 ENQUIRE NOW →</a>
-            </div>
-
-            <!-- Option 2: Nalkheda + Ujjain -->
-            <div style="background:rgba(212,160,23,0.06);border:2px solid rgba(212,160,23,0.45);padding:1.25rem;text-align:center;position:relative;">
-              <span style="position:absolute;top:-0.6rem;left:50%;transform:translateX(-50%);background:var(--saffron);color:white;font-family:'Poppins',serif;font-size:0.75rem;padding:0.2rem 0.6rem;white-space:nowrap;">MOST POPULAR</span>
-              <div style="font-size:1.6rem;margin-bottom:0.5rem;">🛕🔱</div>
-              <div style="font-family:'Poppins',serif;font-size:0.75rem;color:var(--bright-gold);letter-spacing:0.05em;margin-bottom:0.5rem;">NALKHEDA + UJJAIN</div>
-              <div style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:0.9rem;">2–3 Days<br>Baglamukhi + Mahakaleshwar</div>
-              <ul style="list-style:none;padding:0;margin:0 0 1rem;text-align:left;font-size:0.78rem;color:rgba(255,255,255,0.70);line-height:1.8;">
-                <li>✓ Nalkheda darshan &amp; hawan</li>
-                <li>✓ Bhasma Aarti booking (Ujjain)</li>
-                <li>✓ Hotels both cities</li>
-                <li>✓ Cab between cities</li>
-                <li>✓ Personalised itinerary</li>
-                <li>✓ WhatsApp support</li>
-              </ul>
-              <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20to%20plan%20the%20Nalkheda%20%2B%20Ujjain%20yatra%20circuit.%20Please%20share%20details%20and%20quote." target="_blank" rel="noopener" style="display:block;background:var(--gold);color:#1a0a00;padding:0.6rem;font-family:'Poppins',serif;font-size:0.75rem;letter-spacing:0.06em;text-decoration:none;text-align:center;font-weight:700;">💬 ENQUIRE NOW →</a>
-            </div>
-
-            <!-- Option 3: Full Circuit -->
-            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.25);padding:1.25rem;text-align:center;">
-              <div style="font-size:1.6rem;margin-bottom:0.5rem;">🛕🔱🌊</div>
-              <div style="font-family:'Poppins',serif;font-size:0.75rem;color:var(--bright-gold);letter-spacing:0.05em;margin-bottom:0.5rem;">FULL MP CIRCUIT</div>
-              <div style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:0.9rem;">3–4 Days<br>Nalkheda · Ujjain · Omkareshwar</div>
-              <ul style="list-style:none;padding:0;margin:0 0 1rem;text-align:left;font-size:0.78rem;color:rgba(255,255,255,0.70);line-height:1.8;">
-                <li>✓ All 3 temple darshans</li>
-                <li>✓ Bhasma Aarti + boat parikrama</li>
-                <li>✓ Hotels all 3 locations</li>
-                <li>✓ Complete cab arrangement</li>
-                <li>✓ Personalised itinerary</li>
-                <li>✓ WhatsApp support</li>
-              </ul>
-              <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20to%20plan%20the%20full%20MP%20circuit%20-%20Nalkheda%20%2B%20Ujjain%20%2B%20Omkareshwar.%20Please%20share%20details%20and%20quote." target="_blank" rel="noopener" style="display:block;background:var(--saffron);color:white;padding:0.6rem;font-family:'Poppins',serif;font-size:0.75rem;letter-spacing:0.06em;text-decoration:none;text-align:center;">💬 ENQUIRE NOW →</a>
-            </div>
-
-          </div>
-          <p style="font-size:0.76rem;color:rgba(255,255,255,0.50);text-align:center;margin-top:1rem;">All packages quoted on WhatsApp · Custom group pricing available · No advance payment needed</p>
+      <!-- PLAN 3: Full Yatra Plan Starting ₹4,999 -->
+      <div class="yp-card">
+        <div class="yp-icon">🏆</div>
+        <div class="yp-name">Full Yatra Plan</div>
+        <div class="yp-tagline">We manage everything — hotel, cab, guide</div>
+        <div class="yp-price">
+          <span class="rupee">₹</span><span class="amount">4,999</span>
+          <span class="from">Starting price · Custom quote on WhatsApp</span>
         </div>
+        <hr class="yp-divider">
+        <div style="font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">Choose your circuit:</div>
+        <div class="yp-circuit">
+          <button class="yp-circuit-btn active" onclick="ypSetCircuit(this,'Nalkheda Only (1–2 days)')">🛕 Nalkheda Only</button>
+          <button class="yp-circuit-btn" onclick="ypSetCircuit(this,'Nalkheda + Ujjain (2–3 days)')">+Ujjain</button>
+          <button class="yp-circuit-btn" onclick="ypSetCircuit(this,'Full MP Circuit — Nalkheda + Ujjain + Omkareshwar (3–4 days)')">Full MP Circuit</button>
+        </div>
+        <ul class="yp-features">
+          <li><span class="ck">✓</span> Custom itinerary &amp; day-wise planning</li>
+          <li><span class="ck">✓</span> Hotel booking coordination</li>
+          <li><span class="ck">✓</span> Cab arrangement from your arrival city</li>
+          <li><span class="ck">✓</span> Hawan booking assistance</li>
+          <li><span class="ck">✓</span> WhatsApp support throughout journey</li>
+          <li><span class="ck">📖</span> PDF Guide included</li>
+        </ul>
+        <div class="yp-scarcity">⚡ Only 8 managed trips per month</div>
+        <div class="yp-trust">Zero advance payment · Custom quote in 2 hrs</div>
+        <a id="yp-full-wa" href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20the%20Full%20Yatra%20Plan%20(Nalkheda%20Only%2C%201%E2%80%932%20days).%20Please%20share%20custom%20quote." target="_blank" rel="noopener" class="yp-cta-wa">💬 Get Custom Quote on WhatsApp</a>
+      </div>
 
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:1.5rem;text-align:center;">
-          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:0.85rem 0.5rem;">
-            <div style="font-family:'Poppins',serif;font-size:1.3rem;color:var(--bright-gold);font-weight:700;">500+</div>
-            <div style="font-size:0.72rem;color:rgba(255,255,255,0.65);margin-top:0.2rem;">Pilgrims Helped</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:0.85rem 0.5rem;">
-            <div style="font-family:'Poppins',serif;font-size:1.3rem;color:var(--bright-gold);font-weight:700;">500+</div>
-            <div style="font-size:0.72rem;color:rgba(255,255,255,0.65);margin-top:0.2rem;">Happy Pilgrims</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:0.85rem 0.5rem;">
-            <div style="font-family:'Poppins',serif;font-size:1.3rem;color:var(--bright-gold);font-weight:700;">45pg</div>
-            <div style="font-size:0.72rem;color:rgba(255,255,255,0.65);margin-top:0.2rem;">Detailed Guide</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:0.85rem 0.5rem;">
-            <div style="font-family:'Poppins',serif;font-size:1.3rem;color:var(--bright-gold);font-weight:700;">2hr</div>
-            <div style="font-size:0.72rem;color:rgba(255,255,255,0.65);margin-top:0.2rem;">WA Response</div>
-          </div>
-        </div>
+    </div>
+
+    <!-- Stats row -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:2rem;text-align:center;">
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:0.85rem 0.5rem;">
+        <div style="font-family:'Poppins',sans-serif;font-size:1.3rem;color:var(--bright-gold);font-weight:700;">500+</div>
+        <div style="font-size:0.72rem;color:rgba(255,255,255,0.65);margin-top:0.2rem;">Pilgrims Guided</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:0.85rem 0.5rem;">
+        <div style="font-family:'Poppins',sans-serif;font-size:1.3rem;color:var(--bright-gold);font-weight:700;">45pg</div>
+        <div style="font-size:0.72rem;color:rgba(255,255,255,0.65);margin-top:0.2rem;">Detailed Guide</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:0.85rem 0.5rem;">
+        <div style="font-family:'Poppins',sans-serif;font-size:1.3rem;color:var(--bright-gold);font-weight:700;">2hr</div>
+        <div style="font-size:0.72rem;color:rgba(255,255,255,0.65);margin-top:0.2rem;">WA Response</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.2);padding:0.85rem 0.5rem;">
+        <div style="font-family:'Poppins',sans-serif;font-size:1.3rem;color:var(--bright-gold);font-weight:700;">₹0</div>
+        <div style="font-size:0.72rem;color:rgba(255,255,255,0.65);margin-top:0.2rem;">Advance Payment</div>
       </div>
     </div>
+
   </div>
 </section>
 <!-- ===== CUSTOMISE TRIP PLAN — 3-step wizard ===== --><section id="yatra-form" style="background:linear-gradient(180deg,var(--dark) 0%,#1a0a00 100%); padding:4rem 1.5rem;">
@@ -4133,6 +4108,16 @@
     document.body.style.overflow = '';
   };
 
+
+  function ypSetCircuit(btn, label) {
+    document.querySelectorAll('.yp-circuit-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    var link = document.getElementById('yp-full-wa');
+    if (link) {
+      var msg = 'Jai Maa Baglamukhi! I want the Full Yatra Plan (' + label + '). Please share custom quote.';
+      link.href = 'https://wa.me/919754709571?text=' + encodeURIComponent(msg);
+    }
+  }
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closePayModal();
