@@ -95,3 +95,8 @@
   from = "/blog/nalkheda-to-omkareshwar"
   to = "/blog/nalkheda-to-omkareshwar.html"
   status = 301
+
+[[redirects]]
+  from = "/digital-companion"
+  to = "/digital-companion.html"
+  status = 301
