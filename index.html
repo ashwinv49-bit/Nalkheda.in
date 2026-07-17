@@ -2752,6 +2752,38 @@
   </div>
 </section>
 
+<!-- SUPPORT OUR WORK -->
+<section id="support" style="background:white;padding:3.5rem 1.5rem;border-top:1px solid rgba(107,15,26,0.08);">
+  <div class="section-inner" style="max-width:600px;text-align:center;">
+    <span class="section-label" style="color:var(--maroon);">Support Independent Research</span>
+    <h2 class="section-title" style="color:var(--maroon);margin-top:0.5rem;">Help Keep Our Yatra Guides Free</h2>
+    <div class="divider"></div>
+    <p style="color:var(--muted);font-size:0.95rem;line-height:1.7;margin-bottom:2rem;">We spend months researching temple timings, routes, and local conditions so you don't have to. If our guides helped your yatra, consider supporting our work — it keeps everything free for future pilgrims.</p>
+
+    <div class="support-chips" style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.6rem;margin-bottom:1.5rem;">
+      <button class="support-chip active" data-amt="51" style="padding:0.55rem 1.1rem;border:1.5px solid rgba(107,15,26,0.25);border-radius:50px;background:white;font-family:'Poppins',sans-serif;font-size:0.85rem;font-weight:600;color:var(--maroon);cursor:pointer;transition:all 0.2s;">₹51</button>
+      <button class="support-chip" data-amt="101" style="padding:0.55rem 1.1rem;border:1.5px solid rgba(107,15,26,0.25);border-radius:50px;background:white;font-family:'Poppins',sans-serif;font-size:0.85rem;font-weight:600;color:var(--maroon);cursor:pointer;transition:all 0.2s;">₹101</button>
+      <button class="support-chip" data-amt="251" style="padding:0.55rem 1.1rem;border:1.5px solid rgba(107,15,26,0.25);border-radius:50px;background:white;font-family:'Poppins',sans-serif;font-size:0.85rem;font-weight:600;color:var(--maroon);cursor:pointer;transition:all 0.2s;">₹251</button>
+      <button class="support-chip" data-amt="501" style="padding:0.55rem 1.1rem;border:1.5px solid rgba(107,15,26,0.25);border-radius:50px;background:white;font-family:'Poppins',sans-serif;font-size:0.85rem;font-weight:600;color:var(--maroon);cursor:pointer;transition:all 0.2s;">₹501</button>
+      <button class="support-chip" data-amt="custom" style="padding:0.55rem 1.1rem;border:1.5px solid rgba(107,15,26,0.25);border-radius:50px;background:white;font-family:'Poppins',sans-serif;font-size:0.85rem;font-weight:600;color:var(--maroon);cursor:pointer;transition:all 0.2s;">Custom</button>
+    </div>
+
+    <div id="custom-amt-wrap" style="display:none;margin-bottom:1.2rem;">
+      <input id="custom-amt-input" type="number" min="10" placeholder="Enter amount (₹)" style="width:160px;padding:0.6rem 1rem;border:1.5px solid rgba(107,15,26,0.3);border-radius:8px;font-family:'Mukta',sans-serif;font-size:1rem;color:var(--text);text-align:center;">
+    </div>
+
+    <button id="support-cta" style="background:var(--maroon);color:white;border:none;border-radius:10px;padding:0.9rem 2.2rem;font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:700;letter-spacing:0.04em;cursor:pointer;width:100%;max-width:320px;margin-bottom:1rem;">Support Our Work →</button>
+
+    <div id="support-upi-fallback" style="display:none;background:var(--pale-gold);border-radius:8px;padding:0.8rem 1rem;margin-top:0.8rem;">
+      <p style="font-size:0.82rem;color:var(--text);margin:0 0 0.4rem;">Send via any UPI app to:</p>
+      <div style="font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:700;color:var(--maroon);">ashwinv49@ybl</div>
+      <button onclick="navigator.clipboard.writeText('ashwinv49@ybl').then(()=>this.textContent='Copied!')" style="margin-top:0.5rem;padding:0.3rem 0.8rem;border:1px solid var(--maroon);border-radius:6px;background:white;color:var(--maroon);font-size:0.78rem;cursor:pointer;">Copy UPI ID</button>
+    </div>
+
+    <p style="font-size:0.72rem;color:var(--muted);margin-top:1rem;line-height:1.5;">This supports independent website maintenance and content research.<br>It is not a temple contribution or religious offering.</p>
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section id="services" style="background:var(--cream);padding:5rem 1.5rem;">
   <div class="section-inner" style="max-width:1120px;">
@@ -2811,11 +2843,11 @@
       <!-- CARD 3: Plan Your Pilgrimage (CUSTOM) -->
       <div class="svc-card">
         <div class="svc-badge svc-badge-custom">CUSTOM</div>
-        <div class="svc-icon">🛕</div>
-        <div class="svc-name">Plan Your Pilgrimage</div>
-        <div class="svc-price-free">Free Enquiry</div>
-        <div class="svc-tagline">Need something more personalised?</div>
-        <p class="svc-desc">Tell us about your travel plans and we'll recommend the best way to plan your pilgrimage. <strong style="color:var(--maroon);">This is not a paid service.</strong></p>
+        <div class="svc-icon">📋</div>
+        <div class="svc-name">Plan Your Yatra</div>
+        <div class="svc-price-free">Complimentary Planning</div>
+        <div class="svc-tagline">Share your plans — we'll build your itinerary</div>
+        <p class="svc-desc">Tell us your dates, group size, and destinations. We'll suggest the best route, stay options, and hawan timing. <strong style="color:var(--maroon);">No charge — this is a free service.</strong></p>
         <div class="svc-examples">
           <span>Nalkheda + Ujjain</span>
           <span>Nalkheda + Omkareshwar</span>
@@ -2895,7 +2927,7 @@
               <label for="eq-notes">Additional Details</label>
               <textarea id="eq-notes" placeholder="Tell us more about your travel plans..."></textarea>
             </div>
-            <button type="submit" class="svc-submit">Request My Travel Plan →</button>
+            <button type="submit" class="svc-submit">Plan My Yatra →</button>
           </form>
           <div id="enquiry-thankyou" style="display:none;" class="svc-thankyou">
             <div class="svc-ty-icon">🙏</div>
@@ -3148,7 +3180,7 @@
         <div class="reach-item"><span>From Kota (Raj.)</span><span class="reach-km">~191 km</span></div>
         <p style="margin-top:1rem; font-size:0.9rem; color:var(--muted); line-height:1.6;">Nalkheda is on Ujjain–Jhalawar NH-52. Excellent road connectivity. Local buses from Ujjain, Indore, Agar available.</p>
         <a href="https://www.google.com/maps/dir//Nalkheda,+Agar+Malwa,+Madhya+Pradesh" target="_blank" class="reach-cta">Get Directions on Google Maps →</a>
-        <a href="#enquiry-form-wrap" onclick="document.getElementById('enquiry-form-wrap').scrollIntoView({behavior:'smooth'});return false;" class="reach-cta" style="background:rgba(212,160,23,0.12);border-color:rgba(212,160,23,0.4);color:var(--gold);margin-top:0.5rem;">📋 Plan Your Pilgrimage →</a>
+        <a href="#enquiry-form-wrap" onclick="document.getElementById('enquiry-form-wrap').scrollIntoView({behavior:'smooth'});return false;" class="reach-cta" style="background:rgba(212,160,23,0.12);border-color:rgba(212,160,23,0.4);color:var(--gold);margin-top:0.5rem;">📋 Plan Your Yatra →</a>
       </div>
     </div>
   </div>
@@ -3345,7 +3377,7 @@
         <div class="contact-text">
           <strong>Buy a Plan — WhatsApp Only</strong>
           <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20to%20book%20a%20Yatra%20Plan.%20Please%20share%20details." target="_blank" style="color:var(--gold);">+91 97547 09571</a><br>
-          <span style="font-size:0.78rem;color:var(--muted);">PDF Guide · Digital Companion · Free Pilgrimage Enquiry<br>Responds in &lt; 2 hrs · 8 AM – 10 PM IST</span>
+          <span style="font-size:0.78rem;color:var(--muted);">PDF Guide · Digital Companion · Free Yatra Planning<br>Responds in &lt; 2 hrs · 8 AM – 10 PM IST</span>
         </div>
       </div>
       <div class="contact-item" style="margin-top:0.5rem;">
@@ -3519,10 +3551,10 @@
 
 <!-- STICKY CTA -->
 <div class="sticky-cta" id="sticky-cta">
-  <div class="sticky-cta-text">Maa Baglamukhi Yatra? <strong>Guide · Companion · Free Enquiry</strong></div>
+  <div class="sticky-cta-text">Maa Baglamukhi Yatra? <strong>Guide · Companion · Yatra Planning</strong></div>
   <div class="sticky-btns">
-    <button class="sticky-btn sticky-btn-secondary" onclick="document.getElementById('enquiry-form-wrap').scrollIntoView({behavior:'smooth'})">📋 Plan My Pilgrimage</button>
-    <a href="/travel-guide.html" onclick="logWaClick('sticky-guide-99')" class="sticky-btn sticky-btn-primary" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">📖 Guide — ₹99</a>
+    <button class="sticky-btn sticky-btn-secondary" onclick="document.getElementById('enquiry-form-wrap').scrollIntoView({behavior:'smooth'})">📋 Plan My Yatra</button>
+    <a href="/travel-guide.html" onclick="logWaClick('sticky-guide-99')" class="sticky-btn sticky-btn-primary" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">📖 Yatra Guide</a>
   </div>
 </div>
 
@@ -3544,8 +3576,8 @@
       <small>Personalised itinerary + WhatsApp support</small>
     </a>
     <a href="#enquiry-form-wrap" onclick="logWaClick('popover-plan-pilgrimage');document.getElementById('enquiry-form-wrap').scrollIntoView({behavior:'smooth'});document.getElementById('wa-popover').classList.remove('open');return false;" class="wa-option">
-      <strong>📋 Plan Your Pilgrimage</strong>
-      <small>Tell us your dates · We'll build your itinerary</small>
+      <strong>📋 Plan Your Yatra</strong>
+      <small>Share dates · We plan your full yatra</small>
     </a>
 
     <!-- SELF-SERVE DEFLECTOR — keep info-seekers off WhatsApp -->
@@ -3742,6 +3774,52 @@
     }
     tick();
     setInterval(tick, 1000);
+  })();
+
+  // ===== SUPPORT OUR WORK =====
+  (function() {
+    var selectedAmt = 51;
+    var chips = document.querySelectorAll('.support-chip');
+    chips.forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        chips.forEach(function(c) {
+          c.style.background = 'white';
+          c.style.color = 'var(--maroon)';
+          c.style.borderColor = 'rgba(107,15,26,0.25)';
+        });
+        this.style.background = 'var(--maroon)';
+        this.style.color = 'white';
+        this.style.borderColor = 'var(--maroon)';
+        var wrap = document.getElementById('custom-amt-wrap');
+        if (this.dataset.amt === 'custom') {
+          wrap.style.display = 'block';
+        } else {
+          selectedAmt = parseInt(this.dataset.amt);
+          wrap.style.display = 'none';
+        }
+      });
+    });
+    // Set first chip active style on load
+    if (chips.length) {
+      chips[0].style.background = 'var(--maroon)';
+      chips[0].style.color = 'white';
+      chips[0].style.borderColor = 'var(--maroon)';
+    }
+    var cta = document.getElementById('support-cta');
+    if (cta) {
+      cta.addEventListener('click', function() {
+        var customInput = document.getElementById('custom-amt-input');
+        var wrap = document.getElementById('custom-amt-wrap');
+        var amt = (wrap && wrap.style.display !== 'none') ? (parseInt(customInput.value) || 51) : selectedAmt;
+        var upiUrl = 'upi://pay?pa=ashwinv49@ybl&pn=Nalkheda+Yatra+Guide&am=' + amt + '&cu=INR&tn=Support+Nalkheda+Yatra+Guide';
+        var win = window.open(upiUrl, '_blank');
+        // Show fallback after 1.5s if UPI app didn't open
+        setTimeout(function() {
+          var fallback = document.getElementById('support-upi-fallback');
+          if (fallback) fallback.style.display = 'block';
+        }, 1500);
+      });
+    }
   })();
 
   // ===== WHATSAPP POPOVER =====
