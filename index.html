@@ -505,21 +505,22 @@
 
   .btn-outline {
     background: transparent;
-    color: var(--bright-gold);
+    color: rgba(255,255,255,0.92);
     padding: 1rem 2.5rem;
     font-family: 'Poppins', sans-serif;
     font-size: 0.8rem;
     letter-spacing: 0.1em;
     text-decoration: none;
-    border: 1px solid var(--gold);
+    border: 1.5px solid rgba(255,255,255,0.55);
     cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
     display: inline-block;
     border-radius: 6px;
   }
 
   .btn-outline:hover {
-    background: rgba(212,160,23,0.1);
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.8);
   }
 
   .scroll-indicator {
@@ -2473,17 +2474,7 @@
       <a href="#about" class="btn-primary">Explore the Dham</a>
       <a href="/digital-companion.html" class="btn-outline">🌟 Book Digital Companion — ₹1,999</a>
     </div>
-    <div class="hero-pkg-strip">
-      <span class="hero-pkg-label">OUR SERVICES</span>
-      <div class="hero-pkg-items">
-        <span class="hero-pkg-item">📖 Guide <strong>₹99</strong></span>
-        <span class="hero-pkg-sep">·</span>
-        <span class="hero-pkg-item">🌟 Companion <strong>₹1,999</strong></span>
-        <span class="hero-pkg-sep">·</span>
-        <span class="hero-pkg-item">🛕 Free Enquiry</span>
-      </div>
-      <a href="#services" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});return false;" class="hero-pkg-cta">View Plans →</a>
-    </div>
+
   </div>
   <div class="scroll-indicator">↓</div>
 </section>
@@ -3528,11 +3519,10 @@
 
 <!-- STICKY CTA -->
 <div class="sticky-cta" id="sticky-cta">
-  <div class="sticky-cta-text">Maa Baglamukhi Yatra? <strong>Guide · Digital Companion · Free Enquiry</strong></div>
+  <div class="sticky-cta-text">Maa Baglamukhi Yatra? <strong>Guide · Companion · Free Enquiry</strong></div>
   <div class="sticky-btns">
-    <button class="sticky-btn sticky-btn-secondary" onclick="document.getElementById('enquiry-form-wrap').scrollIntoView({behavior:'smooth'})">🛕 Plan My Pilgrimage</button>
+    <button class="sticky-btn sticky-btn-secondary" onclick="document.getElementById('enquiry-form-wrap').scrollIntoView({behavior:'smooth'})">📋 Plan My Pilgrimage</button>
     <a href="https://wa.me/919754709571?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999." target="_blank" rel="noopener" class="sticky-btn" style="background:#25D366;color:white;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">💬 Get Guide on WhatsApp</a>
-    <button class="sticky-btn sticky-btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">📖 View All Plans</button>
   </div>
 </div>
 
@@ -3550,7 +3540,7 @@
       <small>PDF delivered to WhatsApp instantly</small>
     </a>
     <a href="#enquiry-form-wrap" onclick="document.getElementById('enquiry-form-wrap').scrollIntoView({behavior:'smooth'});document.getElementById('wa-popover').classList.remove('open');return false;" class="wa-option">
-      <strong>🛕 Plan Your Pilgrimage</strong>
+      <strong>📋 Plan Your Pilgrimage</strong>
       <small>Free enquiry · We'll contact you in 24 hrs</small>
     </a>
     <a href="https://wa.me/919754709571?text=Jai%20Maa!%20%F0%9F%99%8F%0A%0AI%20want%20to%20plan%20the%20Nalkheda%20%2B%20Ujjain%20%2B%20Omkareshwar%20circuit.%0APlease%20share%20a%20quote%20and%20itinerary." target="_blank" rel="noopener" class="wa-option">
