@@ -2885,7 +2885,7 @@
           <li><span class="ck">🎁</span> BONUS: 52 Shaktipeethas Guide PDF (free)</li>
         </ul>
         <div class="yp-trust">Downloaded by 500+ pilgrims</div>
-        <a href="https://wa.me/919754709571?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999." target="_blank" rel="noopener" class="yp-cta-wa">💬 Get on WhatsApp — ₹99</a>
+        <a href="https://wa.me/919754709571?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999." target="_blank" rel="noopener" class="yp-cta-wa" onclick="logWaClick('plan-1-pdf-guide-wa')">💬 Get on WhatsApp — ₹99</a>
       </div>
 
       <!-- PLAN 2: Digital Companion ₹1,999 (FEATURED) -->
@@ -2909,7 +2909,7 @@
         </ul>
         <div class="yp-trust">⭐ Recommended for families &amp; first-timers</div>
         <a href="/digital-companion.html" class="yp-cta-primary">🌟 Book Digital Companion →</a>
-        <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20to%20book%20the%20Nalkheda%20Digital%20Companion%20(%E2%82%B91%2C999).%20Please%20share%20details." target="_blank" rel="noopener" class="yp-cta-wa">💬 Plan on WhatsApp</a>
+        <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20to%20book%20the%20Nalkheda%20Digital%20Companion%20(%E2%82%B91%2C999).%20Please%20share%20details." target="_blank" rel="noopener" class="yp-cta-wa" onclick="logWaClick('plan-2-companion-wa')">💬 Plan on WhatsApp</a>
       </div>
 
       <!-- PLAN 3: Full Yatra Plan Starting ₹4,999 -->
@@ -2938,7 +2938,7 @@
         </ul>
         <div class="yp-scarcity">⚡ Only 8 managed trips per month</div>
         <div class="yp-trust">Zero advance payment · Custom quote in 2 hrs</div>
-        <a id="yp-full-wa" href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20the%20Full%20Yatra%20Plan%20(Nalkheda%20Only%2C%201%E2%80%932%20days).%20Please%20share%20custom%20quote." target="_blank" rel="noopener" class="yp-cta-wa">💬 Get Custom Quote on WhatsApp</a>
+        <a id="yp-full-wa" href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20the%20Full%20Yatra%20Plan%20(Nalkheda%20Only%2C%201%E2%80%932%20days).%20Please%20share%20custom%20quote." target="_blank" rel="noopener" class="yp-cta-wa" onclick="logWaClick('plan-3-full-yatra-wa',{circuit:document.querySelector('.yp-circuit-btn.active')?.textContent})">💬 Get Custom Quote on WhatsApp</a>
       </div>
 
     </div>
@@ -4279,6 +4279,13 @@ const ADMIN_KEY = 'nalkheda_admin_auth';
 const USERS_KEY = 'nalkheda_users';
 const SETTINGS_KEY = 'nalkheda_settings';
 const DEFAULT_SHEET = 'https://script.google.com/macros/s/AKfycbw6pMuFc-IWsfkZgqWHT7ab7LAr2mGGOn8oQjsYgvHBG6v6olKf8ecOiz9YVXCsEGdXvQ/exec';
+
+function logWaClick(source, extra) {
+  const payload = Object.assign({ source, submitted: new Date().toLocaleString('en-IN') }, extra || {});
+  fetch(DEFAULT_SHEET, { method:'POST', mode:'no-cors', keepalive:true,
+    headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)
+  }).catch(()=>{});
+}
 let adminPwd = localStorage.getItem('nalkheda_pwd') || 'maa@admin2026';
 
 document.addEventListener('keydown', e => {
@@ -4479,6 +4486,10 @@ function quickEnquiry() {
   const phone = (document.getElementById('qe-phone').value || '').trim();
   const date  = document.getElementById('qe-date').value   || '';
   if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+  fetch(DEFAULT_SHEET, { method:'POST', mode:'no-cors', keepalive:true,
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ name, phone, date, submitted: new Date().toLocaleString('en-IN'), source:'quick-enquiry-strip' })
+  }).catch(()=>{});
   const msg = `Jai Maa Baglamukhi! 🙏\n\nMujhe personalised Nalkheda Yatra plan chahiye.\n\nNaam: ${name}\nPhone: ${phone}${date ? '\nTravel Date: ' + date : ''}\n\nPlease share:\n✅ Hotel recommendations\n✅ Day-wise itinerary\n✅ Hawan booking guidance\n✅ Guide PDF (₹99) details`;
   window.open('https://wa.me/919754709571?text=' + encodeURIComponent(msg), '_blank');
 }
