@@ -32,7 +32,7 @@ Index.html should have ALL of:
 - `TouristAttraction` (temple info)
 - `FAQPage` (16 questions)
 - `Product` (₹99 PDF guide)
-- `Event` (Navratri 2026 — startDate 2026-09-25, endDate 2026-10-04)
+- `Event` (Navratri 2026 — startDate 2026-10-11, endDate 2026-10-20)
 
 Other pages should have:
 - `WebPage` or `Article` schema
