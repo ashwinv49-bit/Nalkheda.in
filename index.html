@@ -2372,6 +2372,43 @@
 .bq-cta{display:inline-block;margin-top:0.75rem;background:rgba(212,160,23,0.12);border:1px solid rgba(212,160,23,0.35);color:var(--gold);padding:0.4rem 0.9rem;font-family:'Poppins',sans-serif;font-size:0.8rem;letter-spacing:0.04em;text-decoration:none;transition:background 0.2s}
 .bq-cta:hover{background:rgba(212,160,23,0.22)}
 
+/* ── Services Comparison Table ── */
+.cmp-wrap{margin-top:3rem;}
+.cmp-title{font-family:'Poppins',sans-serif;font-size:1.05rem;font-weight:700;color:var(--maroon);text-align:center;margin-bottom:0.35rem;}
+.cmp-sub{font-family:'Mukta',sans-serif;font-size:0.9rem;color:var(--muted);text-align:center;margin-bottom:1.25rem;}
+.cmp-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px;box-shadow:0 2px 20px rgba(61,12,2,0.07);}
+.cmp-table{width:100%;min-width:560px;border-collapse:collapse;background:white;font-family:'Mukta',sans-serif;}
+.cmp-table thead th{padding:1rem 0.75rem;text-align:center;font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.03em;border-bottom:2px solid rgba(107,15,26,0.12);}
+.cmp-table thead th:first-child{text-align:left;width:38%;color:var(--muted);font-weight:600;font-size:0.72rem;}
+.cmp-th-1{color:var(--muted)!important;}
+.cmp-th-2{color:var(--maroon)!important;background:rgba(107,15,26,0.04);}
+.cmp-th-3{color:var(--deep-maroon)!important;background:rgba(244,196,48,0.12);}
+.cmp-th-price{display:block;font-size:1.1rem;font-weight:800;margin-top:0.2rem;}
+.cmp-th-2 .cmp-th-price{color:var(--maroon);}
+.cmp-th-3 .cmp-th-price{color:var(--deep-maroon);}
+.cmp-th-badge{display:inline-block;font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.18rem 0.6rem;border-radius:20px;margin-bottom:0.3rem;}
+.cmp-badge-popular{background:var(--pitambara);color:var(--deep-maroon);}
+.cmp-badge-custom{background:rgba(212,160,23,0.15);color:var(--gold);border:1px solid rgba(212,160,23,0.3);}
+.cmp-table tbody tr:nth-child(even){background:rgba(253,246,227,0.55);}
+.cmp-table tbody tr:hover{background:rgba(107,15,26,0.03);}
+.cmp-table td{padding:0.65rem 0.75rem;font-size:0.87rem;color:var(--text);text-align:center;border-bottom:1px solid rgba(107,15,26,0.06);vertical-align:middle;}
+.cmp-table td:first-child{text-align:left;color:var(--text);font-size:0.86rem;padding-left:1rem;}
+.cmp-table tbody td:nth-child(2){color:var(--muted);}
+.cmp-table tbody td:nth-child(3){background:rgba(107,15,26,0.03);font-weight:500;}
+.cmp-table tbody td:nth-child(4){background:rgba(244,196,48,0.07);}
+.cmp-yes{color:#2d7a3a;font-size:1.1rem;}
+.cmp-no{color:rgba(107,15,26,0.2);font-size:1rem;}
+.cmp-dash{color:rgba(107,15,26,0.2);font-size:0.9rem;}
+.cmp-row-head td{background:rgba(107,15,26,0.06)!important;font-family:'Poppins',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);padding:0.45rem 1rem;}
+.cmp-table tfoot td{padding:1rem 0.75rem;font-family:'Poppins',sans-serif;font-size:0.83rem;font-weight:600;text-align:center;border-top:2px solid rgba(107,15,26,0.10);}
+.cmp-table tfoot td:first-child{text-align:left;color:var(--muted);font-weight:600;}
+.cmp-cta-row{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;}
+.cmp-doubt-box{margin-top:2rem;background:white;border:1.5px solid rgba(107,15,26,0.1);border-radius:16px;padding:1.5rem 1.75rem;text-align:center;max-width:520px;margin-left:auto;margin-right:auto;}
+.cmp-doubt-box h4{font-family:'Poppins',sans-serif;font-size:0.98rem;font-weight:700;color:var(--maroon);margin:0 0 0.4rem;}
+.cmp-doubt-box p{font-family:'Mukta',sans-serif;font-size:0.88rem;color:var(--muted);margin:0 0 1rem;line-height:1.5;}
+.cmp-wa-btn{display:inline-flex;align-items:center;gap:0.5rem;background:var(--wa-green);color:white;font-family:'Poppins',sans-serif;font-size:0.88rem;font-weight:600;padding:0.75rem 1.5rem;border-radius:10px;text-decoration:none;transition:opacity 0.18s;}
+.cmp-wa-btn:hover{opacity:0.88;}
+
 </style>
     <meta name="robots" content="index, follow">
     <meta name="author" content="Nalkheda.in">
@@ -2906,6 +2943,159 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- ── Services Comparison Table ── -->
+    <div class="cmp-wrap">
+      <h3 class="cmp-title">Which plan is right for you?</h3>
+      <p class="cmp-sub">Compare all three services side by side before you decide.</p>
+      <div class="cmp-scroll">
+        <table class="cmp-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="cmp-th-1">
+                📖 Digital Guide<br>
+                <span class="cmp-th-price">₹99</span>
+              </th>
+              <th class="cmp-th-2">
+                <span class="cmp-th-badge cmp-badge-popular">Most Popular</span><br>
+                🌟 Digital Companion<br>
+                <span class="cmp-th-price">₹1,999</span>
+              </th>
+              <th class="cmp-th-3">
+                <span class="cmp-th-badge cmp-badge-custom">Custom</span><br>
+                📋 Plan My Yatra<br>
+                <span class="cmp-th-price">Quote</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="cmp-row-head"><td colspan="4">What's Included</td></tr>
+            <tr>
+              <td>45-page Yatra PDF (Hindi + English)</td>
+              <td><span class="cmp-yes">✓</span></td>
+              <td><span class="cmp-yes">✓</span></td>
+              <td><span class="cmp-dash">—</span></td>
+            </tr>
+            <tr>
+              <td>Delivered to your WhatsApp</td>
+              <td><span class="cmp-yes">✓</span></td>
+              <td><span class="cmp-yes">✓</span></td>
+              <td><span class="cmp-dash">—</span></td>
+            </tr>
+            <tr>
+              <td>Personalised itinerary</td>
+              <td><span class="cmp-no">✕</span></td>
+              <td><span class="cmp-yes">✓</span></td>
+              <td><span class="cmp-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>WhatsApp support</td>
+              <td><span class="cmp-no">✕</span></td>
+              <td>✓ &nbsp;<small style="color:var(--muted);font-size:0.78rem;">2 days</small></td>
+              <td>✓ &nbsp;<small style="color:var(--muted);font-size:0.78rem;">24-hr reply</small></td>
+            </tr>
+            <tr>
+              <td>Hotel recommendations</td>
+              <td><span class="cmp-no">✕</span></td>
+              <td><span class="cmp-yes">✓</span></td>
+              <td><span class="cmp-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>Route &amp; cab guidance</td>
+              <td><span class="cmp-no">✕</span></td>
+              <td><span class="cmp-yes">✓</span></td>
+              <td><span class="cmp-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>Food &amp; parking tips</td>
+              <td><span class="cmp-no">✕</span></td>
+              <td><span class="cmp-yes">✓</span></td>
+              <td><span class="cmp-dash">—</span></td>
+            </tr>
+            <tr>
+              <td>Budget planning</td>
+              <td><span class="cmp-no">✕</span></td>
+              <td><span class="cmp-yes">✓</span></td>
+              <td><span class="cmp-dash">—</span></td>
+            </tr>
+            <tr>
+              <td>Hawan guidance &amp; booking link</td>
+              <td><span class="cmp-no">✕</span></td>
+              <td><span class="cmp-yes">✓</span></td>
+              <td><span class="cmp-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>Senior citizen / family support</td>
+              <td><span class="cmp-no">✕</span></td>
+              <td><span class="cmp-yes">✓</span></td>
+              <td><span class="cmp-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>Group trips &amp; circuit planning</td>
+              <td><span class="cmp-no">✕</span></td>
+              <td><span class="cmp-no">✕</span></td>
+              <td><span class="cmp-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>NRI / special needs planning</td>
+              <td><span class="cmp-no">✕</span></td>
+              <td><span class="cmp-no">✕</span></td>
+              <td><span class="cmp-yes">✓</span></td>
+            </tr>
+            <tr class="cmp-row-head"><td colspan="4">Details</td></tr>
+            <tr>
+              <td>Best for</td>
+              <td>Self-planners</td>
+              <td>Most pilgrims</td>
+              <td>Groups &amp; circuits</td>
+            </tr>
+            <tr>
+              <td>How you receive it</td>
+              <td>PDF on WhatsApp</td>
+              <td>WhatsApp chat</td>
+              <td>WhatsApp plan</td>
+            </tr>
+            <tr>
+              <td>Response time</td>
+              <td>Instant</td>
+              <td>Instant</td>
+              <td>Within 24 hrs</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>Price</td>
+              <td style="color:var(--muted);">₹99</td>
+              <td style="color:var(--maroon);font-size:1rem;">₹1,999</td>
+              <td style="color:var(--deep-maroon);">Custom Quote</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <a href="https://wa.me/919754709571?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999." target="_blank" rel="noopener" style="display:inline-block;padding:0.55rem 1rem;background:rgba(107,15,26,0.08);border:1.5px solid rgba(107,15,26,0.2);border-radius:8px;font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:600;color:var(--maroon);text-decoration:none;" onclick="logWaClick('cmp-guide-cta')">Buy ₹99 →</a>
+              </td>
+              <td>
+                <a href="/digital-companion.html" style="display:inline-block;padding:0.55rem 1rem;background:var(--pitambara);border-radius:8px;font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:600;color:var(--deep-maroon);text-decoration:none;">Book ₹1,999 →</a>
+              </td>
+              <td>
+                <a href="#services" onclick="document.getElementById('enquiry-form').scrollIntoView({behavior:'smooth'});return false;" style="display:inline-block;padding:0.55rem 1rem;background:rgba(212,160,23,0.15);border:1px solid rgba(212,160,23,0.4);border-radius:8px;font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:600;color:var(--gold);text-decoration:none;">Get Quote →</a>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!-- Still have doubts? -->
+      <div class="cmp-doubt-box">
+        <h4>🙋 Still not sure which plan to choose?</h4>
+        <p>Tell us about your trip — group size, dates, and where you're coming from. We'll suggest the right plan in minutes, no commitment needed.</p>
+        <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20read%20the%20service%20comparison%20and%20need%20help%20choosing%20the%20right%20plan%20for%20my%20Nalkheda%20yatra." target="_blank" rel="noopener" class="cmp-wa-btn" onclick="logWaClick('cmp-doubt-wa')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Ask Us on WhatsApp — Free
+        </a>
+      </div>
     </div>
 
     <p class="svc-disclaimer">Nalkheda.in is an independent travel information platform. We provide personalised guidance and digital travel support. All hotel and cab arrangements are made by you directly — we provide the knowledge, contacts, and planning. Hawan booking is through mabaglamukhi.com only.</p>
