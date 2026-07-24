@@ -2875,7 +2875,7 @@
         <div class="svc-price">₹<span>99</span></div>
         <div class="svc-tagline">Everything you need to plan your Nalkheda pilgrimage yourself.</div>
         <p class="svc-desc">Perfect for travellers who prefer self-planning. A complete 45-page PDF guide in Hindi &amp; English, delivered to WhatsApp.</p>
-        <a href="https://wa.me/919754709571?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999." target="_blank" rel="noopener" class="svc-cta svc-cta-outline" onclick="logWaClick('plan-1-guide-cta')">Buy Digital Guide</a>
+        <a href="https://wa.me/919754709571?text=%F0%9F%93%96%20SERVICE%3A%20Digital%20Guide%20%E2%80%94%20%E2%82%B999%0A%0AJai%20Maa%20Baglamukhi!%20%F0%9F%99%8F%0A%0AI%20want%20to%20buy%20the%20Nalkheda%20Yatra%20Guide%20PDF%20for%20%E2%82%B999.%20Please%20share%20payment%20details." target="_blank" rel="noopener" class="svc-cta svc-cta-outline" onclick="logWaClick('guide-service-card')">Buy Digital Guide</a>
       </div>
 
       <!-- CARD 2: Digital Companion (MOST POPULAR) -->
@@ -3857,7 +3857,7 @@
   <div class="sticky-cta-text">Maa Baglamukhi Yatra? <strong>Guide · Companion · Yatra Planning</strong></div>
   <div class="sticky-btns">
     <button class="sticky-btn sticky-btn-secondary" onclick="document.getElementById('enquiry-form-wrap').scrollIntoView({behavior:'smooth'})">📋 Plan My Yatra</button>
-    <a href="https://wa.me/919754709571?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999." target="_blank" rel="noopener" class="sticky-btn" style="background:#25D366;color:white;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">💬 Get Guide on WhatsApp</a>
+    <a href="https://wa.me/919754709571?text=%F0%9F%93%96%20SERVICE%3A%20Digital%20Guide%20%E2%80%94%20%E2%82%B999%0A%0AJai%20Maa%20Baglamukhi!%20%F0%9F%99%8F%0A%0AI%20want%20to%20buy%20the%20Nalkheda%20Yatra%20Guide%20PDF%20for%20%E2%82%B999.%20Please%20share%20payment%20details." target="_blank" rel="noopener" class="sticky-btn" style="background:#25D366;color:white;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" onclick="logWaClick('guide-sticky-bar')">💬 Get Guide on WhatsApp</a>
   </div>
 </div>
 
@@ -3870,7 +3870,7 @@
     </div>
 
     <!-- BUYER OPTIONS — go to WhatsApp -->
-    <a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20%F0%9F%99%8F%0A%0AI%20want%20to%20buy%20the%20Nalkheda%20Yatra%20Guide%20PDF%20for%20%E2%82%B999.%20Please%20share%20payment%20details." target="_blank" rel="noopener" class="wa-option">
+    <a href="https://wa.me/919754709571?text=%F0%9F%93%96%20SERVICE%3A%20Digital%20Guide%20%E2%80%94%20%E2%82%B999%0A%0AJai%20Maa%20Baglamukhi!%20%F0%9F%99%8F%0A%0AI%20want%20to%20buy%20the%20Nalkheda%20Yatra%20Guide%20PDF%20for%20%E2%82%B999.%20Please%20share%20payment%20details." target="_blank" rel="noopener" class="wa-option" onclick="logWaClick('guide-wa-popover')">
       <strong>📖 Buy ₹99 Yatra Guide</strong>
       <small>PDF delivered to WhatsApp instantly</small>
     </a>
@@ -3878,7 +3878,7 @@
       <strong>📋 Plan My Yatra</strong>
       <small>Custom planning · From ₹1,999 · Reply in 24 hrs</small>
     </a>
-    <a href="https://wa.me/919754709571?text=Jai%20Maa!%20%F0%9F%99%8F%0A%0AI%20want%20to%20plan%20the%20Nalkheda%20%2B%20Ujjain%20%2B%20Omkareshwar%20circuit.%0APlease%20share%20a%20quote%20and%20itinerary." target="_blank" rel="noopener" class="wa-option">
+    <a href="https://wa.me/919754709571?text=%F0%9F%97%BA%20SERVICE%3A%20Full%20MP%20Circuit%20Plan%0A%0AJai%20Maa!%20%F0%9F%99%8F%0A%0AI%20want%20to%20plan%20the%20Nalkheda%20%2B%20Ujjain%20%2B%20Omkareshwar%20circuit.%0APlease%20share%20a%20quote%20and%20itinerary." target="_blank" rel="noopener" class="wa-option" onclick="logWaClick('circuit-wa-popover')">
       <strong>📍 Plan Full MP Circuit</strong>
       <small>Nalkheda · Ujjain · Omkareshwar</small>
     </a>
@@ -4407,6 +4407,13 @@ function initCircuitChips() {
       if (detail) detail.textContent = this.dataset.detail || '';
     });
   });
+  if (waBtn) {
+    waBtn.addEventListener('click', function() {
+      const active = document.querySelector('.ckt-chip.active');
+      const label = active ? active.textContent.trim() : 'Circuit Plan';
+      logWaClick('circuit-chip', { circuit: label });
+    });
+  }
 
   // Animate triangle lines when scrolled into view
   const triWrap = document.getElementById('tri-wrap');
@@ -4429,8 +4436,9 @@ function submitAstroForm() {
     alert('Please fill all fields to get your personalised reading.');
     return;
   }
+  logWaClick('astro-reading-299', { name, dob, month, intention });
   const msg = encodeURIComponent(
-    'Jai Maa Baglamukhi! 🙏\n\nI want an AI Powered Astro reading for my Nalkheda yatra.\n\n' +
+    '🔮 SERVICE: AI Powered Astro Reading — ₹299\n\nJai Maa Baglamukhi! 🙏\n\n' +
     'Name: ' + name + '\nDate of Birth: ' + dob + '\nVisit Month: ' + month + '\nIntention: ' + intention +
     '\n\nPlease share ₹299 payment details.'
   );
