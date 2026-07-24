@@ -2443,7 +2443,7 @@
 .cmp-wa-btn{display:inline-flex;align-items:center;gap:0.5rem;background:var(--wa-green);color:white;font-family:'Poppins',sans-serif;font-size:0.88rem;font-weight:600;padding:0.75rem 1.5rem;border-radius:10px;text-decoration:none;transition:opacity 0.18s;}
 .cmp-wa-btn:hover{opacity:0.88;}
 
-/* ── Astrology Guidance Section ── */
+/* ── AI Powered Astro Section ── */
 #astro-guidance{background:linear-gradient(135deg,#fffbf0 0%,#fff8e7 100%);padding:4rem 1.5rem;}
 .astro-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0.85rem;margin-bottom:2rem;}
 .astro-card{background:white;border:1.5px solid rgba(107,15,26,0.09);border-radius:12px;padding:1.4rem 1rem;text-align:center;transition:box-shadow 0.18s;}
@@ -2451,6 +2451,9 @@
 .astro-card-icon{font-size:2rem;margin-bottom:0.55rem;}
 .astro-card-title{font-family:'Tiro Devanagari Hindi',serif;font-size:1rem;color:var(--deep-maroon);font-weight:700;margin-bottom:0.35rem;}
 .astro-card-sub{font-family:'Mukta',sans-serif;font-size:0.78rem;color:var(--muted);line-height:1.45;}
+.astro-form-box{background:white;border:1.5px solid rgba(107,15,26,0.1);border-radius:16px;padding:2rem;max-width:520px;margin:0 auto;}
+.astro-input{font-size:max(16px,1rem);padding:0.75rem 1rem;border:1.5px solid rgba(107,15,26,0.15);border-radius:8px;font-family:'Mukta',sans-serif;color:var(--text);background:#fdfdf9;width:100%;box-sizing:border-box;}
+.astro-label{font-family:'Poppins',sans-serif;font-size:0.7rem;font-weight:600;color:var(--muted);display:block;margin-bottom:0.3rem;}
 .astro-cta-btn{display:inline-flex;align-items:center;gap:0.6rem;background:var(--deep-maroon);color:var(--pitambara);font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;padding:0.9rem 2rem;border-radius:8px;text-decoration:none;letter-spacing:0.02em;transition:opacity 0.18s;}
 .astro-cta-btn:hover{opacity:0.88;}
 @media(max-width:600px){.astro-cards{grid-template-columns:1fr;}}
@@ -3573,6 +3576,80 @@
   </div>
 </section>
 
+<!-- AI POWERED ASTRO SECTION -->
+<section id="astro-guidance">
+  <div class="section-inner" style="max-width:800px;">
+    <span class="section-label" style="color:var(--maroon);">New Service · Exclusive to Nalkheda Yatra Guide</span>
+    <h2 class="section-title" style="color:var(--deep-maroon);">AI Powered Astro</h2>
+    <p style="text-align:center;font-family:'Tiro Devanagari Hindi',serif;font-size:1.05rem;color:var(--maroon);margin:-0.5rem 0 0.5rem;">ज्योतिष + AI = आपकी यात्रा का शुभ मार्गदर्शन</p>
+    <div class="divider" style="background:var(--pitambara);"></div>
+    <p class="section-desc" style="color:var(--muted);max-width:580px;margin:0 auto 2rem;">Share your birth details — our AI analyses your nakshatra, rashi &amp; current dasha to find the most auspicious dates for your Baglamukhi darshan and hawan.</p>
+
+    <div class="astro-cards">
+      <div class="astro-card">
+        <div class="astro-card-icon">🗓️</div>
+        <div class="astro-card-title">शुभ मुहूर्त</div>
+        <div class="astro-card-sub">Best dates &amp; timings for your darshan in your selected month</div>
+      </div>
+      <div class="astro-card">
+        <div class="astro-card-icon">🔮</div>
+        <div class="astro-card-title">नक्षत्र विश्लेषण</div>
+        <div class="astro-card-sub">Your nakshatra, deity connection &amp; personalised mantra for Maa Baglamukhi</div>
+      </div>
+      <div class="astro-card">
+        <div class="astro-card-icon">⚖️</div>
+        <div class="astro-card-title">विशेष उपाय</div>
+        <div class="astro-card-sub">Remedy guidance for your intention — court case, enemy, career, or protection</div>
+      </div>
+    </div>
+
+    <div class="astro-form-box">
+      <p style="font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:700;color:var(--maroon);margin:0 0 1.25rem;text-align:center;letter-spacing:0.04em;">GET YOUR PERSONALISED READING — ₹99</p>
+
+      <div style="display:flex;flex-direction:column;gap:0.85rem;">
+        <input type="text" id="astro-name" placeholder="Your Full Name" class="astro-input">
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+          <div>
+            <label class="astro-label">Date of Birth</label>
+            <input type="date" id="astro-dob" class="astro-input">
+          </div>
+          <div>
+            <label class="astro-label">Visit Month</label>
+            <select id="astro-month" class="astro-input">
+              <option value="">Select month</option>
+              <option>August 2026</option>
+              <option>September 2026</option>
+              <option>October 2026 (Navratri)</option>
+              <option>November 2026</option>
+              <option>December 2026</option>
+              <option>January 2027</option>
+              <option>February 2027</option>
+            </select>
+          </div>
+        </div>
+
+        <select id="astro-intention" class="astro-input">
+          <option value="">My intention for this yatra…</option>
+          <option>न्यायालय विजय — Court case success</option>
+          <option>शत्रु बाधा निवारण — Remove enemy obstacles</option>
+          <option>करियर / नौकरी — Career &amp; job growth</option>
+          <option>व्यापार सुरक्षा — Business protection</option>
+          <option>स्वास्थ्य — Health &amp; wellness</option>
+          <option>मनोकामना पूर्ति — General wish fulfillment</option>
+          <option>केवल दर्शन — General darshan &amp; blessings</option>
+        </select>
+
+        <button onclick="submitAstroForm()" class="astro-cta-btn" style="width:100%;justify-content:center;padding:1rem;font-size:1rem;border:none;cursor:pointer;">
+          🔮 Get My AI Reading — ₹99 →
+        </button>
+      </div>
+
+      <p style="font-size:0.7rem;color:var(--muted);text-align:center;margin:0.75rem 0 0;line-height:1.5;">Reading delivered via WhatsApp within 2–4 hours · For spiritual guidance only · Not a substitute for a certified Jyotishi</p>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT / MAP -->
 <section id="contact">
   <div class="section-inner" style="max-width:1200px; margin:0 auto;">
@@ -4343,6 +4420,23 @@ function initCircuitChips() {
 
 // 5-tap on footer brand
 let tapCount = 0, tapTimer;
+function submitAstroForm() {
+  const name = document.getElementById('astro-name').value.trim();
+  const dob  = document.getElementById('astro-dob').value;
+  const month = document.getElementById('astro-month').value;
+  const intention = document.getElementById('astro-intention').value;
+  if (!name || !dob || !month || !intention) {
+    alert('Please fill all fields to get your personalised reading.');
+    return;
+  }
+  const msg = encodeURIComponent(
+    'Jai Maa Baglamukhi! 🙏\n\nI want an AI Powered Astro reading for my Nalkheda yatra.\n\n' +
+    'Name: ' + name + '\nDate of Birth: ' + dob + '\nVisit Month: ' + month + '\nIntention: ' + intention +
+    '\n\nPlease share ₹99 payment details.'
+  );
+  window.open('https://wa.me/919754709571?text=' + msg, '_blank');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initCircuitChips();
   const brand = document.querySelector('.footer-brand');
