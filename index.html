@@ -1495,6 +1495,40 @@
     .circuit-arrow { transform: rotate(90deg); }
   }
 
+  /* ── Sacred Triangle Layout ── */
+  .tri-wrap { position:relative; max-width:820px; margin:2.5rem auto 0; }
+  .tri-top { display:flex; justify-content:center; position:relative; z-index:2; }
+  .tri-bottom { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2rem; position:relative; z-index:2; }
+  .tri-svg-layer { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1; overflow:visible; }
+  .tri-line { stroke:rgba(212,160,23,0.22); stroke-width:1.5; fill:none; stroke-dasharray:8 5; }
+  .tri-line-anim { stroke:rgba(232,98,26,0.55); stroke-width:2; fill:none; stroke-dasharray:300; stroke-dashoffset:300; transition:stroke-dashoffset 1.3s cubic-bezier(0.4,0,0.2,1); }
+  .tri-wrap.visible .tri-line-anim { stroke-dashoffset:0; }
+  .tri-card { position:relative; background:rgba(255,255,255,0.04); border:1px solid rgba(212,160,23,0.18); padding:1.6rem 1.4rem; text-decoration:none; color:inherit; display:block; transition:transform 0.3s,border-color 0.3s,background 0.3s; }
+  .tri-card:hover { transform:translateY(-4px); border-color:rgba(212,160,23,0.45); background:rgba(255,255,255,0.07); }
+  .tri-card-home { border-color:rgba(244,196,48,0.42); background:rgba(244,196,48,0.05); max-width:340px; margin:0 auto; }
+  .tri-card-home:hover { border-color:rgba(244,196,48,0.7); }
+  .tri-name { font-family:'Poppins',sans-serif; font-size:1rem; font-weight:700; color:var(--pitambara); margin-bottom:0.2rem; }
+  .tri-name-sub { font-family:'Poppins',sans-serif; font-size:0.88rem; font-weight:700; color:var(--bright-gold); margin-bottom:0.2rem; }
+  /* Circuit chip selector */
+  .ckt-selector { margin-top:2.5rem; text-align:center; padding:2rem 1.5rem; background:rgba(255,255,255,0.03); border:1px solid rgba(212,160,23,0.15); }
+  .ckt-q { font-family:'Poppins',sans-serif; font-size:0.82rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:1rem; }
+  .ckt-chips { display:flex; flex-wrap:wrap; justify-content:center; gap:0.65rem; margin-bottom:1.25rem; }
+  .ckt-chip { font-family:'Poppins',sans-serif; font-size:0.82rem; font-weight:600; padding:0.6rem 1.2rem; border-radius:30px; border:1.5px solid rgba(212,160,23,0.3); background:transparent; color:rgba(255,255,255,0.6); cursor:pointer; transition:all 0.2s; }
+  .ckt-chip:hover { border-color:rgba(212,160,23,0.6); color:var(--bright-gold); }
+  .ckt-chip.active { background:rgba(244,196,48,0.12); border-color:var(--pitambara); color:var(--pitambara); }
+  .ckt-detail { font-family:'Mukta',sans-serif; font-size:0.88rem; color:rgba(255,255,255,0.42); margin-bottom:1.5rem; min-height:1.4rem; line-height:1.5; }
+  .ckt-wa-btn { display:inline-flex; align-items:center; gap:0.5rem; background:#25D366; color:white; font-family:'Poppins',sans-serif; font-size:0.9rem; font-weight:700; padding:0.9rem 2rem; border-radius:10px; text-decoration:none; letter-spacing:0.02em; transition:opacity 0.18s,transform 0.18s; }
+  .ckt-wa-btn:hover { opacity:0.9; transform:translateY(-2px); }
+  @media(max-width:680px) {
+    .tri-svg-layer { display:none; }
+    .tri-top { margin-bottom:0.5rem; }
+    .tri-card-home { max-width:100%; }
+    .tri-bottom { gap:0.75rem; }
+    .ckt-chips { flex-direction:column; align-items:center; }
+    .ckt-chip { width:100%; max-width:280px; }
+  }
+  @media(max-width:400px) { .tri-bottom { grid-template-columns:1fr; } }
+
   /* ===== TIPS ===== */
   #tips { background: var(--pale-gold); }
 
@@ -2595,83 +2629,104 @@
     <div class="divider"></div>
     <p class="section-desc">Shakti Peetha + two Jyotirlingas — all within 235 km. Three divine seats in one unforgettable yatra.</p>
 
-    <div class="circuit-grid">
+    <!-- Triangle: Nalkheda top-center, Ujjain bottom-left, Omkareshwar bottom-right -->
+    <div class="tri-wrap" id="tri-wrap">
 
-      <!-- Stop I: Nalkheda -->
-      <div class="circuit-card circuit-home">
-        <div class="circuit-stop">Stop I &mdash; Base Camp</div>
-        <span class="circuit-icon">🌟</span>
-        <h3>Nalkheda — Maa Baglamukhi</h3>
-        <div class="circuit-deity">Shakti Peetha &middot; 8th Mahavidya</div>
-        <ul class="circuit-highlights">
-          <li>3rd Baglamukhi shrine in all of India</li>
-          <li>75 Hawan Kunds open 7 AM – 11 PM</li>
-          <li>Sacred Lakhundar Nadi ghat behind mandir</li>
-        </ul>
-        <div class="circuit-dist">📍 Agar-Malwa, Madhya Pradesh</div>
-        <a href="#about" class="circuit-card-link">Explore the Dham ↓</a>
+      <!-- SVG animated connecting lines (desktop only, behind cards) -->
+      <svg class="tri-svg-layer" viewBox="0 0 820 370" preserveAspectRatio="none" aria-hidden="true">
+        <!-- Static dashed guide lines -->
+        <line class="tri-line" x1="410" y1="125" x2="178" y2="295"/>
+        <line class="tri-line" x1="410" y1="125" x2="642" y2="295"/>
+        <line class="tri-line" x1="178" y1="295" x2="642" y2="295"/>
+        <!-- Animated saffron lines draw on scroll -->
+        <line class="tri-line-anim" x1="410" y1="125" x2="178" y2="295" style="stroke-dasharray:272;stroke-dashoffset:272;"/>
+        <line class="tri-line-anim" x1="410" y1="125" x2="642" y2="295" style="stroke-dasharray:272;stroke-dashoffset:272;transition-delay:0.25s"/>
+        <line class="tri-line-anim" x1="178" y1="295" x2="642" y2="295" style="stroke-dasharray:464;stroke-dashoffset:464;transition-delay:0.5s"/>
+        <!-- Distance labels on each side -->
+        <text x="264" y="196" text-anchor="middle" fill="rgba(232,98,26,0.65)" font-size="11" font-family="sans-serif" transform="rotate(-42,264,196)">100 km · ~2 hrs</text>
+        <text x="556" y="196" text-anchor="middle" fill="rgba(232,98,26,0.65)" font-size="11" font-family="sans-serif" transform="rotate(42,556,196)">150 km · ~3 hrs</text>
+        <text x="410" y="322" text-anchor="middle" fill="rgba(232,98,26,0.65)" font-size="11" font-family="sans-serif">135 km · ~2.5 hrs</text>
+        <!-- Vertex glow halos -->
+        <circle cx="410" cy="125" r="32" fill="rgba(244,196,48,0.07)" stroke="rgba(244,196,48,0.22)" stroke-width="1"/>
+        <circle cx="178" cy="295" r="24" fill="rgba(232,98,26,0.06)" stroke="rgba(232,98,26,0.18)" stroke-width="1"/>
+        <circle cx="642" cy="295" r="24" fill="rgba(232,98,26,0.06)" stroke="rgba(232,98,26,0.18)" stroke-width="1"/>
+      </svg>
+
+      <!-- Top vertex: Nalkheda (center) -->
+      <div class="tri-top">
+        <div class="tri-card tri-card-home">
+          <div class="circuit-stop">⭐ Your Base — Maa Baglamukhi Dham</div>
+          <span class="circuit-icon">🌟</span>
+          <div class="tri-name">Nalkheda</div>
+          <div class="circuit-deity">Shakti Peetha &middot; 8th Mahavidya</div>
+          <ul class="circuit-highlights">
+            <li>3rd Baglamukhi shrine in India</li>
+            <li>75 Hawan Kunds — 7 AM to 11 PM</li>
+            <li>Lakhundar Nadi ghat behind mandir</li>
+          </ul>
+          <a href="#about" class="circuit-card-link">Explore the Dham ↓</a>
+        </div>
       </div>
 
-      <!-- Stop II: Ujjain -->
-      <a href="/ujjain.html" class="circuit-card">
-        <div class="circuit-stop">Stop II &mdash; 100 km &middot; ~2 hrs</div>
-        <span class="circuit-icon">🔱</span>
-        <h3>Ujjain — Mahakaleshwar</h3>
-        <div class="circuit-deity">Jyotirlinga #7 &middot; Lord Shiva</div>
-        <ul class="circuit-highlights">
-          <li>Bhasma Aarti at 4 AM — ash-ritual of Lord Shiva</li>
-          <li>Maa Harsiddhi Shakti Peetha in the same city</li>
-          <li>Kaal Bhairav, Ram Ghat &amp; Sandipani Ashram</li>
-        </ul>
-        <div class="circuit-dist">📍 ~100 km from Nalkheda</div>
-        <span class="circuit-card-link">Full Ujjain Guide →</span>
-      </a>
-
-      <!-- Stop III: Omkareshwar -->
-      <a href="/omkareshwar.html" class="circuit-card">
-        <div class="circuit-stop">Stop III &mdash; 235 km &middot; ~4.5 hrs</div>
-        <span class="circuit-icon">🕉️</span>
-        <h3>Omkareshwar</h3>
-        <div class="circuit-deity">Jyotirlinga #4 &middot; OM Island, Narmada</div>
-        <ul class="circuit-highlights">
-          <li>OM-shaped Mandhata Island in the Narmada river</li>
-          <li>Boat parikrama — ₹50 per person</li>
-          <li>Mammleshwar temple on the south bank</li>
-        </ul>
-        <div class="circuit-dist">📍 ~235 km from Nalkheda (via Indore)</div>
-        <span class="circuit-card-link">Full Omkareshwar Guide →</span>
-      </a>
-
+      <!-- Bottom row: Ujjain (left) + Omkareshwar (right) -->
+      <div class="tri-bottom">
+        <a href="/ujjain.html" class="tri-card">
+          <div class="circuit-stop">Stop II &middot; 100 km &middot; ~2 hrs</div>
+          <span class="circuit-icon">🔱</span>
+          <div class="tri-name-sub">Ujjain — Mahakaleshwar</div>
+          <div class="circuit-deity">Jyotirlinga #7 &middot; Lord Shiva</div>
+          <ul class="circuit-highlights">
+            <li>Bhasma Aarti at 4 AM</li>
+            <li>Maa Harsiddhi Shakti Peetha</li>
+            <li>Kaal Bhairav &amp; Ram Ghat</li>
+          </ul>
+          <span class="circuit-card-link">Full Ujjain Guide →</span>
+        </a>
+        <a href="/omkareshwar.html" class="tri-card">
+          <div class="circuit-stop">Stop III &middot; 235 km &middot; ~4.5 hrs</div>
+          <span class="circuit-icon">🕉️</span>
+          <div class="tri-name-sub">Omkareshwar</div>
+          <div class="circuit-deity">Jyotirlinga #4 &middot; OM Island, Narmada</div>
+          <ul class="circuit-highlights">
+            <li>OM-shaped island in Narmada</li>
+            <li>Boat parikrama — ₹50/person</li>
+            <li>Mamleshwar on south bank</li>
+          </ul>
+          <span class="circuit-card-link">Full Guide →</span>
+        </a>
+      </div>
     </div>
 
-    <!-- Simple route map SVG -->
-    <div class="circuit-map">
-      <svg viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg" aria-label="MP Pilgrimage Circuit route: Nalkheda to Ujjain to Omkareshwar">
-        <!-- Route line -->
-        <path d="M 110 130 Q 200 60 280 100 Q 360 140 450 80" stroke="#E8621A" stroke-width="2.5" fill="none" stroke-dasharray="6 4" opacity="0.7"/>
-        <!-- Nalkheda dot -->
-        <circle cx="110" cy="130" r="10" fill="#F5C518" opacity="0.9"/>
-        <circle cx="110" cy="130" r="5" fill="#E8621A"/>
-        <text x="110" y="160" text-anchor="middle" fill="#F5C518" font-size="11" font-family="serif">Nalkheda</text>
-        <text x="110" y="173" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9" font-family="serif">Maa Baglamukhi</text>
-        <!-- Ujjain dot -->
-        <circle cx="280" cy="100" r="10" fill="#F5C518" opacity="0.9"/>
-        <circle cx="280" cy="100" r="5" fill="#E8621A"/>
-        <text x="280" y="75" text-anchor="middle" fill="#F5C518" font-size="11" font-family="serif">Ujjain</text>
-        <text x="280" y="88" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9" font-family="serif">Mahakaleshwar</text>
-        <!-- Omkareshwar dot -->
-        <circle cx="450" cy="80" r="10" fill="#F5C518" opacity="0.9"/>
-        <circle cx="450" cy="80" r="5" fill="#E8621A"/>
-        <text x="450" y="105" text-anchor="middle" fill="#F5C518" font-size="11" font-family="serif">Omkareshwar</text>
-        <text x="450" y="118" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9" font-family="serif">Jyotirlinga #4</text>
-        <!-- Distance labels -->
-        <text x="195" y="82" text-anchor="middle" fill="rgba(232,98,26,0.75)" font-size="9" font-family="sans-serif">~100 km</text>
-        <text x="370" y="100" text-anchor="middle" fill="rgba(232,98,26,0.75)" font-size="9" font-family="sans-serif">~135 km</text>
-      </svg>
+    <!-- Circuit selector — pilgrim picks their plan, WhatsApp opens with pre-filled intent -->
+    <div class="ckt-selector">
+      <p class="ckt-q">Which circuit are you planning?</p>
+      <div class="ckt-chips">
+        <button class="ckt-chip" data-circuit="nalkheda"
+          data-detail="Nalkheda only · 1 day min · Darshan + hawan · Great as a day trip from Indore or Ujjain"
+          data-msg="Jai%20Maa%20Baglamukhi!%20%F0%9F%99%8F%0A%0AMujhe%20sirf%20Nalkheda%20yatra%20plan%20karni%20hai%20%E2%80%94%20Maa%20Baglamukhi%20darshan%20%2B%20hawan.%0AKripya%20available%20dates%2C%20hotel%20options%2C%20aur%20guidance%20plan%20share%20karein.">
+          🌟 Nalkheda Only
+        </button>
+        <button class="ckt-chip active" data-circuit="ujjain"
+          data-detail="Nalkheda → Ujjain · 100 km · Best in 2 days · Bhasma Aarti booking required 10+ days ahead"
+          data-msg="Jai%20Maa%20Baglamukhi!%20%F0%9F%99%8F%0A%0AMujhe%20Nalkheda%20%2B%20Ujjain%20ka%202-day%20circuit%20plan%20karna%20hai.%0AKripya%20itinerary%2C%20hotel%20options%2C%20aur%20Bhasma%20Aarti%20booking%20help%20share%20karein.">
+          🔱 + Ujjain (2 days)
+        </button>
+        <button class="ckt-chip" data-circuit="full"
+          data-detail="Nalkheda → Ujjain → Omkareshwar · 235 km total · Best in 3 days · Available year-round"
+          data-msg="Jai%20Maa%20Baglamukhi!%20%F0%9F%99%8F%0A%0AMujhe%20full%20MP%20circuit%20plan%20karna%20hai%20%E2%80%94%20Nalkheda%20%2B%20Ujjain%20%2B%20Omkareshwar%20(3%20days).%0AKripya%20complete%20itinerary%2C%20hotels%20at%20each%20stop%2C%20aur%20planning%20help%20share%20karein.">
+          🕉️ Full Circuit (3 days)
+        </button>
+      </div>
+      <div class="ckt-detail" id="ckt-detail">Nalkheda → Ujjain · 100 km · Best in 2 days · Bhasma Aarti booking required 10+ days ahead</div>
+      <a id="ckt-wa-btn"
+        href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20%F0%9F%99%8F%0A%0AMujhe%20Nalkheda%20%2B%20Ujjain%20ka%202-day%20circuit%20plan%20karna%20hai.%0AKripya%20itinerary%2C%20hotel%20options%2C%20aur%20Bhasma%20Aarti%20booking%20help%20share%20karein."
+        target="_blank" rel="noopener" class="ckt-wa-btn">
+        💬 Plan My Circuit on WhatsApp →
+      </a>
     </div>
 
     <!-- 3-day itinerary strip -->
-    <div class="circuit-plan">
+    <div class="circuit-plan" style="margin-top:2rem;">
       <div class="circuit-plan-item">
         <div class="circuit-day">Day 1 — Nalkheda</div>
         <div class="circuit-plan-text">Arrive &middot; Hawan darshan &middot; Evening Aarti on Lakhundar ghat</div>
@@ -4248,9 +4303,36 @@ document.addEventListener('keydown', e => {
   if (e.ctrlKey && e.shiftKey && e.key === 'A') openAdmin();
 });
 
+// Circuit chip selector + triangle scroll animation
+function initCircuitChips() {
+  const chips = document.querySelectorAll('.ckt-chip');
+  const waBtn = document.getElementById('ckt-wa-btn');
+  const detail = document.getElementById('ckt-detail');
+  if (!chips.length || !waBtn) return;
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', function() {
+      chips.forEach(c => c.classList.remove('active'));
+      this.classList.add('active');
+      waBtn.href = 'https://wa.me/919754709571?text=' + this.dataset.msg;
+      if (detail) detail.textContent = this.dataset.detail || '';
+    });
+  });
+
+  // Animate triangle lines when scrolled into view
+  const triWrap = document.getElementById('tri-wrap');
+  if (triWrap && window.IntersectionObserver) {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.2 });
+    obs.observe(triWrap);
+  }
+}
+
 // 5-tap on footer brand
 let tapCount = 0, tapTimer;
 document.addEventListener('DOMContentLoaded', () => {
+  initCircuitChips();
   const brand = document.querySelector('.footer-brand');
   if (brand) {
     brand.addEventListener('click', () => {
