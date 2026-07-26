@@ -151,7 +151,8 @@ p.hi{font-family:'Tiro Devanagari Hindi',serif;line-height:1.95;margin-bottom:0.
 p.en{margin-bottom:0.9rem;color:var(--text)}
 
 /* Schedule table */
-.schedule-table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:0.95rem}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.25rem 0}
+.schedule-table{width:100%;min-width:520px;border-collapse:collapse;font-size:0.95rem}
 .schedule-table th{background:var(--deep-maroon);color:white;padding:0.75rem 1rem;text-align:left;font-family:'Poppins',sans-serif;font-size:0.68rem;letter-spacing:0.06em}
 .schedule-table td{padding:0.8rem 1rem;border-bottom:1px solid rgba(0,0,0,0.07);color:var(--text);vertical-align:top}
 .schedule-table td:first-child{font-family:'Poppins',sans-serif;font-size:0.85rem;color:var(--saffron);font-weight:700;white-space:nowrap;width:110px}
@@ -291,7 +292,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
 <div class="verify-note">
   <span>⚠️</span>
   <span class="hindi">मंदिर समय बदल सकता है — यात्रा से पहले WhatsApp पर कन्फर्म करें:
-  <a href="#" onclick="openWaModal('general');return false;">+91 9754709571</a> ·
+  <a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20Nalkheda%20yatra%20planning%20me%20madad%20chahiye." target="_blank" rel="noopener" onclick="openWaModal('general');return false;">+91 9754709571</a> ·
   Temple timings may change — always confirm before visiting.</span>
 </div>
 
@@ -307,6 +308,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
     <p class="en">Maa Baglamukhi Mandir Nalkheda is open daily from <strong>6:00 AM to 9:30 PM</strong>. The morning Mangala Aarti is at 6:00 AM and the evening Sandhya Aarti is at approximately 7:30 PM. During Navratri and major festivals the temple remains open until midnight.</p>
 
     <!-- DAILY SCHEDULE TABLE -->
+    <div class="table-scroll">
     <table class="schedule-table">
       <thead>
         <tr><th>समय / Time</th><th>गतिविधि / Activity</th><th>विवरण / Details</th></tr>
@@ -344,6 +346,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
         </tr>
       </tbody>
     </table>
+    </div>
 
     <div class="info-box">
       <div class="ib-title hindi">💡 सबसे अच्छा समय कब जाएं?</div>
@@ -396,7 +399,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
     <div class="info-box">
       <div class="ib-title hindi">📋 हवन बुकिंग के लिए क्या चाहिए?</div>
       <p class="hi">• आधार कार्ड / ID प्रमाण &nbsp;•&nbsp; बुकिंग के समय नाम और गोत्र &nbsp;•&nbsp; अग्रिम भुगतान (₹1100 से ₹5100+)</p>
-      <p class="en">Aadhar/ID required. Booking needs name + gotra. Advance payment ₹1100–₹5100+ depending on hawan type. <a href="#" onclick="openWaModal('hawan');return false;" style="color:var(--saffron)">WhatsApp us for booking assistance →</a></p>
+      <p class="en">Aadhar/ID required. Booking needs name + gotra. Advance payment ₹1100–₹5100+ depending on hawan type. <a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20Hawan%20booking%20me%20madad%20chahiye." target="_blank" rel="noopener" onclick="openWaModal('hawan');return false;" style="color:var(--saffron)">WhatsApp us for booking assistance →</a></p>
     </div>
   </div>
 
@@ -448,7 +451,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
       </div>
       <div class="faq-a">
         <p class="hi">हवन सुबह 7 बजे से रात 11 बजे के बीच बुक किया जा सकता है। बुकिंग के लिए <a href="https://mabaglamukhi.com" target="_blank" style="color:var(--saffron)">mabaglamukhi.com</a> पर जाएं या हमसे WhatsApp पर मदद लें।</p>
-        <p class="en">Hawan can be booked between 7 AM and 11 PM. Book via <a href="https://mabaglamukhi.com" target="_blank" style="color:var(--saffron)">mabaglamukhi.com</a> (official portal). For assistance, <a href="#" onclick="openWaModal('hawan');return false;" style="color:var(--saffron)">WhatsApp us</a>. Advance booking essential for Navratri — slots fill 2-3 months ahead.</p>
+        <p class="en">Hawan can be booked between 7 AM and 11 PM. Book via <a href="https://mabaglamukhi.com" target="_blank" style="color:var(--saffron)">mabaglamukhi.com</a> (official portal). For assistance, <a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20Hawan%20booking%20me%20madad%20chahiye." target="_blank" rel="noopener" onclick="openWaModal('hawan');return false;" style="color:var(--saffron)">WhatsApp us</a>. Advance booking essential for Navratri — slots fill 2-3 months ahead.</p>
       </div>
     </div>
 
@@ -472,7 +475,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
       <span>Confirm today's temple timings on WhatsApp</span>
     </h2>
     <p class="hindi">त्योहार या विशेष दिन पर समय बदल सकता है। हमसे पूछें — तुरंत जवाब देंगे।</p>
-    <a href="#" onclick="openWaModal('general');return false;" class="btn-wa">
+    <a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20Nalkheda%20yatra%20planning%20me%20madad%20chahiye." target="_blank" rel="noopener" onclick="openWaModal('general');return false;" class="btn-wa">
       💬 WhatsApp पर पूछें
     </a>
   </div>
@@ -514,7 +517,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
 <div class="mobile-bar">
   <div class="mobile-bar-inner">
     <a href="/travel-guide.html#get" class="mbar-btn mbar-guide"><span class="mbar-icon">📖</span>Guide ₹99</a>
-    <a href="#" onclick="openWaModal('general');return false;" class="mbar-btn mbar-wa"><span class="mbar-icon">💬</span>WhatsApp</a>
+    <a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20Nalkheda%20yatra%20planning%20me%20madad%20chahiye." target="_blank" rel="noopener" onclick="openWaModal('general');return false;" class="mbar-btn mbar-wa"><span class="mbar-icon">💬</span>WhatsApp</a>
   </div>
 </div>
 

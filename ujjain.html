@@ -39,6 +39,8 @@ nav{position:fixed;top:0;left:0;right:0;background:rgba(26,10,0,0.97);border-bot
 .nav-links a:hover{color:var(--bright-gold)}
 .nav-back{background:rgba(212,160,23,0.12);border:1px solid rgba(212,160,23,0.3);color:var(--gold)!important;padding:0.4rem 1rem;font-size:0.78rem!important}
 .nav-cta{background:var(--saffron)!important;color:white!important;padding:0.4rem 1rem}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:10px;min-width:44px;min-height:44px}
+.hamburger span{display:block;width:24px;height:2px;background:white}
 #hero{min-height:100vh;background:linear-gradient(160deg,#0a0020 0%,#1a0a00 35%,#2D1B69 70%,#1a0a00 100%);display:flex;align-items:center;justify-content:center;padding:8rem 5% 5rem;position:relative;overflow:hidden}
 .hero-pattern{position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 1px,transparent 40px),repeating-linear-gradient(-45deg,var(--gold) 0,var(--gold) 1px,transparent 1px,transparent 40px)}
 .glow-blue{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(45,27,105,0.4) 0%,transparent 70%);top:50%;right:-10%;transform:translateY(-50%)}
@@ -179,7 +181,17 @@ footer{background:#0a0500;border-top:1px solid var(--border);padding:2rem 5%;tex
   .pdf-book{transform:none}
   .guide-features{grid-template-columns:1fr}
   .reach-grid{grid-template-columns:1fr}
-  .nav-links{display:none}
+  .hamburger{display:flex}
+  .nav-links{
+    display:none;position:absolute;top:64px;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:rgba(5,15,14,0.99);border-bottom:1px solid var(--border);
+    padding:0.5rem 5% 1rem;
+  }
+  .nav-links.open{display:flex}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;padding:0.85rem 0;font-size:0.95rem;border-bottom:1px solid rgba(255,255,255,0.06)}
+  .nav-links .nav-back,.nav-links .nav-cta{text-align:center;margin-top:0.5rem;border-bottom:none}
 }
 
   @keyframes float-particle{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:0.7}90%{opacity:0.3}100%{transform:translateY(-20px) scale(1);opacity:0}}
@@ -195,11 +207,11 @@ footer{background:#0a0500;border-top:1px solid var(--border);padding:2rem 5%;tex
 </head>
 <body>
 
-<a href="#" class="wa-sticky" onclick="openWaModal('circuit');return false;">💬</a>
+<a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20Nalkheda%20%2B%20Ujjain%20%2B%20Omkareshwar%20circuit%20plan%20chahiye." target="_blank" rel="noopener" class="wa-sticky" onclick="openWaModal('circuit');return false;">💬</a>
 
 <nav>
   <a href="/" class="nav-logo"><span>Nalkheda</span>.in</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li><a href="/" class="nav-back">← Nalkheda Dham</a></li>
     <li><a href="#temples">Temples</a></li>
     <li><a href="#circuit">Circuit</a></li>
@@ -208,7 +220,17 @@ footer{background:#0a0500;border-top:1px solid var(--border);padding:2rem 5%;tex
     <li><a href="/digital-companion.html" class="nav-cta">Digital Companion</a></li>
     <li><a href="#local-guide">Book Guide</a></li>
   </ul>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links" onclick="toggleNav(this)">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<script>
+function toggleNav(btn){
+  var links = document.querySelector('.nav-links');
+  var open = links.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+</script>
 
 <!-- HERO -->
 <section id="hero">
@@ -222,7 +244,7 @@ footer{background:#0a0500;border-top:1px solid var(--border);padding:2rem 5%;tex
       <h1 class="hero-title">Ujjain<br><span class="gold">Dham Guide</span><br>2026</h1>
       <p class="hero-desc">The eternal city of Lord Mahakal — home to Jyotirlinga #7, Harsiddhi Shakti Peetha, and the sacred Shipra River. The perfect hub for the MP Pilgrimage Circuit.</p>
       <div class="hero-btns">
-        <a href="#" class="btn-primary" onclick="openWaModal('circuit');return false;">🙏 Plan Ujjain Yatra</a>
+        <a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20Nalkheda%20%2B%20Ujjain%20%2B%20Omkareshwar%20circuit%20plan%20chahiye." target="_blank" rel="noopener" class="btn-primary" onclick="openWaModal('circuit');return false;">🙏 Plan Ujjain Yatra</a>
         <a href="#circuit" class="btn-outline">View MP Circuit →</a>
       </div>
       
@@ -311,7 +333,7 @@ footer{background:#0a0500;border-top:1px solid var(--border);padding:2rem 5%;tex
         <div class="cpr"><span class="cpr-l">Food (5 days)</span><span class="cpr-v">₹1,500–2,500</span></div>
         <div class="cpr" style="border:none"><span class="cpr-l" style="color:white;font-weight:700">Total per person</span><span class="cpr-v" style="color:var(--saffron);font-size:1rem">₹11,400–19,200</span></div>
         <div style="height:1px;background:var(--border);margin:1rem 0"></div>
-        <a href="#" class="btn-primary" style="display:block;text-align:center;margin-top:0.5rem" onclick="openWaModal('circuit');return false;">💬 Book Full Circuit Package</a>
+        <a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20Nalkheda%20%2B%20Ujjain%20%2B%20Omkareshwar%20circuit%20plan%20chahiye." target="_blank" rel="noopener" class="btn-primary" style="display:block;text-align:center;margin-top:0.5rem" onclick="openWaModal('circuit');return false;">💬 Book Full Circuit Package</a>
         <div style="text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:0.6rem">Full trip planning — ₹1,999</div>
         <div style="height:1px;background:var(--border);margin:1rem 0"></div>
         <div style="font-family:'Cinzel Decorative',serif;font-size:0.7rem;color:var(--gold);margin-bottom:0.6rem">MP CIRCUIT PREMIUM PDF — ₹249</div>
@@ -334,7 +356,7 @@ footer{background:#0a0500;border-top:1px solid var(--border);padding:2rem 5%;tex
       <div class="reach-card"><div class="reach-icon">🚗</div><div class="reach-title">By Road</div><div class="reach-row"><span>From Indore</span><span class="reach-val">55 km · 1 hr</span></div><div class="reach-row"><span>From Bhopal</span><span class="reach-val">185 km · 3 hrs</span></div><div class="reach-row"><span>From Delhi</span><span class="reach-val">780 km · 10 hrs</span></div><div class="reach-row" style="border:none"><span>From Mumbai</span><span class="reach-val">660 km · 9 hrs</span></div></div>
     </div>
     <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
-      <a href="#" class="btn-primary" onclick="openWaModal('cab');return false;">💬 Book Cab to Ujjain</a>
+      <a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20Nalkheda%20ke%20liye%20cab%20chahiye." target="_blank" rel="noopener" class="btn-primary" onclick="openWaModal('cab');return false;">💬 Book Cab to Ujjain</a>
       <a href="/omkareshwar.html" class="btn-outline">Omkareshwar Guide →</a>
     </div>
   </div>
@@ -347,9 +369,9 @@ footer{background:#0a0500;border-top:1px solid var(--border);padding:2rem 5%;tex
     <h2 class="sec-h">Hotels in Ujjain</h2>
     <div class="divider"></div>
     <div class="hotels-grid">
-      <div class="hotel-card card-3d-hover"><div class="hotel-header"><div class="hotel-name">Hotel Shipra Residency</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4)">⭐⭐⭐⭐ · Near Mahakaleshwar</div></div><div class="hotel-body"><div class="hotel-price">₹1,500–₹3,000/night</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:0.75rem">AC rooms, rooftop Shipra view, pure veg restaurant, walking distance to temple.</p><a href="https://bitli.in/3k5fYiv" class="hotel-btn" target="_blank">🏨 Book on Booking.com</a></div></div>
-      <div class="hotel-card card-3d-hover"><div class="hotel-header"><div class="hotel-name">Hotel Malwa Residency</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4)">⭐⭐⭐ · Budget AC</div></div><div class="hotel-body"><div class="hotel-price">₹800–₹1,500/night</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:0.75rem">Budget AC hotel, 10 min walk from Mahakaleshwar. Clean rooms, 24hr checkout.</p><a href="https://bitli.in/280AF5M" class="hotel-btn" target="_blank">🏨 Book on MMT</a></div></div>
-      <div class="hotel-card card-3d-hover"><div class="hotel-header"><div class="hotel-name">Dharamshala near Temple</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4)">⭐⭐ · Pilgrim Stay</div></div><div class="hotel-body"><div class="hotel-price">₹600–₹1,200/night</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:0.75rem">Multiple dharamshalas near Mahakaleshwar. Book in advance during Navratri season.</p><a href="#" class="hotel-btn" onclick="openWaModal('hotel');return false;">💬 Ask on WhatsApp</a></div></div>
+      <div class="hotel-card card-3d-hover"><div class="hotel-header"><div class="hotel-name">Hotel Shipra Residency</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4)">⭐⭐⭐⭐ · Near Mahakaleshwar</div></div><div class="hotel-body"><div class="hotel-price">₹1,500–₹3,000/night</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:0.75rem">AC rooms, rooftop Shipra view, pure veg restaurant, walking distance to temple.</p><a href="https://bitli.in/3k5fYiv" class="hotel-btn" target="_blank" rel="noopener sponsored">🏨 Book on Booking.com</a></div></div>
+      <div class="hotel-card card-3d-hover"><div class="hotel-header"><div class="hotel-name">Hotel Malwa Residency</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4)">⭐⭐⭐ · Budget AC</div></div><div class="hotel-body"><div class="hotel-price">₹800–₹1,500/night</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:0.75rem">Budget AC hotel, 10 min walk from Mahakaleshwar. Clean rooms, 24hr checkout.</p><a href="https://bitli.in/280AF5M" class="hotel-btn" target="_blank" rel="noopener sponsored">🏨 Book on MMT</a></div></div>
+      <div class="hotel-card card-3d-hover"><div class="hotel-header"><div class="hotel-name">Dharamshala near Temple</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4)">⭐⭐ · Pilgrim Stay</div></div><div class="hotel-body"><div class="hotel-price">₹600–₹1,200/night</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:0.75rem">Multiple dharamshalas near Mahakaleshwar. Book in advance during Navratri season.</p><a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20Nalkheda%20hotel%20booking%20me%20madad%20chahiye." target="_blank" rel="noopener" class="hotel-btn" onclick="openWaModal('hotel');return false;">💬 Ask on WhatsApp</a></div></div>
     </div>
     <div class="nalkheda-cta">
       <div><div style="font-family:'Cinzel Decorative',serif;font-size:0.85rem;color:var(--bright-gold);margin-bottom:0.4rem">🛕 Also visiting Nalkheda Dham?</div><div style="font-size:0.95rem;color:rgba(255,255,255,0.5);max-width:500px">Maa Baglamukhi Mandir is just 100 km from Ujjain. Combine both in one trip. Get our PDF guide with full Nalkheda + Ujjain + Omkareshwar circuit for ₹249.</div></div>
