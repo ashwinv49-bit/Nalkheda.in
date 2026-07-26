@@ -368,6 +368,41 @@
     overflow: hidden;
   }
 
+  .hero-city-link {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+    font-weight: 900;
+    color: var(--saffron);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    z-index: 3;
+    opacity: 0.85;
+    transition: opacity 0.2s, transform 0.2s;
+    writing-mode: horizontal-tb;
+    line-height: 1;
+  }
+  .hero-city-link:hover { opacity: 1; transform: translateY(-50%) scale(1.06); }
+  .hero-city-link .hero-city-sub {
+    display: block;
+    font-size: 0.5em;
+    font-weight: 400;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 0.25em;
+    text-align: center;
+  }
+  .hero-city-ujjain  { left: 1.5rem; }
+  .hero-city-omk     { right: 1.5rem; text-align: right; }
+  @media(max-width:600px) {
+    .hero-city-link { font-size: 1.1rem; top: 58%; }
+    .hero-city-ujjain { left: 0.75rem; }
+    .hero-city-omk    { right: 0.75rem; }
+  }
+
   .hero-pattern {
     position: absolute;
     inset: 0;
@@ -2491,6 +2526,17 @@
 <section id="hero">
   <div class="hero-pattern"></div>
   <div class="hero-glow"></div>
+
+  <!-- Floating city links — clickable, go to dedicated pages -->
+  <a href="/ujjain.html" class="hero-city-link hero-city-ujjain" aria-label="Ujjain Mahakaleshwar Guide">
+    Ujjain
+    <span class="hero-city-sub">100 km →</span>
+  </a>
+  <a href="/omkareshwar.html" class="hero-city-link hero-city-omk" aria-label="Omkareshwar Guide">
+    Omkareshwar
+    <span class="hero-city-sub">← 280 km</span>
+  </a>
+
   <div class="hero-content">
     <!-- SVG Temple Icon -->
     <div style="margin-bottom:1.5rem; opacity:0.92;">
