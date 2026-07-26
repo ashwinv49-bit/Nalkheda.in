@@ -24,8 +24,8 @@ Static HTML site on Netlify, auto-deployed from GitHub `main` branch.
 
 1. **NOT affiliated with the official temple trust.** The disclaimer "Not affiliated with Shaskiya Maa Baglamukhi Mandir Prabandh Samiti" must appear on every page footer.
 2. **Hawan/puja booking = mabaglamukhi.com ONLY.** Never build a direct booking flow on nalkheda.in. WhatsApp enquiry only.
-3. **No dharamshala in Nalkheda** — Do not claim a dharamshala exists at Nalkheda temple. There is none. Only budget guesthouses (₹400-900/night) are available near the temple.
-4. **Never hard-code specific hotel room prices** — they go stale. Use price ranges (Rs 500–1200).
+3. **No dharamshala in Nalkheda** — Do not claim a dharamshala exists at Nalkheda temple. There is none. Guesthouses near the temple start at ₹1,000-1,500/night.
+4. **Never hard-code specific hotel room prices** — they go stale. Use price ranges (₹1,000–1,500 for near-temple stays).
 5. **Affiliate links** must use `rel="noopener sponsored"`.
 6. **No puja/hawan payment flow** — only WhatsApp enquiry links.
 
