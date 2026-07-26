@@ -18,7 +18,11 @@
     circuit: ['cab', 'plan'],
   };
 
-  function pad(n) { return String(n).padStart(2, '0'); }
+  // Today in IST — the site's audience is entirely in India, and a UTC date
+  // would let 00:00–05:30 IST visitors pick yesterday.
+  function todayIST() {
+    return new Date(Date.now() + 5.5 * 3600 * 1000).toISOString().split('T')[0];
+  }
 
   function formatDate(val) {
     if (!val) return '';
@@ -62,7 +66,7 @@
   padding: 1.25rem 1.25rem 2rem;
   box-shadow: 0 -4px 32px rgba(0,0,0,0.22);
   transform: translateY(100%);
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, opacity 0.25s ease;
   max-height: 92vh; overflow-y: auto;
 }
 @media(min-width:600px) {
@@ -109,15 +113,15 @@
 .wa-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; }
 .wa-pill {
   display: inline-flex; align-items: center; gap: 0.3rem;
-  padding: 0.4rem 0.75rem;
+  padding: 0.5rem 0.85rem;
   border: 1.5px solid rgba(107,15,26,0.3);
   border-radius: 20px; background: #fff;
   font-family: 'Mukta', sans-serif; font-size: 0.85rem;
-  color: #2C1A00; cursor: pointer;
+  color: #2C1A00; cursor: pointer; text-align: left;
   transition: background 0.15s, border-color 0.15s, color 0.15s;
   user-select: none;
 }
-.wa-pill input { display: none; }
+.wa-pill:focus-visible { outline: 2px solid #6B0F1A; outline-offset: 2px; }
 .wa-pill.checked {
   background: #6B0F1A; border-color: #6B0F1A; color: #fff;
 }
@@ -148,11 +152,7 @@
     if (document.getElementById('wa-modal-overlay')) return;
 
     const pillsHTML = SERVICES.map(s => `
-      <label class="wa-pill" data-id="${s.id}">
-        <input type="checkbox" value="${s.id}"> ${s.label}
-      </label>`).join('');
-
-    const today = new Date().toISOString().split('T')[0];
+      <button type="button" class="wa-pill" data-id="${s.id}" aria-pressed="false">${s.label}</button>`).join('');
 
     const div = document.createElement('div');
     div.id = 'wa-modal-overlay';
@@ -165,7 +165,7 @@
 
   <div class="wa-field">
     <label for="wa-date">📅 यात्रा की तारीख *</label>
-    <input type="date" id="wa-date" min="${today}" autocomplete="off">
+    <input type="date" id="wa-date" min="${todayIST()}" autocomplete="off">
   </div>
 
   <div class="wa-field">
@@ -197,8 +197,8 @@
     // pill toggle
     div.querySelectorAll('.wa-pill').forEach(pill => {
       pill.addEventListener('click', function () {
-        this.classList.toggle('checked');
-        this.querySelector('input').checked = this.classList.contains('checked');
+        const on = this.classList.toggle('checked');
+        this.setAttribute('aria-pressed', on ? 'true' : 'false');
       });
     });
 
@@ -210,6 +210,11 @@
       if (e.target === div) closeWaModal();
     });
 
+    // close on Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeWaModal();
+    });
+
     // submit
     document.getElementById('wa-modal-submit').addEventListener('click', submitWaModal);
   }
@@ -217,6 +222,7 @@
   function closeWaModal() {
     const overlay = document.getElementById('wa-modal-overlay');
     if (overlay) overlay.classList.remove('open');
+    document.body.style.overflow = '';
   }
 
   function submitWaModal() {
@@ -237,7 +243,11 @@
     const msg = buildMsg(date, persons, city, needs, extra);
 
     if (typeof logWaClick !== 'undefined') {
-      try { logWaClick('WA Modal — ' + (window._waModalHint || 'general'), city + ' / ' + needs.join(',')); } catch(e) {}
+      try {
+        logWaClick('WA Modal — ' + (window._waModalHint || 'general'), {
+          city: city, date: date, group: persons, notes: needs.join(', ')
+        });
+      } catch (e) {}
     }
 
     window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
@@ -264,13 +274,16 @@
     // pre-check boxes based on hint
     const precheck = HINT_MAP[hint] || HINT_MAP['general'];
     document.querySelectorAll('.wa-pill').forEach(pill => {
-      const id = pill.dataset.id;
-      const checked = precheck.includes(id);
+      const checked = precheck.includes(pill.dataset.id);
       pill.classList.toggle('checked', checked);
-      pill.querySelector('input').checked = checked;
+      pill.setAttribute('aria-pressed', checked ? 'true' : 'false');
     });
 
+    // refresh min date — the modal is injected once but may outlive midnight
+    if (dateEl) dateEl.min = todayIST();
+
     document.getElementById('wa-modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
 
     // focus first input
     setTimeout(() => {
