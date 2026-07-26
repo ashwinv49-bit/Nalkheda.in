@@ -323,7 +323,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
       <h3>Plan Your Nalkheda Yatra with Confidence</h3>
       <p>Our ₹99 PDF travel guide includes a detailed cab operator list, hotel contacts, hawan booking instructions, Navratri schedule, and a ready-made 2-day itinerary for the Ujjain + Nalkheda circuit.</p>
       <a href="/#guide" class="btn-primary">Download Guide — ₹99</a>
-      <a href="https://wa.me/919754709571?text=Ujjain%20se%20Nalkheda%20yatra%20help%20chahiye%20🙏" target="_blank" class="btn-wa">💬 WhatsApp for Cab Help</a>
+      <a href="https://wa.me/919754709571?text=Ujjain%20se%20Nalkheda%20yatra%20help%20chahiye%20🙏" target="_blank" class="btn-wa" onclick="openWaModal('cab');return false;">💬 WhatsApp for Cab Help</a>
     </div>
 
   </article>
@@ -353,9 +353,10 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
 <div class="mobile-bar">
   <div class="mobile-bar-inner">
     <a href="/#guide" class="mbar-btn mbar-guide"><span class="mbar-icon">📖</span>Guide ₹99</a>
-    <a href="https://wa.me/919754709571?text=Nalkheda%20yatra%20help%20chahiye%20🙏" target="_blank" class="mbar-btn mbar-wa"><span class="mbar-icon">💬</span>WhatsApp</a>
+    <a href="https://wa.me/919754709571?text=Nalkheda%20yatra%20help%20chahiye%20🙏" target="_blank" class="mbar-btn mbar-wa" onclick="openWaModal('general');return false;"><span class="mbar-icon">💬</span>WhatsApp</a>
     <a href="tel:+919754709571" class="mbar-btn mbar-call"><span class="mbar-icon">📞</span>Call</a>
   </div>
 </div>
+<script src="/wa-modal.js"></script>
 </body>
 </html>

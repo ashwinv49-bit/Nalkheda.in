@@ -365,7 +365,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
       <h3>Plan Your Full Nalkheda Yatra</h3>
       <p>Our ₹99 PDF guide covers Nalkheda temple timings, hawan booking, hotel contacts, and the complete 2-day Ujjain + Nalkheda itinerary — everything you need for a smooth pilgrimage.</p>
       <a href="/#guide" class="btn-primary">Download Guide — ₹99</a>
-      <a href="https://wa.me/919754709571?text=Nalkheda%20se%20Omkareshwar%20yatra%20ke%20liye%20taxi%20chahiye%20%F0%9F%99%8F" target="_blank" rel="noopener" class="btn-wa">💬 WhatsApp for Taxi Help</a>
+      <a href="https://wa.me/919754709571?text=Nalkheda%20se%20Omkareshwar%20yatra%20ke%20liye%20taxi%20chahiye%20%F0%9F%99%8F" target="_blank" rel="noopener" class="btn-wa" onclick="openWaModal('cab');return false;">💬 WhatsApp for Taxi Help</a>
     </div>
 
   </article>
@@ -395,9 +395,10 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
 <div class="mobile-bar">
   <div class="mobile-bar-inner">
     <a href="/#guide" class="mbar-btn mbar-guide"><span class="mbar-icon">📖</span>Guide ₹99</a>
-    <a href="https://wa.me/919754709571?text=Nalkheda%20yatra%20help%20chahiye%20%F0%9F%99%8F" target="_blank" rel="noopener" class="mbar-btn mbar-wa"><span class="mbar-icon">💬</span>WhatsApp</a>
+    <a href="https://wa.me/919754709571?text=Nalkheda%20yatra%20help%20chahiye%20%F0%9F%99%8F" target="_blank" rel="noopener" class="mbar-btn mbar-wa" onclick="openWaModal('general');return false;"><span class="mbar-icon">💬</span>WhatsApp</a>
     <a href="tel:+919754709571" class="mbar-btn mbar-call"><span class="mbar-icon">📞</span>Call</a>
   </div>
 </div>
+<script src="/wa-modal.js"></script>
 </body>
 </html>
