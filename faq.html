@@ -458,7 +458,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
   <div class="cta-box">
     <h3>Still Have Questions?</h3>
     <p>WhatsApp us directly for personalised help with your Nalkheda yatra — or download our complete PDF guide for the full information.</p>
-    <a href="https://wa.me/919754709571?text=Nalkheda%20mandir%20ke%20baare%20mein%20kuch%20puchna%20tha%20🙏" target="_blank" class="btn-wa">💬 Ask on WhatsApp</a>
+    <a href="#" onclick="openWaModal('general');return false;" class="btn-wa">💬 Ask on WhatsApp</a>
     <a href="/#guide" class="btn-primary">📖 Download PDF Guide — ₹99</a>
   </div>
 
@@ -479,7 +479,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
 <div class="mobile-bar">
   <div class="mobile-bar-inner">
     <a href="/#services" class="mbar-btn mbar-guide"><span class="mbar-icon">📖</span>Guide ₹99</a>
-    <a href="https://wa.me/919754709571?text=Nalkheda%20ke%20baare%20mein%20sawaal%20hai%20🙏" target="_blank" class="mbar-btn mbar-wa"><span class="mbar-icon">💬</span>WhatsApp</a>
+    <a href="#" onclick="openWaModal('general');return false;" class="mbar-btn mbar-wa"><span class="mbar-icon">💬</span>WhatsApp</a>
   </div>
 </div>
 
@@ -497,5 +497,6 @@ function toggleFaq(btn) {
   }
 }
 </script>
+<script src="/wa-modal.js"></script>
 </body>
 </html>

@@ -380,7 +380,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
       <span>Need help booking a hotel near Nalkheda temple?</span>
     </h2>
     <p class="hindi">उपलब्धता जानें, बुकिंग में मदद लें — WhatsApp पर तुरंत जवाब।</p>
-    <a href="https://wa.me/919754709571?text=नमस्ते%2C%20नलखेड़ा%20में%20होटल%20बुकिंग%20में%20मदद%20चाहिए" target="_blank" rel="noopener" class="btn-wa">
+    <a href="#" onclick="openWaModal('hotel');return false;" class="btn-wa">
       💬 WhatsApp पर पूछें
     </a>
   </div>
@@ -422,9 +422,10 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
 <div class="mobile-bar">
   <div class="mobile-bar-inner">
     <a href="/travel-guide.html#get" class="mbar-btn mbar-guide"><span class="mbar-icon">📖</span>Guide ₹99</a>
-    <a href="https://wa.me/919754709571?text=नमस्ते%2C%20नलखेड़ा%20होटल%20बुकिंग%20में%20मदद%20चाहिए" target="_blank" rel="noopener" class="mbar-btn mbar-wa"><span class="mbar-icon">💬</span>WhatsApp</a>
+    <a href="#" onclick="openWaModal('hotel');return false;" class="mbar-btn mbar-wa"><span class="mbar-icon">💬</span>WhatsApp</a>
   </div>
 </div>
 
+<script src="/wa-modal.js"></script>
 </body>
 </html>

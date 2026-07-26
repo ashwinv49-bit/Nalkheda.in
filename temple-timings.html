@@ -291,7 +291,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
 <div class="verify-note">
   <span>⚠️</span>
   <span class="hindi">मंदिर समय बदल सकता है — यात्रा से पहले WhatsApp पर कन्फर्म करें:
-  <a href="https://wa.me/919754709571?text=नमस्ते%2C%20नलखेड़ा%20मंदिर%20का%20आज%20का%20दर्शन%20समय%20बताएं">+91 9754709571</a> ·
+  <a href="#" onclick="openWaModal('general');return false;">+91 9754709571</a> ·
   Temple timings may change — always confirm before visiting.</span>
 </div>
 
@@ -396,7 +396,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
     <div class="info-box">
       <div class="ib-title hindi">📋 हवन बुकिंग के लिए क्या चाहिए?</div>
       <p class="hi">• आधार कार्ड / ID प्रमाण &nbsp;•&nbsp; बुकिंग के समय नाम और गोत्र &nbsp;•&nbsp; अग्रिम भुगतान (₹1100 से ₹5100+)</p>
-      <p class="en">Aadhar/ID required. Booking needs name + gotra. Advance payment ₹1100–₹5100+ depending on hawan type. <a href="https://wa.me/919754709571?text=नमस्ते%2C%20हवन%20बुकिंग%20में%20मदद%20चाहिए" style="color:var(--saffron)">WhatsApp us for booking assistance →</a></p>
+      <p class="en">Aadhar/ID required. Booking needs name + gotra. Advance payment ₹1100–₹5100+ depending on hawan type. <a href="#" onclick="openWaModal('hawan');return false;" style="color:var(--saffron)">WhatsApp us for booking assistance →</a></p>
     </div>
   </div>
 
@@ -448,7 +448,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
       </div>
       <div class="faq-a">
         <p class="hi">हवन सुबह 7 बजे से रात 11 बजे के बीच बुक किया जा सकता है। बुकिंग के लिए <a href="https://mabaglamukhi.com" target="_blank" style="color:var(--saffron)">mabaglamukhi.com</a> पर जाएं या हमसे WhatsApp पर मदद लें।</p>
-        <p class="en">Hawan can be booked between 7 AM and 11 PM. Book via <a href="https://mabaglamukhi.com" target="_blank" style="color:var(--saffron)">mabaglamukhi.com</a> (official portal). For assistance, <a href="https://wa.me/919754709571?text=हवन%20बुकिंग%20में%20मदद%20चाहिए" style="color:var(--saffron)">WhatsApp us</a>. Advance booking essential for Navratri — slots fill 2-3 months ahead.</p>
+        <p class="en">Hawan can be booked between 7 AM and 11 PM. Book via <a href="https://mabaglamukhi.com" target="_blank" style="color:var(--saffron)">mabaglamukhi.com</a> (official portal). For assistance, <a href="#" onclick="openWaModal('hawan');return false;" style="color:var(--saffron)">WhatsApp us</a>. Advance booking essential for Navratri — slots fill 2-3 months ahead.</p>
       </div>
     </div>
 
@@ -472,7 +472,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
       <span>Confirm today's temple timings on WhatsApp</span>
     </h2>
     <p class="hindi">त्योहार या विशेष दिन पर समय बदल सकता है। हमसे पूछें — तुरंत जवाब देंगे।</p>
-    <a href="https://wa.me/919754709571?text=नमस्ते%2C%20नलखेड़ा%20मंदिर%20का%20आज%20का%20दर्शन%20समय%20बताएं" target="_blank" rel="noopener" class="btn-wa">
+    <a href="#" onclick="openWaModal('general');return false;" class="btn-wa">
       💬 WhatsApp पर पूछें
     </a>
   </div>
@@ -514,9 +514,10 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
 <div class="mobile-bar">
   <div class="mobile-bar-inner">
     <a href="/travel-guide.html#get" class="mbar-btn mbar-guide"><span class="mbar-icon">📖</span>Guide ₹99</a>
-    <a href="https://wa.me/919754709571?text=नमस्ते%2C%20नलखेड़ा%20मंदिर%20दर्शन%20समय%20बताएं" target="_blank" rel="noopener" class="mbar-btn mbar-wa"><span class="mbar-icon">💬</span>WhatsApp</a>
+    <a href="#" onclick="openWaModal('general');return false;" class="mbar-btn mbar-wa"><span class="mbar-icon">💬</span>WhatsApp</a>
   </div>
 </div>
 
+<script src="/wa-modal.js"></script>
 </body>
 </html>
