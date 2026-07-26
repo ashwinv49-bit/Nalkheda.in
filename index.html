@@ -3950,8 +3950,8 @@
 
     <!-- Razorpay Form -->
     <div id="razorpay-form">
-      <div class="modal-title">Get Your Nalkheda Guide</div>
-      <div class="modal-subtitle">Complete Travel PDF — ₹99 only. Delivered to your WhatsApp within minutes.</div>
+      <div class="modal-title">Order Your Nalkheda Guide</div>
+      <div class="modal-subtitle">Complete Travel PDF — ₹99. Share your details, then pay by UPI on WhatsApp.</div>
       <div class="form-group">
         <label>Full Name *</label>
         <input type="text" id="buyer-name" placeholder="Your Name">
@@ -3977,10 +3977,10 @@
         </select>
       </div>
       <button class="modal-submit" onclick="processPayment()">
-        💳 Pay ₹99 & Get Instant Access
+        📋 Send Order on WhatsApp
       </button>
       <p style="text-align:center; font-size:0.8rem; color:var(--muted); margin-top:1rem; font-style:italic;">
-        🔒 Secure payment · PDF sent to your WhatsApp within minutes
+        No payment on this page · We'll share UPI details on WhatsApp
       </p>
     </div>
 
@@ -4012,7 +4012,7 @@
     <div class="modal-success" id="payment-success">
       <div class="success-icon">🙏</div>
       <div class="success-title">Jai Maa Baglamukhi!</div>
-      <p class="success-msg">Thank you for your order. We've received your details and your PDF guide will be sent to your WhatsApp within minutes. May Maa's blessings be with you on your journey.</p>
+      <p class="success-msg">Your order details have been sent to our WhatsApp. We'll reply with UPI payment details, and your PDF guide follows as soon as payment is confirmed. May Maa's blessings be with you on your journey.</p>
       <br>
       <p style="font-size:0.85rem; color:var(--muted); font-style:italic;">
         For queries: WhatsApp <a href="https://wa.me/919754709571" style="color:var(--saffron)">+91 97547 09571</a>
@@ -4068,7 +4068,7 @@
     if (e.target === document.getElementById('pay-modal')) closePayModal();
   }
 
-  // ===== PROCESS PAYMENT (Simulate — connect to Razorpay in production) =====
+  // ===== SUBMIT ORDER (sends to WhatsApp; no payment gateway connected) =====
   function processPayment() {
     const name = document.getElementById('buyer-name').value.trim();
     const email = document.getElementById('buyer-email').value.trim();
@@ -4079,8 +4079,9 @@
       return;
     }
 
-    // In production: Call Razorpay API here
-    // For now: Show WhatsApp confirmation + success screen
+    // No payment is taken here — this sends the order to WhatsApp, where
+    // UPI details are shared manually. Wire up a gateway before any copy
+    // on this modal claims payment has been collected.
     const msg = `🙏 Jai Maa Baglamukhi!%0ANew PDF Guide Order:%0AName: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone)}%0AProduct: Nalkheda Dham Travel Guide PDF — ₹99`;
 
     // Open WhatsApp with order details
