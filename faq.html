@@ -179,7 +179,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
       <li><a href="/faq.html" class="active">FAQ</a></li>
       <li><a href="/#services" class="nav-cta">Guide ₹99</a></li>
     </ul>
-    <button class="hamburger" onclick="document.getElementById('nav-menu').classList.toggle('open')" aria-label="Menu" aria-expanded="false">
+    <button class="hamburger" aria-controls="nav-menu" onclick="document.getElementById('nav-menu').classList.toggle('open');this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true')" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>

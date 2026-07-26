@@ -40,7 +40,7 @@ nav{position:sticky;top:0;background:rgba(26,10,0,0.97);backdrop-filter:blur(12p
 .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;font-family:'Crimson Pro',serif;font-weight:600}
 .nav-links a:hover{color:var(--bright-gold)}
 .nav-cta{background:var(--saffron)!important;color:white!important;padding:0.35rem 1rem;border-radius:2px}
-.hamburger{display:none;cursor:pointer}
+.hamburger{display:none;cursor:pointer;background:none;border:none;padding:10px;min-width:44px;min-height:44px}
 .hamburger span{display:block;width:22px;height:2px;background:white;margin:5px 0;transition:0.3s}
 .breadcrumb{background:var(--pale-gold);padding:0.65rem 2rem;font-size:0.85rem;color:var(--muted);border-bottom:1px solid rgba(212,160,23,0.2)}
 .breadcrumb-inner{max-width:1100px;margin:0 auto}
@@ -119,9 +119,9 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
       <li><a href="https://nalkheda.in/blog/">Blog</a></li>
       <li><a href="https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20the%20Nalkheda%20travel%20guide." target="_blank" class="nav-cta">Get Guide &#8377;99</a></li>
     </ul>
-    <div class="hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')">
+    <button class="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links" onclick="document.getElementById('nav-links').classList.toggle('open');this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true')">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </div>
 </nav>
 
@@ -333,7 +333,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
     <tr>
       <td><strong>Mid-Range Yatra</strong></td>
       <td>&#8377;5,000–&#8377;10,000</td>
-      <td>Budget hotel in Nalkheda or Agar (&#8377;800–&#8377;1,500/night)</td>
+      <td>Hotel in Nalkheda or Agar (&#8377;1,000–&#8377;1,500/night)</td>
       <td>Restaurants + prasad (&#8377;600–&#8377;1,000)</td>
       <td>Standard hawan (&#8377;1,100–&#8377;2,100)</td>
       <td>Shared taxi / Ola outstation (&#8377;800–&#8377;1,500)</td>

@@ -73,7 +73,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
       <li><a href="/faq.html">FAQ</a></li>
       <li><a href="/digital-companion.html" class="nav-cta">Digital Companion</a></li>
     </ul>
-    <button class="hamburger" aria-label="Menu" onclick="document.getElementById('nav-links').classList.toggle('open')">
+    <button class="hamburger" aria-controls="nav-links" aria-expanded="false" aria-label="Menu" onclick="document.getElementById('nav-links').classList.toggle('open');this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true')">
       <span></span><span></span><span></span>
     </button>
   </div>
