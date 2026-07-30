@@ -96,6 +96,61 @@
   to = "/blog/nalkheda-to-omkareshwar.html"
   status = 301
 
+[[redirects]]
+  from = "/blog/ujjain-to-nalkheda"
+  to = "/blog/ujjain-to-nalkheda.html"
+  status = 301
+
+[[redirects]]
+  from = "/blog/indore-to-nalkheda"
+  to = "/blog/indore-to-nalkheda.html"
+  status = 301
+
+[[redirects]]
+  from = "/blog/navratri-nalkheda-2026"
+  to = "/blog/navratri-nalkheda-2026.html"
+  status = 301
+
+[[redirects]]
+  from = "/blog/best-time-to-visit-nalkheda"
+  to = "/blog/best-time-to-visit-nalkheda.html"
+  status = 301
+
+[[redirects]]
+  from = "/blog/baglamukhi-jayanti-2026"
+  to = "/blog/baglamukhi-jayanti-2026.html"
+  status = 301
+
+[[redirects]]
+  from = "/blog/baglamukhi-puja-benefits"
+  to = "/blog/baglamukhi-puja-benefits.html"
+  status = 301
+
+[[redirects]]
+  from = "/blog/nalkheda-yatra-checklist"
+  to = "/blog/nalkheda-yatra-checklist.html"
+  status = 301
+
+[[redirects]]
+  from = "/blog/nalkheda-hotels-guide"
+  to = "/blog/nalkheda-hotels-guide.html"
+  status = 301
+
+[[redirects]]
+  from = "/blog/nalkheda-temple-timings"
+  to = "/blog/nalkheda-temple-timings.html"
+  status = 301
+
+[[redirects]]
+  from = "/blog/nalkheda-vs-datia-vs-kangra"
+  to = "/blog/nalkheda-vs-datia-vs-kangra.html"
+  status = 301
+
+[[redirects]]
+  from = "/digital-companion"
+  to = "/digital-companion.html"
+  status = 301
+
 # Block internal config files from public access
 [[redirects]]
   from = "/CLAUDE.md"
