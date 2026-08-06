@@ -120,7 +120,7 @@ p.hc-desc{font-size:0.92rem;margin-bottom:0.6rem}
 .badge-free{background:rgba(26,138,66,0.12);color:#1a8a42}
 .badge-budget{background:var(--pale-gold);color:var(--saffron)}
 .badge-best{background:rgba(212,160,23,0.15);color:var(--gold)}
-.btn-book{display:inline-flex;align-items:center;gap:0.4rem;background:var(--saffron);color:white;padding:0.6rem 1.2rem;font-family:'Poppins',sans-serif;font-size:0.68rem;letter-spacing:0.08em;text-decoration:none;border-radius:2px;margin-right:0.4rem;margin-top:0.25rem;transition:opacity 0.2s}
+.btn-book{display:inline-flex;align-items:center;gap:0.4rem;background:var(--saffron);color:white;padding:0.6rem 1.2rem;font-family:'Poppins',sans-serif;font-size:0.78rem;letter-spacing:0.08em;text-decoration:none;border-radius:2px;margin-right:0.4rem;margin-top:0.25rem;transition:opacity 0.2s}
 .btn-book:hover{opacity:0.85}
 .btn-book-wa{background:#25D366}
 .btn-book-mmt{background:#E31837}
@@ -184,6 +184,8 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
 .mbar-icon{font-size:1.1rem}
 .mbar-guide{background:var(--saffron);color:white}
 .mbar-wa{background:#25D366;color:white}@media(max-width:768px){.nav-links{display:none;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:rgba(26,10,0,0.98);padding:1.5rem 2rem;gap:1rem}.nav-links.open{display:flex}.hamburger{display:block}.mobile-bar{display:block}body{padding-bottom:60px}.stay-grid{grid-template-columns:1fr}.hotel-card{flex-direction:column}.related-grid{grid-template-columns:1fr}}
+
+.faq-q[role="button"]:focus-visible,.faq-item[role="button"]:focus-visible,.faq-q-head:focus-visible{outline:2px solid #6B0F1A;outline-offset:2px}
 </style>
 </head>
 <body>
@@ -349,18 +351,19 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
     <h2 style="font-family:'Tiro Devanagari Hindi',serif;font-size:1.3rem;color:var(--deep-maroon);margin-bottom:0.3rem">अक्सर पूछे जाने वाले सवाल</h2>
     <p style="font-family:'Poppins',sans-serif;font-size:0.7rem;letter-spacing:0.1em;color:var(--muted);margin-bottom:1.5rem;text-transform:uppercase">Frequently Asked Questions</p>
 
-    <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-item" onclick="this.classList.toggle('open')" role="button" tabindex="0" aria-expanded="false" data-acc>
       <div class="faq-q">
         <div><div class="faq-q-text">नलखेड़ा बगलामुखी मंदिर के पास होटल?</div><div class="faq-q-en">Hotels near Baglamukhi Temple Nalkheda?</div></div>
         <div class="faq-arrow">+</div>
       </div>
+<p class="aff-note" style="font-size:0.82rem;color:#7A5C3A;font-style:italic;margin:0.75rem 0;padding:0.6rem 0.9rem;background:rgba(244,196,48,0.10);border-left:3px solid #F4C430;line-height:1.6;">💡 We may earn a small commission if you book through these links, at no extra cost to you. It never affects which options we show you. <a href="/disclaimer.html" style="color:#6B0F1A;font-weight:600;">Details</a></p>
       <div class="faq-a">
         <p class="hi">मंदिर से 1-2 km के भीतर कई गेस्टहाउस हैं (₹1,000-1,500/रात)। बेहतर सुविधाओं के लिए आगर मालवा (35 km, ₹1,200-1,500) या उज्जैन (100 km, ₹1,200-3,000) में होटल बुक करें।</p>
         <p class="en">Guesthouses within 1-2 km of the temple (₹1,000-1,500/night). For better facilities, book in Agar Malwa (35 km, ₹1,200-1,500) or Ujjain (100 km, ₹1,200-3,000). Check live rates: <a href="https://bitli.in/3k5fYiv" target="_blank" rel="noopener sponsored" style="color:var(--saffron)">Booking.com</a> · <a href="https://bitli.in/280AF5M" target="_blank" rel="noopener sponsored" style="color:var(--saffron)">MakeMyTrip</a></p>
       </div>
     </div>
 
-    <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-item" onclick="this.classList.toggle('open')" role="button" tabindex="0" aria-expanded="false" data-acc>
       <div class="faq-q">
         <div><div class="faq-q-text">क्या नवरात्रि में नलखेड़ा में रुकने की जगह मिलती है?</div><div class="faq-q-en">Is accommodation available during Navratri at Nalkheda?</div></div>
         <div class="faq-arrow">+</div>
@@ -427,5 +430,20 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
 </div>
 
 <script src="/wa-modal.js"></script>
+
+<script>
+document.addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ")return;
+  var t=e.target;
+  if(t&&t.getAttribute&&t.getAttribute("role")==="button"&&t.hasAttribute("data-acc")){
+    e.preventDefault(); t.click();
+    t.setAttribute("aria-expanded", t.classList.contains("open")?"true":"false");
+  }
+});
+document.addEventListener("click",function(e){
+  var t=e.target.closest?e.target.closest("[data-acc]"):null;
+  if(t) t.setAttribute("aria-expanded", t.classList.contains("open")?"true":"false");
+});
+</script>
 </body>
 </html>

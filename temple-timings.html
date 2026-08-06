@@ -33,8 +33,7 @@
     "addressRegion": "Madhya Pradesh",
     "postalCode": "465445",
     "addressCountry": "IN"
-  },
-  "telephone": "+91-9754709571"
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -215,6 +214,8 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
 .mbar-icon{font-size:1.1rem}
 .mbar-guide{background:var(--saffron);color:white}
 .mbar-wa{background:#25D366;color:white}@media(max-width:768px){.nav-links{display:none;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:rgba(26,10,0,0.98);padding:1.5rem 2rem;gap:1rem}.nav-links.open{display:flex}.hamburger{display:block}.mobile-bar{display:block}body{padding-bottom:60px}.timing-grid{grid-template-columns:repeat(2,1fr)}.festival-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr}}
+
+.faq-q[role="button"]:focus-visible,.faq-item[role="button"]:focus-visible,.faq-q-head:focus-visible{outline:2px solid #6B0F1A;outline-offset:2px}
 </style>
 </head>
 <body>
@@ -411,7 +412,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
     <h2 style="font-family:'Tiro Devanagari Hindi',serif;font-size:1.3rem;color:var(--deep-maroon);margin-bottom:0.3rem">अक्सर पूछे जाने वाले सवाल</h2>
     <p style="font-family:'Poppins',sans-serif;font-size:0.7rem;letter-spacing:0.1em;color:var(--muted);margin-bottom:1.5rem;text-transform:uppercase">Frequently Asked Questions</p>
 
-    <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-item" onclick="this.classList.toggle('open')" role="button" tabindex="0" aria-expanded="false" data-acc>
       <div class="faq-q">
         <div><div class="faq-q-text">नलखेड़ा बगलामुखी मंदिर का दर्शन समय क्या है?</div><div class="faq-q-en">Nalkheda Baglamukhi temple timings?</div></div>
         <div class="faq-arrow">+</div>
@@ -422,7 +423,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
       </div>
     </div>
 
-    <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-item" onclick="this.classList.toggle('open')" role="button" tabindex="0" aria-expanded="false" data-acc>
       <div class="faq-q">
         <div><div class="faq-q-text">नलखेड़ा मंदिर में मंगला आरती और संध्या आरती का समय?</div><div class="faq-q-en">Aarti timings at Nalkheda temple?</div></div>
         <div class="faq-arrow">+</div>
@@ -433,7 +434,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
       </div>
     </div>
 
-    <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-item" onclick="this.classList.toggle('open')" role="button" tabindex="0" aria-expanded="false" data-acc>
       <div class="faq-q">
         <div><div class="faq-q-text">नवरात्रि में नलखेड़ा मंदिर का समय?</div><div class="faq-q-en">Nalkheda temple timings during Navratri?</div></div>
         <div class="faq-arrow">+</div>
@@ -444,7 +445,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
       </div>
     </div>
 
-    <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-item" onclick="this.classList.toggle('open')" role="button" tabindex="0" aria-expanded="false" data-acc>
       <div class="faq-q">
         <div><div class="faq-q-text">नलखेड़ा मंदिर में हवन कब और कैसे बुक करें?</div><div class="faq-q-en">How to book hawan at Nalkheda temple?</div></div>
         <div class="faq-arrow">+</div>
@@ -455,7 +456,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
       </div>
     </div>
 
-    <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-item" onclick="this.classList.toggle('open')" role="button" tabindex="0" aria-expanded="false" data-acc>
       <div class="faq-q">
         <div><div class="faq-q-text">नलखेड़ा मंदिर जाने का सबसे अच्छा समय कौन सा है?</div><div class="faq-q-en">Best time to visit Nalkheda Baglamukhi temple?</div></div>
         <div class="faq-arrow">+</div>
@@ -522,5 +523,20 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
 </div>
 
 <script src="/wa-modal.js"></script>
+
+<script>
+document.addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ")return;
+  var t=e.target;
+  if(t&&t.getAttribute&&t.getAttribute("role")==="button"&&t.hasAttribute("data-acc")){
+    e.preventDefault(); t.click();
+    t.setAttribute("aria-expanded", t.classList.contains("open")?"true":"false");
+  }
+});
+document.addEventListener("click",function(e){
+  var t=e.target.closest?e.target.closest("[data-acc]"):null;
+  if(t) t.setAttribute("aria-expanded", t.classList.contains("open")?"true":"false");
+});
+</script>
 </body>
 </html>
