@@ -246,6 +246,23 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
 }
 
 .faq-q[role="button"]:focus-visible,.faq-item[role="button"]:focus-visible,.faq-q-head:focus-visible{outline:2px solid #6B0F1A;outline-offset:2px}
+
+/* Contextual guide nudge */
+.guide-nudge{display:flex;gap:1.1rem;align-items:flex-start;background:linear-gradient(135deg,var(--pale-gold),#fff);
+  border:1px solid rgba(212,160,23,0.35);border-left:4px solid var(--pitambara);border-radius:6px;padding:1.4rem 1.5rem}
+.gn-icon{font-size:1.9rem;line-height:1;flex-shrink:0}
+.gn-body{flex:1}
+.gn-title{font-family:'Poppins',sans-serif;font-size:1.02rem;color:var(--deep-maroon);margin-bottom:0.5rem;font-weight:600;line-height:1.35}
+.gn-text{font-size:0.96rem;color:var(--text);line-height:1.75;margin-bottom:0.7rem}
+.gn-meta{font-size:0.82rem;color:var(--muted);margin-bottom:0.9rem}
+.gn-cta{display:inline-block;background:var(--pitambara);color:#2C1A00;font-family:'Poppins',sans-serif;
+  font-weight:700;font-size:0.92rem;padding:0.72rem 1.4rem;border-radius:6px;text-decoration:none;
+  transition:background 0.15s}
+.gn-cta:hover{background:var(--pitambara-deep)}
+@media(max-width:600px){
+  .guide-nudge{flex-direction:column;gap:0.7rem;padding:1.2rem}
+  .gn-cta{display:block;text-align:center}
+}
 </style>
 </head>
 <body>
@@ -597,9 +614,27 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
         <tr><td class="hindi">इंदौर / Indore</td><td>~156 km</td><td>NH52 via Dewas → Agar Malwa → Nalkheda</td><td>Bus ₹120-180 (~3.5 hrs) or taxi ₹6,000-7,000</td></tr>
         <tr><td class="hindi">देवास / Dewas</td><td>~115 km</td><td>SH-52 via Agar Malwa</td><td>Bus to Agar Malwa, then local bus/taxi (~2.5 hrs)</td></tr>
         <tr><td class="hindi">भोपाल / Bhopal</td><td>~210 km</td><td>NH46 → Shajapur → Nalkheda</td><td>Bus ₹200-250 (~4 hrs) or taxi ₹3000-3500</td></tr>
-        <tr><td class="hindi">ओंकारेश्वर / Omkareshwar</td><td>~280 km</td><td>NH52 via Indore → NH347</td><td>Taxi ₹5000-6000 (~5.5 hrs) or bus via Indore</td></tr>
+        <tr><td class="hindi">ओंकारेश्वर / Omkareshwar</td><td>~280 km</td><td>NH52 via Indore → NH347</td><td>Taxi ₹7000-9000 (~5-5.5 hrs) or bus via Indore</td></tr>
       </tbody>
     </table>
+    </div>
+  </div>
+
+  <!-- GUIDE CTA — contextual, after the reader has seen how much there is to plan -->
+  <div class="section-block">
+    <div class="guide-nudge">
+      <div class="gn-icon">📖</div>
+      <div class="gn-body">
+        <h3 class="gn-title">Planning the whole trip, not just the route?</h3>
+        <p class="gn-text">
+          The <strong>Nalkheda Yatra Guide</strong> puts every route, fare and timing
+          on this page into one printable PDF — plus temple timings, the hawan
+          booking process, where to stay, a 2-day itinerary, packing checklist and
+          the Navratri 11–20 October day-by-day plan.
+        </p>
+        <div class="gn-meta">38 pages · Hindi &amp; English · delivered on WhatsApp</div>
+        <a href="/travel-guide.html" class="gn-cta">See what's inside — ₹99 →</a>
+      </div>
     </div>
   </div>
 
