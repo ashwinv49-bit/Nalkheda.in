@@ -210,7 +210,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
           <span class="price-label">One-time. Instant WhatsApp delivery.</span>
         </div>
       </div>
-      <a href="https://wa.me/919754709571?text=Hi%2C%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999" target="_blank" rel="noopener" class="btn-hero-wa" id="get">
+      <a href="https://wa.me/919754709571?text=Hi%2C%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999" target="_blank" rel="noopener" class="btn-hero-wa" id="get" data-buy="guide99" data-buy-label="Buy Now — Instant Download">
         <span>💬</span> Get Guide on WhatsApp
       </a>
     </div>
@@ -503,7 +503,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
           <li><span class="ck">✓</span> 2-day circuit itinerary</li>
           <li><span class="ck">🎁</span> BONUS: 52 Shaktipeethas PDF (worth ₹99)</li>
         </ul>
-        <a href="https://wa.me/919754709571?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999." target="_blank" rel="noopener" class="tg-btn wa">💬 Order on WhatsApp — ₹99</a>
+        <a href="https://wa.me/919754709571?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999." target="_blank" rel="noopener" class="tg-btn wa" data-buy="guide99" data-buy-label="Buy Now — Instant Download">💬 Order on WhatsApp — ₹99</a>
       </div>
 
       <!-- Tier 2: Full Yatra Planning ₹1999 -->
@@ -558,7 +558,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
 
 <div class="mobile-bar">
   <div class="mobile-bar-inner">
-    <a href="https://wa.me/919754709571?text=Hi%2C%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999" target="_blank" rel="noopener" class="mbar-btn mbar-guide"><span class="mbar-icon">📖</span>Guide ₹99</a>
+    <a href="https://wa.me/919754709571?text=Hi%2C%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999" target="_blank" rel="noopener" class="mbar-btn mbar-guide" data-buy="guide99" data-buy-label="Buy Now — Instant Download"><span class="mbar-icon">📖</span>Guide ₹99</a>
     <a href="https://wa.me/919754709571?text=Hi%2C%20I%20have%20a%20question%20about%20Nalkheda%20Temple" target="_blank" rel="noopener" class="mbar-btn mbar-wa" onclick="openWaModal('general');return false;"><span class="mbar-icon">💬</span>WhatsApp</a>
   </div>
 </div>
@@ -578,5 +578,6 @@ document.addEventListener("click",function(e){
   if(t) t.setAttribute("aria-expanded", t.classList.contains("open")?"true":"false");
 });
 </script>
+<script src="/pay-config.js"></script>
 </body>
 </html>
