@@ -161,4 +161,16 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://nalkheda.in/blog/dewas-to-nalkheda.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nalkheda.in/blog/agar-malwa-to-nalkheda.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

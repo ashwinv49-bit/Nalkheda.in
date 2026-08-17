@@ -151,6 +151,16 @@
   to = "/digital-companion.html"
   status = 301
 
+[[redirects]]
+  from = "/blog/dewas-to-nalkheda"
+  to = "/blog/dewas-to-nalkheda.html"
+  status = 301
+
+[[redirects]]
+  from = "/blog/agar-malwa-to-nalkheda"
+  to = "/blog/agar-malwa-to-nalkheda.html"
+  status = 301
+
 # Block internal config files from public access
 [[redirects]]
   from = "/CLAUDE.md"
