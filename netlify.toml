@@ -47,6 +47,11 @@
   status = 301
 
 [[redirects]]
+  from = "/nalkheda-railway-station"
+  to = "/nalkheda-railway-station.html"
+  status = 301
+
+[[redirects]]
   from = "/how-to-reach"
   to = "/how-to-reach.html"
   status = 301
