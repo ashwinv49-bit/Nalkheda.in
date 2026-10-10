@@ -12,7 +12,7 @@ Static HTML site on Netlify, auto-deployed from GitHub `main` branch.
 ---
 
 ## Key Credentials (never commit to public files)
-- **WhatsApp:** +91 9754709571
+- **WhatsApp:** +91 9424875958
 - **UPI:** ashwinv49@ybl
 - **GA4:** G-331NJD7HG3
 - **Booking.com affiliate:** https://bitli.in/3k5fYiv
@@ -37,12 +37,12 @@ Static HTML site on Netlify, auto-deployed from GitHub `main` branch.
 - PDF delivered via WhatsApp after payment
 - Includes: Nalkheda Yatra PDF (45 pages, Hindi + English) + 52 Shaktipeethas bonus PDF
 - Payment: UPI ashwinv49@ybl or WhatsApp order
-- WA link: `https://wa.me/919754709571?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999.`
+- WA link: `https://wa.me/919424875958?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999.`
 
 ### Tier 2 — Full Yatra Package (₹1,999 starting)
 - Hotel booking + local guide + hawan coordination + personalised itinerary + WhatsApp support + circuit extension
 - WhatsApp only — no direct payment on site
-- WA link: `https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20the%20Full%20Yatra%20Package%20(hotel%20booking%20%2B%20guide%20%2B%20all%20arrangements)%20starting%20%E2%82%B91%2C999.%20Please%20share%20details.`
+- WA link: `https://wa.me/919424875958?text=Jai%20Maa%20Baglamukhi!%20I%20want%20the%20Full%20Yatra%20Package%20(hotel%20booking%20%2B%20guide%20%2B%20all%20arrangements)%20starting%20%E2%82%B91%2C999.%20Please%20share%20details.`
 
 ---
 

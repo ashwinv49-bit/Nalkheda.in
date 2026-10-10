@@ -1,6 +1,6 @@
 /* wa-modal.js — WA Info Gate: collects pilgrim details before opening WhatsApp */
 (function () {
-  const WA_NUMBER = '919754709571';
+  const WA_NUMBER = '919424875958';
 
   const SERVICES = [
     { id: 'hotel',   label: '🏨 Hotel Booking' },
