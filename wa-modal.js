@@ -2,6 +2,32 @@
 (function () {
   const WA_NUMBER = '919424875958';
 
+  // Same Apps Script endpoint index.html posts to, so every enquiry — from any
+  // page — lands in the one sheet. Declared here rather than relying on
+  // index.html's logWaClick, which does not exist on the other 25 pages.
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbw6pMuFc-IWsfkZgqWHT7ab7LAr2mGGOn8oQjsYgvHBG6v6olKf8ecOiz9YVXCsEGdXvQ/exec';
+
+  // no-cors + keepalive so the POST survives the tab losing focus when
+  // WhatsApp opens a moment later. Failures are swallowed on purpose: a dead
+  // logger must never block someone from reaching WhatsApp.
+  function logEnquiry(payload) {
+    try {
+      fetch(SHEET_URL, {
+        method: 'POST', mode: 'no-cors', keepalive: true,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).catch(function () {});
+    } catch (e) {}
+  }
+
+  // Accepts 9424875958, 94248 75958, +91 94248-75958, 09424875958.
+  // Returns the bare 10 digits, or '' if it is not a plausible Indian mobile.
+  function normalisePhone(raw) {
+    const d = (raw || '').replace(/\D/g, '');
+    const t = d.length > 10 ? d.slice(-10) : d;
+    return /^[6-9]\d{9}$/.test(t) ? t : '';
+  }
+
   const SERVICES = [
     { id: 'hotel',   label: '🏨 Hotel Booking' },
     { id: 'hawan',   label: '🔥 Hawan Guide' },
@@ -31,13 +57,13 @@
     return `${parseInt(d)} ${months[parseInt(m) - 1]} ${y}`;
   }
 
-  function buildMsg(date, persons, city, needs, extra) {
+  function buildMsg(date, persons, city, phone, needs, extra) {
     const needLines = needs.map(id => {
       const s = SERVICES.find(x => x.id === id);
       return s ? `✓ ${s.label.replace(/^\S+\s/, '')}` : '';
     }).filter(Boolean).join('\n');
 
-    let msg = `🙏 Jai Maa Baglamukhi!\n\nयात्रा की जानकारी:\n━━━━━━━━━━━━━━\n📅 तिथि: ${formatDate(date)}\n👥 यात्री: ${persons} लोग\n🏙️ शहर से: ${city}\n\nसहायता चाहिए:\n${needLines}`;
+    let msg = `🙏 Jai Maa Baglamukhi!\n\nयात्रा की जानकारी:\n━━━━━━━━━━━━━━\n📅 तिथि: ${formatDate(date)}\n👥 यात्री: ${persons} लोग\n🏙️ शहर से: ${city}\n📱 मोबाइल: ${phone}\n\nसहायता चाहिए:\n${needLines}`;
     if (extra && extra.trim()) msg += `\n\n${extra.trim()}`;
     msg += '\n\nकृपया मार्गदर्शन करें 🙏';
     return msg;
@@ -179,6 +205,11 @@
   </div>
 
   <div class="wa-field">
+    <label for="wa-phone">📱 आपका मोबाइल नंबर *</label>
+    <input type="tel" id="wa-phone" inputmode="numeric" maxlength="15" placeholder="10 अंकों का नंबर" autocomplete="tel">
+  </div>
+
+  <div class="wa-field">
     <label>✅ क्या सहायता चाहिए? (एक या अधिक चुनें) *</label>
     <div class="wa-pills">${pillsHTML}</div>
   </div>
@@ -190,7 +221,7 @@
 
   <div id="wa-modal-error"></div>
   <button id="wa-modal-submit">WhatsApp पर भेजें 📲</button>
-  <p class="wa-modal-note">आपकी जानकारी सुरक्षित है। हम 2–4 घंटे में जवाब देते हैं।</p>
+  <p class="wa-modal-note">आपका नंबर केवल आपकी यात्रा पूछताछ का जवाब देने के लिए उपयोग होता है — हम न इसे बेचते हैं, न प्रचार भेजते हैं। हम 2–4 घंटे में जवाब देते हैं। <a href="/privacy-policy.html" target="_blank" rel="noopener" style="color:#6B0F1A;font-weight:600">गोपनीयता नीति</a></p>
 </div>`;
     document.body.appendChild(div);
 
@@ -229,6 +260,8 @@
     const date = document.getElementById('wa-date').value.trim();
     const persons = parseInt(document.getElementById('wa-persons').value) || 0;
     const city = document.getElementById('wa-city').value.trim();
+    const phoneRaw = document.getElementById('wa-phone').value;
+    const phone = normalisePhone(phoneRaw);
     const needs = [...document.querySelectorAll('.wa-pill.checked')].map(p => p.dataset.id);
     const extra = document.getElementById('wa-extra').value;
     const errEl = document.getElementById('wa-modal-error');
@@ -238,17 +271,29 @@
       errEl.classList.add('show');
       return;
     }
+    if (!phone) {
+      errEl.textContent = '⚠️ कृपया 10 अंकों का सही मोबाइल नंबर डालें।';
+      errEl.classList.add('show');
+      document.getElementById('wa-phone').focus();
+      return;
+    }
     errEl.classList.remove('show');
 
-    const msg = buildMsg(date, persons, city, needs, extra);
+    const msg = buildMsg(date, persons, city, phone, needs, extra);
 
-    if (typeof logWaClick !== 'undefined') {
-      try {
-        logWaClick('WA Modal — ' + (window._waModalHint || 'general'), {
-          city: city, date: date, group: persons, notes: needs.join(', ')
-        });
-      } catch (e) {}
-    }
+    logEnquiry({
+      source:    'WA Modal — ' + (window._waModalHint || 'general'),
+      submitted: new Date().toLocaleString('en-IN'),
+      phone:     phone,
+      city:      city,
+      date:      date,
+      group:     persons,
+      services:  needs.join(', '),
+      notes:     extra.trim(),
+      message:   msg,
+      page:      location.pathname,
+      url:       location.href
+    });
 
     window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
     closeWaModal();
@@ -264,10 +309,12 @@
     const dateEl = document.getElementById('wa-date');
     const personsEl = document.getElementById('wa-persons');
     const cityEl = document.getElementById('wa-city');
+    const phoneEl = document.getElementById('wa-phone');
     const extraEl = document.getElementById('wa-extra');
     if (dateEl) dateEl.value = '';
     if (personsEl) personsEl.value = '1';
     if (cityEl) cityEl.value = '';
+    if (phoneEl && !phoneEl.value) phoneEl.value = '';
     if (extraEl) extraEl.value = '';
     document.getElementById('wa-modal-error').classList.remove('show');
 
