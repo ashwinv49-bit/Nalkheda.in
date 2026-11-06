@@ -304,17 +304,30 @@
 
     const msg = buildMsg(name, date, persons, city, phone, needs, extra);
 
+    // The live sheet has a fixed set of columns:
+    //   Submitted | Name | Phone | City | Travel Date | Group Size | Duration |
+    //   Circuit | Stay | Transport | Hawan | Budget | Notes | Source
+    // Anything sent under another key is silently dropped, so the CTA, the page
+    // and the chosen services are folded into the two columns that do exist
+    // rather than requiring the Apps Script to be edited first. The richer keys
+    // are still sent underneath: the replacement Apps Script adds a column for
+    // each, and the current one ignores them.
+    const sourceFull = ['WA Modal — ' + (window._waModalHint || 'general'),
+                        lastCta, location.pathname].filter(Boolean).join(' · ');
+    const notesFull  = [needs.join(', '), extra.trim()].filter(Boolean).join(' | ');
+
     logEnquiry({
-      source:    'WA Modal — ' + (window._waModalHint || 'general'),
-      cta:       lastCta,
+      source:    sourceFull,
       submitted: new Date().toLocaleString('en-IN'),
       name:      name,
       phone:     phone,
       city:      city,
       date:      date,
       group:     persons,
+      notes:     notesFull,
+      // ignored by the current Apps Script, used by the replacement
+      cta:       lastCta,
       services:  needs.join(', '),
-      notes:     extra.trim(),
       message:   msg,
       page:      location.pathname,
       url:       location.href
