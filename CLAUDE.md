@@ -35,7 +35,10 @@ Static HTML site on Netlify, auto-deployed from GitHub `main` branch.
 
 ### Tier 1 — Digital Guide (₹99)
 - PDF delivered via WhatsApp after payment
-- Includes: Nalkheda Yatra PDF (45 pages, Hindi + English) + 52 Shaktipeethas bonus PDF
+- Includes: Nalkheda Yatra PDF (22 pages, 12 chapters, Hindi + English) + 51 Shakti Peethas bonus PDF (7 pages)
+- **Verified against the actual files 6 Nov 2026.** The site previously advertised 38 pages / 9 chapters /
+  52 Shaktipeethas, none of which matched what buyers received. Check this line against the real PDFs
+  before changing any page count in marketing copy.
 - Payment: UPI ashwinv49@ybl or WhatsApp order
 - WA link: `https://wa.me/919424875958?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999.`
 
@@ -81,7 +84,7 @@ Static HTML site on Netlify, auto-deployed from GitHub `main` branch.
 ### PDFs (in repo root — WARNING: publicly accessible)
 - `nalkheda-dham-guide-english.pdf` — main paid product
 - `nalkheda-dham-guide-hindi.pdf` — Hindi version
-- `52-shaktipeethas-nalkheda.pdf` — bonus PDF bundled with ₹99 purchase
+- `51-shakti-peethas-nalkheda.pdf` — bonus PDF bundled with ₹99 purchase
 - `mp-circuit-complete-guide.pdf`
 - `ujjain-complete-guide.pdf`
 - `omkareshwar-complete-guide.pdf`
