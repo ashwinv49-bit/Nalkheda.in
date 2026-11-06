@@ -47,12 +47,17 @@
     { id: 'plan',    label: '🗺️ Full Trip Planning' },
   ];
 
+  // One entry per topic a CTA can open with. A hint missing here silently
+  // falls back to 'general', which is how 'guide' would have pre-ticked the
+  // wrong box after the CTAs were routed by topic.
   const HINT_MAP = {
     hotel:   ['hotel'],
     hawan:   ['hawan'],
     cab:     ['cab'],
-    general: ['plan'],
+    guide:   ['guide'],
+    plan:    ['plan'],
     circuit: ['cab', 'plan'],
+    general: ['plan'],
   };
 
   // Today in IST — the site's audience is entirely in India, and a UTC date
