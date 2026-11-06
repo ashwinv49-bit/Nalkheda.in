@@ -20,6 +20,17 @@
     } catch (e) {}
   }
 
+  // Which CTA opened the modal. Captured from the clicked element so the
+  // 54 existing call sites do not each need a label argument.
+  var lastCta = '';
+  document.addEventListener('click', function (e) {
+    var el = e.target && e.target.closest ? e.target.closest('a,button') : null;
+    if (!el) return;
+    var oc = el.getAttribute('onclick') || '';
+    if (oc.indexOf('openWaModal') === -1) return;
+    lastCta = (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60);
+  }, true);
+
   // Accepts 9424875958, 94248 75958, +91 94248-75958, 09424875958.
   // Returns the bare 10 digits, or '' if it is not a plausible Indian mobile.
   function normalisePhone(raw) {
@@ -57,13 +68,13 @@
     return `${parseInt(d)} ${months[parseInt(m) - 1]} ${y}`;
   }
 
-  function buildMsg(date, persons, city, phone, needs, extra) {
+  function buildMsg(name, date, persons, city, phone, needs, extra) {
     const needLines = needs.map(id => {
       const s = SERVICES.find(x => x.id === id);
       return s ? `✓ ${s.label.replace(/^\S+\s/, '')}` : '';
     }).filter(Boolean).join('\n');
 
-    let msg = `🙏 Jai Maa Baglamukhi!\n\nयात्रा की जानकारी:\n━━━━━━━━━━━━━━\n📅 तिथि: ${formatDate(date)}\n👥 यात्री: ${persons} लोग\n🏙️ शहर से: ${city}\n📱 मोबाइल: ${phone}\n\nसहायता चाहिए:\n${needLines}`;
+    let msg = `🙏 Jai Maa Baglamukhi!\n\nयात्रा की जानकारी:\n━━━━━━━━━━━━━━\n🙋 नाम: ${name}\n📅 तिथि: ${formatDate(date)}\n👥 यात्री: ${persons} लोग\n🏙️ शहर से: ${city}\n📱 मोबाइल: ${phone}\n\nसहायता चाहिए:\n${needLines}`;
     if (extra && extra.trim()) msg += `\n\n${extra.trim()}`;
     msg += '\n\nकृपया मार्गदर्शन करें 🙏';
     return msg;
@@ -190,6 +201,11 @@
   </div>
 
   <div class="wa-field">
+    <label for="wa-name">🙋 आपका नाम *</label>
+    <input type="text" id="wa-name" placeholder="जैसे: अश्विन वर्मा" autocomplete="name">
+  </div>
+
+  <div class="wa-field">
     <label for="wa-date">📅 यात्रा की तारीख *</label>
     <input type="date" id="wa-date" min="${todayIST()}" autocomplete="off">
   </div>
@@ -259,6 +275,7 @@
   function submitWaModal() {
     const date = document.getElementById('wa-date').value.trim();
     const persons = parseInt(document.getElementById('wa-persons').value) || 0;
+    const name = document.getElementById('wa-name').value.trim();
     const city = document.getElementById('wa-city').value.trim();
     const phoneRaw = document.getElementById('wa-phone').value;
     const phone = normalisePhone(phoneRaw);
@@ -266,6 +283,12 @@
     const extra = document.getElementById('wa-extra').value;
     const errEl = document.getElementById('wa-modal-error');
 
+    if (!name || name.length < 2) {
+      errEl.textContent = '⚠️ कृपया अपना नाम लिखें।';
+      errEl.classList.add('show');
+      document.getElementById('wa-name').focus();
+      return;
+    }
     if (!date || persons < 1 || !city || needs.length === 0) {
       errEl.textContent = '⚠️ कृपया सभी जरूरी जानकारी भरें और कम से कम एक सहायता चुनें।';
       errEl.classList.add('show');
@@ -279,11 +302,13 @@
     }
     errEl.classList.remove('show');
 
-    const msg = buildMsg(date, persons, city, phone, needs, extra);
+    const msg = buildMsg(name, date, persons, city, phone, needs, extra);
 
     logEnquiry({
       source:    'WA Modal — ' + (window._waModalHint || 'general'),
+      cta:       lastCta,
       submitted: new Date().toLocaleString('en-IN'),
+      name:      name,
       phone:     phone,
       city:      city,
       date:      date,
@@ -309,11 +334,13 @@
     const dateEl = document.getElementById('wa-date');
     const personsEl = document.getElementById('wa-persons');
     const cityEl = document.getElementById('wa-city');
+    const nameEl = document.getElementById('wa-name');
     const phoneEl = document.getElementById('wa-phone');
     const extraEl = document.getElementById('wa-extra');
     if (dateEl) dateEl.value = '';
     if (personsEl) personsEl.value = '1';
     if (cityEl) cityEl.value = '';
+    if (nameEl && !nameEl.value) nameEl.value = '';
     if (phoneEl && !phoneEl.value) phoneEl.value = '';
     if (extraEl) extraEl.value = '';
     document.getElementById('wa-modal-error').classList.remove('show');
@@ -334,8 +361,8 @@
 
     // focus first input
     setTimeout(() => {
-      const dateEl = document.getElementById('wa-date');
-      if (dateEl) dateEl.focus();
+      const first = document.getElementById('wa-name');
+      if (first) first.focus();
     }, 50);
   };
 })();
