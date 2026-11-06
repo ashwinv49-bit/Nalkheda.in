@@ -301,8 +301,8 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
           <span>📍 दूरी: <strong>0.5 – 2 km from temple</strong></span>
           <span>💰 अनुमानित: <strong>₹1,000 – ₹1,500/रात</strong></span>
         </div>
-        <a href="https://bitli.in/3k5fYiv" target="_blank" rel="noopener sponsored" class="btn-book">🏨 Booking.com पर देखें</a>
-        <a href="https://bitli.in/280AF5M" target="_blank" rel="noopener sponsored" class="btn-book btn-book-mmt">✈️ MakeMyTrip</a>
+        <a data-hotel="nalkheda" data-ota="booking" href="https://bitli.in/3k5fYiv" target="_blank" rel="noopener sponsored" class="btn-book">🏨 Booking.com पर देखें</a>
+        <a data-hotel="nalkheda" data-ota="mmt" href="https://bitli.in/280AF5M" target="_blank" rel="noopener sponsored" class="btn-book btn-book-mmt">✈️ MakeMyTrip</a>
       </div>
     </div>
   </div>
@@ -327,8 +327,8 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
           <span>📍 दूरी: <strong>35 km from Nalkheda</strong></span>
           <span>💰 किराया: <strong>₹1,200 – ₹1,500/रात</strong></span>
         </div>
-        <a href="https://bitli.in/3k5fYiv" target="_blank" rel="noopener sponsored" class="btn-book">🏨 Booking.com</a>
-        <a href="https://bitli.in/280AF5M" target="_blank" rel="noopener sponsored" class="btn-book btn-book-mmt">✈️ MakeMyTrip</a>
+        <a data-hotel="agar" data-ota="booking" href="https://bitli.in/3k5fYiv" target="_blank" rel="noopener sponsored" class="btn-book">🏨 Booking.com</a>
+        <a data-hotel="agar" data-ota="mmt" href="https://bitli.in/280AF5M" target="_blank" rel="noopener sponsored" class="btn-book btn-book-mmt">✈️ MakeMyTrip</a>
       </div>
     </div>
 
@@ -344,8 +344,8 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
           <span>📍 दूरी: <strong>100 km from Nalkheda</strong></span>
           <span>💰 किराया: <strong>₹1,200 – ₹3,000/रात</strong></span>
         </div>
-        <a href="https://bitli.in/3k5fYiv" target="_blank" rel="noopener sponsored" class="btn-book">🏨 Booking.com</a>
-        <a href="https://bitli.in/280AF5M" target="_blank" rel="noopener sponsored" class="btn-book btn-book-mmt">✈️ MakeMyTrip</a>
+        <a data-hotel="ujjain" data-ota="booking" href="https://bitli.in/3k5fYiv" target="_blank" rel="noopener sponsored" class="btn-book">🏨 Booking.com</a>
+        <a data-hotel="ujjain" data-ota="mmt" href="https://bitli.in/280AF5M" target="_blank" rel="noopener sponsored" class="btn-book btn-book-mmt">✈️ MakeMyTrip</a>
       </div>
     </div>
   </div>
@@ -540,7 +540,7 @@ footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;bor
       </div>
       <div class="faq-a">
         <p class="hi">मंदिर से 1-2 km के भीतर कई गेस्टहाउस हैं (₹1,000-1,500/रात)। बेहतर सुविधाओं के लिए आगर मालवा (35 km, ₹1,200-1,500) या उज्जैन (100 km, ₹1,200-3,000) में होटल बुक करें।</p>
-        <p class="en">Guesthouses within 1-2 km of the temple (₹1,000-1,500/night). For better facilities, book in Agar Malwa (35 km, ₹1,200-1,500) or Ujjain (100 km, ₹1,200-3,000). Check live rates: <a href="https://bitli.in/3k5fYiv" target="_blank" rel="noopener sponsored" style="color:var(--saffron)">Booking.com</a> · <a href="https://bitli.in/280AF5M" target="_blank" rel="noopener sponsored" style="color:var(--saffron)">MakeMyTrip</a></p>
+        <p class="en">Guesthouses within 1-2 km of the temple (₹1,000-1,500/night). For better facilities, book in Agar Malwa (35 km, ₹1,200-1,500) or Ujjain (100 km, ₹1,200-3,000). Check live rates: <a data-hotel="nalkheda" data-ota="booking" href="https://bitli.in/3k5fYiv" target="_blank" rel="noopener sponsored" style="color:var(--saffron)">Booking.com</a> · <a data-hotel="nalkheda" data-ota="mmt" href="https://bitli.in/280AF5M" target="_blank" rel="noopener sponsored" style="color:var(--saffron)">MakeMyTrip</a></p>
       </div>
     </div>
 
@@ -674,5 +674,6 @@ document.addEventListener("click",function(e){
   if(t) t.setAttribute("aria-expanded", t.classList.contains("open")?"true":"false");
 });
 </script>
+<script src="/hotel-links.js"></script>
 </body>
 </html>
