@@ -197,8 +197,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- PERFORMANCE: preload first gallery image (WebP for modern browsers, JPG fallback) -->
-<link rel="preload" as="image" href="maa-darshan.webp" type="image/webp">
-<link rel="preload" as="image" href="maa-darshan.jpg" imagesrcset="maa-darshan.webp" imagesizes="33vw">
+<link rel="preload" as="image" href="maa-darshan-800.webp" type="image/webp" fetchpriority="high">
 <!-- Fonts with display=swap for faster render -->
 <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Poppins:wght@400;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Poppins:wght@400;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
@@ -357,7 +356,7 @@
   .hero-city-ujjain  { left: 1.5rem; }
   .hero-city-omk     { right: 1.5rem; text-align: right; }
   @media(max-width:600px) {
-    .hero-city-link { font-size: 1.1rem; top: 58%; }
+    .hero-city-link { display: none; }
     .hero-city-ujjain { left: 0.75rem; }
     .hero-city-omk    { right: 0.75rem; }
   }
@@ -385,6 +384,36 @@
     50% { opacity: 1; transform: translate(-50%,-50%) scale(1.1); }
   }
 
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    margin: 1.6rem 0 0.5rem;
+  }
+  .hero-act {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.25;
+    padding: 0.8rem 1.35rem;
+    min-height: 48px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .hero-act-primary { background: var(--pitambara, #F4C430); color: #2C1A00; }
+  .hero-act-primary:hover { background: var(--pitambara-deep, #D4A017); }
+  .hero-act-second {
+    background: rgba(255,255,255,0.12);
+    color: #FFF8E7;
+    border: 1.5px solid rgba(255,255,255,0.45);
+  }
+  .hero-act-second:hover { background: rgba(255,255,255,0.22); }
+
   .hero-content {
     position: relative;
     z-index: 2;
@@ -393,14 +422,26 @@
     max-width: 900px;
   }
 
+  /* Must sit after the base rule above: same specificity, so the later
+     declaration is the one that wins on a phone. */
+  @media (max-width: 600px) {
+    .hero-content { padding: 3.25rem 1.25rem 2.5rem; }
+    .hero-actions { margin: 1.25rem 0 0.25rem; }
+    .hero-act { font-size: 0.88rem; padding: 0.75rem 1.1rem; }
+  }
+
   .hero-badge {
     display: inline-block;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
+    /* 0.8rem is the project minimum for a section label. */
+    font-size: 0.8rem;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid rgba(212,160,23,0.4);
+    /* Was var(--gold) on the gradient's yellow band: 1.22:1, unreadable.
+       deep-maroon measures 6.78:1 there. */
+    color: var(--deep-maroon);
+    font-weight: 600;
+    border: 1px solid rgba(61,12,2,0.35);
     padding: 0.4rem 1.5rem;
     margin-bottom: 2rem;
     animation: fadeInUp 0.6s ease both;
@@ -1701,13 +1742,18 @@
     justify-content: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s;
+    /* visibility, not opacity alone: opacity:0 leaves the controls inside
+       in the tab order and the accessibility tree. */
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0s linear 0.3s;
     padding: 1rem;
   }
 
   .modal-overlay.active {
     opacity: 1;
     pointer-events: all;
+    visibility: visible;
+    transition: opacity 0.3s, visibility 0s;
   }
 
   .modal {
@@ -2022,7 +2068,11 @@
     cursor: pointer;
     transition: background 0.2s, transform 0.2s;
     border: none;
-    padding: 0;
+    /* dot stays 8px; the tap target becomes 44px */
+    box-sizing: content-box;
+    padding: 18px;
+    margin: -18px;
+    background-clip: content-box;
   }
 
   .gallery-dot.active {
@@ -2306,6 +2356,13 @@
 
   /* ===== WHATSAPP POPOVER ===== */
   .wa-wrap { position: fixed; bottom: 5rem; right: 1.5rem; z-index: 999; display: flex; flex-direction: column; align-items: flex-end; gap: 0.6rem; }
+  /* On a 320px screen the 56px bubble at right:1.5rem overlapped the hero's
+     paid CTA by 18x22px. 48px still clears the 44px minimum tap target. */
+  @media (max-width: 360px) {
+    .wa-wrap { right: 0.6rem; }
+    .wa-btn { width: 48px !important; height: 48px !important; }
+    .hero-act { font-size: 0.82rem; padding: 0.7rem 0.85rem; }
+  }
   .wa-popover {
     background: white;
     border-radius: 12px;
@@ -2573,6 +2630,12 @@
       One of India's three legendary Baglamukhi Siddha Peethas — a place of Tantric power,<br>
       divine grace, and ancient mysticism on the banks of the holy Lakhundar River.
     </p>
+
+    <div class="hero-actions">
+      <a href="/travel-guide.html#get" class="hero-act hero-act-primary">Yatra Guide PDF — ₹99</a>
+      <a href="/temple-timings.html" class="hero-act hero-act-second">दर्शन समय · Timings &amp; Aarti</a>
+    </div>
+
     <div class="hero-stats">
       <div class="stat">
         <span class="stat-num">500+</span>
@@ -2591,10 +2654,10 @@
         <span class="stat-label">Pilgrims Monthly</span>
       </div>
     </div>
-    <div class="hero-buttons">
-      <a href="#about" class="btn-primary">Explore the Dham</a>
-      <a href="/digital-companion.html" class="btn-outline">🌟 Book Digital Companion — ₹1,999</a>
-    </div>
+    <!-- The hero's two actions now sit directly under the subtitle, above
+         the stats. This second pair duplicated them: "Explore the Dham"
+         remains on the circuit card, and the Rs1,999 Digital Companion
+         remains in the services section and on its own page. -->
 
   </div>
   <div class="scroll-indicator">↓</div>
@@ -3294,7 +3357,7 @@
           <!-- Slide 0 — Maa Sakshaat Darshan (uploaded by client) -->
           <div class="gallery-slide" onclick="openLightbox(this)">
             <picture>
-              <source srcset="maa-darshan.webp" type="image/webp">
+              <source srcset="maa-darshan-800.webp" type="image/webp">
               <img src="maa-darshan.jpg" alt="Maa Baglamukhi Sakshaat Darshan — Nalkheda Dham Garbha Griha" loading="eager" fetchpriority="high" width="800" height="1067">
             </picture>
             <div class="gallery-slide-overlay"><span class="gallery-slide-caption">🙏 Maa Baglamukhi — Sakshaat Darshan, Nalkheda</span></div>
@@ -3302,37 +3365,37 @@
 
           <!-- Slide 1 — Temple night view through arch -->
           <div class="gallery-slide" onclick="openLightbox(this)">
-            <img src="temple1.jpg" alt="Maa Baglamukhi Mandir Nalkheda — Navratri Night Illumination" loading="lazy">
+            <picture><source srcset="temple1-600.webp" type="image/webp"><img src="temple1.jpg" alt="Maa Baglamukhi Mandir Nalkheda — Navratri Night Illumination" loading="lazy"></picture>
             <div class="gallery-slide-overlay"><span class="gallery-slide-caption">Navratri Night — Nalkheda Dham</span></div>
           </div>
 
           <!-- Slide 2 — Mandir entrance with devotees in yellow -->
           <div class="gallery-slide" onclick="openLightbox(this)">
-            <img src="temple2.jpg" alt="Maa Baglamukhi Mandir Entrance — Devotees in Yellow, Nalkheda" loading="lazy">
+            <picture><source srcset="temple2-600.webp" type="image/webp"><img src="temple2.jpg" alt="Maa Baglamukhi Mandir Entrance — Devotees in Yellow, Nalkheda" loading="lazy"></picture>
             <div class="gallery-slide-overlay"><span class="gallery-slide-caption">Mandir Pravesh — Devotees in Pitambara</span></div>
           </div>
 
           <!-- Slide 3 — Maa idol darshan -->
           <div class="gallery-slide" onclick="openLightbox(this)">
-            <img src="temple3.jpg" alt="Maa Baglamukhi Idol Darshan — Garbha Griha, Nalkheda" loading="lazy">
+            <picture><source srcset="temple3-600.webp" type="image/webp"><img src="temple3.jpg" alt="Maa Baglamukhi Idol Darshan — Garbha Griha, Nalkheda" loading="lazy"></picture>
             <div class="gallery-slide-overlay"><span class="gallery-slide-caption">Maa Baglamukhi — Sacred Darshan</span></div>
           </div>
 
           <!-- Slide 4 — Temple premises panorama -->
           <div class="gallery-slide" onclick="openLightbox(this)">
-            <img src="temple4.jpg" alt="Nalkheda Dham Temple Premises — Navratri Celebrations" loading="lazy">
+            <picture><source srcset="temple4-600.webp" type="image/webp"><img src="temple4.jpg" alt="Nalkheda Dham Temple Premises — Navratri Celebrations" loading="lazy"></picture>
             <div class="gallery-slide-overlay"><span class="gallery-slide-caption">Temple Premises — Navratri Utsav</span></div>
           </div>
 
           <!-- Slide 5 — Lion gate iconic view -->
           <div class="gallery-slide" onclick="openLightbox(this)">
-            <img src="temple5.jpg" alt="Nalkheda Mandir Lion Gate — Iconic Entrance, Agar Malwa" loading="lazy">
+            <picture><source srcset="temple5-600.webp" type="image/webp"><img src="temple5.jpg" alt="Nalkheda Mandir Lion Gate — Iconic Entrance, Agar Malwa" loading="lazy"></picture>
             <div class="gallery-slide-overlay"><span class="gallery-slide-caption">Iconic Singha Dwar — Temple Gate</span></div>
           </div>
 
           <!-- Slide 6 — Lakhundar river -->
           <div class="gallery-slide" onclick="openLightbox(this)">
-            <img src="temple6.jpg" alt="Lakhundar River near Maa Baglamukhi Mandir Nalkheda" loading="lazy">
+            <picture><source srcset="temple6-600.webp" type="image/webp"><img src="temple6.jpg" alt="Lakhundar River near Maa Baglamukhi Mandir Nalkheda" loading="lazy"></picture>
             <div class="gallery-slide-overlay"><span class="gallery-slide-caption">Pavitra Lakhundar Nadi — Sacred River</span></div>
           </div>
 
@@ -4565,12 +4628,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (tapCount >= 5) { tapCount = 0; openAdmin(); }
     });
   }
-  loadPhotoEditor();
-  loadListingsEditor();
-  loadAdminStats();
+  // Deliberately NOT called here. These three only fill the hidden admin
+  // panel, and loadPhotoEditor() pulls six full-size jpgs (~925 KB) to do
+  // it. They now run from openAdmin(), when the panel is actually opened.
 });
 
 function openAdmin() {
+  loadPhotoEditor();
+  loadListingsEditor();
+  loadAdminStats();
   document.getElementById('admin-overlay').style.display = 'block';
   document.getElementById('admin-login').style.display = 'block';
   document.getElementById('admin-dash').style.display = 'none';
@@ -4777,12 +4843,12 @@ function savePrices() {
 
 // ===== PHOTO EDITOR =====
 const galleryPhotos = [
-  { label: 'Slide 1 — Maa Darshan', id: 'maa-darshan', src: 'maa-darshan.jpg' },
-  { label: 'Slide 2 — Temple 1', id: 'temple1', src: 'temple1.jpg' },
-  { label: 'Slide 3 — Temple 2', id: 'temple2', src: 'temple2.jpg' },
-  { label: 'Slide 4 — Temple 3', id: 'temple3', src: 'temple3.jpg' },
-  { label: 'Slide 5 — Temple 4', id: 'temple4', src: 'temple4.jpg' },
-  { label: 'Slide 6 — Temple 5', id: 'temple5', src: 'temple5.jpg' },
+  { label: 'Slide 1 — Maa Darshan', id: 'maa-darshan', src: 'maa-darshan.jpg', thumb: 'maa-darshan-800.webp' },
+  { label: 'Slide 2 — Temple 1', id: 'temple1', src: 'temple1.jpg', thumb: 'temple1-600.webp' },
+  { label: 'Slide 3 — Temple 2', id: 'temple2', src: 'temple2.jpg', thumb: 'temple2-600.webp' },
+  { label: 'Slide 4 — Temple 3', id: 'temple3', src: 'temple3.jpg', thumb: 'temple3-600.webp' },
+  { label: 'Slide 5 — Temple 4', id: 'temple4', src: 'temple4.jpg', thumb: 'temple4-600.webp' },
+  { label: 'Slide 6 — Temple 5', id: 'temple5', src: 'temple5.jpg', thumb: 'temple5-600.webp' },
 ];
 
 function loadPhotoEditor() {
@@ -4790,7 +4856,7 @@ function loadPhotoEditor() {
   if (!el) return;
   el.innerHTML = galleryPhotos.map((p,i) => `
     <div style="display:grid; grid-template-columns:80px 1fr auto; gap:0.75rem; align-items:center; background:rgba(255,255,255,0.03); padding:0.75rem; border:1px solid rgba(212,160,23,0.1);">
-      <img src="${p.src}" style="width:80px; height:55px; object-fit:cover;" onerror="this.style.background='#333'">
+      <img src="${p.thumb || p.src}" alt="" loading="lazy" style="width:80px; height:55px; object-fit:cover;" onerror="this.style.background='#333'">
       <div>
         <div style="font-size:0.75rem; color:var(--gold); margin-bottom:0.3rem;">${p.label}</div>
         <input type="text" id="photo-${i}" value="${p.src}" style="width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(212,160,23,0.2); color:white; padding:0.4rem; font-size:0.82rem;">
