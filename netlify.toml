@@ -52,6 +52,16 @@
   status = 301
 
 [[redirects]]
+  from = "/hawan"
+  to = "/hawan.html"
+  status = 301
+
+[[redirects]]
+  from = "/mp-circuit"
+  to = "/mp-circuit.html"
+  status = 301
+
+[[redirects]]
   from = "/how-to-reach"
   to = "/how-to-reach.html"
   status = 301
