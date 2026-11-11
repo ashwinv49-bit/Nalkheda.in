@@ -73,7 +73,7 @@
     return `${parseInt(d)} ${months[parseInt(m) - 1]} ${y}`;
   }
 
-  function buildMsg(name, date, persons, city, phone, needs, extra) {
+  function buildMsg(name, date, persons, city, phone, needs, extra, ref) {
     const needLines = needs.map(id => {
       const s = SERVICES.find(x => x.id === id);
       return s ? `✓ ${s.label.replace(/^\S+\s/, '')}` : '';
@@ -82,6 +82,7 @@
     let msg = `🙏 Jai Maa Baglamukhi!\n\nयात्रा की जानकारी:\n━━━━━━━━━━━━━━\n🙋 नाम: ${name}\n📅 तिथि: ${formatDate(date)}\n👥 यात्री: ${persons} लोग\n🏙️ शहर से: ${city}\n📱 मोबाइल: ${phone}\n\nसहायता चाहिए:\n${needLines}`;
     if (extra && extra.trim()) msg += `\n\n${extra.trim()}`;
     msg += '\n\nकृपया मार्गदर्शन करें 🙏';
+    if (ref) msg += '\n\n[Ref: ' + ref + ']';
     return msg;
   }
 
@@ -307,7 +308,10 @@
     }
     errEl.classList.remove('show');
 
-    const msg = buildMsg(name, date, persons, city, phone, needs, extra);
+    // wa-track.js stamps the tap that opened this modal. Reuse that code so
+    // the sheet row and the WhatsApp message carry the same reference.
+    const ref = window.__nkRef || (window.NK_REF ? window.NK_REF() : '');
+    const msg = buildMsg(name, date, persons, city, phone, needs, extra, ref);
 
     // The live sheet has a fixed set of columns:
     //   Submitted | Name | Phone | City | Travel Date | Group Size | Duration |
@@ -317,7 +321,8 @@
     // rather than requiring the Apps Script to be edited first. The richer keys
     // are still sent underneath: the replacement Apps Script adds a column for
     // each, and the current one ignores them.
-    const sourceFull = ['WA Modal — ' + (window._waModalHint || 'general'),
+    const sourceFull = (ref ? '[' + ref + '] ' : '') +
+                       ['WA Modal — ' + (window._waModalHint || 'general'),
                         lastCta, location.pathname].filter(Boolean).join(' · ');
     const notesFull  = [needs.join(', '), extra.trim()].filter(Boolean).join(' | ');
 
