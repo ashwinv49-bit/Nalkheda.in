@@ -29,7 +29,7 @@ window.NALKHEDA_PAY = {
 
   // ---- Fallback -----------------------------------------------------------
   // Used whenever a link above is empty. This is today's behaviour.
-  whatsapp: "919424875958",
+  whatsapp: "919754709571",
 
   // ---- Where buyers land after paying ------------------------------------
   thankYou: "/guide-download.html"

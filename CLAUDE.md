@@ -12,7 +12,11 @@ Static HTML site on Netlify, auto-deployed from GitHub `main` branch.
 ---
 
 ## Key Credentials (never commit to public files)
-- **WhatsApp:** +91 9424875958
+- **WhatsApp (live on site):** +91 9754709571
+- **WhatsApp (held, not deployed):** +91 9424875958 — commit `d22dd24` (10 Oct) switched the
+  whole site to this number, but that commit never deployed, so the live site kept 9754709571.
+  On 12 Nov the owner chose to keep 9754709571 live until they say otherwise, and the repo was
+  reverted to match. **Do not switch the site to 9424875958 without the owner asking for it.**
 - **UPI:** ashwinv49@ybl
 - **GA4:** G-331NJD7HG3
 - **Booking.com affiliate:** https://bitli.in/3k5fYiv
@@ -40,12 +44,12 @@ Static HTML site on Netlify, auto-deployed from GitHub `main` branch.
   52 Shaktipeethas, none of which matched what buyers received. Check this line against the real PDFs
   before changing any page count in marketing copy.
 - Payment: UPI ashwinv49@ybl or WhatsApp order
-- WA link: `https://wa.me/919424875958?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999.`
+- WA link: `https://wa.me/919754709571?text=Hi!%20I%20want%20to%20buy%20the%20Nalkheda%20Travel%20Guide%20PDF%20for%20%E2%82%B999.`
 
 ### Tier 2 — Full Yatra Package (₹1,999 starting)
 - Hotel booking + local guide + hawan coordination + personalised itinerary + WhatsApp support + circuit extension
 - WhatsApp only — no direct payment on site
-- WA link: `https://wa.me/919424875958?text=Jai%20Maa%20Baglamukhi!%20I%20want%20the%20Full%20Yatra%20Package%20(hotel%20booking%20%2B%20guide%20%2B%20all%20arrangements)%20starting%20%E2%82%B91%2C999.%20Please%20share%20details.`
+- WA link: `https://wa.me/919754709571?text=Jai%20Maa%20Baglamukhi!%20I%20want%20the%20Full%20Yatra%20Package%20(hotel%20booking%20%2B%20guide%20%2B%20all%20arrangements)%20starting%20%E2%82%B91%2C999.%20Please%20share%20details.`
 
 ---
 
