@@ -85,15 +85,36 @@ Static HTML site on Netlify, auto-deployed from GitHub `main` branch.
 | `nalkheda-yatra-checklist.html` | Not indexed |
 | `baglamukhi-puja-benefits.html` | Not indexed |
 
-### PDFs (in repo root — WARNING: publicly accessible)
-- `nalkheda-dham-guide-english.pdf` — main paid product
-- `nalkheda-dham-guide-hindi.pdf` — Hindi version
-- `51-shakti-peethas-nalkheda.pdf` — bonus PDF bundled with ₹99 purchase
-- `mp-circuit-complete-guide.pdf`
-- `ujjain-complete-guide.pdf`
-- `omkareshwar-complete-guide.pdf`
+### PDFs — NOT on the site, but STILL IN GIT HISTORY
+Checked 13 Nov 2026. The paid PDFs are **no longer served**: all six return 404 on the
+live site, none are tracked in `HEAD`, and none exist in the working tree. Delivery is
+manual over WhatsApp after payment.
 
-**Note:** PDFs are tracked in git and publicly accessible at nalkheda.in/filename.pdf. Delivery is manual via WhatsApp after payment. Consider moving to Google Drive private links for better security.
+They are, however, **fully recoverable from git history**. Verified by extracting
+`nalkheda-dham-guide-english.pdf` from an old blob: 223,755 bytes, a valid 13-page PDF
+with the real guide content. Blobs still present:
+
+| File | Versions in history |
+|------|---------------------|
+| `nalkheda-dham-guide-english.pdf` | 3 (147 / 217 / 218 KB) — the ₹99 product |
+| `nalkheda-dham-guide-hindi.pdf` | 3 (147 / 217 / 218 KB) |
+| `52-shaktipeethas-nalkheda.pdf` | 1 (35 KB) — the bundled bonus |
+| `mp-circuit-complete-guide.pdf` | 1 (9 KB) |
+| `ujjain-complete-guide.pdf` | 1 (11 KB) |
+| `omkareshwar-complete-guide.pdf` | 1 (7 KB) |
+
+(Note the filename is `52-shaktipeethas-...`, not the `51-shakti-peethas-...` this file
+used to claim.)
+
+**Therefore: do not make this repository public.** Anyone could clone it and get every
+paid guide for free. Considered and rejected on 13 Nov 2026 for exactly this reason —
+and it is not needed, because the commit-authorship fix above already solves the Netlify
+build problem that public visibility would have worked around.
+
+If the repo must ever go public, purge the blobs first (`git filter-repo` or BFG, then a
+force-push). Even then: commit hashes all change, GitHub can still serve orphaned blobs
+by SHA until Support forces garbage collection, and anyone who already cloned keeps their
+copy.
 
 ---
 
@@ -310,6 +331,6 @@ Main branch auto-deploys to Netlify on push.
 ## Pending / Future Work
 - Request indexing in Search Console for ujjain.html, omkareshwar.html, blog posts
 - Bulk up travel-guide.html content (currently "crawled not indexed" = thin)
-- Remove PDFs from public git → move to Google Drive private links for delivery
+- PDFs are out of `HEAD` and off the live site, but still in git history — purge the blobs if the repo ever needs to be public (see the PDFs section)
 - Consider AdSense on blog posts only (not conversion pages) once traffic hits 500/day
 - Add more blog posts targeting zero-click keywords from Search Console
