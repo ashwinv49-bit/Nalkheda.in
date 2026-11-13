@@ -45,6 +45,18 @@ window.NALKHEDA_HOTELS = {
      disable the behaviour entirely. */
   cuelinksJs: "auto",
 
+  /* Your Cuelinks Publisher ID, from the Cuelinks dashboard under Account
+     Settings. A short string such as "543CL529" — NOT the long number in a
+     bitli.in redirect, which is a share id and will not work.
+
+     Set it and this file loads Cuelinks itself; nothing else to paste. The
+     Cuelinks script reads a global `pubID` (verified against
+     cdn0.cuelinks.com/js/cuelinksv1.js: it uses `pub_id=`+pubID when that
+     global exists) and converts outbound merchant links on click.
+
+     Leave empty and nothing is loaded and nothing changes. */
+  cuelinksPubId: "",
+
   /* The current generic links. Used whenever nothing above is filled in,
      so nothing breaks while the links are empty. */
   fallback: {
@@ -55,6 +67,20 @@ window.NALKHEDA_HOTELS = {
 
 (function () {
   var C = window.NALKHEDA_HOTELS || {};
+
+  // Load Cuelinks ourselves when a Publisher ID is configured, so the only
+  // thing anyone has to paste is that one id. Injected async and only once.
+  (function loadCuelinks() {
+    if (!C.cuelinksPubId || C.cuelinksJs === false) return;
+    if (document.getElementById("cuelinks-js")) return;
+    try { window.pubID = C.cuelinksPubId; } catch (e) { return; }
+    var s = document.createElement("script");
+    s.id = "cuelinks-js";
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = "https://cdn0.cuelinks.com/js/cuelinksv1.js";
+    (document.head || document.documentElement).appendChild(s);
+  })();
 
   // What each city is called on Booking.com's search.
   var PLACE = {
