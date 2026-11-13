@@ -122,7 +122,38 @@ Static HTML site on Netlify, auto-deployed from GitHub `main` branch.
 ---
 
 ## Netlify Configuration
-- **Deploys from:** `main` branch on push
+
+### Commit authorship — READ THIS BEFORE COMMITTING
+The Netlify account (`avtravelbuddy@gmail.com`) is on the **Free** plan, which only
+builds commits on a **private** repo when the commit author is a verified team member.
+Commits authored `Claude <noreply@anthropic.com>` are rejected with:
+
+> Build blocked: Unrecognized Git contributor. This plan allows only verified
+> account members to push to private repos.
+
+This silently broke every deploy from **10 Oct to 13 Nov 2026** — twelve commits built
+and failed while the live site served a 23 September build. Nobody noticed because a
+failed build leaves the previous deploy up.
+
+Commits must therefore be authored as the Netlify account:
+```bash
+git config user.email "avtravelbuddy@gmail.com"
+git config user.name  "Ashwin Vishwakarma"
+```
+Set on this repo 13 Nov 2026. **Do not revert it.** The alternatives are making the
+repo public or upgrading the Netlify plan.
+
+If builds are blocked again, a deploy can be published directly through the Netlify
+API (upload file digests to `/sites/{id}/deploys`), which bypasses the git build
+entirely. Exclude `CLAUDE.md`, `.claude/` and `.github/` from such a deploy — they are
+not served today and must not start being served.
+
+### Other settings
+- `pretty_urls` is **on**, so `/page` and `/page.html` both return 200 and the
+  `netlify.toml` 301 rules never fire. The `.html` canonicals are what consolidates
+  them; keep canonicals on every page.
+- **Deploys from:** `main` branch on push (`allowed_branches: ["main"]` — branch
+  deploys are off, so a feature branch cannot be test-built)
 - **Clean URLs:** Netlify rewrites serve `/page` and `/page.html` both as 200
 - **Canonical strategy:** All canonicals use `.html` extension (e.g. `https://nalkheda.in/faq.html`)
 - No `netlify.toml` needed — auto-configured
