@@ -33,6 +33,18 @@ window.NALKHEDA_HOTELS = {
     omkareshwar: { booking: "", mmt: "" }
   },
 
+  /* OPTION 3 — the Cuelinks auto-convert script.
+     If the Cuelinks JS snippet is installed on the page, it rewrites
+     outbound merchant links to affiliate links at click time. When that
+     script is detected, Booking.com buttons are pointed at the REAL city
+     search URL and Cuelinks does the tracking.
+
+     "auto" (the default) only does this when the script is actually found,
+     so if the snippet is missing or fails to load, every button keeps the
+     tracked generic link below and nothing is lost. Set to false to
+     disable the behaviour entirely. */
+  cuelinksJs: "auto",
+
   /* The current generic links. Used whenever nothing above is filled in,
      so nothing breaks while the links are empty. */
   fallback: {
@@ -53,6 +65,25 @@ window.NALKHEDA_HOTELS = {
     omkareshwar: "Omkareshwar, Madhya Pradesh, India"
   };
 
+  // Is the Cuelinks auto-convert snippet actually on this page AND loaded?
+  // Checked at click-relevant moments rather than once, because the snippet
+  // loads async and may land after this file has already run.
+  function cuelinksLive() {
+    if (C.cuelinksJs === false) return false;
+    if (window.cuelinks || window._cuelinks || window.cuelinksc) return true;
+    var sc = document.getElementsByTagName("script");
+    for (var i = 0; i < sc.length; i++) {
+      var src = sc[i].src || "";
+      if (src.indexOf("cuelinks") !== -1) return true;
+    }
+    return false;
+  }
+
+  function plainSearch(dest) {
+    return "https://www.booking.com/searchresults.html?ss=" +
+           encodeURIComponent(PLACE[dest]);
+  }
+
   function cuelinks(target) {
     return "https://linksredirect.com/?cid=" + encodeURIComponent(C.cuelinksCid) +
            "&source=linkkit&url=" + encodeURIComponent(target);
@@ -65,6 +96,14 @@ window.NALKHEDA_HOTELS = {
     // Booking.com search URLs are a stable, documented format, so these can be
     // built. MakeMyTrip's are not — they need internal city codes — so MMT
     // falls through to the generic link rather than to a guessed URL.
+    // With the auto-convert snippet live, hand Cuelinks a real city search
+    // URL and let it do the tracking. Without it, fall through to the
+    // tracked generic link rather than emit an untracked booking.com URL
+    // that would earn nothing.
+    if (ota === "booking" && PLACE[dest] && cuelinksLive()) {
+      return plainSearch(dest);
+    }
+
     if (C.cuelinksCid && ota === "booking" && PLACE[dest]) {
       return cuelinks("https://www.booking.com/searchresults.html?ss=" +
                       encodeURIComponent(PLACE[dest]));
@@ -89,10 +128,23 @@ window.NALKHEDA_HOTELS = {
     return n;
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", apply);
-  } else {
+  // The snippet is async, so re-apply for a few seconds after first paint.
+  // Once it is detected the links are upgraded and the watch stops.
+  function applyAndWatch() {
     apply();
+    if (C.cuelinksJs === false || cuelinksLive()) return;
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      if (cuelinksLive()) { apply(); clearInterval(t); }
+      else if (tries > 20) { clearInterval(t); }     // ~5s, then give up
+    }, 250);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", applyAndWatch);
+  } else {
+    applyAndWatch();
   }
 
   // Exposed so the browser console can check the wiring:
