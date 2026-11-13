@@ -73,6 +73,12 @@
 
   <!-- Circuit hub pages -->
   <url>
+    <loc>https://nalkheda.in/ujjain-hotels.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://nalkheda.in/ujjain.html</loc>
     <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
