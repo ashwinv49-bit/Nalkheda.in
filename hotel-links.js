@@ -27,7 +27,11 @@ window.NALKHEDA_HOTELS = {
      MMT buttons stay on the fallback until you paste real links here. */
   links: {
     nalkheda:    { booking: "", mmt: "" },
-    agar:        { booking: "", mmt: "" },
+    /* TEST LINK — constructed, not generated in the EarnKaro dashboard.
+       It has no shareid. Attribution is UNPROVEN: if a click on this does
+       not appear in the EarnKaro dashboard, replace it with a real Profit
+       Link and do not construct any others. */
+    agar:        { booking: "https://trackingv3.linkredirect.in/visitretailer/2732?id=5269672&dl=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DAgar%2BMalwa%252C%2BMadhya%2BPradesh%252C%2BIndia", mmt: "" },
     ujjain:      { booking: "https://bitli.in/lYFh6JH", mmt: "" },
     indore:      { booking: "", mmt: "" },
     omkareshwar: { booking: "", mmt: "" }
