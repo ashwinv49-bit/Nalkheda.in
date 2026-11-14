@@ -21,17 +21,21 @@ window.NALKHEDA_HOTELS = {
      Verify one link in a private window before trusting the rest. */
   cuelinksCid: "",
 
-  /* OPTION 2 — ready-made links per city, from your affiliate dashboard.
+  /* Tested 14 Nov 2026: a link built by hand in the same shape as a real
+     one, but WITHOUT a shareid, is still attributed (the click registered
+     in the EarnKaro dashboard) but the dl= deep link is DROPPED -- it
+     lands on the Booking.com homepage. The shareid is what binds the
+     destination. So links must be generated in the dashboard; constructing
+     them earns the same as the generic link and loses the city, which is
+     the whole point. Do not construct them.
+
+     OPTION 2 — ready-made links per city, from your affiliate dashboard.
      Anything set here wins over Option 1. MakeMyTrip needs this option:
      its listing URLs use internal city codes that cannot be guessed, so
      MMT buttons stay on the fallback until you paste real links here. */
   links: {
     nalkheda:    { booking: "", mmt: "" },
-    /* TEST LINK — constructed, not generated in the EarnKaro dashboard.
-       It has no shareid. Attribution is UNPROVEN: if a click on this does
-       not appear in the EarnKaro dashboard, replace it with a real Profit
-       Link and do not construct any others. */
-    agar:        { booking: "https://trackingv3.linkredirect.in/visitretailer/2732?id=5269672&dl=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DAgar%2BMalwa%252C%2BMadhya%2BPradesh%252C%2BIndia", mmt: "" },
+    agar:        { booking: "", mmt: "" },
     ujjain:      { booking: "https://bitli.in/lYFh6JH", mmt: "" },
     indore:      { booking: "", mmt: "" },
     omkareshwar: { booking: "", mmt: "" }
