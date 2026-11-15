@@ -36,7 +36,7 @@ window.NALKHEDA_HOTELS = {
   links: {
     nalkheda:    { booking: "", mmt: "" },
     agar:        { booking: "", mmt: "" },
-    ujjain:      { booking: "https://bitli.in/lYFh6JH", mmt: "" },
+    ujjain:      { booking: "", mmt: "" },
     indore:      { booking: "", mmt: "" },
     omkareshwar: { booking: "", mmt: "" }
   },
