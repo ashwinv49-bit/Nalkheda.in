@@ -36,9 +36,9 @@ window.NALKHEDA_HOTELS = {
   links: {
     nalkheda:    { booking: "", mmt: "" },
     agar:        { booking: "", mmt: "" },
-    ujjain:      { booking: "", mmt: "" },
+    ujjain:      { booking: "https://bitli.in/lYFh6JH", mmt: "" },
     indore:      { booking: "", mmt: "" },
-    omkareshwar: { booking: "", mmt: "" }
+    omkareshwar: { booking: "https://bitli.in/k09ruDo", mmt: "" }
   },
 
   /* OPTION 3 — the Cuelinks auto-convert script.
