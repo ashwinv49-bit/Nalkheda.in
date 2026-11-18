@@ -145,6 +145,32 @@ window.NALKHEDA_HOTELS = {
     return (C.fallback || {})[ota] || "";
   }
 
+  // Report every affiliate click to GA4. Network dashboards lag by weeks and
+  // cannot say which page or which city produced a click; this can, within
+  // minutes, and it survives a change of affiliate network.
+  function trackClicks() {
+    if (window.__nkHotelTrack) return;
+    window.__nkHotelTrack = true;
+    document.addEventListener("click", function (e) {
+      var a = e.target && e.target.closest ? e.target.closest("a[data-hotel][data-ota]") : null;
+      if (!a) return;
+      var city = a.getAttribute("data-hotel") || "unknown";
+      var ota  = a.getAttribute("data-ota")  || "unknown";
+      try {
+        if (typeof gtag === "function") {
+          gtag("event", "affiliate_click", {
+            city: city,
+            ota: ota,
+            page_path: location.pathname,
+            link_url: a.href,
+            // deep_link=false means the visitor lands on the OTA home page
+            deep_link: /[?&]dl=/.test(a.href) ? "true" : "false"
+          });
+        }
+      } catch (err) {}
+    }, true);   // capture phase: fires even though the link opens a new tab
+  }
+
   function apply() {
     var n = 0;
     var links = document.querySelectorAll("a[data-hotel][data-ota]");
@@ -166,6 +192,7 @@ window.NALKHEDA_HOTELS = {
   // Once it is detected the links are upgraded and the watch stops.
   function applyAndWatch() {
     apply();
+    trackClicks();
     if (C.cuelinksJs === false || cuelinksLive()) return;
     var tries = 0;
     var t = setInterval(function () {
