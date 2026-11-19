@@ -4558,7 +4558,32 @@ function logWaClick(source, extra) {
     headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)
   }).catch(()=>{});
 }
-let adminPwd = localStorage.getItem('nalkheda_pwd') || 'maa@admin2026';
+/* The admin password is NOT stored here. A password written into page source
+   is readable by anyone who views source -- the previous default was public on
+   the live site. Only a SHA-256 hash of the password is kept, in this browser's
+   localStorage, so the source reveals nothing.
+
+   First use, or after clearing site data, set a password from the browser
+   console on nalkheda.in:
+
+     await nkSetAdminPassword('your-new-password')
+
+   The panel stays locked until that is done. It is a local tool: it edits only
+   this browser's copy and cannot change the live site, so a lockout costs
+   nothing but a console line. */
+const ADMIN_HASH_KEY = 'nalkheda_pwd_sha256';
+
+async function sha256Hex(text) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+window.nkSetAdminPassword = async function (pwd) {
+  if (!pwd || pwd.length < 8) return 'Use at least 8 characters.';
+  localStorage.setItem(ADMIN_HASH_KEY, await sha256Hex(pwd));
+  localStorage.removeItem('nalkheda_pwd');   // clear any old plaintext
+  return 'Admin password set on this browser.';
+};
 
 document.addEventListener('keydown', e => {
   if (e.ctrlKey && e.shiftKey && e.key === 'A') openAdmin();
@@ -4650,9 +4675,15 @@ function closeAdmin() {
   document.body.style.overflow = '';
 }
 
-function adminLogin() {
+async function adminLogin() {
   const pwd = document.getElementById('admin-pwd').value;
-  if (pwd === adminPwd) {
+  const stored = localStorage.getItem(ADMIN_HASH_KEY);
+  if (!stored) {
+    document.getElementById('admin-err').textContent =
+      'No password set. In the console run: nkSetAdminPassword(\'...\')';
+    return;
+  }
+  if (await sha256Hex(pwd) === stored) {
     document.getElementById('admin-login').style.display = 'none';
     document.getElementById('admin-dash').style.display = 'block';
     loadUserTable();
@@ -4755,8 +4786,10 @@ function changePassword() {
   const cp = document.getElementById('conf-pwd').value;
   if (!np) { alert('Enter new password'); return; }
   if (np !== cp) { alert('Passwords do not match'); return; }
-  adminPwd = np;
-  localStorage.setItem('nalkheda_pwd', np);
+  sha256Hex(np).then(function (h) {
+    localStorage.setItem(ADMIN_HASH_KEY, h);
+    localStorage.removeItem('nalkheda_pwd');
+  });
   alert('✅ Password changed successfully!');
   document.getElementById('new-pwd').value = '';
   document.getElementById('conf-pwd').value = '';
