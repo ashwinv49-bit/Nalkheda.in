@@ -51,9 +51,27 @@ Zero `.css` files. `index.html` alone holds **2,338 lines of inline CSS**; `digi
 ### 3.4 Fabricated testimonials
 Four named testimonials (Priya Sharma, Rajesh Tiwari, Sunita Verma, Avinash Kulkarni) appear only in `index.html`, match no real lead, and there is no review-collection mechanism anywhere. They are not in schema, which limits the damage, but they are untrue and sit on the page that carries the brand.
 
-### 3.5 Pages missing basics
-No canonical: `404.html`, `google926715b5aa1cbc3a.html`, `guide-download.html`.
-No schema: those three plus `privacy-policy.html`.
+### 3.5 Pages missing basics — CORRECTED 20 Nov, not an issue
+I first listed `404.html`, `google926715b5aa1cbc3a.html` and
+`guide-download.html` as missing canonicals and schema. On checking, all three
+are deliberately `noindex` and absent from the sitemap, which is the correct
+treatment for an error page, a search-console verification file and a paid
+delivery page. Nothing to fix.
+
+Full SEO hygiene re-check, 20 Nov:
+
+| Check | Result |
+|---|---|
+| Broken internal links | **0** |
+| Duplicate titles | **0** |
+| Duplicate descriptions | **0** |
+| Descriptions over 160 chars | 0 |
+| Pages missing a description | 3 — all `noindex`, correct |
+| Titles over 60 chars | 3, but two are inflated by `&amp;` counting as 5 source characters and 1 rendered. Only `mp-circuit.html` is genuinely 61, which is borderline and not worth changing. |
+
+The on-page SEO is in good shape. The remaining opportunities are not hygiene
+fixes — they are indexing requests in Search Console (owner action) and thin
+content on `travel-guide.html`.
 
 ---
 
