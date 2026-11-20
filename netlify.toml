@@ -1,3 +1,12 @@
+# Internal planning docs live in the repo but must never be served.
+# The repo went public on 20 Nov, so these are readable on GitHub by design,
+# but there is no reason to publish them on the site as well.
+[[redirects]]
+  from = "/docs/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
 # Security headers on EVERY path. The /*.html rules below missed the clean
 # URLs ("/" and "/hotels"), which is what pretty_urls serves and what Google
 # indexes -- so the pages real visitors load had no security headers at all.
