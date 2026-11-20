@@ -655,7 +655,7 @@
       font-weight: 600;
       color: var(--text);
     }
-    .req { color: var(--saffron); margin-left: 1px; }
+    .req { color: var(--saffron-text); margin-left: 1px; }
     .form-group input,
     .form-group select,
     .form-group textarea {
@@ -745,6 +745,10 @@
     @media (min-width: 768px) {
 
     }
+
+/* .pill was #A07800 on #6B2A13 = 2.64:1 */
+.pill{color:var(--ink) !important}        /* on the saffron fill, ink is 6.4:1 */
+.pill-new{color:#F0C98A !important}       /* this one is on a dark brown band */
 </style>
 </head>
 <body>
@@ -757,7 +761,7 @@
       <span class="nav-logo-sub">Independent Pilgrim Guide</span>
     </a>
     <ul class="nav-links" id="nav-links">
-      <li><a href="/#about">Temple</a></li>
+      <li><a href="/#temple">Temple</a></li>
       <li><a href="/temple-timings.html">Timings</a></li>
       <li><a href="/how-to-reach.html">How to Reach</a></li>
       <li><a href="/hotels.html">Hotels</a></li>

@@ -20,7 +20,7 @@
 {"@context":"https://schema.org","@type":"TouristAttraction","name":"Mahakaleshwar Jyotirlinga, Ujjain","description":"One of 12 Jyotirlingas and the only south-facing Shiva lingam. Famous for Bhasma Aarti at 4AM.","address":{"@type":"PostalAddress","addressLocality":"Ujjain","addressRegion":"Madhya Pradesh","addressCountry":"IN"},"geo":{"@type":"GeoCoordinates","latitude":23.1765,"longitude":75.7682},"url":"https://nalkheda.in/ujjain.html","openingHours":"Mo-Su 04:00-23:00"}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Mahakaleshwar Bhasma Aarti ka time kya hai?","acceptedAnswer":{"@type":"Answer","text":"Bhasma Aarti subah 4 baje hoti hai. Online booking mahakaleshwar.com par 15 din pehle karni padti hai. Entry fee ₹250 per person."}},{"@type":"Question","name":"Ujjain Mahakaleshwar darshan timing kya hai?","acceptedAnswer":{"@type":"Answer","text":"Mahakaleshwar Mandir subah 4 baje se raat 11 baje tak khula rehta hai. Bhasma Aarti 4AM, Bhog Aarti 7AM, Sandhya Aarti 7PM."}},{"@type":"Question","name":"Ujjain se Nalkheda kitna door hai?","acceptedAnswer":{"@type":"Answer","text":"Ujjain se Nalkheda lagbhag 100 km door hai. Cab se 2 ghante lagte hain. Cab booking ke liye WhatsApp karein +91 97547 09571."}},{"@type":"Question","name":"Ujjain mein best hotel kaun sa hai?","acceptedAnswer":{"@type":"Answer","text":"Mahakaleshwar ke paas Hotel Shipra Residency (₹1500-3000), Hotel Malwa Residency (₹800-1500), aur dharamshalas (₹300-500) available hain."}},{"@type":"Question","name":"Indore se Ujjain kaise jayen?","acceptedAnswer":{"@type":"Answer","text":"Indore airport se Ujjain 55 km hai. Cab se 1 ghanta lagta hai, ₹800-1200. Train bhi available hai. Ujjain Junction India ke sabse well-connected railway stations mein se ek hai."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Mahakaleshwar Bhasma Aarti ka time kya hai?","acceptedAnswer":{"@type":"Answer","text":"Bhasma Aarti subah 4 baje hoti hai. Online booking mahakaleshwar.com par 15 din pehle karni padti hai. Entry fee ₹250 per person."}},{"@type":"Question","name":"Ujjain Mahakaleshwar darshan timing kya hai?","acceptedAnswer":{"@type":"Answer","text":"Mahakaleshwar Mandir subah 4 baje se raat 11 baje tak khula rehta hai. Bhasma Aarti 4AM, Bhog Aarti 7AM, Sandhya Aarti 7PM."}},{"@type":"Question","name":"Ujjain se Nalkheda kitna door hai?","acceptedAnswer":{"@type":"Answer","text":"Ujjain se Nalkheda lagbhag 100 km door hai. Cab se 2 ghante lagte hain. Cab booking ke liye WhatsApp karein +91 97547 09571."}},{"@type":"Question","name":"Ujjain mein best hotel kaun sa hai?","acceptedAnswer":{"@type":"Answer","text":"Mahakal Lok aur mandir ke paas ₹1,500–₹3,000 range ke hotel milte hain. Freeganj mein zyada options aur khaane ki jagah hai, lagbhag ₹1,200–₹2,500. Raat ki train ho to Ujjain Junction ke paas rukna theek rehta hai. Rate season ke hisaab se badalte hain — booking se pehle live price dekh lein."}},{"@type":"Question","name":"Indore se Ujjain kaise jayen?","acceptedAnswer":{"@type":"Answer","text":"Indore airport se Ujjain 55 km hai. Cab se 1 ghanta lagta hai, ₹800-1200. Train bhi available hai. Ujjain Junction India ke sabse well-connected railway stations mein se ek hai."}}]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +31,29 @@
 <link rel="stylesheet" href="/assets/css/components.css">
 <link rel="stylesheet" href="/assets/css/legacy-map.css">
 <style>
+/* ------------------------------------------------------------------
+   Page theme — Ujjain runs on a DARK ground.
+
+   This page kept its dark-theme CSS (translucent cards, white body
+   text) but its :root block was removed in the stylesheet rewrite, so
+   --deep-bg and --card resolved to nothing: every card lost its
+   background and white text landed on the ivory <body> from base.css.
+   57 of 130 text elements were unreadable. These are the page's own
+   values, restored and re-expressed in the new palette.
+   ------------------------------------------------------------------ */
+:root{
+  --deep-bg:#2B1216;                   /* dark maroon ground */
+  --dark:#2B1216;
+  --card:rgba(250,247,240,0.07);
+  --border:rgba(227,184,114,0.22);
+  --indigo:#2D1B69;                    /* the stats band keeps its indigo */
+  --saffron-text:var(--saffron-light); /* readable saffron on a dark ground */
+  --muted:rgba(250,247,240,0.74);
+  --text:var(--ivory);
+}
+body{background:var(--deep-bg);color:var(--ivory)}
+h1,h2,h3,h4,.sec-h{color:var(--ivory)}   /* base.css makes headings maroon; maroon on this ground is 1.8:1 */
+
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--saffron)}
 
 .nav-back{background:rgba(212,160,23,0.12);border:1px solid rgba(212,160,23,0.3);color:var(--gold)!important;padding:0.4rem 1rem;font-size:0.78rem!important}
@@ -57,7 +80,7 @@ h1.hero-title .gold{background:linear-gradient(135deg,var(--gold),var(--bright-g
 .stat-label{font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;text-transform:uppercase}
 section{padding:5rem 5%}
 .section-inner{max-width:1100px;margin:0 auto}
-.stag{font-family:'Cinzel Decorative',serif;font-size:0.62rem;letter-spacing:0.3em;color:var(--saffron);display:block;margin-bottom:0.75rem;text-transform:uppercase}
+.stag{font-family:'Cinzel Decorative',serif;font-size:0.62rem;letter-spacing:0.3em;color:var(--saffron-text);display:block;margin-bottom:0.75rem;text-transform:uppercase}
 .sec-h{font-family:'Cinzel Decorative',serif;font-size:clamp(1.5rem,3vw,2.5rem);line-height:1.2;margin-bottom:1rem}
 .divider{width:60px;height:3px;background:linear-gradient(90deg,var(--saffron),var(--bright-gold));margin:1.5rem 0}
 .sec-p{font-size:1.05rem;color:rgba(255,255,255,0.5);line-height:1.8;font-style:italic;max-width:600px}
@@ -68,12 +91,12 @@ section{padding:5rem 5%}
 .temple-card:hover{background:#1f0a00}
 .temple-card:hover::before{transform:scaleX(1)}
 .tc-badge{display:inline-block;font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:100px;margin-bottom:0.75rem}
-.badge-j{background:rgba(232,98,26,0.15);color:var(--saffron);border:1px solid rgba(232,98,26,0.3)}
+.badge-j{background:rgba(232,98,26,0.15);color:var(--saffron-text);border:1px solid rgba(232,98,26,0.3)}
 .badge-s{background:rgba(212,160,23,0.12);color:var(--gold);border:1px solid rgba(212,160,23,0.25)}
 .badge-o{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.1)}
 .tc-title{font-family:'Cinzel Decorative',serif;font-size:0.9rem;color:white;margin-bottom:0.5rem}
 .tc-body{font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:0.75rem}
-.tc-info{font-size:0.78rem;color:rgba(255,255,255,0.3)}
+.tc-info{font-size:0.78rem;color:rgba(255,255,255,0.8)}
 #circuit{background:#0a0415}
 .circuit-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;align-items:start}
 .circuit-day{display:flex;gap:1.5rem;position:relative;margin-bottom:1.5rem}
@@ -82,7 +105,7 @@ section{padding:5rem 5%}
 .day-dot{width:40px;height:40px;border-radius:50%;background:var(--saffron);display:flex;align-items:center;justify-content:center;font-family:'Cinzel Decorative',serif;font-size:0.6rem;font-weight:700;color:white;flex-shrink:0;margin-top:0.5rem}
 .day-title{font-family:'Cinzel Decorative',serif;font-size:0.78rem;color:var(--bright-gold);margin-bottom:0.4rem}
 .day-item{font-size:0.88rem;color:rgba(255,255,255,0.6);display:flex;gap:0.5rem;margin-bottom:0.2rem}
-.day-item::before{content:'→';color:var(--saffron);flex-shrink:0}
+.day-item::before{content:'→';color:var(--saffron-text);flex-shrink:0}
 .circuit-card{background:var(--card);border:1px solid var(--border);padding:2rem}
 .cpr{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.88rem}
 .cpr-l{color:rgba(255,255,255,0.5)}
@@ -93,14 +116,14 @@ section{padding:5rem 5%}
 .reach-icon{font-size:1.8rem;margin-bottom:0.75rem}
 .reach-title{font-family:'Cinzel Decorative',serif;font-size:0.75rem;color:var(--gold);margin-bottom:1rem;letter-spacing:0.08em}
 .reach-row{display:flex;justify-content:space-between;font-size:0.85rem;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.6)}
-.reach-val{color:var(--saffron);font-size:0.8rem}
+.reach-val{color:var(--saffron-text);font-size:0.8rem}
 #hotels{background:#0a0415}
 .hotels-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:3rem}
 .hotel-card{background:var(--card);border:1px solid var(--border);overflow:hidden}
 .hotel-header{background:linear-gradient(135deg,var(--deep-maroon),#3D1B69);padding:1.2rem}
 .hotel-name{font-family:'Cinzel Decorative',serif;font-size:0.78rem;color:var(--bright-gold);margin-bottom:0.3rem}
 .hotel-body{padding:1.2rem}
-.hotel-price{font-family:'Cinzel Decorative',serif;font-size:0.85rem;color:var(--saffron);margin-bottom:0.6rem}
+.hotel-price{font-family:'Cinzel Decorative',serif;font-size:0.85rem;color:var(--saffron-text);margin-bottom:0.6rem}
 .hotel-btn{display:block;text-align:center;background:var(--saffron);color:white;padding:0.6rem;font-family:'Cinzel Decorative',serif;font-size:0.78rem;letter-spacing:0.08em;text-decoration:none}
 
 /* PDF GUIDE SECTION */
@@ -120,7 +143,7 @@ section{padding:5rem 5%}
 .gf p{font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.5}
 .price-box{background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.25);padding:2rem;text-align:center}
 .price-tag{font-family:'Cinzel Decorative',serif;font-size:3rem;color:var(--bright-gold);line-height:1}
-.price-tag sup{font-size:1.5rem;vertical-align:top;margin-top:0.4rem;color:var(--saffron)}
+.price-tag sup{font-size:1.5rem;vertical-align:top;margin-top:0.4rem;color:var(--saffron-text)}
 .price-tag .orig{font-size:1.2rem;color:rgba(255,255,255,0.25);text-decoration:line-through;margin-right:0.5rem}
 .pay-btn{display:flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.9rem;font-family:'Cinzel Decorative',serif;font-size:0.7rem;letter-spacing:0.08em;text-decoration:none;border:none;cursor:pointer;transition:all 0.2s;width:100%}
 .pay-wa{background:rgba(37,211,102,0.15);color:#25D366;border:1px solid rgba(37,211,102,0.3);margin-top:0.75rem}
@@ -226,7 +249,7 @@ function toggleNav(btn){
       </div>
       
     <div style="background:#FDF6E3;border-left:4px solid #E8621A;padding:0.9rem 1.2rem;margin-top:1.5rem;border-radius:0 8px 8px 0;max-width:650px;">
-      <span style="font-family:'Cinzel Decorative',serif;font-size:0.55rem;letter-spacing:0.2em;color:#E8621A;text-transform:uppercase;display:block;margin-bottom:0.3rem">⚡ Quick Answer</span>
+      <span style="font-family:'Cinzel Decorative',serif;font-size:0.55rem;letter-spacing:0.2em;color:#85601F;text-transform:uppercase;display:block;margin-bottom:0.3rem">⚡ Quick Answer</span>
       <p style="font-size:0.88rem;color:#1A0A00;line-height:1.6;margin:0"><strong>Ujjain</strong> is the hub for MP pilgrimage. <strong>Mahakaleshwar darshan: 4AM–11PM</strong>. <strong>Bhasma Aarti: 4AM daily</strong> (pre-book). Nearest airport: <strong>Indore (55 km)</strong>. Day trips to <strong>Nalkheda (100 km)</strong> + <strong>Omkareshwar (130 km)</strong> possible.</p>
     </div>
 
@@ -249,6 +272,9 @@ function toggleNav(btn){
 </section>
 
 <!-- NAVRATRI COUNTDOWN -->
+<!-- Hidden automatically once the festival has passed. The timer alone was
+     hidden before, which left "Next Navratri ... Book NOW" on the page a month
+     after Sharad Navratri 2026 ended. -->
 <section id="navratri">
   <div class="section-inner" style="text-align:center">
     <span class="stag" style="justify-content:center;display:block">🎉 Next Navratri</span>
@@ -286,18 +312,18 @@ function toggleNav(btn){
     <div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);padding:1.2rem;margin-bottom:2rem;text-align:center">
       <div style="font-family:'Cinzel Decorative',serif;font-size:0.75rem;color:var(--gold);margin-bottom:0.5rem">✈️ FLY INTO INDORE (55 km) · 🚂 TRAIN TO UJJAIN JUNCTION · 🚗 DRIVE FROM DELHI/MUMBAI/BHOPAL</div>
       <div style="display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;font-size:0.85rem;color:rgba(255,255,255,0.6)">
-        <span>Indore Airport ✈️</span><span style="color:var(--saffron)">→ 55km →</span>
+        <span>Indore Airport ✈️</span><span style="color:var(--saffron-text)">→ 55km →</span>
         <span style="font-family:'Cinzel Decorative',serif;color:var(--bright-gold);font-size:1rem">UJJAIN 🕉️</span>
-        <span style="color:var(--saffron)">→ 100km →</span><span>Nalkheda 🛕</span>
-        <span style="color:var(--saffron);margin-left:0.5rem">|</span>
-        <span style="color:var(--saffron)">→ 130km →</span><span>Omkareshwar 🌊</span>
+        <span style="color:var(--saffron-text)">→ 100km →</span><span>Nalkheda 🛕</span>
+        <span style="color:var(--saffron-text);margin-left:0.5rem">|</span>
+        <span style="color:var(--saffron-text)">→ 130km →</span><span>Omkareshwar 🌊</span>
       </div>
     </div>
     <div class="circuit-grid">
       <div>
         <div class="circuit-day"><div class="day-dot">D1</div><div><div class="day-title">Day 1 — Arrive Ujjain</div><div class="day-item">Evening — Ram Ghat sacred bath</div><div class="day-item">Kaal Bhairav + Mangalnath</div><div class="day-item">Ram Ghat Shipra Aarti (7PM)</div></div></div>
         <div class="circuit-day"><div class="day-dot">D2</div><div><div class="day-title">Day 2 — Ujjain Main Darshan</div><div class="day-item">4AM — Bhasma Aarti at Mahakaleshwar</div><div class="day-item">Morning — Harsiddhi Shakti Peetha</div><div class="day-item">Sandipani Ashram + Gadkalika</div></div></div>
-        <div class="circuit-day"><div class="day-dot">D3</div><div><div class="day-title" style="color:var(--saffron)">Day 3 — Day Trip to Nalkheda (100 km)</div><div class="day-item">Maa Baglamukhi darshan</div><div class="day-item">Hawan booking at 75 kunds</div><div class="day-item">Evening aarti → return Ujjain</div></div></div>
+        <div class="circuit-day"><div class="day-dot">D3</div><div><div class="day-title" style="color:var(--saffron-text)">Day 3 — Day Trip to Nalkheda (100 km)</div><div class="day-item">Maa Baglamukhi darshan</div><div class="day-item">Hawan booking at 75 kunds</div><div class="day-item">Evening aarti → return Ujjain</div></div></div>
         <div class="circuit-day"><div class="day-dot">D4</div><div><div class="day-title">Day 4 — Day Trip to Omkareshwar (130 km)</div><div class="day-item">Jyotirlinga darshan</div><div class="day-item">Narmada boat parikrama</div><div class="day-item">Narmada aarti → return Ujjain</div></div></div>
         <div class="circuit-day"><div class="day-dot">D5</div><div><div class="day-title">Day 5 — Depart</div><div class="day-item">Optional morning Mahakal darshan</div><div class="day-item">Cab to Indore airport (55 km)</div><div class="day-item">Or train from Ujjain Junction</div></div></div>
       </div>
@@ -308,10 +334,10 @@ function toggleNav(btn){
         <div class="cpr"><span class="cpr-l">Bhasma Aarti booking</span><span class="cpr-v">₹250</span></div>
         <div class="cpr"><span class="cpr-l">Nalkheda Hawan</span><span class="cpr-v">₹2,450</span></div>
         <div class="cpr"><span class="cpr-l">Food (5 days)</span><span class="cpr-v">₹1,500–2,500</span></div>
-        <div class="cpr" style="border:none"><span class="cpr-l" style="color:white;font-weight:700">Total per person</span><span class="cpr-v" style="color:var(--saffron);font-size:1rem">₹11,400–19,200</span></div>
+        <div class="cpr" style="border:none"><span class="cpr-l" style="color:white;font-weight:700">Total per person</span><span class="cpr-v" style="color:var(--saffron-text);font-size:1rem">₹11,400–19,200</span></div>
         <div style="height:1px;background:var(--border);margin:1rem 0"></div>
         <a href="/mp-circuit.html" class="btn-primary">💬 Enquire About Circuit Planning</a>
-        <div style="text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:0.6rem">Full trip planning — ₹1,999</div>
+        <div style="text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.8);margin-top:0.6rem">Full trip planning — ₹1,999</div>
         <div style="height:1px;background:var(--border);margin:1rem 0"></div>
         <div style="font-family:'Cinzel Decorative',serif;font-size:0.7rem;color:var(--gold);margin-bottom:0.6rem">MP CIRCUIT PREMIUM PDF — ₹249</div>
         <a href="https://wa.me/919754709571?text=MP%20Circuit%20PDF%20guide%20chahiye%20-%20Ujjain%20Nalkheda%20Omkareshwar%20%E2%82%B9249%0A%0A%F0%9F%99%8B%20%E0%A4%AE%E0%A5%87%E0%A4%B0%E0%A4%BE%20%E0%A4%A8%E0%A4%BE%E0%A4%AE%20%2F%20My%20name%3A%20%0A%F0%9F%8F%99%EF%B8%8F%20%E0%A4%B6%E0%A4%B9%E0%A4%B0%20%2F%20City%3A%20" class="pay-btn pay-wa" target="_blank">📥 Get Complete Circuit PDF — ₹249</a>
@@ -348,10 +374,11 @@ function toggleNav(btn){
     <div class="divider"></div>
     <p class="aff-note" style="font-size:0.82rem;color:rgba(255,255,255,0.62);font-style:italic;margin:0.75rem 0 1.25rem;padding:0.6rem 0.9rem;background:rgba(244,196,48,0.08);border-left:3px solid #F4C430;line-height:1.6;">💡 We may earn a small commission if you book through these links, at no extra cost to you. It never affects which options we show you. <a href="/disclaimer.html" style="color:#F5C518;font-weight:600;">Details</a></p>
     <div class="hotels-grid">
-      <div class="hotel-card card-3d-hover"><div class="hotel-header"><div class="hotel-name">Hotel Shipra Residency</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4)">⭐⭐⭐⭐ · Near Mahakaleshwar</div></div><div class="hotel-body"><div class="hotel-price">₹1,500–₹3,000/night</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:0.75rem">AC rooms, rooftop Shipra view, pure veg restaurant, walking distance to temple.</p><a data-hotel="ujjain" data-ota="booking" href="https://bitli.in/3k5fYiv" class="hotel-btn" target="_blank" rel="noopener sponsored">🏨 Book on Booking.com</a></div></div>
-      <div class="hotel-card card-3d-hover"><div class="hotel-header"><div class="hotel-name">Hotel Malwa Residency</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4)">⭐⭐⭐ · Budget AC</div></div><div class="hotel-body"><div class="hotel-price">₹800–₹1,500/night</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:0.75rem">Budget AC hotel, 10 min walk from Mahakaleshwar. Clean rooms, 24hr checkout.</p><a data-hotel="ujjain" data-ota="mmt" href="https://bitli.in/280AF5M" class="hotel-btn" target="_blank" rel="noopener sponsored">🏨 Book on MMT</a></div></div>
-      <div class="hotel-card card-3d-hover"><div class="hotel-header"><div class="hotel-name">Dharamshala near Temple</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4)">⭐⭐ · Pilgrim Stay</div></div><div class="hotel-body"><div class="hotel-price">₹600–₹1,200/night</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:0.75rem">Multiple dharamshalas near Mahakaleshwar. Book in advance during Navratri season.</p><a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20Nalkheda%20hotel%20booking%20me%20madad%20chahiye." target="_blank" rel="noopener" class="hotel-btn" onclick="openWaModal('hotel');return false;">💬 Ask on WhatsApp</a></div></div>
+      <div class="hotel-card card-3d-hover"><div class="hotel-header"><div class="hotel-name">Mahakal Lok / temple area</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4)">Best for Bhasma Aarti</div></div><div class="hotel-body"><div class="hotel-price">₹1,500–₹3,000</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:0.75rem">Walking distance to the temple. The only sensible choice if you hold a 4 AM Bhasma Aarti booking. Highest demand, sells out first.</p><a data-hotel="ujjain" data-ota="booking" href="https://bitli.in/lYFh6JH" class="hotel-btn" target="_blank" rel="noopener sponsored">🏨 Check availability</a></div></div>
+      <div class="hotel-card card-3d-hover"><div class="hotel-header"><div class="hotel-name">Freeganj</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4)">Best for choice and food</div></div><div class="hotel-body"><div class="hotel-price">₹1,200–₹2,500</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:0.75rem">Ujjain's main commercial area, a short auto ride from the temple. More rooms across more price bands, and far more open after dark.</p><a data-hotel="ujjain" data-ota="mmt" href="https://bitli.in/280AF5M" class="hotel-btn" target="_blank" rel="noopener sponsored">✈️ Check on MakeMyTrip</a></div></div>
+      <div class="hotel-card card-3d-hover"><div class="hotel-header"><div class="hotel-name">Near Ujjain Junction</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4)">Best for late arrivals</div></div><div class="hotel-body"><div class="hotel-price">₹1,200–₹2,000</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:0.75rem">Useful if your train lands near midnight or leaves at dawn. Functional rather than atmospheric.</p><a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20Ujjain%20hotel%20ke%20bare%20mein%20puchna%20hai." target="_blank" rel="noopener" class="hotel-btn" onclick="openWaModal('hotel');return false;">💬 Ask on WhatsApp</a></div></div>
     </div>
+    <p style="font-size:0.8rem;color:rgba(255,255,255,0.45);font-style:italic;margin:0 0 1.5rem">Areas and price bands, not specific properties. We do not hold inventory and do not publish hotel names we have not verified. Rates move with the season — check live prices before booking. Booking links are affiliate links; we may earn a small commission at no extra cost to you.</p>
     <div class="nalkheda-cta">
       <div><div style="font-family:'Cinzel Decorative',serif;font-size:0.85rem;color:var(--bright-gold);margin-bottom:0.4rem">🛕 Also visiting Nalkheda Dham?</div><div style="font-size:0.95rem;color:rgba(255,255,255,0.5);max-width:500px">Maa Baglamukhi Mandir is just 100 km from Ujjain. Combine both in one trip. Get our PDF guide with full Nalkheda + Ujjain + Omkareshwar circuit for ₹249.</div></div>
       <div style="display:flex;flex-direction:column;gap:0.75rem;flex-shrink:0">
@@ -408,7 +435,7 @@ function toggleNav(btn){
           <div class="price-tag"><span class="orig">₹298</span><sup>₹</sup>99</div>
           <div style="font-size:0.82rem;color:rgba(255,255,255,0.4);margin-top:0.25rem;font-style:italic">Ujjain Guide + 51 Shakti Peethas — Both for ₹99</div>
           <a href="https://wa.me/919754709571?text=Ujjain%20PDF%20guide%20chahiye%20-%20₹99%20plan.%20Mera%20naam%3A%20___%20City%3A%20___" class="pay-btn pay-wa" target="_blank">💬 Order via WhatsApp — Get Both PDFs</a>
-          <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:0.75rem">PDFs delivered via WhatsApp after payment 🙏</p>
+          <p style="font-size:0.72rem;color:rgba(255,255,255,0.8);text-align:center;margin-top:0.75rem">PDFs delivered via WhatsApp after payment 🙏</p>
         </div>
         <div style="margin-top:1rem;background:rgba(212,160,23,0.08);border:1px solid rgba(212,160,23,0.2);padding:1rem">
           <div style="font-family:'Cinzel Decorative',serif;font-size:0.7rem;color:var(--gold);margin-bottom:0.5rem">⭐ UPGRADE: MP COMPLETE CIRCUIT GUIDE — ₹249</div>
@@ -428,9 +455,9 @@ function toggleNav(btn){
     <div class="divider"></div>
     <p class="sec-p" style="margin-bottom:2.5rem">Let our yatra experts handle everything — Bhasma Aarti booking, temple circuit planning, cab arrangement. You focus on devotion.</p>
     <div class="guide-packages">
-      <div class="pkg"><div style="font-size:1.5rem;margin-bottom:0.5rem">📱</div><div class="pkg-name">Digital Yatra Guide</div><div class="pkg-price">₹499</div><div style="font-size:0.78rem;color:rgba(255,255,255,0.3);margin-bottom:0.5rem">One-time · Instant on WhatsApp</div><ul class="pkg-items"><li>Ujjain + Nalkheda + Omkareshwar PDF</li><li>Personalised itinerary on WhatsApp</li><li>Bhasma Aarti booking guidance</li><li>Hotel + cab recommendations</li><li>24hr WhatsApp support during yatra</li></ul><a href="https://wa.me/919754709571?text=Ujjain%20Digital%20Yatra%20Guide%20chahiye%20-%20%E2%82%B9499%0A%0A%F0%9F%99%8B%20%E0%A4%AE%E0%A5%87%E0%A4%B0%E0%A4%BE%20%E0%A4%A8%E0%A4%BE%E0%A4%AE%20%2F%20My%20name%3A%20%0A%F0%9F%8F%99%EF%B8%8F%20%E0%A4%B6%E0%A4%B9%E0%A4%B0%20%2F%20City%3A%20" class="pkg-btn" target="_blank">💬 Book — ₹499</a></div>
-      <div class="pkg popular"><div class="pkg-tag">⭐ MOST POPULAR</div><div style="font-size:1.5rem;margin-bottom:0.5rem;margin-top:1rem">🙏</div><div class="pkg-name">Personal Yatra Assistant</div><div class="pkg-price">₹1,199</div><div style="font-size:0.78rem;color:rgba(255,255,255,0.3);margin-bottom:0.5rem">Full remote assistance</div><ul class="pkg-items"><li>Everything in Digital Guide</li><li>We book Bhasma Aarti slot for you</li><li>Hotel booking assistance</li><li>Cab arranged from your city</li><li>Day-wise custom schedule</li><li>Priority WhatsApp support</li></ul><a href="https://wa.me/919754709571?text=Ujjain%20Personal%20Yatra%20Assistant%20chahiye%20-%20%E2%82%B91199%0A%0A%F0%9F%99%8B%20%E0%A4%AE%E0%A5%87%E0%A4%B0%E0%A4%BE%20%E0%A4%A8%E0%A4%BE%E0%A4%AE%20%2F%20My%20name%3A%20%0A%F0%9F%8F%99%EF%B8%8F%20%E0%A4%B6%E0%A4%B9%E0%A4%B0%20%2F%20City%3A%20" class="pkg-btn" target="_blank">💬 Book — ₹1,199</a></div>
-      <div class="pkg"><div style="font-size:1.5rem;margin-bottom:0.5rem">🗺️</div><div class="pkg-name">Full Trip Planning + Guide</div><div class="pkg-price">₹1,999</div><div style="font-size:0.78rem;color:rgba(255,255,255,0.3);margin-bottom:0.5rem">End-to-end MP circuit</div><ul class="pkg-items"><li>Everything in Personal Assistant</li><li>On-ground guide at Ujjain + Nalkheda</li><li>Nalkheda + Ujjain + Omkareshwar covered</li><li>Hawan assistance at Nalkheda</li><li>Group yatra (up to 10 people)</li><li>Navratri special packages available</li></ul><a href="https://wa.me/919754709571?text=Ujjain%20Full%20Trip%20Planning%20chahiye%20-%20%E2%82%B91999%0A%0A%F0%9F%99%8B%20%E0%A4%AE%E0%A5%87%E0%A4%B0%E0%A4%BE%20%E0%A4%A8%E0%A4%BE%E0%A4%AE%20%2F%20My%20name%3A%20%0A%F0%9F%8F%99%EF%B8%8F%20%E0%A4%B6%E0%A4%B9%E0%A4%B0%20%2F%20City%3A%20" class="pkg-btn" target="_blank">💬 Book — ₹1,999</a></div>
+      <div class="pkg"><div style="font-size:1.5rem;margin-bottom:0.5rem">📱</div><div class="pkg-name">Digital Yatra Guide</div><div class="pkg-price">₹499</div><div style="font-size:0.78rem;color:rgba(255,255,255,0.8);margin-bottom:0.5rem">One-time · Instant on WhatsApp</div><ul class="pkg-items"><li>Ujjain + Nalkheda + Omkareshwar PDF</li><li>Personalised itinerary on WhatsApp</li><li>Bhasma Aarti booking guidance</li><li>Hotel + cab recommendations</li><li>24hr WhatsApp support during yatra</li></ul><a href="https://wa.me/919754709571?text=Ujjain%20Digital%20Yatra%20Guide%20chahiye%20-%20%E2%82%B9499%0A%0A%F0%9F%99%8B%20%E0%A4%AE%E0%A5%87%E0%A4%B0%E0%A4%BE%20%E0%A4%A8%E0%A4%BE%E0%A4%AE%20%2F%20My%20name%3A%20%0A%F0%9F%8F%99%EF%B8%8F%20%E0%A4%B6%E0%A4%B9%E0%A4%B0%20%2F%20City%3A%20" class="pkg-btn" target="_blank">💬 Book — ₹499</a></div>
+      <div class="pkg popular"><div class="pkg-tag">⭐ MOST POPULAR</div><div style="font-size:1.5rem;margin-bottom:0.5rem;margin-top:1rem">🙏</div><div class="pkg-name">Personal Yatra Assistant</div><div class="pkg-price">₹1,199</div><div style="font-size:0.78rem;color:rgba(255,255,255,0.8);margin-bottom:0.5rem">Full remote assistance</div><ul class="pkg-items"><li>Everything in Digital Guide</li><li>We book Bhasma Aarti slot for you</li><li>Hotel booking assistance</li><li>Cab arranged from your city</li><li>Day-wise custom schedule</li><li>Priority WhatsApp support</li></ul><a href="https://wa.me/919754709571?text=Ujjain%20Personal%20Yatra%20Assistant%20chahiye%20-%20%E2%82%B91199%0A%0A%F0%9F%99%8B%20%E0%A4%AE%E0%A5%87%E0%A4%B0%E0%A4%BE%20%E0%A4%A8%E0%A4%BE%E0%A4%AE%20%2F%20My%20name%3A%20%0A%F0%9F%8F%99%EF%B8%8F%20%E0%A4%B6%E0%A4%B9%E0%A4%B0%20%2F%20City%3A%20" class="pkg-btn" target="_blank">💬 Book — ₹1,199</a></div>
+      <div class="pkg"><div style="font-size:1.5rem;margin-bottom:0.5rem">🗺️</div><div class="pkg-name">Full Trip Planning + Guide</div><div class="pkg-price">₹1,999</div><div style="font-size:0.78rem;color:rgba(255,255,255,0.8);margin-bottom:0.5rem">End-to-end MP circuit</div><ul class="pkg-items"><li>Everything in Personal Assistant</li><li>On-ground guide at Ujjain + Nalkheda</li><li>Nalkheda + Ujjain + Omkareshwar covered</li><li>Hawan assistance at Nalkheda</li><li>Group yatra (up to 10 people)</li><li>Navratri special packages available</li></ul><a href="https://wa.me/919754709571?text=Ujjain%20Full%20Trip%20Planning%20chahiye%20-%20%E2%82%B91999%0A%0A%F0%9F%99%8B%20%E0%A4%AE%E0%A5%87%E0%A4%B0%E0%A4%BE%20%E0%A4%A8%E0%A4%BE%E0%A4%AE%20%2F%20My%20name%3A%20%0A%F0%9F%8F%99%EF%B8%8F%20%E0%A4%B6%E0%A4%B9%E0%A4%B0%20%2F%20City%3A%20" class="pkg-btn" target="_blank">💬 Book — ₹1,999</a></div>
     </div>
   </div>
 </section>
@@ -511,7 +538,7 @@ function toggleNav(btn){
     </div>
     <div class="ufaq-item">
       <button class="ufaq-q" onclick="toggleUFaq(this)">Ujjain mein best hotels kaun se hain near Mahakaleshwar? <span class="ufaq-icon">+</span></button>
-      <div class="ufaq-a"><strong>Hotels near Mahakaleshwar Ujjain:</strong> Hotel Shipra Residency (<strong>₹1,500–₹3,000</strong>), Hotel Malwa Residency (<strong>₹800–₹1,500</strong>), Dharamshalas (<strong>₹300–₹600</strong>). Navratri mein 2–3 months pehle book karein. Booking.com aur MMT par best deals milti hain.</div>
+      <div class="ufaq-a"><strong>Where to stay in Ujjain:</strong> near Mahakal Lok, <strong>₹1,500–₹3,000</strong>, best if you have a Bhasma Aarti booking; Freeganj, <strong>₹1,200–₹2,500</strong>, more choice and food; near Ujjain Junction for late trains. Rates move with the season — check live prices before booking.</div>
     </div>
     <div class="ufaq-item">
       <button class="ufaq-q" onclick="toggleUFaq(this)">Ujjain se Nalkheda aur Omkareshwar kaise jaayein? <span class="ufaq-icon">+</span></button>
@@ -547,7 +574,7 @@ function toggleUFaq(btn) {
 </script>
 
 <footer>
-  <div class="footer-brand">🕉️ Ujjain Dham Guide — by <span style="color:var(--saffron)">Nalkheda.in</span></div>
+  <div class="footer-brand">🕉️ Ujjain Dham Guide — by <span style="color:var(--saffron-text)">Nalkheda.in</span></div>
   <div class="footer-links">
     <a href="/">Nalkheda.in</a>
     <a href="/ujjain.html">Ujjain Guide</a>
@@ -567,11 +594,11 @@ function updateCountdown() {
   const diff = target - now;
   // Hide once the festival is over, instead of claiming it is still running.
   if (now > new Date('2026-10-20T23:59:59')) {
-    var cd = document.getElementById('countdown');
-    if (cd) cd.style.display = 'none';
+    var sec = document.getElementById('navratri');
+    if (sec) sec.style.display = 'none';      // the whole block, not just the timer
     return;
   }
-  if (diff <= 0) { document.getElementById('countdown').innerHTML = '<div style="font-family:Cinzel Decorative,serif;color:var(--saffron);font-size:1.2rem">🎉 Navratri is here! Jai Mata Di!</div>'; return; }
+  if (diff <= 0) { document.getElementById('countdown').innerHTML = '<div style="font-family:Cinzel Decorative,serif;color:var(--saffron-text);font-size:1.2rem">🎉 Navratri is here! Jai Mata Di!</div>'; return; }
   const d = Math.floor(diff/86400000);
   const h = Math.floor((diff%86400000)/3600000);
   const m = Math.floor((diff%3600000)/60000);

@@ -24,10 +24,17 @@
      which fails for the small uppercase labels it was being used for.
      This measures 5.22:1. */
   --saffron-light: #E3B872;
+  /* Saffron used as TEXT. On the light ground that is --saffron-deep;
+     the two dark-ground pages (ujjain, omkareshwar) redefine it to
+     --saffron-light in their own <style>. Plain --saffron is 2.76:1 on
+     ivory and must never be a text colour. */
+  --saffron-text:  var(--saffron-deep);
 
   /* ---- text -------------------------------------------------- */
   --ink:           #242424;   /* body text */
-  --ink-muted:     #6B6459;   /* warm grey, secondary text */
+  /* Was #6B6459, which measured 4.30:1 on the pale grey list panels —
+     just under AA. #5C564C is 4.85:1 there and 5.9:1 on ivory. */
+  --ink-muted:     #5C564C;   /* warm grey, secondary text */
   --ink-inverse:   #FAF7F0;   /* text on maroon */
 
   /* ---- surface ----------------------------------------------- */
@@ -109,8 +116,14 @@
   --maroon-legacy:  var(--maroon);
   --cream:          var(--ivory);
   --pale-gold:      var(--surface-alt);
-  --bright-gold:    var(--saffron-light);
-  --gold:           var(--saffron);
+  --bright-gold:    var(--saffron-text);
+  --gold:           var(--saffron-text);
+  /* contact.html, faq.html, ujjain-hotels.html and three blog posts still
+     reference --deep-saffron. It was never defined after the rewrite, so
+     every gradient using it collapsed and the elements lost their
+     background -- which is why contact.html's submit button rendered as
+     white text on ivory. */
+  --deep-saffron:   var(--saffron-deep);
   --pitambara:      var(--saffron);
   --pitambara-deep: var(--saffron-deep);
   --dark:           var(--maroon);

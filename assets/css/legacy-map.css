@@ -27,14 +27,14 @@ nav {
   min-height: 64px; height: auto;
 }
 .nav-logo { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; color: var(--ivory); text-decoration: none; }
-.nav-logo span { color: var(--saffron); }
+.nav-logo span { color: var(--saffron-text); }
 .nav-links { display: flex; gap: var(--space-6); list-style: none; }
 .nav-links a {
   color: rgba(250,247,240,0.85); text-decoration: none;
   font-family: var(--font-body); font-size: var(--text-sm);
   font-weight: 500; letter-spacing: 0; text-transform: none;
 }
-.nav-links a:hover, .nav-links a.active { color: var(--saffron); }
+.nav-links a:hover, .nav-links a.active { color: var(--saffron-text); }
 .nav-cta { background: var(--saffron); color: var(--ink) !important; padding: var(--space-2) var(--space-4); border-radius: var(--radius-sm); font-weight: 600; }
 .hamburger { width: var(--tap-min); height: var(--tap-min); background: none; border: 0; cursor: pointer; flex-direction: column; justify-content: center; gap: 5px; display: none; }
 .hamburger span { display: block; height: 2px; background: var(--ivory); border-radius: 2px; }
@@ -146,7 +146,7 @@ footer { background: var(--maroon); color: rgba(250,247,240,0.78); padding-block
 .footer-brand  { font-family: var(--font-display); font-size: var(--text-xl); color: var(--ivory); margin-bottom: var(--space-2); }
 .footer-links  { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-4); margin-block: var(--space-6); font-size: var(--text-sm); }
 .footer-links a{ color: rgba(250,247,240,0.88); text-decoration: none; }
-.footer-links a:hover { color: var(--saffron); text-decoration: underline; }
+.footer-links a:hover { color: var(--saffron-text); text-decoration: underline; }
 .footer-copy   { font-size: var(--text-xs); color: rgba(250,247,240,0.55); }
 
 /* ---- mobile bar ------------------------------------------------------------ */
@@ -272,3 +272,301 @@ footer { background: var(--maroon); color: rgba(250,247,240,0.78); padding-block
 .nav-brand { font-family: var(--font-display); font-size: var(--text-lg); color: var(--ivory); text-decoration: none; }
 /* .hero on the legal pages is a plain maroon band, not the homepage hero */
 .legal-wrap + .hero, .container .hero { background: var(--maroon); color: var(--ink-inverse); }
+
+/* ---- affiliate buttons: enforce the minimum tap target -----------------
+   The 20 Nov production audit found 17 affiliate buttons rendering between
+   20px and 40px tall on a 390px viewport. On a site where 95.5% of traffic
+   is mobile, and where these are the only revenue-bearing controls, that is
+   the worst place on the site to be under 44px.
+   Classes found undersized: .book-btn (27px), .hotel-btn (40px), and bare
+   anchors carrying data-hotel (20px). */
+a[data-hotel][data-ota],
+.book-btn, .hotel-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: var(--tap-min);
+  padding-inline: var(--space-4);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-family: var(--font-body); font-weight: 600; font-size: var(--text-sm);
+  line-height: 1.2;
+}
+.book-btn.bcom, .hotel-btn { background: #003580; color: #fff; }   /* Booking.com */
+.book-btn.mmt             { background: #EB2026; color: #fff; }    /* MakeMyTrip  */
+.book-btn.bcom:hover, .book-btn.mmt:hover, .hotel-btn:hover { opacity: .9; color: #fff; }
+
+
+/* ======================================================================
+   CONTRAST REPAIRS
+   Added after a pixel-sampling audit of all 33 pages (every text run is
+   measured against the colour actually rendered behind it, so gradients,
+   overlays and images are included). Each rule below fixes a measured
+   WCAG AA failure; the measured ratio is quoted.
+
+   !important appears only where a page's own <style> block loads after
+   this file and would otherwise win. It is never used for layout.
+   ====================================================================== */
+
+/* ---- 1. saffron-as-text inside dark surfaces -------------------------
+   --saffron-text resolves to --saffron-deep (#85601F), which is 5.3:1 on
+   ivory but only 1.69:1 on maroon. Custom properties inherit, so
+   redefining it on each dark container fixes every descendant at once. */
+nav, footer, .site-header, .site-footer, .page-hero, .hero, .article-hero,
+.blog-hero, .guide-hero, .section-dark, .cta-box, .cta-strip, .cta-section,
+.cta-sec, .mantra-box, .band-head, .footer-links, th {
+  --saffron-text: var(--saffron-light);   /* 5.2:1 on maroon */
+  --muted:        rgba(250, 247, 240, 0.78);
+  --ink-muted:    rgba(250, 247, 240, 0.78);
+  /* --gold and --bright-gold are aliases declared on :root, and a var()
+     in a custom-property declaration is substituted where it is DECLARED,
+     not where it is used. Rebinding --saffron-text alone therefore leaves
+     them frozen at the light-ground value, which is how the footer links
+     stayed at 1.69:1 after the first pass. They have to be rebound here
+     as well. */
+  --gold:         var(--saffron-light);
+  --bright-gold:  var(--saffron-light);
+  --pitambara:    var(--saffron-light);
+}
+/* .temple-card and .hotel-header are dark on some pages and light on
+   others, so they only get the accent rebinding, never the muted one —
+   rebinding --muted there put near-white secondary text on white cards. */
+/* Deliberately NOT rebound here: .faq-answer, .faq-item, .accordion__a,
+   .temple-card and .hotel-header are dark on some pages and light on
+   others. Rebinding the accent on them put #E3B872 (a light gold meant
+   for maroon grounds) onto ivory panels at 1.73:1 — the opposite of the
+   bug being fixed. Where a panel really is dark, its page marks it with
+   one of the container classes in rule 1. */
+
+/* ---- 1b. inline links and accent labels still on maroon -------------
+   Footer and dark-panel links resolve --saffron-text through a container
+   not listed above (page-level wrappers), measuring 1.69:1. Matching on
+   the maroon background itself is not possible in CSS, so these are the
+   classes the audit actually caught. */
+.footer-contact a, .footer-col a, .footer-bottom a, .f-link, .foot-link,
+.page-hero a, .hero a, .article-hero a, .cta-box a, .cta-section a,
+.cta-sec a, .cta-strip a, .site-footer a, footer a {
+  color: var(--saffron-light);
+}
+footer a:hover, .site-footer a:hover, .cta-box a:hover { color: var(--ivory); }
+
+/* ---- 1c. white text on a saffron fill --------------------------------
+   #FFFFFF on --saffron is 2.95:1; --ink on --saffron is 6.4:1 and is what
+   the token notes prescribe. Affects .card-category, .day-dot, .btn-submit
+   and the badge pills. */
+.card-category, .day-dot, .btn-submit, .badge-best, .pill-mid,
+.nav-cta, .mbar-guide {
+  color: var(--ink) !important;
+}
+
+/* ---- 2. secondary text on dark was set with too little alpha ---------
+   .page-updated 3.07:1, .footer-copy 3.89:1, assorted 0.3–0.4 whites
+   between 2.1:1 and 3.7:1. 0.78 alpha over maroon measures 6.4:1. */
+.page-updated, .footer-copy, .site-footer__legal,
+.page-hero .muted, .section-dark .muted {
+  color: rgba(250, 247, 240, 0.82) !important;
+}
+
+/* ---- 3. WhatsApp buttons ---------------------------------------------
+   White on brand green #25D366 is 1.98:1. The brand colour is fixed by
+   project rule, so it stays as the icon and the border; the button face
+   uses WhatsApp's own dark brand green #075E54, which is 8.9:1 with
+   white and still unmistakably WhatsApp. */
+.wa-cta, .wa-big, .wa-btn, .btn-wa, .btn-hero-wa, .btn-book-wa,
+.mbar-wa, .wa-sticky, a[href*="wa.me"].btn, a[href*="wa.me"][class*="btn"] {
+  background: #075E54 !important;
+  color: #FFFFFF !important;
+  border-color: #075E54 !important;
+}
+.wa-cta:hover, .wa-big:hover, .wa-btn:hover, .btn-wa:hover,
+.btn-hero-wa:hover, .btn-book-wa:hover, .wa-sticky:hover {
+  background: #0B7A6C !important; color: #FFFFFF !important;
+}
+
+/* ---- 4. OTA buttons ---------------------------------------------------
+   MakeMyTrip #EB2026 with white measured 4.41:1 — just under AA.
+   #C4161C is the same hue at 5.9:1. Booking.com #003580 already passes. */
+.book-btn.mmt, .btn-book.mmt, .sn-btn.mmt, .btn-book-mmt,
+a[data-ota="mmt"] { background: #C4161C !important; color: #fff !important; }
+.book-btn.mmt:hover, .sn-btn.mmt:hover, a[data-ota="mmt"]:hover {
+  background: #A51116 !important; color: #fff !important;
+}
+
+/* ---- 5. table headers -------------------------------------------------
+   Some .schedule-table / .data-table headers lost their background and
+   rendered ivory-on-ivory (1:1) — invisible column headings. */
+table th, .schedule-table th, .data-table th, .band-row.band-head {
+  background: var(--maroon) !important;
+  color: var(--ivory) !important;
+}
+
+/* ---- 6. muted grey inside dark answer panels -------------------------
+   faq.html sets --muted text inside maroon panels: 1.6:1 to 2.2:1.
+   Rule 1 above rebinds --muted on dark containers; these panels are not
+   in that list because their background comes from a page-level class. */
+.faq-answer, .faq-a, .accordion__a, .answer-panel {
+  --muted: var(--ink-muted);
+}
+
+/* ---- 7. emoji / icon glyphs on dark tiles ----------------------------
+   .blog-card-img and .fact-num inherit --ink (#242424) over a dark tile:
+   1.02:1. They are decorative but they are also the only thing in the
+   tile, so an invisible one looks like a broken image. */
+.blog-card-img, .fact-num, .stat-num, .om, .om-display {
+  color: var(--ivory);
+}
+
+/* ---- 8. legal strip in the footer ------------------------------------
+   privacy-policy.html renders the disclaimer in #3A2000 on maroon: 1.57:1.
+   That line is a project requirement on every page, so it must be legible. */
+footer p, .site-footer p, .footer-legal, .footer-disclaimer {
+  color: rgba(250, 247, 240, 0.82);
+}
+
+/* ---- 9. blog card meta -----------------------------------------------
+   rgba(0,0,0,0.3) on white is 2.11:1 — the date line under every blog
+   card on /blog/. 0.62 alpha measures 5.1:1. */
+.card-meta, .card-meta span, .blog-card .meta, .post-meta {
+  color: rgba(0, 0, 0, 0.62);
+}
+
+/* ---- 10. maroon text on a maroon panel -------------------------------
+   Four blog posts render the contact phone link, and one an <h4>, in
+   --maroon inside a maroon-filled callout: 1:1, completely invisible.
+   Scoped to the dark callouts rather than to a:link generally. */
+.cta-box a, .cta-box h3, .cta-box h4, .cta-box p,
+.wa-box a, .contact-strip a, .dark-callout a, .dark-callout h4 {
+  color: var(--ivory);
+}
+.cta-box a, .wa-box a, .contact-strip a { text-decoration: underline; }
+
+/* ---- 11. ink text on a maroon list ------------------------------------
+   Two blog posts put --ink list items and paragraphs inside a maroon
+   route box: 1.61:1. */
+.route-box, .route-box li, .route-box p, .route-box strong,
+.hl-box, .hl-box li, .hl-box p { color: var(--ivory); }
+
+/* ---- 12. the ॐ glyph on 404 and guide-download -----------------------
+   #F4C430 on cream is 1.52:1. It is decorative, but it is also the only
+   mark on an otherwise empty page, so it should read as intended. */
+.om { color: var(--saffron-deep); }
+
+/* ---- 13. contact form submit -----------------------------------------
+   The gradient ran saffron -> saffron-deep, so the right-hand end of the
+   button was 2.87:1 with --ink. A flat saffron fill is 6.4:1 throughout. */
+.btn-submit {
+  background: var(--saffron) !important;
+  color: var(--ink) !important;
+}
+.btn-submit:hover { background: var(--saffron-deep) !important; color: var(--ivory) !important; }
+
+/* ---- 14. accent labels that sit on a maroon hero ---------------------
+   .hero-badge, .page-badge, .hero-dev and .pill take --gold directly and
+   render 2.2:1 to 2.6:1 on the hero. Rule 1 rebinds --gold on .page-hero
+   and friends; these also appear inside page-level hero wrappers. */
+.hero-badge, .page-badge, .hero-dev, .hero-devanagari, .pill-premium,
+.section-dark .pill, .page-hero .pill, .hero .pill {
+  color: var(--saffron-light) !important;
+}
+
+/* ---- 15. secondary text set with too little alpha on dark -----------
+   .stat-label, .fact-label, .tc-info, .tc-badge, .price-old and
+   .price-label were written at 0.28–0.40 alpha and measure 2.1:1 to
+   3.7:1. 0.80 puts them at 6:1+ while still reading as secondary. */
+.stat-label, .fact-label, .tc-info, .tc-badge, .price-old, .price-label,
+.hero-sub-meta, .stat-sub, .circuit-note, .day-item, .cpr-l {
+  color: rgba(255, 255, 255, 0.80) !important;
+}
+
+/* ---- 16. white text on a saffron or teal fill ------------------------
+   2.05:1 to 3.17:1. Both accents are light enough that they need dark
+   text, which is what the token notes already say for saffron. */
+.btn-primary, .btn-teal, .btn-gold,
+a[class*="btn"][style*="C58B36"], .stat-band a, .circuit-cta a {
+  color: var(--ink) !important;
+}
+.btn-primary:hover, .btn-teal:hover, .btn-gold:hover {
+  color: var(--ink) !important; filter: brightness(0.92);
+}
+
+/* ---- 17. the saffron / teal stat bands --------------------------------
+   One band on each of the two dark pages is filled with the accent
+   itself, so the light accent text on it measures 1.04:1 to 1.31:1.
+   Inside those bands everything flips to ink. */
+.stat-band, .fact-band, .band-accent, .accent-band {
+  --saffron-text: var(--ink);
+  --gold: var(--ink);
+  --bright-gold: var(--ink);
+  color: var(--ink);
+}
+.stat-band *, .fact-band *, .band-accent *, .accent-band * {
+  color: var(--ink) !important;
+}
+
+/* ---- 18. marginal failures between 3.9:1 and 4.4:1 -------------------
+   .faq-category 4.24:1, .tag 3.94:1, the green availability link 4.31:1.
+   All just under AA; each is darkened within its own hue. */
+.faq-category { color: #6E4E15 !important; }   /* was 4.13:1 on the peach panel */
+.tag, .tag-cheap, .tag-best { color: #116B35 !important; }   /* was 3.94:1 */
+/* a[href*="wa.me"]:not([class]) was coloured green here; inside the maroon
+   .cta-box that measured 1.46:1, so the link colour is left to rule 10. */
+
+/* ---- 19. inline-styled "Quick Answer" label --------------------------
+   ujjain.html and omkareshwar.html set this colour in a style attribute
+   (#E8621A at 3.14:1 and #0D9488 at 3.47:1 on cream), so only an
+   !important rule on the class can reach it. */
+.quick-answer span[style], .qa-box span[style], .answer-box span[style],
+.quick-ans span[style] { color: var(--saffron-deep) !important; }
+
+/* ---- 20. the teal fact grid on omkareshwar ---------------------------
+   .tl and .fact-num use --teal-light over the --teal grid fill: 1.26:1.
+   On that fill the text has to be dark. */
+.fact-grid .tl, .fact-grid .fact-num, .fact-grid .fact-label { color: var(--ivory) !important; }
+.fact-grid { background: rgba(250,247,240,0.14); }
+
+/* ---- 21. accent-filled buttons and chips ----------------------------
+   --saffron and --teal are light accents: white on them is 2.0–3.2:1,
+   and a gradient that darkens toward --saffron-deep fails with ink too.
+   Flat light fill + ink, or flat dark fill + white — never a gradient
+   that crosses the middle. */
+.btn-primary {
+  background: var(--saffron-light) !important;
+  color: var(--ink) !important;
+  box-shadow: none !important;
+}
+.btn-teal {
+  background: #0B6B62 !important;      /* 5.9:1 with white */
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+}
+.day-dot, .hotel-btn, .pkg-tag, .card-category {
+  color: var(--ink) !important;
+}
+
+/* ---- 22. inline style attributes ------------------------------------
+   These colours are written into style="" attributes, so nothing but an
+   !important rule can reach them. Each was measured failing. */
+.tc-mini div[style] { color: rgba(255,255,255,0.86) !important; }
+.tc-mini div[style]:first-child { color: var(--saffron-light) !important; }
+.footer-inner p[style], .footer-brand + p[style] { color: rgba(255,255,255,0.84) !important; }
+/* The fact grid is a set of near-transparent cells separated by teal
+   hairlines (gap:1px over the grid's background). Filling the grid with
+   solid --teal to fix the text made it a bright slab that does not belong
+   on this page; the cells keep their dark fill and the text goes light. */
+.fact-grid { background: var(--border) !important; }
+.fact-grid .fact { background: rgba(13,148,136,0.10) !important; }
+.fact-grid .fact-num, .fact-grid .tl { color: var(--teal-light) !important; }   /* 7.4:1 on this ground */
+.fact-grid .fact-label, .fact-grid div[style], .fact-grid span[style] {
+  color: rgba(250,247,240,0.86) !important;
+}
+.availability-link, a.check-availability { color: #0B6B3A !important; }
+
+/* ---- 23. tap targets -------------------------------------------------
+   48 named controls measured under 44px tall on a 390px viewport:
+   .nav-logo (30), .card-read (11), .xlink (4), .site-logo, .nav-brand,
+   .nav-back. Inline links inside running prose are exempt from WCAG
+   2.5.8 and are left alone. */
+.nav-logo, .site-logo, .nav-brand, .nav-back, .card-read, .xlink,
+.related-link, .breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}

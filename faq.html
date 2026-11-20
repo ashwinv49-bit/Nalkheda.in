@@ -94,14 +94,14 @@
 <style>
 input,select,textarea{font-size:max(16px,1rem)}
 
-.nav-logo span{color:var(--saffron)}
+.nav-logo span{color:var(--saffron-text)}
 
 .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;font-family:'Mukta',sans-serif;font-weight:600}
 .nav-links a:hover,.nav-links a.active{color:var(--bright-gold)}
 
 .hamburger span{display:block;width:22px;height:2px;background:white;margin:5px 0}
 
-.breadcrumb a{color:var(--saffron);text-decoration:none}
+.breadcrumb a{color:var(--saffron-text);text-decoration:none}
 .breadcrumb span{margin:0 0.4rem;opacity:0.5}
 
 .page-hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(212,160,23,0.04) 0px,rgba(212,160,23,0.04) 1px,transparent 1px,transparent 30px)}
@@ -111,20 +111,20 @@ input,select,textarea{font-size:max(16px,1rem)}
 .page-title .hl{background:linear-gradient(135deg,var(--saffron),var(--bright-gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .page-subtitle{font-size:1.05rem;color:rgba(255,255,255,0.6);font-style:italic;line-height:1.7}
 .faq-wrap{max-width:860px;margin:0 auto;padding:3rem 2rem 4rem}
-.faq-category{font-family:'Poppins',sans-serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--saffron);margin:2.5rem 0 1rem;display:flex;align-items:center;gap:0.75rem}
+.faq-category{font-family:'Poppins',sans-serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--saffron-text);margin:2.5rem 0 1rem;display:flex;align-items:center;gap:0.75rem}
 .faq-category::after{content:'';flex:1;height:1px;background:rgba(232,98,26,0.2)}
 
 .faq-question{width:100%;background:none;border:none;text-align:left;padding:1.1rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-family:'Poppins',sans-serif;font-size:0.88rem;color:var(--dark);letter-spacing:0.03em;transition:color 0.2s}
-.faq-question:hover{color:var(--saffron)}
-.faq-question.open{color:var(--saffron)}
-.faq-icon{font-size:1.2rem;flex-shrink:0;color:var(--saffron);transition:transform 0.3s;font-family:monospace;font-weight:400}
+.faq-question:hover{color:var(--saffron-text)}
+.faq-question.open{color:var(--saffron-text)}
+.faq-icon{font-size:1.2rem;flex-shrink:0;color:var(--saffron-text);transition:transform 0.3s;font-family:monospace;font-weight:400}
 .faq-question.open .faq-icon{transform:rotate(45deg)}
 .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s}
 .faq-answer.open{max-height:400px;padding-bottom:1.25rem}
 .faq-answer p{font-size:1rem;color:var(--muted);line-height:1.8}
 .faq-answer ul{margin:0.5rem 0 0 1.2rem}
 .faq-answer li{font-size:1rem;color:var(--muted);margin-bottom:0.3rem}
-.faq-answer a{color:var(--saffron);text-decoration:none}
+.faq-answer a{color:var(--saffron-text);text-decoration:none}
 .faq-answer a:hover{text-decoration:underline}
 /* QUICK LINKS */
 .quick-links{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0 3rem}
@@ -161,7 +161,7 @@ input,select,textarea{font-size:max(16px,1rem)}
       <li><a href="/travel-guide.html">Travel Guide</a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="/faq.html" class="active">FAQ</a></li>
-      <li><a href="/#services" class="nav-cta">Guide ₹99</a></li>
+      <li><a href="/#guide" class="nav-cta">Guide ₹99</a></li>
     </ul>
     <button class="hamburger" aria-controls="nav-menu" onclick="document.getElementById('nav-menu').classList.toggle('open');this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true')" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -298,7 +298,7 @@ input,select,textarea{font-size:max(16px,1rem)}
         <li><strong>In person:</strong> Visit the temple office directly on arrival. Walk-in may be possible on non-festival days.</li>
       </ul>
       <p>75 hawan kunds are available from 7:00 AM to 11:00 PM. Bring valid ID (Aadhar card). Book at least 1 week ahead for regular days, and <strong>3 months ahead for Navratri</strong>.</p>
-      <p><strong style="color:var(--saffron);">Warning:</strong> Multiple fake websites claim to offer hawan bookings. Only use mabaglamukhi.com or visit in person.</p>
+      <p><strong style="color:var(--saffron-text);">Warning:</strong> Multiple fake websites claim to offer hawan bookings. Only use mabaglamukhi.com or visit in person.</p>
     </div>
   </div>
 
@@ -462,7 +462,7 @@ input,select,textarea{font-size:max(16px,1rem)}
 
 <div class="mobile-bar">
   <div class="mobile-bar-inner">
-    <a href="/#services" class="mbar-btn mbar-guide"><span class="mbar-icon">📖</span>Guide ₹99</a>
+    <a href="/#guide" class="mbar-btn mbar-guide"><span class="mbar-icon">📖</span>Guide ₹99</a>
     <a href="/digital-companion.html" class="mbar-btn mbar-wa"><span class="mbar-icon">🗺️</span>Plan My Trip</a>
   </div>
 </div>

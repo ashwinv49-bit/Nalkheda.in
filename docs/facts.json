@@ -1,0 +1,124 @@
+{
+  "_README": "SINGLE SOURCE OF TRUTH for facts that appear on more than one page. Before changing any distance, timing or price in page HTML, change it here first and then make the pages match. The 20 Nov 2026 audit found the Nalkheda-Agar Malwa distance stated four different ways (25, 28, 30, 35 km) across 31 pages; this file exists so that cannot recur.",
+  "_lastVerified": "2026-11-20",
+
+  "temple": {
+    "name": "Maa Baglamukhi Mandir",
+    "town": "Nalkheda",
+    "district": "Agar Malwa",
+    "state": "Madhya Pradesh",
+    "pin": "465445",
+    "address": "Chapiheda Road, Nalkheda, Agar Malwa, Madhya Pradesh 465445",
+    "coordinates": { "lat": 23.8413, "lng": 76.2356 },
+    "river": "Lakhundar Nadi (Lakshmana River in older texts, a Narmada tributary)",
+    "hawanKunds": 75,
+    "_verified": "2026-11-20, consistent across the site"
+  },
+
+  "timings": {
+    "darshanOpen": "06:00",
+    "darshanClose": "21:30",
+    "darshanNote": "Daily, all 365 days. Extends to 23:00 during Navratri.",
+    "aarti": {
+      "mangala": "06:00",
+      "bhog": "12:00",
+      "sandhya": "19:30",
+      "shayan": "21:00"
+    },
+    "hawanCounterOpen": "07:00",
+    "hawanCounterClose": "23:00",
+    "hawanBookingOfficial": "mabaglamukhi.com",
+    "_verified": "2026-11-20, consistent across the site"
+  },
+
+  "distancesToNalkhedaKm": {
+    "agarMalwa": { "km": 35, "drive": "about 45 minutes",
+      "_note": "AUTHORITATIVE. The site previously also said 25, 28 and 30 km. 35 km is confirmed by blog/agar-malwa-to-nalkheda.html, which is titled as a verified route guide, and by how-to-reach.html and hotels.html. All pages corrected to 35 on 2026-11-20." },
+    "ujjain":     { "km": 100, "drive": "about 2 hours" },
+    "indore":     { "km": 156, "drive": "3 to 3.5 hours" },
+    "bhopal":     { "km": 210, "drive": "about 4 hours" },
+    "omkareshwar":{ "km": 235, "drive": "via Ujjain" },
+    "busStandToTemple": { "km": 1.5, "walk": "15 minutes", "auto": "Rs 20-40" }
+  },
+
+  "otherDistancesKm": {
+    "_note": "Different city pairs. Not interchangeable with the figures above.",
+    "ujjainToOmkareshwar": 130,
+    "ujjainToAgarMalwa": 70,
+    "indoreToAgarMalwa": 125,
+    "indoreToUjjain": 55,
+    "indoreToOmkareshwar": 77
+  },
+
+  "transport": {
+    "nearestAirport": { "name": "Devi Ahilyabai Holkar Airport, Indore (IDR)", "km": 156 },
+    "nearestMajorRailhead": { "name": "Ujjain Junction", "km": 100 },
+    "closerStations": [
+      { "name": "Berchha", "km": 60 },
+      { "name": "Shajapur Junction", "km": 65 }
+    ],
+    "cabFareRanges": {
+      "_note": "Ranges only. Never publish a fixed fare; these move with fuel and season.",
+      "indoreToNalkheda": "Rs 7,000-9,000",
+      "ujjainToNalkheda": "Rs 3,000-5,000",
+      "dewasToNalkheda": "Rs 3,500-4,500",
+      "indoreBusToNalkheda": "Rs 120-180, about 3.5 hours"
+    }
+  },
+
+  "accommodationBands": {
+    "_rule": "HARD RULE: price BANDS only, never a named hotel with a fixed price. Owner instruction: nothing below Rs 1,000 - service quality is the issue, not the room.",
+    "nalkheda":   { "band": "Rs 1,000-1,500", "note": "Simple guesthouses, 1-2 km from the temple. Few rooms." },
+    "agarMalwa":  { "band": "Rs 1,200-1,500", "note": "Proper hotels, AC, hot water. 35 km." },
+    "ujjain":     { "band": "Rs 1,200-3,000", "note": "Widest choice. 100 km." },
+    "_noDharamshala": "There is NO dharamshala at Nalkheda temple. Never state otherwise."
+  },
+
+  "products": {
+    "yatraGuidePdf": { "price": 99, "pages": 22, "chapters": 12,
+      "languages": "Hindi and English",
+      "bonus": "51 Shakti Peethas PDF, 7 pages",
+      "_verified": "2026-11-06 against the actual files. The site once advertised 38 pages and 9 chapters, which was wrong." },
+    "mpCircuitGuide": { "price": 249, "_status": "UNVERIFIED - on the site but not in CLAUDE.md. Confirm it is still sold." },
+    "digitalCompanion": { "priceFrom": 1999, "model": "enquiry only, quoted over WhatsApp" }
+  },
+
+  "contact": {
+    "whatsappLive": "919754709571",
+    "_whatsappNote": "97547 09571 is the number ON THE SITE. 94248 75958 exists in CLAUDE.md but was deliberately NOT deployed. Do not switch without the owner asking.",
+    "upi": "ashwinv49@ybl",
+    "ga4": "G-331NJD7HG3"
+  },
+
+  "festivals": {
+    "_warning": "Hindu festival dates move each year. Anything with a year in it goes stale. Never leave a past date presented as upcoming.",
+    "sharadNavratri2026": { "start": "2026-10-11", "end": "2026-10-20", "_status": "PAST" },
+    "baglamukhiJayanti2026": { "date": "2026-05-27", "rule": "Vaishakh Shukla Ashtami", "_status": "PAST" },
+    "_NEEDS_VERIFICATION": [
+      "Baglamukhi Jayanti 2027 date - Vaishakh Shukla Ashtami, not yet confirmed",
+      "Chaitra Navratri 2027 dates",
+      "Sharad Navratri 2027 dates"
+    ]
+  },
+
+  "claims": {
+    "_rule": "Nothing unverifiable on the site. A claim without a source does not get published.",
+    "_removed": [
+      "4.9 star rating - no review source, removed earlier",
+      "Four named testimonials - fabricated, removed 2026-11-20 in the homepage rebuild"
+    ],
+    "_unverified_still_present": [
+      "'500+ Happy Pilgrims' and similar counters - no source; soft claim, flagged not removed",
+      "'10K+ pilgrims monthly' on the homepage stats - no source"
+    ]
+  },
+
+  "hardRules": [
+    "NOT affiliated with Shaskiya Maa Baglamukhi Mandir Prabandh Samiti. Disclaimer on every page.",
+    "Hawan booking is the temple counter or mabaglamukhi.com ONLY. We never take payment for it.",
+    "No dharamshala at Nalkheda.",
+    "Price bands, never fixed hotel prices.",
+    "Every affiliate link carries rel=\"noopener sponsored\".",
+    "No puja or hawan payment flow on this site."
+  ]
+}

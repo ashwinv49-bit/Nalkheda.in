@@ -18,14 +18,14 @@
   font-size: var(--text-lg); font-weight: 600;
   color: var(--ivory); text-decoration: none; white-space: nowrap;
 }
-.site-logo span { color: var(--saffron); }
+.site-logo span { color: var(--saffron-text); }
 
 .site-nav ul { list-style: none; display: flex; gap: var(--space-6); }
 .site-nav a {
   color: rgba(250,247,240,0.85); text-decoration: none;
   font-size: var(--text-sm); padding-block: var(--space-2);
 }
-.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--saffron); }
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--saffron-text); }
 
 .nav-toggle {
   display: none; background: none; border: 0; cursor: pointer;
@@ -126,7 +126,7 @@
 /* ---- footer ----------------------------------------------------------- */
 .site-footer { background: var(--maroon); color: rgba(250,247,240,0.78); padding-block: var(--space-12); }
 .site-footer a { color: rgba(250,247,240,0.88); text-decoration: none; }
-.site-footer a:hover { color: var(--saffron); text-decoration: underline; }
+.site-footer a:hover { color: var(--saffron-text); text-decoration: underline; }
 .site-footer__links { display: flex; flex-wrap: wrap; gap: var(--space-4); font-size: var(--text-sm); }
 .site-footer__legal { font-size: var(--text-xs); color: rgba(250,247,240,0.55); }
 

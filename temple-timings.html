@@ -103,14 +103,14 @@
 .hindi{font-family:'Tiro Devanagari Hindi',serif;line-height:1.95}
 input,select,textarea{font-size:max(16px,1rem)}
 
-.nav-logo span{color:var(--saffron)}
+.nav-logo span{color:var(--saffron-text)}
 
 .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;font-family:'Mukta',sans-serif;font-weight:600}
 .nav-links a:hover,.nav-links a.active{color:var(--bright-gold)}
 
 .hamburger span{display:block;width:22px;height:2px;background:white;margin:5px 0}
 
-.breadcrumb a{color:var(--saffron);text-decoration:none}
+.breadcrumb a{color:var(--saffron-text);text-decoration:none}
 .breadcrumb span{margin:0 0.4rem;opacity:0.5}
 
 .page-hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(212,160,23,0.025) 0,rgba(212,160,23,0.025) 1px,transparent 1px,transparent 30px)}
@@ -118,7 +118,7 @@ input,select,textarea{font-size:max(16px,1rem)}
 /* Answer box */
 .answer-box{background:white;border-left:5px solid var(--saffron);box-shadow:0 4px 24px rgba(0,0,0,0.1)}
 
-.ab-title{font-family:'Tiro Devanagari Hindi',serif;font-size:1rem;color:var(--saffron);margin-bottom:1rem}
+.ab-title{font-family:'Tiro Devanagari Hindi',serif;font-size:1rem;color:var(--saffron-text);margin-bottom:1rem}
 .ab-title span{font-family:'Poppins',sans-serif;font-size:0.72rem;color:var(--muted);display:block;margin-top:0.2rem;letter-spacing:0.04em}
 .timing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem}
 .timing-card{background:var(--pale-gold);border-radius:3px;padding:1rem;text-align:center;border-top:3px solid var(--saffron)}
@@ -130,7 +130,7 @@ input,select,textarea{font-size:max(16px,1rem)}
 
 /* Verify note */
 .verify-note{background:rgba(232,98,26,0.07);border:1px solid rgba(232,98,26,0.2);padding:0.85rem 1.5rem;max-width:900px;margin:0 auto;display:flex;align-items:center;gap:0.75rem;font-size:0.9rem;color:var(--text)}
-.verify-note a{color:var(--saffron);text-decoration:none;font-weight:600}
+.verify-note a{color:var(--saffron-text);text-decoration:none;font-weight:600}
 
 /* Content */
 
@@ -142,20 +142,20 @@ p.en{margin-bottom:0.9rem;color:var(--text)}
 .schedule-table{width:100%;min-width:520px;border-collapse:collapse;font-size:0.95rem}
 .schedule-table th{background:var(--deep-maroon);color:white;padding:0.75rem 1rem;text-align:left;font-family:'Poppins',sans-serif;font-size:0.68rem;letter-spacing:0.06em}
 .schedule-table td{padding:0.8rem 1rem;border-bottom:1px solid rgba(0,0,0,0.07);color:var(--text);vertical-align:top}
-.schedule-table td:first-child{font-family:'Poppins',sans-serif;font-size:0.85rem;color:var(--saffron);font-weight:700;white-space:nowrap;width:110px}
+.schedule-table td:first-child{font-family:'Poppins',sans-serif;font-size:0.85rem;color:var(--saffron-text);font-weight:700;white-space:nowrap;width:110px}
 .schedule-table tr:nth-child(even) td{background:rgba(255,243,204,0.4)}
 .schedule-table .hi-cell{font-family:'Tiro Devanagari Hindi',serif;font-size:0.9rem}
 
 /* Info box */
 .info-box{background:var(--pale-gold);border-left:4px solid var(--saffron);padding:1.2rem 1.5rem;margin:1.5rem 0;border-radius:0 4px 4px 0}
-.info-box .ib-title{font-family:'Tiro Devanagari Hindi',serif;font-size:0.9rem;color:var(--saffron);font-weight:600;margin-bottom:0.5rem}
+.info-box .ib-title{font-family:'Tiro Devanagari Hindi',serif;font-size:0.9rem;color:var(--saffron-text);font-weight:600;margin-bottom:0.5rem}
 .info-box p.hi,.info-box p.en{font-size:0.92rem;margin-bottom:0.4rem}
 
 /* Festival cards */
 .festival-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.25rem 0}
 .festival-card{background:white;border:1px solid rgba(0,0,0,0.08);padding:1.3rem;border-radius:3px;border-top:3px solid var(--saffron)}
 .fc-title{font-family:'Tiro Devanagari Hindi',serif;font-size:1rem;color:var(--deep-maroon);font-weight:600;margin-bottom:0.3rem}
-.fc-date{font-family:'Poppins',sans-serif;font-size:0.75rem;color:var(--saffron);letter-spacing:0.05em;margin-bottom:0.5rem}
+.fc-date{font-family:'Poppins',sans-serif;font-size:0.75rem;color:var(--saffron-text);letter-spacing:0.05em;margin-bottom:0.5rem}
 .fc-desc{font-size:0.88rem;color:var(--muted);line-height:1.6}
 
 /* FAQ */
@@ -206,7 +206,7 @@ p.en{margin-bottom:0.9rem;color:var(--text)}
   <div class="nav-inner">
     <a href="/" class="nav-logo">Nalkheda <span>Yatra</span> Guide</a>
     <ul class="nav-links" id="nav-links">
-      <li><a href="/#about">मंदिर</a></li>
+      <li><a href="/#temple">मंदिर</a></li>
       <li><a href="/temple-timings.html" class="active">दर्शन समय</a></li>
       <li><a href="/how-to-reach.html">कैसे पहुंचें</a></li>
       <li><a href="/hotels.html">होटल</a></li>
@@ -377,12 +377,12 @@ p.en{margin-bottom:0.9rem;color:var(--text)}
     <div class="divider"></div>
 
     <p class="hi">नलखेड़ा मंदिर में <strong>75 हवन कुंड</strong> हैं। हवन सुबह 7 बजे से रात 11 बजे के बीच किया जा सकता है। नवरात्रि में बुकिंग जल्दी भर जाती है — कम से कम 2-3 महीने पहले बुक करें।</p>
-    <p class="en">Nalkheda temple has <strong>75 hawan kunds</strong>. Hawan can be performed between 7 AM and 11 PM. During Navratri, slots fill up months in advance. Book through the official portal at <a href="https://mabaglamukhi.com" target="_blank" rel="noopener" style="color:var(--saffron)">mabaglamukhi.com</a> or ask us on WhatsApp for help.</p>
+    <p class="en">Nalkheda temple has <strong>75 hawan kunds</strong>. Hawan can be performed between 7 AM and 11 PM. During Navratri, slots fill up months in advance. Book through the official portal at <a href="https://mabaglamukhi.com" target="_blank" rel="noopener" style="color:var(--saffron-text)">mabaglamukhi.com</a> or ask us on WhatsApp for help.</p>
 
     <div class="info-box">
       <div class="ib-title hindi">📋 हवन बुकिंग के लिए क्या चाहिए?</div>
       <p class="hi">• आधार कार्ड / ID प्रमाण &nbsp;•&nbsp; बुकिंग के समय नाम और गोत्र &nbsp;•&nbsp; अग्रिम भुगतान (₹1100 से ₹5100+)</p>
-      <p class="en">Aadhar/ID required. Booking needs name + gotra. Advance payment ₹1100–₹5100+ depending on hawan type. <a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20Hawan%20booking%20me%20madad%20chahiye." target="_blank" rel="noopener" onclick="openWaModal('hawan');return false;" style="color:var(--saffron)">WhatsApp us for booking assistance →</a></p>
+      <p class="en">Aadhar/ID required. Booking needs name + gotra. Advance payment ₹1100–₹5100+ depending on hawan type. <a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20Hawan%20booking%20me%20madad%20chahiye." target="_blank" rel="noopener" onclick="openWaModal('hawan');return false;" style="color:var(--saffron-text)">WhatsApp us for booking assistance →</a></p>
     </div>
   </div>
 
@@ -419,7 +419,7 @@ p.en{margin-bottom:0.9rem;color:var(--text)}
       </div>
       <div class="faq-a">
         <p class="hi">माँ बगलामुखी मंदिर नलखेड़ा प्रतिदिन <strong>सुबह 6:00 बजे से रात 9:30 बजे</strong> तक खुला रहता है। मंगला आरती सुबह 6 बजे और संध्या आरती शाम 7:30 बजे के आसपास होती है। नवरात्रि में रात 12 बजे तक खुला रहता है। यात्रा से पहले कन्फर्म करें।</p>
-        <p class="en">Nalkheda Baglamukhi Temple is open from 6:00 AM to 9:30 PM daily. Morning aarti at 6 AM, evening aarti around 7:30 PM. Extended to midnight during Navratri. Always confirm before visiting — <a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi%21%0A%0A%F0%9F%99%8B%20%E0%A4%AE%E0%A5%87%E0%A4%B0%E0%A4%BE%20%E0%A4%A8%E0%A4%BE%E0%A4%AE%20%2F%20My%20name%3A%20%0A%F0%9F%8F%99%EF%B8%8F%20%E0%A4%B6%E0%A4%B9%E0%A4%B0%20%2F%20City%3A%20" style="color:var(--saffron)">WhatsApp +91 9754709571</a>.</p>
+        <p class="en">Nalkheda Baglamukhi Temple is open from 6:00 AM to 9:30 PM daily. Morning aarti at 6 AM, evening aarti around 7:30 PM. Extended to midnight during Navratri. Always confirm before visiting — <a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi%21%0A%0A%F0%9F%99%8B%20%E0%A4%AE%E0%A5%87%E0%A4%B0%E0%A4%BE%20%E0%A4%A8%E0%A4%BE%E0%A4%AE%20%2F%20My%20name%3A%20%0A%F0%9F%8F%99%EF%B8%8F%20%E0%A4%B6%E0%A4%B9%E0%A4%B0%20%2F%20City%3A%20" style="color:var(--saffron-text)">WhatsApp +91 9754709571</a>.</p>
       </div>
     </div>
 
@@ -451,8 +451,8 @@ p.en{margin-bottom:0.9rem;color:var(--text)}
         <div class="faq-arrow">+</div>
       </div>
       <div class="faq-a">
-        <p class="hi">हवन सुबह 7 बजे से रात 11 बजे के बीच बुक किया जा सकता है। बुकिंग के लिए <a href="https://mabaglamukhi.com" target="_blank" style="color:var(--saffron)">mabaglamukhi.com</a> पर जाएं या हमसे WhatsApp पर मदद लें।</p>
-        <p class="en">Hawan can be booked between 7 AM and 11 PM. Book via <a href="https://mabaglamukhi.com" target="_blank" style="color:var(--saffron)">mabaglamukhi.com</a> (official portal). For assistance, <a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20Hawan%20booking%20me%20madad%20chahiye." target="_blank" rel="noopener" onclick="openWaModal('hawan');return false;" style="color:var(--saffron)">WhatsApp us</a>. Advance booking essential for Navratri — slots fill 2-3 months ahead.</p>
+        <p class="hi">हवन सुबह 7 बजे से रात 11 बजे के बीच बुक किया जा सकता है। बुकिंग के लिए <a href="https://mabaglamukhi.com" target="_blank" style="color:var(--saffron-text)">mabaglamukhi.com</a> पर जाएं या हमसे WhatsApp पर मदद लें।</p>
+        <p class="en">Hawan can be booked between 7 AM and 11 PM. Book via <a href="https://mabaglamukhi.com" target="_blank" style="color:var(--saffron-text)">mabaglamukhi.com</a> (official portal). For assistance, <a href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20Hawan%20booking%20me%20madad%20chahiye." target="_blank" rel="noopener" onclick="openWaModal('hawan');return false;" style="color:var(--saffron-text)">WhatsApp us</a>. Advance booking essential for Navratri — slots fill 2-3 months ahead.</p>
       </div>
     </div>
 

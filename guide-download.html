@@ -22,7 +22,7 @@ nav{background:rgba(107,15,26,0.97);padding:0 1.5rem}
 .nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;height:58px}
 .nav-logo{font-family:'Poppins',sans-serif;font-size:1rem;color:var(--bright-gold);
   text-decoration:none;font-weight:700}
-.nav-logo span{color:var(--saffron)}
+.nav-logo span{color:var(--saffron-text)}
 main{flex:1;display:flex;align-items:center;justify-content:center;padding:2.5rem 1.25rem}
 .wrap{max-width:620px;width:100%}
 .hero{text-align:center;margin-bottom:2rem}
@@ -54,6 +54,13 @@ h1{font-family:'Poppins',sans-serif;font-size:clamp(1.35rem,4vw,1.85rem);
 footer{background:var(--deep-maroon);color:rgba(255,255,255,0.55);text-align:center;
   padding:1.5rem 1.25rem;font-size:0.8rem;line-height:1.7}
 footer a{color:var(--gold)}
+
+/* Contrast repairs (pixel-sampled audit, 20 Nov 2026). This page loads no
+   shared stylesheet, so the fixes are inline.
+     .om      #F4C430 on cream  = 1.52:1
+     .wa-btn  white on #25D366  = 1.98:1  -> WhatsApp's own dark brand green */
+.om{color:#85601F !important}
+.wa-btn,.btn-wa{background:#075E54 !important;color:#fff !important}
 </style>
 </head>
 <body>
