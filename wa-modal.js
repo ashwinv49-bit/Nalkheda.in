@@ -79,7 +79,18 @@
       return s ? `✓ ${s.label.replace(/^\S+\s/, '')}` : '';
     }).filter(Boolean).join('\n');
 
-    let msg = `🙏 Jai Maa Baglamukhi!\n\nयात्रा की जानकारी:\n━━━━━━━━━━━━━━\n🙋 नाम: ${name}\n📅 तिथि: ${formatDate(date)}\n👥 यात्री: ${persons} लोग\n🏙️ शहर से: ${city}\n📱 मोबाइल: ${phone}\n\nसहायता चाहिए:\n${needLines}`;
+    // A hawan-only enquiry leaves date, city and group size blank. Printing
+    // them as empty labels made the message look broken, so each line is only
+    // included when it has a value.
+    const lines = [
+      `🙋 नाम: ${name}`,
+      date         ? `📅 तिथि: ${formatDate(date)}` : '',
+      persons > 1  ? `👥 यात्री: ${persons} लोग`    : '',
+      city         ? `🏙️ शहर से: ${city}`           : '',
+      `📱 मोबाइल: ${phone}`,
+    ].filter(Boolean).join('\n');
+
+    let msg = `🙏 Jai Maa Baglamukhi!\n\nयात्रा की जानकारी:\n━━━━━━━━━━━━━━\n${lines}\n\nसहायता चाहिए:\n${needLines}`;
     if (extra && extra.trim()) msg += `\n\n${extra.trim()}`;
     msg += '\n\nकृपया मार्गदर्शन करें 🙏';
     if (ref) msg += '\n\n[Ref: ' + ref + ']';
@@ -188,8 +199,28 @@
   color: #7A5C3A; text-align: center; margin-top: 0.6rem;
 }
 `;
+    style.textContent += QUICK_CSS;
     document.head.appendChild(style);
   }
+
+  const QUICK_CSS = `
+#wa-hawan-quick{background:#FFF3CC;border:1px solid rgba(197,139,54,.45);
+  border-left:4px solid #C58B36;border-radius:8px;padding:14px 16px;margin-bottom:18px}
+#wa-hawan-quick[hidden]{display:none}
+.wq-title{font-weight:700;color:#6B0F1A;margin:0 0 8px;font-size:1rem}
+.wq-facts{margin:0 0 8px;padding-left:18px}
+.wq-facts li{font-size:.92rem;line-height:1.75;color:#2C1A00}
+.wq-note{font-size:.82rem;color:#5C564C;margin:0 0 12px}
+.wq-actions{display:flex;flex-wrap:wrap;gap:8px}
+.wq-btn{flex:1 1 150px;display:inline-flex;align-items:center;justify-content:center;
+  min-height:44px;padding:10px 14px;border-radius:6px;text-decoration:none;
+  font-weight:600;font-size:.9rem;text-align:center}
+.wq-btn--wa{flex:2 1 190px;background:#075E54;color:#fff}
+.wq-btn--ghost{background:transparent;color:#6B0F1A;border:1px solid rgba(107,15,26,.35)}
+.wq-ask{font-size:.92rem;line-height:1.7;color:#2C1A00;margin:10px 0 12px;
+  padding-top:10px;border-top:1px dashed rgba(197,139,54,.5)}
+.wq-more{font-size:.82rem;color:#5C564C;margin:12px 0 0;text-align:center}
+`;
 
   function injectHTML() {
     if (document.getElementById('wa-modal-overlay')) return;
@@ -204,6 +235,36 @@
   <div id="wa-modal-header">
     <h3 id="wa-modal-title">📋 यात्रा जानकारी भरें</h3>
     <button id="wa-modal-close" aria-label="बंद करें">✕</button>
+  </div>
+
+  <!-- Hawan shortcut. Most WhatsApp enquiries are hawan-only, and hawan
+       referrals are a revenue path (pandit referral fee), so this panel is
+       built to START the conversation, not to end it. The four facts answer
+       the low-value "what time is the counter open" questions that would
+       never convert anyway; the pandit CTA catches the ones that do.
+       Shown only when the modal is opened from a hawan CTA. -->
+  <div id="wa-hawan-quick" hidden>
+    <p class="wq-title">🔥 हवन की जानकारी</p>
+    <ul class="wq-facts">
+      <li><strong>बुकिंग काउंटर:</strong> मंदिर में, सुबह 7:00 – रात 11:00 (रोज़)</li>
+      <li><strong>कुंड बुकिंग:</strong> केवल काउंटर पर या mabaglamukhi.com पर</li>
+      <li><strong>साथ ले जाएँ:</strong> पहचान पत्र और गोत्र की जानकारी</li>
+      <li><strong>नवरात्रि / बगलामुखी जयंती:</strong> स्लॉट महीनों पहले भर जाते हैं</li>
+    </ul>
+
+    <p class="wq-ask"><strong>पंडित जी, विधि या दक्षिणा के बारे में पूछना है?</strong><br>
+      कौन सा हवन करवाएँ, कितना समय लगेगा, क्या सामग्री चाहिए — हम स्थानीय
+      पंडितों से जोड़ सकते हैं।</p>
+
+    <div class="wq-actions">
+      <a class="wq-btn wq-btn--wa" id="wq-wa" target="_blank" rel="noopener"
+         href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20%E0%A4%B9%E0%A4%B5%E0%A4%A8%20%E0%A4%94%E0%A4%B0%20%E0%A4%AA%E0%A4%82%E0%A4%A1%E0%A4%BF%E0%A4%A4%20%E0%A4%9C%E0%A5%80%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%AA%E0%A5%82%E0%A4%9B%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A5%88%E0%A5%A4">💬 WhatsApp पर पूछें</a>
+      <a class="wq-btn wq-btn--ghost" href="/hawan.html">📖 पूरा हवन गाइड</a>
+    </div>
+
+    <p class="wq-note">मंदिर का कुंड स्लॉट कोई नहीं बेच सकता — वह केवल काउंटर या
+      आधिकारिक साइट से मिलता है। पंडित जी से जोड़ने पर हमें रेफ़रल शुल्क मिल सकता है।</p>
+    <p class="wq-more">होटल, कैब या पूरी यात्रा की योजना भी चाहिए? नीचे फॉर्म भरें ↓</p>
   </div>
 
   <div class="wa-field">
@@ -295,7 +356,18 @@
       document.getElementById('wa-name').focus();
       return;
     }
-    if (!date || persons < 1 || !city || needs.length === 0) {
+    // A hawan-only question has no travel date, city or group size to give.
+    // Demanding them is what makes people abandon the form, so when hawan is
+    // the only box ticked the trip fields are optional and name + phone are
+    // all that is required.
+    const hawanOnly = needs.length === 1 && needs[0] === 'hawan';
+
+    if (needs.length === 0) {
+      errEl.textContent = '⚠️ कृपया कम से कम एक सहायता चुनें।';
+      errEl.classList.add('show');
+      return;
+    }
+    if (!hawanOnly && (!date || persons < 1 || !city)) {
       errEl.textContent = '⚠️ कृपया सभी जरूरी जानकारी भरें और कम से कम एक सहायता चुनें।';
       errEl.classList.add('show');
       return;
@@ -367,6 +439,10 @@
     if (phoneEl && !phoneEl.value) phoneEl.value = '';
     if (extraEl) extraEl.value = '';
     document.getElementById('wa-modal-error').classList.remove('show');
+
+    // The hawan shortcut only makes sense when hawan is what they came for.
+    const quick = document.getElementById('wa-hawan-quick');
+    if (quick) quick.hidden = (hint !== 'hawan');
 
     // pre-check boxes based on hint
     const precheck = HINT_MAP[hint] || HINT_MAP['general'];

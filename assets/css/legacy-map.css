@@ -566,7 +566,13 @@ a[class*="btn"][style*="C58B36"], .stat-band a, .circuit-cta a {
    2.5.8 and are left alone. */
 .nav-logo, .site-logo, .nav-brand, .nav-back, .card-read, .xlink,
 .related-link, .breadcrumb a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
+  display: inline-block;
+  padding-block: 11px;
+  line-height: 22px;
 }
+/* NOT inline-flex. These logos wrap part of their text in a <span>
+   ("Nalkheda <span>Yatra</span> Guide"), and flex makes each child a flex
+   item, which drops the whitespace between them — the nav rendered as
+   "NalkhedaYatraGuide". gap is not a fix either, because index.html's
+   "Nalkheda<span>.in</span>" must NOT gain a space. Vertical padding
+   reaches the 44px target without touching the text flow. */
