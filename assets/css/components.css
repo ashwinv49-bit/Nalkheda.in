@@ -96,7 +96,9 @@
 .fact-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
 .fact-table th, .fact-table td { padding: var(--space-3); text-align: left; border-bottom: 1px solid var(--border); }
 .fact-table th { background: var(--maroon); color: var(--ivory); font-weight: 600; }
-.fact-table td:last-child { font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* No nowrap: a long value (a full address) would force the table wider than
+   a phone screen, and body{overflow-x:hidden} would then CLIP it unreachably. */
+.fact-table td:last-child { font-variant-numeric: tabular-nums; }
 
 /* ---- accordion ----------------------------------------------------- */
 .accordion__item { border-top: 1px solid var(--border); }
