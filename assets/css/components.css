@@ -57,7 +57,9 @@
   transition: background .15s ease, border-color .15s ease;
 }
 .btn--primary   { background: var(--saffron); color: var(--ink); }
-.btn--primary:hover { background: var(--saffron-deep); color: var(--ink); }
+/* The darker hover needs light text: ink on --saffron-deep is only 2.73:1,
+   ivory is 5.32:1. */
+.btn--primary:hover { background: var(--saffron-deep); color: var(--ivory); }
 .btn--secondary { background: transparent; color: var(--maroon); border-color: var(--border-strong); }
 .btn--secondary:hover { background: var(--surface-alt); }
 .btn--on-dark   { background: var(--ivory); color: var(--maroon); }

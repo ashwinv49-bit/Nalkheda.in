@@ -52,8 +52,8 @@ nav {
 .page-badge {
   display: inline-block; font-family: var(--font-body);
   font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--saffron);
-  border: 1px solid rgba(197,139,54,0.5); border-radius: var(--radius-sm);
+  text-transform: uppercase; color: var(--saffron-light);
+  border: 1px solid rgba(227,184,114,0.55); border-radius: var(--radius-sm);
   padding: var(--space-1) var(--space-3); margin-bottom: var(--space-4);
 }
 .page-title-hi { font-family: var(--font-hindi); font-size: clamp(var(--text-xl), 4.5vw, var(--text-3xl)); color: var(--ivory); line-height: var(--leading-hindi); margin-bottom: var(--space-2); }
@@ -157,3 +157,36 @@ footer { background: var(--maroon); color: rgba(250,247,240,0.78); padding-block
 .mbar-wa    { background: var(--wa-green); color: #06351B; }
 .mbar-icon  { font-size: var(--text-base); }
 @media (max-width: 768px) { .mobile-bar { display: block; } body { padding-bottom: 56px; } }
+
+/* ---- stay-nudge: the hotel CTA block ------------------------------------
+   Appears on hawan.html, mp-circuit.html and nalkheda-railway-station.html.
+   Commercially the most important component after the hotel pages, so it
+   belongs in the shared system rather than being copied three times. */
+.answer-box-inner { max-width: var(--wrap); margin-inline: auto; padding: var(--space-6) var(--space-8); }
+
+.stay-nudge {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--saffron);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+}
+.sn-title { font-family: var(--font-display); font-size: var(--text-lg); color: var(--maroon); margin-bottom: var(--space-2); }
+.sn-text  { font-size: var(--text-sm); color: var(--ink); margin-bottom: var(--space-4); }
+.sn-opts  { display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin-bottom: var(--space-4); }
+.sn-opt   { background: var(--surface-alt); border-radius: var(--radius-sm); padding: var(--space-4); }
+.sn-city  { font-family: var(--font-display); font-weight: 600; font-size: var(--text-base); color: var(--maroon); }
+.sn-meta  { font-size: var(--text-xs); color: var(--ink-muted); margin: var(--space-1) 0 var(--space-3); }
+.sn-btns  { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.sn-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: var(--tap-min); padding: var(--space-2) var(--space-4);
+  background: #003580; color: #fff;            /* Booking.com brand */
+  font-family: var(--font-body); font-size: var(--text-sm); font-weight: 600;
+  border-radius: var(--radius-sm); text-decoration: none;
+}
+.sn-btn:hover { opacity: .9; color: #fff; }
+.sn-btn.mmt   { background: #EB2026; }          /* MakeMyTrip brand */
+.sn-near { font-size: var(--text-sm); color: var(--ink-muted); margin-bottom: var(--space-3); }
+.sn-disc { font-size: var(--text-xs); color: var(--ink-muted); font-style: italic; margin: 0; }
+.sn-disc a { color: var(--maroon); font-weight: 600; }

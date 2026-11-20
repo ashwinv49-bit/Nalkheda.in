@@ -84,39 +84,36 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Poppins:wght@400;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Poppins:wght@400;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet"></noscript>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-331NJD7HG3"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-331NJD7HG3');</script>
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/legacy-map.css">
 <style>
-:root{--saffron:#E8621A;--deep-saffron:#C4480E;--gold:#CFB53B;--bright-gold:#F5C518;--dark:#1A0A00;--deep-maroon:#3D0C02;--maroon:#6B0F1A;--pitambara:#F4C430;--pitambara-deep:#D4A017;--cream:#FDF6E3;--pale-gold:#FFF3CC;--text:#2C1A00;--text-light:#FFF8E7;--muted:#7A5C3A;--wa-green:#25D366}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{font-family:'Mukta',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;font-size:1.05rem;line-height:1.8}
 input,select,textarea{font-size:max(16px,1rem)}
-nav{position:sticky;top:0;background:rgba(107,15,26,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,160,23,0.3);z-index:1000;padding:0 2rem}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
-.nav-logo{font-family:'Poppins',sans-serif;font-size:1rem;color:var(--bright-gold);text-decoration:none}
+
 .nav-logo span{color:var(--saffron)}
-.nav-links{display:flex;gap:1.5rem;list-style:none}
+
 .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;font-family:'Mukta',sans-serif;font-weight:600}
 .nav-links a:hover,.nav-links a.active{color:var(--bright-gold)}
-.nav-cta{background:var(--saffron)!important;color:white!important;padding:0.35rem 1rem;border-radius:2px}
-.hamburger{display:none;cursor:pointer}
+
 .hamburger span{display:block;width:22px;height:2px;background:white;margin:5px 0}
-.breadcrumb{background:var(--pale-gold);padding:0.65rem 2rem;font-size:0.85rem;color:var(--muted);border-bottom:1px solid rgba(212,160,23,0.2)}
-.breadcrumb-inner{max-width:1100px;margin:0 auto}
+
 .breadcrumb a{color:var(--saffron);text-decoration:none}
 .breadcrumb span{margin:0 0.4rem;opacity:0.5}
-.page-hero{background:linear-gradient(135deg,var(--deep-maroon),#1A0A00);padding:4rem 2rem 3rem;position:relative;overflow:hidden}
+
 .page-hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(212,160,23,0.04) 0px,rgba(212,160,23,0.04) 1px,transparent 1px,transparent 30px)}
 .page-hero-inner{position:relative;z-index:1;max-width:800px;margin:0 auto;text-align:center}
-.page-badge{display:inline-block;font-family:'Poppins',sans-serif;font-size:0.6rem;letter-spacing:0.3em;color:var(--gold);border:1px solid rgba(212,160,23,0.4);padding:0.35rem 1.2rem;margin-bottom:1.2rem}
+
 .page-title{font-family:'Poppins',sans-serif;font-size:clamp(1.8rem,4.5vw,3rem);font-weight:900;color:white;line-height:1.2;margin-bottom:1rem}
 .page-title .hl{background:linear-gradient(135deg,var(--saffron),var(--bright-gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .page-subtitle{font-size:1.05rem;color:rgba(255,255,255,0.6);font-style:italic;line-height:1.7}
 .faq-wrap{max-width:860px;margin:0 auto;padding:3rem 2rem 4rem}
 .faq-category{font-family:'Poppins',sans-serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--saffron);margin:2.5rem 0 1rem;display:flex;align-items:center;gap:0.75rem}
 .faq-category::after{content:'';flex:1;height:1px;background:rgba(232,98,26,0.2)}
-.faq-item{border-bottom:1px solid rgba(0,0,0,0.07);margin-bottom:0}
+
 .faq-question{width:100%;background:none;border:none;text-align:left;padding:1.1rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-family:'Poppins',sans-serif;font-size:0.88rem;color:var(--dark);letter-spacing:0.03em;transition:color 0.2s}
 .faq-question:hover{color:var(--saffron)}
 .faq-question.open{color:var(--saffron)}
@@ -141,24 +138,11 @@ nav{position:sticky;top:0;background:rgba(107,15,26,0.97);backdrop-filter:blur(1
 .cta-box h3{font-family:'Poppins',sans-serif;font-size:1.1rem;color:var(--bright-gold);margin-bottom:0.75rem}
 .cta-box p{color:rgba(255,255,255,0.6);font-size:1rem;margin-bottom:1.5rem;max-width:500px;margin-left:auto;margin-right:auto}
 .btn-primary{background:linear-gradient(135deg,var(--saffron),var(--deep-saffron));color:white;padding:0.9rem 2.5rem;font-family:'Poppins',sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-decoration:none;display:inline-block;box-shadow:0 4px 20px rgba(232,98,26,0.4);margin:0.4rem;border:none;cursor:pointer}
-.btn-wa{background:rgba(37,211,102,0.15);color:#25D366;border:1px solid rgba(37,211,102,0.4);padding:0.9rem 2rem;font-family:'Poppins',sans-serif;font-size:0.78rem;letter-spacing:0.08em;text-decoration:none;display:inline-block;margin:0.4rem}
-footer{background:#0D0500;color:rgba(255,255,255,0.4);padding:3rem 2rem 2rem;border-top:1px solid rgba(212,160,23,0.1)}
-.footer-inner{max-width:1100px;margin:0 auto}
-.footer-brand{font-family:'Poppins',sans-serif;font-size:1rem;color:var(--bright-gold);margin-bottom:0.5rem}
-.footer-links{display:flex;flex-wrap:wrap;gap:0.5rem 1.2rem;margin:1rem 0;font-size:0.85rem}
+
 .footer-links a{color:var(--gold);text-decoration:none}
-.footer-copy{font-size:0.78rem;color:rgba(255,255,255,0.25);margin-top:0.75rem}
-.mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999}
-.mobile-bar-inner{display:grid;grid-template-columns:1fr 1fr}
-.mbar-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0.65rem 0.5rem;text-decoration:none;font-family:'Mukta',sans-serif;font-size:0.72rem;font-weight:600;gap:0.15rem;line-height:1.2}
-.mbar-icon{font-size:1.1rem}
-.mbar-guide{background:var(--saffron);color:white}
-.mbar-wa{background:#25D366;color:white}@media(max-width:768px){
-  .nav-links{display:none;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:rgba(26,10,0,0.98);padding:1.5rem 2rem;gap:1rem}
-  .nav-links.open{display:flex}
-  .hamburger{display:block}
-  .mobile-bar{display:block}
-  body{padding-bottom:56px}
+
+@media(max-width:768px){
+
   .quick-links{grid-template-columns:repeat(2,1fr)}
   .faq-question{font-size:0.82rem}
 }

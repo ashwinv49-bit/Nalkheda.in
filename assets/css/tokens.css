@@ -14,7 +14,16 @@
   --maroon-deep:   #5A252C;   /* hover / pressed */
   --ivory:         #FAF7F0;   /* page background */
   --saffron:       #C58B36;   /* accent only — see contrast note */
-  --saffron-deep:  #A8752C;
+  /* Darkened from #A8752C, which measured only 4.00:1 on white and 3.46:1
+     on surface-alt -- below AA for the small uppercase labels it is used
+     for (.sec-title-en, .quickfact__k, .area-card__best). Now 5.32:1 on
+     ivory. Also serves as the primary-button hover, where it is a
+     background and a darker tone is fine. */
+  --saffron-deep:  #85601F;
+  /* For saffron text ON maroon. Plain --saffron is only 3.27:1 there,
+     which fails for the small uppercase labels it was being used for.
+     This measures 5.22:1. */
+  --saffron-light: #E3B872;
 
   /* ---- text -------------------------------------------------- */
   --ink:           #242424;   /* body text */
@@ -80,4 +89,32 @@
 
 @media (min-width: 768px) {
   :root { --gutter: 2rem; }
+}
+
+/* ============================================================
+   Legacy token aliases.
+
+   Pages converted to the shared system had their old :root block
+   removed, but their remaining page-specific CSS still refers to
+   the old names. An undefined custom property resolves to nothing,
+   which silently drops backgrounds and leaves text on white — the
+   failure looked like a contrast bug and was actually a missing
+   variable.
+
+   Mapping them here fixes every page at once. New CSS should use
+   the names above; these exist so old rules keep working.
+   ============================================================ */
+:root {
+  --deep-maroon:    var(--maroon);
+  --maroon-legacy:  var(--maroon);
+  --cream:          var(--ivory);
+  --pale-gold:      var(--surface-alt);
+  --bright-gold:    var(--saffron-light);
+  --gold:           var(--saffron);
+  --pitambara:      var(--saffron);
+  --pitambara-deep: var(--saffron-deep);
+  --dark:           var(--maroon);
+  --text:           var(--ink);
+  --text-light:     var(--ink-inverse);
+  --muted:          var(--ink-muted);
 }

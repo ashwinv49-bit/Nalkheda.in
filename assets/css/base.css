@@ -83,8 +83,17 @@ input, select, textarea { font-size: max(16px, 1rem); }
 .section-alt { background: var(--surface-alt); }
 .section-dark{ background: var(--maroon); color: var(--ink-inverse); }
 .section-dark h1, .section-dark h2,
-.section-dark h3, .section-dark h4 { color: var(--ivory); }
-.section-dark a { color: var(--saffron); }
+.section-dark h3, .section-dark h4,
+/* .page-hero is a maroon band too. Without this the global
+   "headings are maroon" rule renders maroon text on maroon. */
+.page-hero h1, .page-hero h2, .page-hero h3, .page-hero h4 { color: var(--ivory); }
+.section-dark a { color: var(--saffron-light); }
+/* Any small accent label inside a maroon band: --saffron-deep is 1.69:1
+   there, --saffron-light is 5.22:1. */
+.section-dark .sec-head__en,
+.section-dark .sec-title-en,
+.section-dark .area-card__best,
+.section-dark .quickfact__k { color: var(--saffron-light); }
 
 @media (min-width: 768px) {
   .section { padding-block: var(--space-16); }
