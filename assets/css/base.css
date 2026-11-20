@@ -1,0 +1,108 @@
+/* ============================================================
+   base.css — reset, typography, layout primitives.
+   Depends on tokens.css.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  color: var(--ink);
+  background: var(--ivory);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- headings ------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  color: var(--maroon);
+  text-wrap: balance;
+}
+h1 { font-size: clamp(var(--text-2xl), 5vw, var(--text-4xl)); }
+h2 { font-size: clamp(var(--text-xl), 4vw, var(--text-3xl)); }
+h3 { font-size: var(--text-lg); }
+h4 { font-size: var(--text-base); }
+
+p { max-width: var(--wrap-text); }
+p + p { margin-top: var(--space-4); }
+
+/* Devanagari: different family, looser leading. Applies to the
+   .hindi / .hi classes already used across the site. */
+.hindi, .hi, [lang="hi"] {
+  font-family: var(--font-hindi);
+  line-height: var(--leading-hindi);
+}
+h1.hindi, h2.hindi, h3.hindi,
+h1 .hindi, h2 .hindi, h3 .hindi { font-family: var(--font-hindi); }
+
+/* ---- links ----------------------------------------------------- */
+a { color: var(--maroon); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+a:hover { color: var(--maroon-deep); }
+
+/* Visible focus for keyboard users, on every interactive thing. */
+a:focus-visible, button:focus-visible,
+input:focus-visible, select:focus-visible,
+textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ---- media ----------------------------------------------------- */
+img, picture, video { max-width: 100%; height: auto; display: block; }
+
+/* ---- forms ----------------------------------------------------- */
+input, select, textarea, button { font: inherit; color: inherit; }
+/* 16px minimum stops iOS Safari zooming the page on focus. */
+input, select, textarea { font-size: max(16px, 1rem); }
+
+/* ---- layout primitives ------------------------------------------ */
+.wrap      { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.wrap-text { width: 100%; max-width: var(--wrap-text); margin-inline: auto; padding-inline: var(--gutter); }
+
+.section     { padding-block: var(--space-12); }
+.section-alt { background: var(--surface-alt); }
+.section-dark{ background: var(--maroon); color: var(--ink-inverse); }
+.section-dark h1, .section-dark h2,
+.section-dark h3, .section-dark h4 { color: var(--ivory); }
+.section-dark a { color: var(--saffron); }
+
+@media (min-width: 768px) {
+  .section { padding-block: var(--space-16); }
+}
+
+.stack > * + * { margin-top: var(--space-4); }
+.grid { display: grid; gap: var(--space-4); }
+@media (min-width: 640px)  { .grid-2 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px)  { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+
+/* Wide content must scroll inside itself, never scroll the page. */
+.scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+.muted { color: var(--ink-muted); }
+.small { font-size: var(--text-sm); }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}

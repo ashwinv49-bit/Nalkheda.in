@@ -1,0 +1,159 @@
+/* ============================================================
+   legacy-map.css — re-skins the existing class names with the
+   new tokens.
+
+   Why this exists: the indexed pages already use class names like
+   .hotel-card, .sec-title-hi, .btn-book. Renaming them would mean
+   editing markup on pages that carry real search traffic, for no
+   user-visible gain and real risk to content and schema.
+
+   So the markup stays exactly as it is and only its appearance
+   changes. New pages should use the component classes in
+   components.css directly; this file is for converting existing
+   pages without touching their HTML.
+   ============================================================ */
+
+/* ---- nav --------------------------------------------------- */
+nav {
+  position: sticky; top: 0; z-index: 1000;
+  background: var(--maroon);
+  border-bottom: 1px solid rgba(250,247,240,0.14);
+  padding-inline: var(--gutter);
+  backdrop-filter: none;
+}
+.nav-inner {
+  max-width: var(--wrap); margin-inline: auto;
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: 64px; height: auto;
+}
+.nav-logo { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; color: var(--ivory); text-decoration: none; }
+.nav-logo span { color: var(--saffron); }
+.nav-links { display: flex; gap: var(--space-6); list-style: none; }
+.nav-links a {
+  color: rgba(250,247,240,0.85); text-decoration: none;
+  font-family: var(--font-body); font-size: var(--text-sm);
+  font-weight: 500; letter-spacing: 0; text-transform: none;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--saffron); }
+.nav-cta { background: var(--saffron); color: var(--ink) !important; padding: var(--space-2) var(--space-4); border-radius: var(--radius-sm); font-weight: 600; }
+.hamburger { width: var(--tap-min); height: var(--tap-min); background: none; border: 0; cursor: pointer; flex-direction: column; justify-content: center; gap: 5px; display: none; }
+.hamburger span { display: block; height: 2px; background: var(--ivory); border-radius: 2px; }
+@media (max-width: 900px) {
+  .hamburger { display: flex; }
+  .nav-links { position: absolute; inset: 64px 0 auto 0; background: var(--maroon); flex-direction: column; gap: 0; padding: var(--space-2) var(--gutter) var(--space-4); display: none; }
+  .nav-links.open { display: flex; }
+  .nav-links a { display: block; padding: var(--space-3) 0; min-height: var(--tap-min); }
+}
+
+/* ---- page hero ------------------------------------------------ */
+.page-hero { background: var(--maroon); padding: var(--space-12) var(--gutter) var(--space-8); }
+.page-hero::before { content: none; }           /* drop the legacy diagonal texture */
+.hero-inner { max-width: var(--wrap); margin-inline: auto; }
+.page-badge {
+  display: inline-block; font-family: var(--font-body);
+  font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--saffron);
+  border: 1px solid rgba(197,139,54,0.5); border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3); margin-bottom: var(--space-4);
+}
+.page-title-hi { font-family: var(--font-hindi); font-size: clamp(var(--text-xl), 4.5vw, var(--text-3xl)); color: var(--ivory); line-height: var(--leading-hindi); margin-bottom: var(--space-2); }
+.page-title-en { font-family: var(--font-display); font-size: clamp(var(--text-base), 2.2vw, var(--text-lg)); color: rgba(250,247,240,0.72); font-weight: 400; line-height: var(--leading-tight); }
+.page-updated  { font-size: var(--text-xs); color: rgba(250,247,240,0.45); margin-top: var(--space-3); }
+
+/* ---- content shell --------------------------------------------- */
+.content-wrap  { max-width: var(--wrap); margin-inline: auto; padding: var(--space-12) var(--gutter) var(--space-8); }
+.section-block { margin-bottom: var(--space-12); }
+.sec-title-hi  { font-family: var(--font-hindi); font-size: var(--text-xl); color: var(--maroon); line-height: var(--leading-hindi); margin-bottom: var(--space-1); }
+.sec-title-en  { font-family: var(--font-body); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--saffron-deep); margin-bottom: var(--space-3); }
+.divider       { width: 56px; height: 2px; background: var(--saffron); margin-bottom: var(--space-6); }
+p.hi, p.hindi  { font-family: var(--font-hindi); line-height: var(--leading-hindi); color: var(--ink); margin-bottom: var(--space-3); }
+p.en           { color: var(--ink); margin-bottom: var(--space-3); }
+
+/* ---- cards ------------------------------------------------------- */
+.hotel-card, .stay-card, .info-box, .answer-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.hotel-card:hover { transform: none; box-shadow: var(--shadow-md); }
+.hc-body    { padding: var(--space-4); }
+.hc-icon    { font-size: var(--text-xl); }
+.hc-name    { font-family: var(--font-hindi); font-size: var(--text-lg); color: var(--maroon); line-height: var(--leading-hindi); }
+.hc-name-en { font-family: var(--font-display); font-size: var(--text-sm); color: var(--ink-muted); }
+.hc-meta    { font-size: var(--text-sm); color: var(--ink-muted); }
+.hc-badge   { font-size: var(--text-xs); font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+.stay-grid  { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.sc-label   { font-size: var(--text-xs); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--saffron-deep); }
+.sc-name    { font-family: var(--font-display); font-size: var(--text-lg); color: var(--maroon); }
+.sc-price   { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.sc-note    { font-size: var(--text-sm); color: var(--ink-muted); }
+
+.info-box, .answer-box { padding: var(--space-4) var(--space-6); }
+.ib-title, .ab-title { font-family: var(--font-display); font-size: var(--text-base); color: var(--maroon); margin-bottom: var(--space-2); }
+.answer-box { border-left: 3px solid var(--saffron); }
+
+/* ---- pills / badges ------------------------------------------------ */
+.pill, .badge-best, .badge-budget, .badge-free, .pill-budget, .pill-mid, .pill-free {
+  display: inline-block; font-size: var(--text-xs); font-weight: 600;
+  padding: var(--space-1) var(--space-3); border-radius: 999px;
+  background: var(--surface-alt); color: var(--ink); border: 1px solid var(--border);
+}
+.badge-best, .pill-mid { background: var(--saffron); color: var(--ink); border-color: transparent; }
+
+/* ---- buttons --------------------------------------------------------- */
+.btn-book, .btn-book-mmt, .btn-book-wa, .btn-wa {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: var(--tap-min); padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-sm); text-decoration: none;
+  font-family: var(--font-body); font-size: var(--text-sm); font-weight: 600;
+  border: 1px solid transparent;
+}
+.btn-book      { background: #003580; color: #fff; }   /* Booking.com brand */
+.btn-book-mmt  { background: #EB2026; color: #fff; }   /* MakeMyTrip brand */
+.btn-book-wa, .btn-wa { background: var(--wa-green); color: #06351B; }
+
+/* ---- comparison table -------------------------------------------------- */
+.comp-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+.comp-table th, .comp-table td { padding: var(--space-3); border-bottom: 1px solid var(--border); text-align: left; }
+.comp-table th { background: var(--maroon); color: var(--ivory); }
+
+/* ---- FAQ ------------------------------------------------------------- */
+.faq-section { background: var(--surface-alt); }
+.faq-inner   { max-width: var(--wrap-text); margin-inline: auto; padding-inline: var(--gutter); }
+.faq-item    { border-top: 1px solid var(--border); background: none; }
+.faq-q       { display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); padding: var(--space-4) 0; min-height: var(--tap-min); cursor: pointer; }
+.faq-q-text  { font-family: var(--font-hindi); color: var(--maroon); line-height: var(--leading-hindi); }
+.faq-q-en    { font-family: var(--font-display); font-size: var(--text-sm); color: var(--ink-muted); }
+.faq-arrow   { flex: none; color: var(--saffron-deep); transition: transform .2s ease; }
+.faq-item.open .faq-arrow { transform: rotate(45deg); }
+.faq-a       { color: var(--ink); padding-bottom: var(--space-4); }
+
+/* ---- breadcrumb / related / wa-cta -------------------------------------- */
+.breadcrumb        { background: var(--surface-alt); border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.breadcrumb-inner  { max-width: var(--wrap); margin-inline: auto; padding: var(--space-3) var(--gutter); color: var(--ink-muted); }
+.related           { background: var(--surface-alt); }
+.related-inner     { max-width: var(--wrap); margin-inline: auto; padding: var(--space-12) var(--gutter); }
+.related-title     { font-family: var(--font-display); color: var(--maroon); margin-bottom: var(--space-4); }
+.related-grid      { display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.related-link      { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--space-4); text-decoration: none; color: var(--maroon); font-weight: 600; font-size: var(--text-sm); }
+.related-link:hover{ border-color: var(--saffron); }
+.wa-cta            { background: var(--maroon); color: var(--ivory); }
+.wa-cta-inner      { max-width: var(--wrap-text); margin-inline: auto; padding: var(--space-12) var(--gutter); text-align: center; }
+
+/* ---- footer -------------------------------------------------------------- */
+footer { background: var(--maroon); color: rgba(250,247,240,0.78); padding-block: var(--space-12); }
+.footer-inner  { max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); text-align: center; }
+.footer-brand  { font-family: var(--font-display); font-size: var(--text-xl); color: var(--ivory); margin-bottom: var(--space-2); }
+.footer-links  { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-4); margin-block: var(--space-6); font-size: var(--text-sm); }
+.footer-links a{ color: rgba(250,247,240,0.88); text-decoration: none; }
+.footer-links a:hover { color: var(--saffron); text-decoration: underline; }
+.footer-copy   { font-size: var(--text-xs); color: rgba(250,247,240,0.55); }
+
+/* ---- mobile bar ------------------------------------------------------------ */
+.mobile-bar { position: fixed; inset: auto 0 0 0; z-index: 999; display: none; }
+.mobile-bar-inner { display: flex; }
+.mbar-btn { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 56px; text-decoration: none; font-size: var(--text-xs); font-weight: 600; }
+.mbar-guide { background: var(--saffron); color: var(--ink); }
+.mbar-wa    { background: var(--wa-green); color: #06351B; }
+.mbar-icon  { font-size: var(--text-base); }
+@media (max-width: 768px) { .mobile-bar { display: block; } body { padding-bottom: 56px; } }
