@@ -208,7 +208,7 @@
 
   <div class="wa-field">
     <label for="wa-name">🙋 आपका नाम *</label>
-    <input type="text" id="wa-name" placeholder="जैसे: अश्विन वर्मा" autocomplete="name">
+    <input type="text" id="wa-name" placeholder="जैसे: रमेश कुमार" autocomplete="name">
   </div>
 
   <div class="wa-field">
