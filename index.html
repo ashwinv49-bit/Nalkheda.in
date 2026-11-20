@@ -162,36 +162,7 @@
   }
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Event",
-  "name": "Sharad Navratri 2026 — Maa Baglamukhi Temple Nalkheda",
-  "description": "Sharad Navratri at Maa Baglamukhi Mandir, Nalkheda — nine days of special darshan and aarti, from Ghatasthapana on 11 October to Dussehra on 20 October 2026.",
-  "startDate": "2026-10-11",
-  "endDate": "2026-10-20",
-  "eventStatus": "https://schema.org/EventScheduled",
-  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-  "image": "https://nalkheda.in/temple2.jpg",
-  "location": {
-    "@type": "Place",
-    "name": "Maa Baglamukhi Mandir, Nalkheda",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Maa Baglamukhi Mandir, Nalkheda",
-      "addressLocality": "Nalkheda",
-      "addressRegion": "Madhya Pradesh",
-      "postalCode": "465445",
-      "addressCountry": "IN"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 23.8413,
-      "longitude": 76.2356
-    }
-  }
-}
-</script>
+
 
 <!-- PERFORMANCE: preconnect to Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -4226,13 +4197,33 @@
   }
 
   // ===== NAVRATRI COUNTDOWN =====
+  // Three states, not two. The old version only checked whether the start had
+  // passed, so from 11 Oct 2026 onwards it said "Navratri 2026 is here!"
+  // forever -- it was still saying it a month after the festival ended.
+  //
+  // TO UPDATE FOR THE NEXT FESTIVAL: set START, END and LABEL below. Until
+  // they are set to a future date the strip hides itself, which is the safe
+  // default -- an empty strip is better than a wrong one.
   (function() {
-    var target = new Date('2026-10-11T00:00:00+05:30').getTime();
+    var START = '2026-10-11T00:00:00+05:30';
+    var END   = '2026-10-20T23:59:59+05:30';   // festival ends
+    var LABEL = 'Sharad Navratri 2026';
+    var DATES = 'Oct 11 – Oct 20';
+
+    var strip  = document.getElementById('navratri-strip');
+    var target = new Date(START).getTime();
+    var finish = new Date(END).getTime();
+
     function tick() {
       var now = Date.now();
       var diff = target - now;
-      if (diff <= 0) {
-        document.getElementById('navratri-strip').innerHTML = '<div class="countdown-inner"><span class="countdown-label">🕉️ Sharad Navratri 2026 is here!</span> <span style="color:rgba(255,255,255,0.6);font-size:0.85rem;">Oct 11 – Oct 20</span></div>';
+
+      if (now > finish) {                       // over: remove it entirely
+        if (strip) strip.style.display = 'none';
+        return;
+      }
+      if (diff <= 0) {                          // running right now
+        if (strip) strip.innerHTML = '<div class="countdown-inner"><span class="countdown-label">🕉️ ' + LABEL + ' is here!</span> <span style="color:rgba(255,255,255,0.6);font-size:0.85rem;">' + DATES + '</span></div>';
         return;
       }
       var d = Math.floor(diff / 86400000);

@@ -588,6 +588,12 @@ function updateCountdown() {
   const target = new Date('2026-10-11T00:00:00');
   const now = new Date();
   const diff = target - now;
+  // Hide once the festival is over, instead of claiming it is still running.
+  if (now > new Date('2026-10-20T23:59:59')) {
+    var cd = document.getElementById('countdown');
+    if (cd) cd.style.display = 'none';
+    return;
+  }
   if (diff <= 0) { document.getElementById('countdown').innerHTML = '<div style="font-family:Cinzel Decorative,serif;color:var(--saffron);font-size:1.2rem">🎉 Navratri is here! Jai Mata Di!</div>'; return; }
   const d = Math.floor(diff/86400000);
   const h = Math.floor((diff%86400000)/3600000);
