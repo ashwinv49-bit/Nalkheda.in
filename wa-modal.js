@@ -79,18 +79,7 @@
       return s ? `✓ ${s.label.replace(/^\S+\s/, '')}` : '';
     }).filter(Boolean).join('\n');
 
-    // A hawan-only enquiry leaves date, city and group size blank. Printing
-    // them as empty labels made the message look broken, so each line is only
-    // included when it has a value.
-    const lines = [
-      `🙋 नाम: ${name}`,
-      date         ? `📅 तिथि: ${formatDate(date)}` : '',
-      persons > 1  ? `👥 यात्री: ${persons} लोग`    : '',
-      city         ? `🏙️ शहर से: ${city}`           : '',
-      `📱 मोबाइल: ${phone}`,
-    ].filter(Boolean).join('\n');
-
-    let msg = `🙏 Jai Maa Baglamukhi!\n\nयात्रा की जानकारी:\n━━━━━━━━━━━━━━\n${lines}\n\nसहायता चाहिए:\n${needLines}`;
+    let msg = `🙏 Jai Maa Baglamukhi!\n\nयात्रा की जानकारी:\n━━━━━━━━━━━━━━\n🙋 नाम: ${name}\n📅 तिथि: ${formatDate(date)}\n👥 यात्री: ${persons} लोग\n🏙️ शहर से: ${city}\n📱 मोबाइल: ${phone}\n\nसहायता चाहिए:\n${needLines}`;
     if (extra && extra.trim()) msg += `\n\n${extra.trim()}`;
     msg += '\n\nकृपया मार्गदर्शन करें 🙏';
     if (ref) msg += '\n\n[Ref: ' + ref + ']';
@@ -237,12 +226,11 @@
     <button id="wa-modal-close" aria-label="बंद करें">✕</button>
   </div>
 
-  <!-- Hawan shortcut. Most WhatsApp enquiries are hawan-only, and hawan
-       referrals are a revenue path (pandit referral fee), so this panel is
-       built to START the conversation, not to end it. The four facts answer
-       the low-value "what time is the counter open" questions that would
-       never convert anyway; the pandit CTA catches the ones that do.
-       Shown only when the modal is opened from a hawan CTA. -->
+  <!-- Hawan shortcut. Most WhatsApp enquiries are hawan questions, so the
+       modal leads with the four facts that answer them, then invites the
+       rest of the conversation. nalkheda.in guides on hawan; it does not
+       book it and takes no payment for any ritual. Shown only when the
+       modal is opened from a hawan CTA. -->
   <div id="wa-hawan-quick" hidden>
     <p class="wq-title">🔥 हवन की जानकारी</p>
     <ul class="wq-facts">
@@ -252,18 +240,18 @@
       <li><strong>नवरात्रि / बगलामुखी जयंती:</strong> स्लॉट महीनों पहले भर जाते हैं</li>
     </ul>
 
-    <p class="wq-ask"><strong>पंडित जी, विधि या दक्षिणा के बारे में पूछना है?</strong><br>
-      कौन सा हवन करवाएँ, कितना समय लगेगा, क्या सामग्री चाहिए — हम स्थानीय
-      पंडितों से जोड़ सकते हैं।</p>
+    <p class="wq-ask"><strong>हवन के बारे में कुछ और पूछना है?</strong><br>
+      कौन सा हवन करवाएँ, कितना समय लगेगा, क्या सामग्री चाहिए — WhatsApp पर
+      पूछें, हम मार्गदर्शन करेंगे।</p>
 
     <div class="wq-actions">
       <a class="wq-btn wq-btn--wa" id="wq-wa" target="_blank" rel="noopener"
-         href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20%E0%A4%B9%E0%A4%B5%E0%A4%A8%20%E0%A4%94%E0%A4%B0%20%E0%A4%AA%E0%A4%82%E0%A4%A1%E0%A4%BF%E0%A4%A4%20%E0%A4%9C%E0%A5%80%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%AA%E0%A5%82%E0%A4%9B%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A5%88%E0%A5%A4">💬 WhatsApp पर पूछें</a>
+         href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20%E0%A4%B9%E0%A4%B5%E0%A4%A8%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%AA%E0%A5%82%E0%A4%9B%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A5%88%E0%A5%A4">💬 WhatsApp पर पूछें</a>
       <a class="wq-btn wq-btn--ghost" href="/hawan.html">📖 पूरा हवन गाइड</a>
     </div>
 
     <p class="wq-note">मंदिर का कुंड स्लॉट कोई नहीं बेच सकता — वह केवल काउंटर या
-      आधिकारिक साइट से मिलता है। पंडित जी से जोड़ने पर हमें रेफ़रल शुल्क मिल सकता है।</p>
+      आधिकारिक साइट से मिलता है।</p>
     <p class="wq-more">होटल, कैब या पूरी यात्रा की योजना भी चाहिए? नीचे फॉर्म भरें ↓</p>
   </div>
 
@@ -356,18 +344,7 @@
       document.getElementById('wa-name').focus();
       return;
     }
-    // A hawan-only question has no travel date, city or group size to give.
-    // Demanding them is what makes people abandon the form, so when hawan is
-    // the only box ticked the trip fields are optional and name + phone are
-    // all that is required.
-    const hawanOnly = needs.length === 1 && needs[0] === 'hawan';
-
-    if (needs.length === 0) {
-      errEl.textContent = '⚠️ कृपया कम से कम एक सहायता चुनें।';
-      errEl.classList.add('show');
-      return;
-    }
-    if (!hawanOnly && (!date || persons < 1 || !city)) {
+    if (!date || persons < 1 || !city || needs.length === 0) {
       errEl.textContent = '⚠️ कृपया सभी जरूरी जानकारी भरें और कम से कम एक सहायता चुनें।';
       errEl.classList.add('show');
       return;
