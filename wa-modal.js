@@ -277,7 +277,7 @@
 
   <div class="wa-field">
     <label for="wa-phone">📱 आपका मोबाइल नंबर *</label>
-    <input type="tel" id="wa-phone" inputmode="numeric" maxlength="15" placeholder="10 अंकों का नंबर" autocomplete="tel">
+    <input type="tel" id="wa-phone" inputmode="numeric" maxlength="15" placeholder="जैसे: 1111111111" autocomplete="tel">
   </div>
 
   <div class="wa-field">
