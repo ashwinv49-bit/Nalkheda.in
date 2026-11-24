@@ -56,8 +56,12 @@
     cab:     ['cab'],
     guide:   ['guide'],
     plan:    ['plan'],
-    circuit: ['cab', 'plan'],
-    general: ['plan'],
+    circuit: ['cab'],
+    // A generic "ask us" tap means the visitor has not said what they want,
+    // so nothing is ticked. It used to pre-select Full Trip Planning, which
+    // put the most committing option in front of someone who only had a
+    // question.
+    general: [],
   };
 
   // Today in IST — the site's audience is entirely in India, and a UTC date
@@ -235,7 +239,7 @@
     <p class="wq-title">🔥 हवन की जानकारी</p>
     <ul class="wq-facts">
       <li><strong>बुकिंग काउंटर:</strong> मंदिर में, सुबह 7:00 – रात 11:00 (रोज़)</li>
-      <li><strong>कुंड बुकिंग:</strong> केवल काउंटर पर या mabaglamukhi.com पर</li>
+      <li><strong>कुंड बुकिंग:</strong> केवल आधिकारिक माध्यम से होती है — अधिक जानकारी के लिए WhatsApp करें</li>
       <li><strong>साथ ले जाएँ:</strong> पहचान पत्र और गोत्र की जानकारी</li>
       <li><strong>नवरात्रि / बगलामुखी जयंती:</strong> स्लॉट महीनों पहले भर जाते हैं</li>
     </ul>
@@ -250,8 +254,8 @@
       <a class="wq-btn wq-btn--ghost" href="/hawan.html">📖 पूरा हवन गाइड</a>
     </div>
 
-    <p class="wq-note">मंदिर का कुंड स्लॉट कोई नहीं बेच सकता — वह केवल काउंटर या
-      आधिकारिक साइट से मिलता है।</p>
+    <p class="wq-note">सावधान: मंदिर का कुंड स्लॉट कोई नहीं बेच सकता — किसी एजेंट या
+      वेबसाइट को पैसे न दें।</p>
     <p class="wq-more">होटल, कैब या पूरी यात्रा की योजना भी चाहिए? नीचे फॉर्म भरें ↓</p>
   </div>
 
