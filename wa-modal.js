@@ -45,6 +45,11 @@
     { id: 'cab',     label: '🚕 Cab Arrangement' },
     { id: 'guide',   label: '📖 Yatra Guide PDF' },
     { id: 'plan',    label: '🗺️ Full Trip Planning' },
+    // The fallback for someone who just has a question. Without it, a
+    // generic "ask us" tap pre-ticks nothing and the form then refuses to
+    // submit, because at least one service is required -- a visitor could
+    // fill every field correctly and still be stuck.
+    { id: 'general', label: '❓ सामान्य सवाल / General' },
   ];
 
   // One entry per topic a CTA can open with. A hint missing here silently
@@ -57,11 +62,10 @@
     guide:   ['guide'],
     plan:    ['plan'],
     circuit: ['cab'],
-    // A generic "ask us" tap means the visitor has not said what they want,
-    // so nothing is ticked. It used to pre-select Full Trip Planning, which
-    // put the most committing option in front of someone who only had a
-    // question.
-    general: [],
+    // A generic "ask us" tap ticks the General option, not Full Trip
+    // Planning: the visitor has not said what they want, and the most
+    // committing choice is the wrong default for someone with a question.
+    general: ['general'],
   };
 
   // Today in IST — the site's audience is entirely in India, and a UTC date
