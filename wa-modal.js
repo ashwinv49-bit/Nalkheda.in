@@ -1,6 +1,6 @@
 /* wa-modal.js — WA Info Gate: collects pilgrim details before opening WhatsApp */
 (function () {
-  const WA_NUMBER = '919754709571';
+  const WA_NUMBER = '919893571749';
 
   // Same Apps Script endpoint index.html posts to, so every enquiry — from any
   // page — lands in the one sheet. Declared here rather than relying on
@@ -31,7 +31,7 @@
     lastCta = (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60);
   }, true);
 
-  // Accepts 9754709571, 97547 09571, +91 97547-09571, 09754709571.
+  // Accepts 9893571749, 98935 71749, +91 98935-71749, 09893571749.
   // Returns the bare 10 digits, or '' if it is not a plausible Indian mobile.
   function normalisePhone(raw) {
     const d = (raw || '').replace(/\D/g, '');
@@ -254,7 +254,7 @@
 
     <div class="wq-actions">
       <a class="wq-btn wq-btn--wa" id="wq-wa" target="_blank" rel="noopener"
-         href="https://wa.me/919754709571?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20%E0%A4%B9%E0%A4%B5%E0%A4%A8%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%AA%E0%A5%82%E0%A4%9B%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A5%88%E0%A5%A4">💬 WhatsApp पर पूछें</a>
+         href="https://wa.me/919893571749?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20%E0%A4%B9%E0%A4%B5%E0%A4%A8%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%AA%E0%A5%82%E0%A4%9B%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A5%88%E0%A5%A4">💬 WhatsApp पर पूछें</a>
       <a class="wq-btn wq-btn--ghost" href="/hawan.html">📖 पूरा हवन गाइड</a>
     </div>
 
