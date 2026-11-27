@@ -209,7 +209,7 @@
 .wq-facts li{font-size:.92rem;line-height:1.75;color:#2C1A00}
 .wq-note{font-size:.82rem;color:#5C564C;margin:0 0 12px}
 .wq-actions{display:flex;flex-wrap:wrap;gap:8px}
-.wq-btn{flex:1 1 150px;display:inline-flex;align-items:center;justify-content:center;
+.wq-btn{flex:1 1 150px;border:0;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
   min-height:44px;padding:10px 14px;border-radius:6px;text-decoration:none;
   font-weight:600;font-size:.9rem;text-align:center}
 .wq-btn--wa{flex:2 1 190px;background:#075E54;color:#fff}
@@ -253,8 +253,8 @@
       पूछें, हम मार्गदर्शन करेंगे।</p>
 
     <div class="wq-actions">
-      <a class="wq-btn wq-btn--wa" id="wq-wa" target="_blank" rel="noopener"
-         href="https://wa.me/919893571749?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi%21%20%E0%A4%B9%E0%A4%B5%E0%A4%A8%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%AA%E0%A5%82%E0%A4%9B%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A5%88%E0%A5%A4%0A%0A%F0%9F%99%8B%20%E0%A4%A8%E0%A4%BE%E0%A4%AE%20%2F%20Name%3A%20%0A%F0%9F%8F%99%EF%B8%8F%20%E0%A4%B6%E0%A4%B9%E0%A4%B0%20%2F%20City%3A%20%0A%F0%9F%93%85%20%E0%A4%95%E0%A4%AC%20%E0%A4%86%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A5%88%20%2F%20Date%3A%20%0A%F0%9F%91%A5%20%E0%A4%95%E0%A4%BF%E0%A4%A4%E0%A4%A8%E0%A5%87%20%E0%A4%B2%E0%A5%8B%E0%A4%97%20%2F%20People%3A%20">💬 WhatsApp पर पूछें</a>
+      <button type="button" class="wq-btn wq-btn--wa" id="wq-wa">💬 WhatsApp पर पूछें</button>
+      <a class="wq-btn wq-btn--ghost" href="/hawan.html">📖 पूरा हवन गाइड</a>
       <a class="wq-btn wq-btn--ghost" href="/hawan.html">📖 पूरा हवन गाइड</a>
     </div>
 
@@ -303,6 +303,19 @@
   <p class="wa-modal-note">आपका नंबर केवल आपकी यात्रा पूछताछ का जवाब देने के लिए उपयोग होता है — हम न इसे बेचते हैं, न प्रचार भेजते हैं। हम 2–4 घंटे में जवाब देते हैं। <a href="/privacy-policy.html" target="_blank" rel="noopener" style="color:#6B0F1A;font-weight:600">गोपनीयता नीति</a></p>
 </div>`;
     document.body.appendChild(div);
+
+    // The panel's WhatsApp button used to jump straight to WhatsApp, which
+    // produced enquiries reading only "हवन के बारे में पूछना है" — no name,
+    // no city, no date, nothing to answer with. It now closes the panel and
+    // puts the visitor in the form, which requires all five fields before it
+    // will send. Fewer messages, every one of them answerable.
+    const wq = div.querySelector('#wq-wa');
+    if (wq) wq.addEventListener('click', function () {
+      const panel = document.getElementById('wa-hawan-quick');
+      if (panel) panel.hidden = true;
+      const name = document.getElementById('wa-name');
+      if (name) { name.scrollIntoView({ block: 'center' }); name.focus(); }
+    });
 
     // pill toggle
     div.querySelectorAll('.wa-pill').forEach(pill => {
