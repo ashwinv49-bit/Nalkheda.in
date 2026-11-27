@@ -254,7 +254,7 @@
 
     <div class="wq-actions">
       <a class="wq-btn wq-btn--wa" id="wq-wa" target="_blank" rel="noopener"
-         href="https://wa.me/919893571749?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi!%20%E0%A4%B9%E0%A4%B5%E0%A4%A8%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%AA%E0%A5%82%E0%A4%9B%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A5%88%E0%A5%A4">💬 WhatsApp पर पूछें</a>
+         href="https://wa.me/919893571749?text=%F0%9F%99%8F%20Jai%20Maa%20Baglamukhi%21%20%E0%A4%B9%E0%A4%B5%E0%A4%A8%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%AA%E0%A5%82%E0%A4%9B%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A5%88%E0%A5%A4%0A%0A%F0%9F%99%8B%20%E0%A4%A8%E0%A4%BE%E0%A4%AE%20%2F%20Name%3A%20%0A%F0%9F%8F%99%EF%B8%8F%20%E0%A4%B6%E0%A4%B9%E0%A4%B0%20%2F%20City%3A%20%0A%F0%9F%93%85%20%E0%A4%95%E0%A4%AC%20%E0%A4%86%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A5%88%20%2F%20Date%3A%20%0A%F0%9F%91%A5%20%E0%A4%95%E0%A4%BF%E0%A4%A4%E0%A4%A8%E0%A5%87%20%E0%A4%B2%E0%A5%8B%E0%A4%97%20%2F%20People%3A%20">💬 WhatsApp पर पूछें</a>
       <a class="wq-btn wq-btn--ghost" href="/hawan.html">📖 पूरा हवन गाइड</a>
     </div>
 
