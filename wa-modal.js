@@ -33,6 +33,81 @@
 
   // Accepts 9893571749, 98935 71749, +91 98935-71749, 09893571749.
   // Returns the bare 10 digits, or '' if it is not a plausible Indian mobile.
+
+  /* ====================================================================
+     Purchase confirmation.
+
+     Most people who tapped a "buy" link never paid, so the owner was
+     answering WhatsApp messages from browsers rather than buyers. A
+     wa.me link cannot ask anything, so this puts one question in front
+     of it: are you ready to pay now?
+
+     "No" is not a dead end -- it sends them to the page that explains
+     what is inside, which is what someone who is not ready actually
+     wants. Only "yes" reaches WhatsApp.
+
+     The link's href is untouched, so if this script fails the button
+     still works as before.
+     ==================================================================== */
+  var BUY_RE = /₹\s?[\d,]+|\bbuy\b|\border\b|खरीद/i;
+  var INFO_PAGE = '/travel-guide.html';
+
+  function confirmStyles() {
+    if (document.getElementById('nk-buy-css')) return;
+    var st = document.createElement('style');
+    st.id = 'nk-buy-css';
+    st.textContent =
+      '#nk-buy{position:fixed;inset:0;z-index:100000;background:rgba(20,8,10,.72);' +
+      'display:flex;align-items:flex-end;justify-content:center}' +
+      '#nk-buy[hidden]{display:none}' +
+      '#nk-buy-box{background:#FDF6E3;width:100%;max-width:460px;border-radius:14px 14px 0 0;' +
+      'padding:22px 20px 26px;font-family:inherit;box-shadow:0 -6px 30px rgba(0,0,0,.3)}' +
+      '#nk-buy h4{margin:0 0 6px;font-size:1.08rem;color:#6B0F1A;line-height:1.4}' +
+      '#nk-buy p{margin:0 0 16px;font-size:.92rem;line-height:1.65;color:#2C1A00}' +
+      '#nk-buy .nk-row{display:flex;flex-direction:column;gap:9px}' +
+      '#nk-buy button{min-height:48px;border:0;border-radius:8px;font:600 .96rem/1 inherit;' +
+      'cursor:pointer;padding:0 16px}' +
+      '#nk-buy .nk-yes{background:#075E54;color:#fff}' +
+      '#nk-buy .nk-no{background:transparent;color:#6B0F1A;border:1px solid rgba(107,15,26,.35)}';
+    document.head.appendChild(st);
+  }
+
+  function askBeforeBuying(price, onYes) {
+    confirmStyles();
+    var old = document.getElementById('nk-buy');
+    if (old) old.remove();
+    var w = document.createElement('div');
+    w.id = 'nk-buy';
+    w.innerHTML =
+      '<div id="nk-buy-box" role="dialog" aria-modal="true" aria-labelledby="nk-buy-t">' +
+      '<h4 id="nk-buy-t">' + (price ? price + ' की ' : '') + 'गाइड — अभी खरीदनी है?</h4>' +
+      '<p>WhatsApp पर भेजने से पहले — क्या आप अभी ' + (price || 'भुगतान') +
+      ' UPI से देने के लिए तैयार हैं? सिर्फ जानकारी चाहिए तो नीचे दूसरा विकल्प चुनें।</p>' +
+      '<div class="nk-row">' +
+      '<button type="button" class="nk-yes">हाँ, अभी खरीदना है — WhatsApp खोलें</button>' +
+      '<button type="button" class="nk-no">नहीं, पहले पूरी जानकारी पढ़नी है</button>' +
+      '</div></div>';
+    document.body.appendChild(w);
+    w.querySelector('.nk-yes').addEventListener('click', function () { w.remove(); onYes(); });
+    w.querySelector('.nk-no').addEventListener('click', function () {
+      w.remove(); window.location.href = INFO_PAGE;
+    });
+    w.addEventListener('click', function (e) { if (e.target === w) w.remove(); });
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href*="wa.me"]') : null;
+    if (!a) return;
+    if (a.getAttribute('onclick')) return;            // form-gated links handle themselves
+    var label = (a.textContent || '') + ' ' + decodeURIComponent(a.getAttribute('href') || '');
+    if (!BUY_RE.test(label)) return;                  // not a purchase link
+    var m = label.match(/₹\s?[\d,]+/);
+    e.preventDefault();
+    askBeforeBuying(m ? m[0].replace(' ', '') : '', function () {
+      window.open(a.href, '_blank', 'noopener');
+    });
+  }, true);
+
   function normalisePhone(raw) {
     const d = (raw || '').replace(/\D/g, '');
     const t = d.length > 10 ? d.slice(-10) : d;
